@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-13T01:15:34.255140+00:00",
+  "timestamp": "2022-11-17T01:12:58.334628+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -4468,11 +4468,13 @@
       "state": "OPEN",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
+      "assignees": [
+        "danielfett"
+      ],
       "labels": [],
       "body": "Refactor the spec text and the code to the approach agreed in IETF 115 described here:\r\nhttps://docs.google.com/presentation/d/1Hc3xBNN2RL9usCJQKQetrCRk7nYFw6OSLMZPvs1fh_Q/edit?usp=sharing\r\n\r\n`+ probably add Justin's suggestion to put hashes in an array as opposed to having them as separate top-level items.",
       "createdAt": "2022-11-11T10:57:34Z",
-      "updatedAt": "2022-11-11T10:57:34Z",
+      "updatedAt": "2022-11-16T16:17:48Z",
       "closedAt": null,
       "comments": []
     },
@@ -4489,6 +4491,24 @@
       "body": "",
       "createdAt": "2022-11-11T10:57:51Z",
       "updatedAt": "2022-11-11T10:57:51Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 173,
+      "id": "I_kwDOHTmVzM5WigGr",
+      "title": "Talk about language tags in claims",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/173",
+      "state": "OPEN",
+      "author": "danielfett",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "danielfett"
+      ],
+      "labels": [],
+      "body": "- Add example\r\n- Holder has to release all necessary language tags\r\n",
+      "createdAt": "2022-11-16T16:15:35Z",
+      "updatedAt": "2022-11-16T16:17:54Z",
       "closedAt": null,
       "comments": []
     }
