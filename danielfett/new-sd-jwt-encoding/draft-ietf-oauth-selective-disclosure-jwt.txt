@@ -5,8 +5,8 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 21 May 2023                                           Microsoft
-                                                        17 November 2022
+Expires: 22 May 2023                                           Microsoft
+                                                        18 November 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 May 2023.
+   This Internet-Draft will expire on 22 May 2023.
 
 Copyright Notice
 
