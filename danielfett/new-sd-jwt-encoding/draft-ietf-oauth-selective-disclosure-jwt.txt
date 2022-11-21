@@ -102,12 +102,10 @@ Table of Contents
    11. Normative References
    12. Informative References
    Appendix A.  Additional Examples
-     A.1.  Structured SD-JWT
-       A.1.1.  Example 2a - Simple Structured SD-JWT
-       A.1.2.  Example 2b - Mixing SD and Non-SD Claims in a
-               Structured SD-JWT
-       A.1.3.  Example 3 - Complex Structured SD-JWT
-     A.2.  Example 4 - W3C Verifiable Credentials Data Model (work in
+     A.1.  Example 2a: Handling Structured Claims
+     A.2.  Example 2b: Adding Decoys
+     A.3.  Example 3 - Complex Structured SD-JWT
+     A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
            progress)
    Appendix B.  Document History
    Authors' Addresses
@@ -868,8 +866,9 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 5.3.  Example 1: SD-JWT
 
-   This example and Example 2a in Appendix A.1.1 use the following
-   object as the set of claims that the Issuer is issuing:
+   This example, Example 2a in Appendix A.1 and Example 2b in
+   Appendix A.2 use the following object as the set of claims that the
+   Issuer is issuing:
 
    {
      "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
@@ -887,8 +886,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    }
 
    The following non-normative example shows the payload of an SD-JWT.
-   The Issuer is using a flat structure, i.e., all of the claims in the
-   address claim can only be disclosed in full.
+   The Issuer is using a flat structure in this case, i.e., all of the
+   claims in the address claim can only be disclosed in full.
 
    {
      "_sd": [
@@ -1526,151 +1525,233 @@ Appendix A.  Additional Examples
 
    All of the following examples are non-normative.
 
-A.1.  Structured SD-JWT
+A.1.  Example 2a: Handling Structured Claims
 
-   The following examples show variations of a structured SD-JWT.
-
-A.1.1.  Example 2a - Simple Structured SD-JWT
-
-   This non-normative example is based on the same claim values as
-   Example 1, but here the Issuer decided to create a structured object
-   for the digests.  This allows for the disclosure of individual
-   members of the address claim separately.
-
-   The Disclosures for this SD-JWT are as follows:
-
-   A Presentation for the SD-JWT that discloses only region and country
-   of the address property could look as follows:
-
-A.1.2.  Example 2b - Mixing SD and Non-SD Claims in a Structured SD-JWT
-
-   In this example, a variant of Example 2a, the Issuer decided to apply
-   selective disclosure only to some of the claims.  In particular, the
-   country component of the address is contained in the JWT as a regular
-   claim, whereas the rest of the claims can be disclosed selectively.
-
-   With the following Disclosures:
-
-   The Holder can now, for example, release the rest of the components
-   of the address claim:
-
-   The Verifier, after applying the steps described in Section 6.2,
-   would pass the following data to the application:
-
-A.1.3.  Example 3 - Complex Structured SD-JWT
-
-   In this example, a complex object such as those defined in OIDC4IDA
-   [OIDC.IDA] is used.  Here, the Issuer is using the following user
-   data:
-
-   {
-     "verified_claims": {
-       "verification": {
-         "trust_framework": "de_aml",
-         "time": "2012-04-23T18:25Z",
-         "verification_process": "f24c6f-6d3f-4ec5-973e-b0d8506f3bc7",
-         "evidence": [
-           {
-             "type": "document",
-             "method": "pipp",
-             "time": "2012-04-22T11:30Z",
-             "document": {
-               "type": "idcard",
-               "issuer": {
-                 "name": "Stadt Augsburg",
-                 "country": "DE"
-               },
-               "number": "53554554",
-               "date_of_issuance": "2010-03-23",
-               "date_of_expiry": "2020-03-22"
-             }
-           }
-         ]
-       },
-       "claims": {
-         "given_name": "Max",
-         "family_name": "M\u00fcller",
-         "nationalities": [
-           "DE"
-         ],
-         "birthdate": "1956-01-28",
-         "place_of_birth": {
-           "country": "IS",
-           "locality": "\u00deykkvab\u00e6jarklaustur"
-         },
-         "address": {
-           "locality": "Maxstadt",
-           "postal_code": "12344",
-           "country": "DE",
-           "street_address": "Weidenstra\u00dfe 22"
-         }
-       }
-     },
-     "birth_middle_name": "Timotheus",
-     "salutation": "Dr.",
-     "msisdn": "49123456789"
-   }
-
-   The Issuer in this example sends the two claims birthdate and
-   place_of_birth in the claims element in plain text.  The following
-   shows the resulting SD-JWT payload:
+   This example is based on the same claim values as Example 1, but here
+   the Issuer decided to create a structured object for the digests.
+   This allows for the disclosure of individual members of the address
+   claim separately.
 
    {
      "_sd": [
-       "0fGhQf6nEvYH9sTcCtkxCfAVKp9qAYDVmFsxADWJsio",
-       "H0ZuxXsa39gwxHQ0cK_HQAIKjW4t11YwM0Gy_1gUluU",
-       "gXzq9tVKaddfQvt94riVze6GlZiW35ItiMngC5p_hXE"
+       "9NEmRF3rhaSHqT05xEsEQ2d7V4HSNHahzdXyPPQ-Tvk",
+       "QP1mnvUz-ZblKK2hiD6X7sDYaI8YTX79IWAZqM1LX64",
+       "QVNU9Xooq5vLnYtQ9uqYUgXcX6f4matA9rmjZ834b6E",
+       "_fWXPu-XKuF-TuGoKSoGdTeT_vqxWtkftXuDRaKZJL8",
+       "bXgwqQiv8htzdOpdc-InIsosQHp0irfOklEXTANmnb4",
+       "geqKIxiKSSJyPshE7AQF36kqp8Plu8DHO8HvZNshLww"
      ],
-     "verified_claims": {
-       "verification": {
-         "_sd": [
-           "4nQI4-y9wtJvyCs2WttyLmITY02K5WBMKKT1qKeEhHE",
-           "Zvx3GXqsjB1cR5rmxrlv3xQuTykWDZ7lKlmaxtBVYo0",
-           "cCzobgUal0u_Dn0PengU8YcZfv_R3xh0MW1K01Okg1o"
-         ],
-         "evidence": [
-           {
-             "_sd": [
-               "18o6apk_mELe_RaWjI1Om877h9_Jky5dpgzuBBNl-dQ",
-               "Ed7fTsdbgv2EZ5uGsuUAk5YBaMtCfvTFkmZZszVRJpk",
-               "rvJdOi2J6gFeNIvCdgIprrjmi1rKTD_Ru96di5FS7i4"
-             ],
-             "document": {
-               "_sd": [
-                 "BiKOIkmtJfr7IpWsn8_X4hc6FygqaeQPujoVuXAHnWQ",
-                 "F1vtjNyR7vaY8bO6CHdFr9tAje0ltSLe7bIFYlpNW7s",
-                 "HXyhyliGWAP8uvBf3JhdGSh9Pbg3KNu969581e8MZPo",
-                 "sVzUIXAzzMw0EfIwZyL23xwee3874u3a7iXcWyZhwp4"
-               ],
-               "issuer": {
-                 "_sd": [
-                   "C1saJVc21n1Y1O2s4ya0UYJabTAoGyg__Q39OfyjqSM",
-                   "Li9BJSo7AFcKVTlrLz6ip6t82nqIt2qrXc3wp6rColM"
-                 ]
-               }
-             }
-           }
-         ]
-       },
-       "claims": {
-         "_sd": [
-           "1qb26tNg6OZuZyVDYwK4--mQxXbZqwcQbhUxGHrXeLM",
-           "AHX0EgNpd_wak07lK8HX2izDNntsUZojuzyEWd2GJdk",
-           "FwzTz0THaEOzexgEzLRXu-zsTPND7by3aBF57AwKCZI",
-           "xKbTMlOSjFjkJw8kAMZAyhEfqbaq2b-klaPK8srpgvs"
-         ],
-         "birthdate": "1956-01-28",
-         "place_of_birth": {
-           "country": "IS",
-           "locality": "\u00deykkvab\u00e6jarklaustur"
-         }
-       }
+     "address": {
+       "_sd": [
+         "6bDJBECANbRfJ0lu8ErtZkTwqSNMeiXcJt74_YtLpmQ",
+         "AviuWE4YRymLVuoNZkqad1iaYMGdzzjdstAjDKpb6lk",
+         "aQhnCIssfb5upnNBd_uKcWNjYYyo7vhAmc_tV5XIGPU",
+         "lokpwW_yH1SAqX0gmpoPDQ7IzagsrbdhjK7-mYVJi_A"
+       ]
      },
      "iss": "https://example.com/issuer",
      "iat": 1516239022,
      "exp": 1516247022,
      "sd_digest_derivation_alg": "sha-256"
    }
+
+   The Disclosures for this SD-JWT are as follows:
+
+   *Disclosure for 'sub':*
+
+   WyJOMzJUYXZ2bnByVjB4UTVYQl9PaElRIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
+   MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
+
+   Contents:
+
+   ["N32TavvnprV0xQ5XB_OhIQ", "sub",
+   "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
+
+   SHA-256 Hash: QP1mnvUz-ZblKK2hiD6X7sDYaI8YTX79IWAZqM1LX64
+
+   *Disclosure for 'given_name':*
+
+   WyJyU3pjLVBFVEVhaDFqX1dKU2ItT1NRIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
+   MGNlIl0
+
+   Contents:
+
+   ["rSzc-PETEah1j_WJSb-OSQ", "given_name", "\u592a\u90ce"]
+
+   SHA-256 Hash: QVNU9Xooq5vLnYtQ9uqYUgXcX6f4matA9rmjZ834b6E
+
+   *Disclosure for 'family_name':*
+
+   WyJrdGRLMThLb3VJTFNMNUxQQWNoQ2tRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
+   NzUzMCJd
+
+   Contents:
+
+   ["ktdK18KouILSL5LPAchCkQ", "family_name", "\u5c71\u7530"]
+
+   SHA-256 Hash: geqKIxiKSSJyPshE7AQF36kqp8Plu8DHO8HvZNshLww
+
+   *Disclosure for 'email':*
+
+   WyJvMFZZMXdGaXE5TUNuOGlobkdfQ3dRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
+   bCBhZGRyZXNzXCJAXHU2NWU1XHU2NzJjLmNvbSJd
+
+   Contents:
+
+   ["o0VY1wFiq9MCn8ihnG_CwQ", "email", "\"unusual email
+   address\"@\u65e5\u672c.com"]
+
+   SHA-256 Hash: _fWXPu-XKuF-TuGoKSoGdTeT_vqxWtkftXuDRaKZJL8
+
+   *Disclosure for 'phone_number':*
+
+   WyIwaldnSk0xUk5YNWJWZlFyclRyc0hnIiwgInBob25lX251bWJlciIsICIxMjM0NTYi
+   XQ
+
+   Contents:
+
+   ["0jWgJM1RNX5bVfQrrTrsHg", "phone_number", "123456"]
+
+   SHA-256 Hash: 9NEmRF3rhaSHqT05xEsEQ2d7V4HSNHahzdXyPPQ-Tvk
+
+   *Disclosure for 'street_address':*
+
+   WyJCWEk3Q0FqVEUzSHBMclVDS2FlYlV3IiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
+   MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTcxMlx1ZmYxNFx1
+   NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCJd
+
+   Contents:
+
+   ["BXI7CAjTE3HpLrUCKaebUw", "street_address", "\u6771\u4eac\u90fd\u6e
+   2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uff12\u2212\uff18"]
+
+   SHA-256 Hash: AviuWE4YRymLVuoNZkqad1iaYMGdzzjdstAjDKpb6lk
+
+   *Disclosure for 'locality':*
+
+   WyJwWjlPMHdTZ1dXVjZvT2hUbGhuT3NnIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
+   Y1x1OTBmZCJd
+
+   Contents:
+
+   ["pZ9O0wSgWWV6oOhTlhnOsg", "locality", "\u6771\u4eac\u90fd"]
+
+   SHA-256 Hash: aQhnCIssfb5upnNBd_uKcWNjYYyo7vhAmc_tV5XIGPU
+
+   *Disclosure for 'region':*
+
+   WyJHZ0M2NmZ3eWU0Nlc2M21HbDY2Y05nIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
+   XQ
+
+   Contents:
+
+   ["GgC66fwye46W63mGl66cNg", "region", "\u6e2f\u533a"]
+
+   SHA-256 Hash: 6bDJBECANbRfJ0lu8ErtZkTwqSNMeiXcJt74_YtLpmQ
+
+   *Disclosure for 'country':*
+
+   WyIwa1JnRExxQnY4UjEwNUs4bmU5LTZBIiwgImNvdW50cnkiLCAiSlAiXQ
+
+   Contents:
+
+   ["0kRgDLqBv8R105K8ne9-6A", "country", "JP"]
+
+   SHA-256 Hash: lokpwW_yH1SAqX0gmpoPDQ7IzagsrbdhjK7-mYVJi_A
+
+   *Disclosure for 'birthdate':*
+
+   WyJiMC11SFlDTjFOaHFST1pIZ0tId1hnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+   Il0
+
+   Contents:
+
+   ["b0-uHYCN1NhqROZHgKHwXg", "birthdate", "1940-01-01"]
+
+   SHA-256 Hash: bXgwqQiv8htzdOpdc-InIsosQHp0irfOklEXTANmnb4
+
+   A Presentation for the SD-JWT that discloses only region and country
+   of the address property could look as follows:
+
+   eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
+   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjlORW1SRjNyaGFTSHFUMDV4RXNFU
+   TJkN1Y0SFNOSGFoemRYeVBQUS1UdmsiLCAiUVAxbW52VXotWmJsS0syaGlENlg3c0RZY
+   Uk4WVRYNzlJV0FacU0xTFg2NCIsICJRVk5VOVhvb3E1dkxuWXRROXVxWVVnWGNYNmY0b
+   WF0QTlybWpaODM0YjZFIiwgIl9mV1hQdS1YS3VGLVR1R29LU29HZFRlVF92cXhXdGtmd
+   Fh1RFJhS1pKTDgiLCAiYlhnd3FRaXY4aHR6ZE9wZGMtSW5Jc29zUUhwMGlyZk9rbEVYV
+   EFObW5iNCIsICJnZXFLSXhpS1NTSnlQc2hFN0FRRjM2a3FwOFBsdThESE84SHZaTnNoT
+   Hd3Il0sICJhZGRyZXNzIjogeyJfc2QiOiBbIjZiREpCRUNBTmJSZkowbHU4RXJ0WmtUd
+   3FTTk1laVhjSnQ3NF9ZdExwbVEiLCAiQXZpdVdFNFlSeW1MVnVvTlprcWFkMWlhWU1HZ
+   Hp6amRzdEFqREtwYjZsayIsICJhUWhuQ0lzc2ZiNXVwbk5CZF91S2NXTmpZWXlvN3ZoQ
+   W1jX3RWNVhJR1BVIiwgImxva3B3V195SDFTQXFYMGdtcG9QRFE3SXphZ3NyYmRoaks3L
+   W1ZVkppX0EiXX0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAia
+   WF0IjogMTUxNjIzOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJzZF9kaWdlc3RfZGVya
+   XZhdGlvbl9hbGciOiAic2hhLTI1NiJ9.ksKdXU1sL6Tu80ImZoGnJzovvRK-sYb6yNZd
+   dEPdljbd4BQSFi_my6YNsJdhB55-uNKKaxs36wmPVGhrnv36ig7HMi1a5LV-BkGwHDy8
+   ql6D9Oirniro8MpxQ7-NLqDXn5S03F6jITdlJ0U94lc3lt2Qzy8j6MRyrR8v20Oh8Di0
+   pcVGf6jPc_PtmDNCgVHtNkNCPyxixhEZnmJlaSxI7FlEKcv279AhSxgrDBnaCzHz8zZb
+   JvRE6RyWmFmKbKy_1zfhydAJCyXNO6OdfN36nwRtP6zN_bw4vtwV78HMmfSffFvD47gj
+   o6Q1cItRh7j4KRRTcF0CIkk64WoCmQkHlw~WyJyU3pjLVBFVEVhaDFqX1dKU2ItT1NRI
+   iwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5MGNlIl0~WyJvMFZZMXdGaXE5TUNuOGlob
+   kdfQ3dRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNzXCJAXHU2NWU1X
+   HU2NzJjLmNvbSJd~WyJiMC11SFlDTjFOaHFST1pIZ0tId1hnIiwgImJpcnRoZGF0ZSIs
+   ICIxOTQwLTAxLTAxIl0~WyJrdGRLMThLb3VJTFNMNUxQQWNoQ2tRIiwgImZhbWlseV9u
+   YW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJHZ0M2NmZ3eWU0Nlc2M21HbDY2Y05nIiwgInJ
+   lZ2lvbiIsICJcdTZlMmZcdTUzM2EiXQ~WyIwa1JnRExxQnY4UjEwNUs4bmU5LTZBIiwg
+   ImNvdW50cnkiLCAiSlAiXQ~
+
+A.2.  Example 2b: Adding Decoys
+
+   This example is based on the same set of user data as Example 1 and
+   Example 2a, but here, the Issuer decided to add decoy digests to the
+   SD-JWT.
+
+   The SD-JWT payload is as follows:
+
+   {
+     "_sd": [
+       "05aLRlDgF63ZcpkFEu0D3eMDfiA7nBU6Me3X08Thnc4",
+       "4oXf9WUldZn8kSjrajZGReflaaJ5KcmZptuIgZBN6Cc",
+       "8ksb9q1-0zwGuof5ohl-gfioRE9V_lXrmzcmLIJyXTE",
+       "AQHHxTAXNcctXciLglp5YdUAv5L1CK-IBxWE15KJmBY",
+       "A_iBPCQ4szwuIBywLH5TOpkMmelCOu7mkAzIwjX-DnE",
+       "PBZeggXotURSLpE2aurrUj54AXMWfL3MRUBhbXd5gnY",
+       "PTmVMwb40pxKMCVykdU_zm6S5yphwGm5FRa1m3KOd-o",
+       "TDC-Jsdq-VyKA0Z25Ubx6tL7dk1OwAbGXIN2K_ItYvw",
+       "ZRq0Mx8bsF7QFEj7d-AkkyegxbSsFg_kU2tlsEskkLc",
+       "_quPDs_FDezZNLZ1WILfqthsRGJmrEEzRgrWgwpRWmI",
+       "ag8or__yKLbwAj4kHDKaRt47xiX49jvEHMKh8LvMycw",
+       "l97gH6Plr8xi0GGRPJBFtnhOfc5MdEfcq-PaUT2eYJE"
+     ],
+     "address": {
+       "_sd": [
+         "3zkPqkRYlhsjGCRf70YwcnT2Uuo00cd7nsjXOpr-UTg",
+         "CIdL4buJbO9IQ4zdy13Q35Ov41JEVy9NFQ6lAwIBcGE",
+         "I29Sl8nSMVVf-jUzvjRJFbKIdZkks7lmyIZ9ZDw-v3I",
+         "J3Zg5NDlVOadcFAn8fi1F4am-hxH4T8NdN1lcghW95w",
+         "RsWikMC_5eWT2pysz3J0QeKZV-309ypMhRhmk2wY8OY",
+         "UOKDqn5wTYHbo9F3p30Cfj6hFBpeWd9gsJh8JvtndOg"
+       ]
+     },
+     "iss": "https://example.com/issuer",
+     "iat": 1516239022,
+     "exp": 1516247022,
+     "sd_digest_derivation_alg": "sha-256"
+   }
+
+   Since the Disclosures or Presentation are not affected by the decoy
+   digests (other than a slightly larger SD-JWT), they are omitted here.
+
+A.3.  Example 3 - Complex Structured SD-JWT
+
+   In this example, an SD-JWT with a complex object is demonstrated.
+   Here, the data structures defined in OIDC4IDA [OIDC.IDA] are used.
+
+   The Issuer is using the following user data:
+
+   The Issuer in this example sends the two claims birthdate and
+   place_of_birth in the claims element in plain text.  The following
+   shows the resulting SD-JWT payload:
 
    With the following Disclosures:
 
@@ -1681,43 +1762,7 @@ A.1.3.  Example 3 - Complex Structured SD-JWT
    After the verification of the data, the Verifier will pass the
    following result on to the application for further processing:
 
-   {
-     "verified_claims": {
-       "verification": {
-         "evidence": [
-           {
-             "document": {
-               "issuer": {}
-             },
-             "type": "document"
-           }
-         ],
-         "trust_framework": "de_aml",
-         "time": "2012-04-23T18:25Z"
-       },
-       "claims": {
-         "birthdate": "1956-01-28",
-         "place_of_birth": {
-           "country": "IS",
-           "locality": "\u00deykkvab\u00e6jarklaustur"
-         },
-         "family_name": "M\u00fcller",
-         "address": {
-           "locality": "Maxstadt",
-           "postal_code": "12344",
-           "country": "DE",
-           "street_address": "Weidenstra\u00dfe 22"
-         },
-         "given_name": "Max"
-       }
-     },
-     "iss": "https://example.com/issuer",
-     "iat": 1516239022,
-     "exp": 1516247022,
-     "sd_digest_derivation_alg": "sha-256"
-   }
-
-A.2.  Example 4 - W3C Verifiable Credentials Data Model (work in
+A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
       progress)
 
    This example illustrates how the artifacts defined in this
@@ -1743,9 +1788,9 @@ A.2.  Example 4 - W3C Verifiable Credentials Data Model (work in
      "typ": "sd-jwt-vc"
    }
 
-   Body: <{{examples/w3c-vc/sd_jwt_payload.json}}
+   Body:
 
-   Disclosures: {{examples/w3c-vc/disclosures.json}}
+   Disclosures:
 
 Appendix B.  Document History
 
@@ -1767,6 +1812,8 @@ Appendix B.  Document History
 
    *  Examples are now pulled in from the examples directory, not
       inlined.
+
+   *  Updated and automated the W3C VC example.
 
    -02
 
