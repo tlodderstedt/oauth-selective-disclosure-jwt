@@ -1114,7 +1114,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    {
      "nonce": "XZOUco1u_gEPknxS78sWWg",
      "aud": "https://example.com/verifier",
-     "iat": 1669054501
+     "iat": 1669054690
    }
 
    Which is then signed by the Holder to create a JWT like the
@@ -1123,12 +1123,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
    ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
    1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
-   DE2NjkwNTQ1MDF9.OULEOQFc8Wwc1dgGQlLt6UQHboXqLX5-i_rgZimzhzgVSwOvexlB
-   yhEWBY33Oer94Hf0hNp3EcMVHTEMadx8fPaQQK_DEs5ZI7lp_kz25hBBWoD92BrNIXjr
-   duAob_0zVI-rINomD5yWDpVDDjxE4OAOT9smjTJLtAFNPRRul2GibXSKLizLS3YxykDP
-   ePhfeAM9y7GroLMbctJK1OdLgqM3EDGigkB34GdxHBuo1jDS7koF1vFELvEJ_xPulMdq
-   XdyMm4YipGlyh_SSRiRYbyogYFYRgrEIf2xC2ztGtAAKdALs-zLGSEyWRY3-lWobhGJT
-   Z47sNsX2nk1U_4ajpg
+   DE2NjkwNTQ2OTB9.WLSkCNDjhruO-wZaAnmUOEuFfX2WcxDKu13F269b94ZIxSdnTM_N
+   I5tMuh4XH6Q0QN_bP_UYISLavsYcObqGcQE-dGVXRN_K4ncEVZPuOewtPwigXLCFSC7J
+   1Fa1G6BnhB2AoDMhozCWSEB3yJOifiER5YpQAY347lG7QyOrYf7imGcq4IhUBCm0i7FB
+   KEG0pZove1JZ54H0ztq790rTe5mxYlRpB2h1MyrcEBsLfA7gsGNnMiLJkvkiNMhJ2wwA
+   Ebomi4YRub2COc5LVwHghDKbW8xZFHrv4r2UP0u2WT2rHxeIaxXqpl9mWc9pFYhTa6CR
+   yyAM7ndA9QW1u_Q8ag
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1178,12 +1178,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
    a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
    fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQ1MDF9.OULEOQFc
-   8Wwc1dgGQlLt6UQHboXqLX5-i_rgZimzhzgVSwOvexlByhEWBY33Oer94Hf0hNp3EcMV
-   HTEMadx8fPaQQK_DEs5ZI7lp_kz25hBBWoD92BrNIXjrduAob_0zVI-rINomD5yWDpVD
-   DjxE4OAOT9smjTJLtAFNPRRul2GibXSKLizLS3YxykDPePhfeAM9y7GroLMbctJK1OdL
-   gqM3EDGigkB34GdxHBuo1jDS7koF1vFELvEJ_xPulMdqXdyMm4YipGlyh_SSRiRYbyog
-   YFYRgrEIf2xC2ztGtAAKdALs-zLGSEyWRY3-lWobhGJTZ47sNsX2nk1U_4ajpg
+   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQ2OTB9.WLSkCNDj
+   hruO-wZaAnmUOEuFfX2WcxDKu13F269b94ZIxSdnTM_NI5tMuh4XH6Q0QN_bP_UYISLa
+   vsYcObqGcQE-dGVXRN_K4ncEVZPuOewtPwigXLCFSC7J1Fa1G6BnhB2AoDMhozCWSEB3
+   yJOifiER5YpQAY347lG7QyOrYf7imGcq4IhUBCm0i7FBKEG0pZove1JZ54H0ztq790rT
+   e5mxYlRpB2h1MyrcEBsLfA7gsGNnMiLJkvkiNMhJ2wwAEbomi4YRub2COc5LVwHghDKb
+   W8xZFHrv4r2UP0u2WT2rHxeIaxXqpl9mWc9pFYhTa6CRyyAM7ndA9QW1u_Q8ag
 
 6.  Verification and Processing
 
@@ -1606,15 +1606,14 @@ A.1.  Example 2a: Handling Structured Claims
 
    {
      "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
-     "given_name": "\u592a\u90ce",
-     "family_name": "\u5c71\u7530",
-     "email": "\"unusual email address\"@\u65e5\u672c.com",
+     "given_name": "太郎",
+     "family_name": "山田",
+     "email": "\"unusual email address\"@日本.com",
      "phone_number": "123456",
      "address": {
-       "street_address": "\u6771\u4eac\u90fd\u6e2f\u533a\u829d\u516c\u5
-         712\uff14\u4e01\u76ee\uff12\u2212\uff18",
-       "locality": "\u6771\u4eac\u90fd",
-       "region": "\u6e2f\u533a",
+       "street_address": "東京都港区芝公園４丁目２−８",
+       "locality": "東京都",
+       "region": "港区",
        "country": "JP"
      },
      "birthdate": "1940-01-01"
