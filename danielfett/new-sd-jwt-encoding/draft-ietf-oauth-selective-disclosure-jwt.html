@@ -1198,9 +1198,22 @@ documents that support selective disclosure of JWT claim values.<a href="#sectio
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
                 <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-combined-format-for-issuanc" class="internal xref">Combined Format for Issuance</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4.2.1">
+                    <p id="section-toc.1-1.5.2.4.2.1.1"><a href="#section-5.4.1" class="auto internal xref">5.4.1</a>.  <a href="#name-example" class="internal xref">Example</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-combined-format-for-present" class="internal xref">Combined Format for Presentation</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5.2.1">
+                    <p id="section-toc.1-1.5.2.5.2.1.1"><a href="#section-5.5.1" class="auto internal xref">5.5.1</a>.  <a href="#name-enabling-holder-binding" class="internal xref">Enabling Holder Binding</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5.2.2">
+                    <p id="section-toc.1-1.5.2.5.2.2.1"><a href="#section-5.5.2" class="auto internal xref">5.5.2</a>.  <a href="#name-example-2" class="internal xref">Example</a></p>
+</li>
+                </ul>
 </li>
             </ul>
 </li>
@@ -1833,7 +1846,7 @@ for readability. JSON does not allow line breaks in strings.<a href="#section-5.
 </pre><a href="#section-5.2.1.5.1-2" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.1-3">The Issuer would create the following Disclosure:<a href="#section-5.2.1.5.1-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.1-4"><strong>Disclosure for 'address':</strong><a href="#section-5.2.1.5.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.1-4"><strong>Disclosure for <code>address</code>:</strong><a href="#section-5.2.1.5.1-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.1-5">
 <pre>WyJEa1daaVFLdW1SYXIzbHBmNHFFYlNBIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
 ZXNzIjogIlNjaHVsc3RyLiAxMiIsICJsb2NhbGl0eSI6ICJTY2h1bHBmb3J0YSIsICJy
@@ -1875,7 +1888,7 @@ ZWdpb24iOiAiU2FjaHNlbi1BbmhhbHQiLCAiY291bnRyeSI6ICJERSJ9XQ
 </pre><a href="#section-5.2.1.5.2-2" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.2-3">In this case, the Issuer would use the following data in the Disclosures for the <code>address</code> sub-claims:<a href="#section-5.2.1.5.2-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.2-4"><strong>Disclosure for 'street_address':</strong><a href="#section-5.2.1.5.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-4"><strong>Disclosure for <code>street_address</code>:</strong><a href="#section-5.2.1.5.2-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.2-5">
 <pre>WyI0d3dqUzlyMm4tblBxdzNpTHR0TkFBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
 c3RyLiAxMiJd
@@ -1887,7 +1900,7 @@ c3RyLiAxMiJd
 </pre><a href="#section-5.2.1.5.2-7" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.2-8">SHA-256 Hash: <code>pEtkKwoFK_JHN7yNby0Lc_Jc10BAxCm5yXJjDbVehvU</code><a href="#section-5.2.1.5.2-8" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.2-9"><strong>Disclosure for 'locality':</strong><a href="#section-5.2.1.5.2-9" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-9"><strong>Disclosure for <code>locality</code>:</strong><a href="#section-5.2.1.5.2-9" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.2-10">
 <pre>WyJXcEtIQmVTa3A5U2MyNVV4a1F1RmNRIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
 Il0
@@ -1899,7 +1912,7 @@ Il0
 </pre><a href="#section-5.2.1.5.2-12" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.2-13">SHA-256 Hash: <code>nTzPZ3Q68z1Ko_9ao9LK0mSYXY5gY6UG6KEkQ_BdqU0</code><a href="#section-5.2.1.5.2-13" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.2-14"><strong>Disclosure for 'region':</strong><a href="#section-5.2.1.5.2-14" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-14"><strong>Disclosure for <code>region</code>:</strong><a href="#section-5.2.1.5.2-14" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.2-15">
 <pre>WyIzSl9xWGctdUwxYzdtN1FoT0hUNTJnIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
 dCJd
@@ -1911,7 +1924,7 @@ dCJd
 </pre><a href="#section-5.2.1.5.2-17" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.2-18">SHA-256 Hash: <code>9-VdSnvRTZNDo-4Bxcp3X-V9VtLOCRUkR6oLWZQl81I</code><a href="#section-5.2.1.5.2-18" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.2-19"><strong>Disclosure for 'country':</strong><a href="#section-5.2.1.5.2-19" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-19"><strong>Disclosure for <code>country</code>:</strong><a href="#section-5.2.1.5.2-19" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.2-20">
 <pre>WyIwN2U3bWY2YWpTUDJjZkQ3NmJCZE93IiwgImNvdW50cnkiLCAiREUiXQ
 </pre><a href="#section-5.2.1.5.2-20" class="pilcrow">¶</a>
@@ -1949,7 +1962,7 @@ dCJd
 </pre><a href="#section-5.2.1.5.3-2" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.3-3">In this case, the Issuer would issue the following Disclosures:<a href="#section-5.2.1.5.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.3-4"><strong>Disclosure for 'street_address':</strong><a href="#section-5.2.1.5.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.3-4"><strong>Disclosure for <code>street_address</code>:</strong><a href="#section-5.2.1.5.3-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.3-5">
 <pre>WyJkTWZMOXBrOVFXUUNPajJRVDA0c21BIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
 c3RyLiAxMiJd
@@ -1961,7 +1974,7 @@ c3RyLiAxMiJd
 </pre><a href="#section-5.2.1.5.3-7" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.3-8">SHA-256 Hash: <code>ToD9fSNGo_SOCnTM0r0AaGjdHEIh4doXinCkKjR2fk4</code><a href="#section-5.2.1.5.3-8" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.3-9"><strong>Disclosure for 'locality':</strong><a href="#section-5.2.1.5.3-9" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.3-9"><strong>Disclosure for <code>locality</code>:</strong><a href="#section-5.2.1.5.3-9" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.3-10">
 <pre>WyJsNklkRC1FeDZ5eHFGck9DUjFNbktBIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
 Il0
@@ -1973,7 +1986,7 @@ Il0
 </pre><a href="#section-5.2.1.5.3-12" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2.1.5.3-13">SHA-256 Hash: <code>bIPnfvtg9QQSGd7W9srnYOVTK-sNUFz9kr1Js7XaU4E</code><a href="#section-5.2.1.5.3-13" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.5.3-14"><strong>Disclosure for 'region':</strong><a href="#section-5.2.1.5.3-14" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.3-14"><strong>Disclosure for <code>region</code>:</strong><a href="#section-5.2.1.5.3-14" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2.1.5.3-15">
 <pre>WyI3WFB4R21ldC1vaWFoOEhDdmU3bTJBIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
 dCJd
@@ -2113,7 +2126,7 @@ UK_NA
 </pre><a href="#section-5.3-6" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-7">The Issuer creates the following Disclosures:<a href="#section-5.3-7" class="pilcrow">¶</a></p>
-<p id="section-5.3-8"><strong>Disclosure for 'sub':</strong><a href="#section-5.3-8" class="pilcrow">¶</a></p>
+<p id="section-5.3-8"><strong>Disclosure for <code>sub</code>:</strong><a href="#section-5.3-8" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-9">
 <pre>WyJkcVR2WE14UzBHYTNEb2FHbmU5eDBRIiwgInN1YiIsICJqb2huX2RvZV80MiJd
 </pre><a href="#section-5.3-9" class="pilcrow">¶</a>
@@ -2124,7 +2137,7 @@ UK_NA
 </pre><a href="#section-5.3-11" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-12">SHA-256 Hash: <code>ZkSJxxeGluIdYBb7CqkZbJVm0w2V5UrReNTzAQCYBjw</code><a href="#section-5.3-12" class="pilcrow">¶</a></p>
-<p id="section-5.3-13"><strong>Disclosure for 'given_name':</strong><a href="#section-5.3-13" class="pilcrow">¶</a></p>
+<p id="section-5.3-13"><strong>Disclosure for <code>given_name</code>:</strong><a href="#section-5.3-13" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-14">
 <pre>WyIzanFjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
 </pre><a href="#section-5.3-14" class="pilcrow">¶</a>
@@ -2135,7 +2148,7 @@ UK_NA
 </pre><a href="#section-5.3-16" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-17">SHA-256 Hash: <code>qqvcqnczAMgYx7EykI6wwtspyvyvK790ge7MBbQ-Nus</code><a href="#section-5.3-17" class="pilcrow">¶</a></p>
-<p id="section-5.3-18"><strong>Disclosure for 'family_name':</strong><a href="#section-5.3-18" class="pilcrow">¶</a></p>
+<p id="section-5.3-18"><strong>Disclosure for <code>family_name</code>:</strong><a href="#section-5.3-18" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-19">
 <pre>WyJxUVdtakpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
 </pre><a href="#section-5.3-19" class="pilcrow">¶</a>
@@ -2146,7 +2159,7 @@ UK_NA
 </pre><a href="#section-5.3-21" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-22">SHA-256 Hash: <code>l9qIJ9JTQwLG7OLEICTFBVxmArw8Pjy65dD6mtQVG5c</code><a href="#section-5.3-22" class="pilcrow">¶</a></p>
-<p id="section-5.3-23"><strong>Disclosure for 'email':</strong><a href="#section-5.3-23" class="pilcrow">¶</a></p>
+<p id="section-5.3-23"><strong>Disclosure for <code>email</code>:</strong><a href="#section-5.3-23" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-24">
 <pre>WyJLVXhTNWhFX1hiVmFjckdBYzdFRnd3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
 ZS5jb20iXQ
@@ -2158,7 +2171,7 @@ ZS5jb20iXQ
 </pre><a href="#section-5.3-26" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-27">SHA-256 Hash: <code>o1SAsJ33YMioO9pX5VeAM1lxuHF6hZW2kGdkKKBnVlo</code><a href="#section-5.3-27" class="pilcrow">¶</a></p>
-<p id="section-5.3-28"><strong>Disclosure for 'phone_number':</strong><a href="#section-5.3-28" class="pilcrow">¶</a></p>
+<p id="section-5.3-28"><strong>Disclosure for <code>phone_number</code>:</strong><a href="#section-5.3-28" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-29">
 <pre>WyIzcXZWSjFCQURwSERTUzkzOVEtUml3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
 NTU1LTAxMDEiXQ
@@ -2170,7 +2183,7 @@ NTU1LTAxMDEiXQ
 </pre><a href="#section-5.3-31" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-32">SHA-256 Hash: <code>SY8n2BbkX9lrY3exHlSwPRFXoD09GF8a9CPO-G8j208</code><a href="#section-5.3-32" class="pilcrow">¶</a></p>
-<p id="section-5.3-33"><strong>Disclosure for 'address':</strong><a href="#section-5.3-33" class="pilcrow">¶</a></p>
+<p id="section-5.3-33"><strong>Disclosure for <code>address</code>:</strong><a href="#section-5.3-33" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-34">
 <pre>WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
 ZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9u
@@ -2184,7 +2197,7 @@ St", "locality": "Anytown", "region": "Anystate", "country": "US"}]
 </pre><a href="#section-5.3-36" class="pilcrow">¶</a>
 </div>
 <p id="section-5.3-37">SHA-256 Hash: <code>TPsGNPYA46wmBxfv2znOJhfdoN5Y1GkezbpaGZCT1ac</code><a href="#section-5.3-37" class="pilcrow">¶</a></p>
-<p id="section-5.3-38"><strong>Disclosure for 'birthdate':</strong><a href="#section-5.3-38" class="pilcrow">¶</a></p>
+<p id="section-5.3-38"><strong>Disclosure for <code>birthdate</code>:</strong><a href="#section-5.3-38" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-39">
 <pre>WyJFUktNMENOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
 Il0
@@ -2217,8 +2230,13 @@ as follows:<a href="#section-5.4-2" class="pilcrow">¶</a></p>
 <p id="section-5.4-4">This is called the Combined Format for Issuance.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
 <p id="section-5.4-5">The Disclosures and SD-JWT are implicitly linked through the
 digest values of the Disclosures included in the SD-JWT.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
-<p id="section-5.4-6">For Example 1, the Combined Format for Issuance looks as follows:<a href="#section-5.4-6" class="pilcrow">¶</a></p>
-<div id="section-5.4-7">
+<div id="example">
+<section id="section-5.4.1">
+          <h4 id="name-example">
+<a href="#section-5.4.1" class="section-number selfRef">5.4.1. </a><a href="#name-example" class="section-name selfRef">Example</a>
+          </h4>
+<p id="section-5.4.1-1">For Example 1, the Combined Format for Issuance looks as follows:<a href="#section-5.4.1-1" class="pilcrow">¶</a></p>
+<div id="section-5.4.1-2">
 <pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
 UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ
 3h4aHluRVU4ei1iNFR5TmlhcDc3VVkiLCAiU1k4bjJCYmtYOWxyWTNleEhsU3dQUkZYb
@@ -2252,9 +2270,11 @@ MS0yMDItNTU1LTAxMDEiXQ~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc
 kFueXRvd24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~W
 yJFUktNMENOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxI
 l0
-</pre><a href="#section-5.4-7" class="pilcrow">¶</a>
+</pre><a href="#section-5.4.1-2" class="pilcrow">¶</a>
 </div>
-<p id="section-5.4-8">(Line breaks for presentation only.)<a href="#section-5.4-8" class="pilcrow">¶</a></p>
+<p id="section-5.4.1-3">(Line breaks for presentation only.)<a href="#section-5.4.1-3" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="combined-format-for-presentation">
@@ -2273,20 +2293,56 @@ as follows (line break added for readability):<a href="#section-5.5-2" class="pi
 <p id="section-5.5-4">This is called the Combined Format for Presentation.<a href="#section-5.5-4" class="pilcrow">¶</a></p>
 <p id="section-5.5-5">The Holder MAY send any subset of the Disclosures to the Verifier, i.e.,
 none, multiple, or all Disclosures.<a href="#section-5.5-5" class="pilcrow">¶</a></p>
-<p id="section-5.5-6">The Holder MAY add an optional JWT to prove Holder Binding to the Verifier.
+<p id="section-5.5-6">A Holder MUST NOT send a Disclosure that was not included in the SD-JWT or send
+a Disclosure more than once.<a href="#section-5.5-6" class="pilcrow">¶</a></p>
+<div id="enabling-holder-binding">
+<section id="section-5.5.1">
+          <h4 id="name-enabling-holder-binding">
+<a href="#section-5.5.1" class="section-number selfRef">5.5.1. </a><a href="#name-enabling-holder-binding" class="section-name selfRef">Enabling Holder Binding</a>
+          </h4>
+<p id="section-5.5.1-1">The Holder MAY add an optional JWT to prove Holder Binding to the Verifier.
 The precise contents of the JWT are out of scope of this specification.
 Usually, a <code>nonce</code> and <code>aud</code> claim are included to show that the proof is
 intended for the Verifier and to prevent replay attacks. How the <code>nonce</code> or
-other claims are obtained by the Holder is out of scope of this specification.<a href="#section-5.5-6" class="pilcrow">¶</a></p>
-<p id="section-5.5-7">Whether to require Holder Binding is up to the Verifier's policy,
-based on the set of trust requirements such as trust frameworks it belongs to.<a href="#section-5.5-7" class="pilcrow">¶</a></p>
-<p id="section-5.5-8">Other ways of proving Holder Binding are possible, e.g., when the Combined Format
-for Presentation is itself embedded in a signed JWT.<a href="#section-5.5-8" class="pilcrow">¶</a></p>
-<p id="section-5.5-9">If no Holder Binding JWT is included, the Combined Format for Presentation ends with
-the <code>~</code> character after the last Disclosure.<a href="#section-5.5-9" class="pilcrow">¶</a></p>
-<p id="section-5.5-10">The following is a non-normative example of the contents of a Presentation for Example 1, disclosing
-the claims <code>given_name</code>, <code>family_name</code>, and <code>address</code>, as it would be sent from the Holder to the Verifier. There is also a Holder Binding JWT included.<a href="#section-5.5-10" class="pilcrow">¶</a></p>
-<div id="section-5.5-11">
+other claims are obtained by the Holder is out of scope of this specification.<a href="#section-5.5.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.5.1-2">Example Holder Binding JWT payload:<a href="#section-5.5.1-2" class="pilcrow">¶</a></p>
+<div id="section-5.5.1-3">
+<pre class="lang-json sourcecode">{
+  "nonce": "XZOUco1u_gEPknxS78sWWg",
+  "aud": "https://example.com/verifier",
+  "iat": 1669054203
+}
+</pre><a href="#section-5.5.1-3" class="pilcrow">¶</a>
+</div>
+<p id="section-5.5.1-4">Which is then signed by the Holder to create a JWT like the following:<a href="#section-5.5.1-4" class="pilcrow">¶</a></p>
+<div id="section-5.5.1-5">
+<pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
+ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
+1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
+DE2NjkwNTQyMDN9.h1BoAGgbK7q6flKDrZ_7e1_OV37Udo7uVW6Zs1hwHuWXSyEGSVKj
+U-WQZJ6yXtSoZuMxK-fJrquGA8AvpKah3_XjJ-HOocrt1MlyXJ3aJQR7-3oDULY_zelN
+sgmD0um6fyNdHu7diXWWXcmiWpEdo6DEHdBIGba6lSkG8GZvxcdbQGEq0ieKI0Krxzqw
+1OMkeXu9XPbn8sFy5IRB6mMt3gDWJ998Sx-UjV51AVqWxAKFHz9ed2f_AcyPNPUzIwYn
+-hQ-P3J-n00KDu80vaNbHJ7YRVOn2EThDoCz0q5nSqu6E8utxMcls90Lchd7Z3IKWbZx
+luNxvqGBmU6GLZkTRg
+</pre><a href="#section-5.5.1-5" class="pilcrow">¶</a>
+</div>
+<p id="section-5.5.1-6">Whether to require Holder Binding is up to the Verifier's policy,
+based on the set of trust requirements such as trust frameworks it belongs to.<a href="#section-5.5.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.5.1-7">Other ways of proving Holder Binding are possible, e.g., when the Combined Format
+for Presentation is itself embedded in a signed JWT.<a href="#section-5.5.1-7" class="pilcrow">¶</a></p>
+<p id="section-5.5.1-8">If no Holder Binding JWT is included, the Combined Format for Presentation ends with
+the <code>~</code> character after the last Disclosure.<a href="#section-5.5.1-8" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="example-1-1">
+<section id="section-5.5.2">
+          <h4 id="name-example-2">
+<a href="#section-5.5.2" class="section-number selfRef">5.5.2. </a><a href="#name-example-2" class="section-name selfRef">Example</a>
+          </h4>
+<p id="section-5.5.2-1">The following is a non-normative example of the contents of a Presentation for Example 1, disclosing
+the claims <code>given_name</code>, <code>family_name</code>, and <code>address</code>, as it would be sent from the Holder to the Verifier. The Holder Binding JWT as shown before is included as the last element.<a href="#section-5.5.2-1" class="pilcrow">¶</a></p>
+<div id="section-5.5.2-2">
 <pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
 UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ
 3h4aHluRVU4ei1iNFR5TmlhcDc3VVkiLCAiU1k4bjJCYmtYOWxyWTNleEhsU3dQUkZYb
@@ -2317,13 +2373,15 @@ RscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3MwO
 Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
 a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
 fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIn0.XZ4d4taSLy2XZN34pjeMa-OidpN_kphd2
-SB0ub15Il8NhjE3z11CQ4TrdIzeIiZGnNJqWTSe18vplkA4eR7qQa7y0BsdLnCcbt20b
-3xe_gNzrAUBw00ajR_MXMLSz5x0ospAqub_kDjrUXBBDYqaGfD0gmY_4x9qgsRiNN6r0
-j3KgWweSYrh_eh7H1JSTohI_rRHN8dajvskAniHtkZ3kUJvo9A7bUTID1v3QvCWgOumB
-8aAmwu_jeaq8PS2HUVD3XF6ruT2--HqrmLwkUw6nhN-QYRr6_4cwCZleGsJAkwDu7Gl1
-Ntp2YtT44bTMWxniSo539fU-Bv_ukyJOS1KuA
-</pre><a href="#section-5.5-11" class="pilcrow">¶</a>
+zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQyMDN9.h1BoAGgb
+K7q6flKDrZ_7e1_OV37Udo7uVW6Zs1hwHuWXSyEGSVKjU-WQZJ6yXtSoZuMxK-fJrquG
+A8AvpKah3_XjJ-HOocrt1MlyXJ3aJQR7-3oDULY_zelNsgmD0um6fyNdHu7diXWWXcmi
+WpEdo6DEHdBIGba6lSkG8GZvxcdbQGEq0ieKI0Krxzqw1OMkeXu9XPbn8sFy5IRB6mMt
+3gDWJ998Sx-UjV51AVqWxAKFHz9ed2f_AcyPNPUzIwYn-hQ-P3J-n00KDu80vaNbHJ7Y
+RVOn2EThDoCz0q5nSqu6E8utxMcls90Lchd7Z3IKWbZxluNxvqGBmU6GLZkTRg
+</pre><a href="#section-5.5.2-2" class="pilcrow">¶</a>
+</div>
+</section>
 </div>
 </section>
 </div>
@@ -2423,7 +2481,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4.5.2.2.2.4.2">
 <li id="section-6.2-4.5.2.2.2.4.2.1">If the Disclosure is not a JSON-encoded array of three elements, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.1" class="pilcrow">¶</a>
 </li>
-                      <li id="section-6.2-4.5.2.2.2.4.2.2">If the claim name already exists, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.2" class="pilcrow">¶</a>
+                      <li id="section-6.2-4.5.2.2.2.4.2.2">If the claim name already exists, the Verifier MUST reject the Presentation. Note that this also means that if a Holder sends the same Disclosure multiple times, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.2" class="pilcrow">¶</a>
 </li>
                       <li id="section-6.2-4.5.2.2.2.4.2.3">If the claim value is an object and contains an <code>_sd</code> key, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.3" class="pilcrow">¶</a>
 </li>
@@ -2816,7 +2874,7 @@ for their contributions (some of which substantial) to this draft and to the ini
 </pre><a href="#appendix-A.1-4" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-5">The Disclosures for this SD-JWT are as follows:<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-6"><strong>Disclosure for 'sub':</strong><a href="#appendix-A.1-6" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-6"><strong>Disclosure for <code>sub</code>:</strong><a href="#appendix-A.1-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-7">
 <pre>WyJOMzJUYXZ2bnByVjB4UTVYQl9PaElRIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
 MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
@@ -2829,7 +2887,7 @@ MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
 </pre><a href="#appendix-A.1-9" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-10">SHA-256 Hash: <code>QP1mnvUz-ZblKK2hiD6X7sDYaI8YTX79IWAZqM1LX64</code><a href="#appendix-A.1-10" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-11"><strong>Disclosure for 'given_name':</strong><a href="#appendix-A.1-11" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-11"><strong>Disclosure for <code>given_name</code>:</strong><a href="#appendix-A.1-11" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-12">
 <pre>WyJyU3pjLVBFVEVhaDFqX1dKU2ItT1NRIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
 MGNlIl0
@@ -2841,7 +2899,7 @@ MGNlIl0
 </pre><a href="#appendix-A.1-14" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-15">SHA-256 Hash: <code>QVNU9Xooq5vLnYtQ9uqYUgXcX6f4matA9rmjZ834b6E</code><a href="#appendix-A.1-15" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-16"><strong>Disclosure for 'family_name':</strong><a href="#appendix-A.1-16" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-16"><strong>Disclosure for <code>family_name</code>:</strong><a href="#appendix-A.1-16" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-17">
 <pre>WyJrdGRLMThLb3VJTFNMNUxQQWNoQ2tRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
 NzUzMCJd
@@ -2853,7 +2911,7 @@ NzUzMCJd
 </pre><a href="#appendix-A.1-19" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-20">SHA-256 Hash: <code>geqKIxiKSSJyPshE7AQF36kqp8Plu8DHO8HvZNshLww</code><a href="#appendix-A.1-20" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-21"><strong>Disclosure for 'email':</strong><a href="#appendix-A.1-21" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-21"><strong>Disclosure for <code>email</code>:</strong><a href="#appendix-A.1-21" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-22">
 <pre>WyJvMFZZMXdGaXE5TUNuOGlobkdfQ3dRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
 bCBhZGRyZXNzXCJAXHU2NWU1XHU2NzJjLmNvbSJd
@@ -2866,7 +2924,7 @@ address\"@\u65e5\u672c.com"]
 </pre><a href="#appendix-A.1-24" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-25">SHA-256 Hash: <code>_fWXPu-XKuF-TuGoKSoGdTeT_vqxWtkftXuDRaKZJL8</code><a href="#appendix-A.1-25" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-26"><strong>Disclosure for 'phone_number':</strong><a href="#appendix-A.1-26" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-26"><strong>Disclosure for <code>phone_number</code>:</strong><a href="#appendix-A.1-26" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-27">
 <pre>WyIwaldnSk0xUk5YNWJWZlFyclRyc0hnIiwgInBob25lX251bWJlciIsICIxMjM0NTYi
 XQ
@@ -2878,7 +2936,7 @@ XQ
 </pre><a href="#appendix-A.1-29" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-30">SHA-256 Hash: <code>9NEmRF3rhaSHqT05xEsEQ2d7V4HSNHahzdXyPPQ-Tvk</code><a href="#appendix-A.1-30" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-31"><strong>Disclosure for 'street_address':</strong><a href="#appendix-A.1-31" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-31"><strong>Disclosure for <code>street_address</code>:</strong><a href="#appendix-A.1-31" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-32">
 <pre>WyJCWEk3Q0FqVEUzSHBMclVDS2FlYlV3IiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
 MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTcxMlx1ZmYxNFx1
@@ -2892,7 +2950,7 @@ NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCJd
 </pre><a href="#appendix-A.1-34" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-35">SHA-256 Hash: <code>AviuWE4YRymLVuoNZkqad1iaYMGdzzjdstAjDKpb6lk</code><a href="#appendix-A.1-35" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-36"><strong>Disclosure for 'locality':</strong><a href="#appendix-A.1-36" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-36"><strong>Disclosure for <code>locality</code>:</strong><a href="#appendix-A.1-36" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-37">
 <pre>WyJwWjlPMHdTZ1dXVjZvT2hUbGhuT3NnIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
 Y1x1OTBmZCJd
@@ -2904,7 +2962,7 @@ Y1x1OTBmZCJd
 </pre><a href="#appendix-A.1-39" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-40">SHA-256 Hash: <code>aQhnCIssfb5upnNBd_uKcWNjYYyo7vhAmc_tV5XIGPU</code><a href="#appendix-A.1-40" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-41"><strong>Disclosure for 'region':</strong><a href="#appendix-A.1-41" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-41"><strong>Disclosure for <code>region</code>:</strong><a href="#appendix-A.1-41" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-42">
 <pre>WyJHZ0M2NmZ3eWU0Nlc2M21HbDY2Y05nIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
 XQ
@@ -2916,7 +2974,7 @@ XQ
 </pre><a href="#appendix-A.1-44" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-45">SHA-256 Hash: <code>6bDJBECANbRfJ0lu8ErtZkTwqSNMeiXcJt74_YtLpmQ</code><a href="#appendix-A.1-45" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-46"><strong>Disclosure for 'country':</strong><a href="#appendix-A.1-46" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-46"><strong>Disclosure for <code>country</code>:</strong><a href="#appendix-A.1-46" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-47">
 <pre>WyIwa1JnRExxQnY4UjEwNUs4bmU5LTZBIiwgImNvdW50cnkiLCAiSlAiXQ
 </pre><a href="#appendix-A.1-47" class="pilcrow">¶</a>
@@ -2927,7 +2985,7 @@ XQ
 </pre><a href="#appendix-A.1-49" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-50">SHA-256 Hash: <code>lokpwW_yH1SAqX0gmpoPDQ7IzagsrbdhjK7-mYVJi_A</code><a href="#appendix-A.1-50" class="pilcrow">¶</a></p>
-<p id="appendix-A.1-51"><strong>Disclosure for 'birthdate':</strong><a href="#appendix-A.1-51" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-51"><strong>Disclosure for <code>birthdate</code>:</strong><a href="#appendix-A.1-51" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-52">
 <pre>WyJiMC11SFlDTjFOaHFST1pIZ0tId1hnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
 Il0
@@ -3096,7 +3154,7 @@ encoded as JSON and signed as JWS compliant to <span>[<a href="#VC_DATA" class="
 </pre><a href="#appendix-A.4-9" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-10">Disclosures:<a href="#appendix-A.4-10" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-11"><strong>Disclosure for 'given_name':</strong><a href="#appendix-A.4-11" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-11"><strong>Disclosure for <code>given_name</code>:</strong><a href="#appendix-A.4-11" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-12">
 <pre>WyI5S05NMUxWcU1PVXR6Rk9iSFV4Q2J3IiwgImdpdmVuX25hbWUiLCAiSm9obiJd
 </pre><a href="#appendix-A.4-12" class="pilcrow">¶</a>
@@ -3107,7 +3165,7 @@ encoded as JSON and signed as JWS compliant to <span>[<a href="#VC_DATA" class="
 </pre><a href="#appendix-A.4-14" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-15">SHA-256 Hash: <code>jIjo9ElQ4Ng2mMzs0SoWq2molpyU80OE_LENjk2Ha_8</code><a href="#appendix-A.4-15" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-16"><strong>Disclosure for 'family_name':</strong><a href="#appendix-A.4-16" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-16"><strong>Disclosure for <code>family_name</code>:</strong><a href="#appendix-A.4-16" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-17">
 <pre>WyJJeC1jVTQzcXpBUFhvU2xZclF3RnRnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
 </pre><a href="#appendix-A.4-17" class="pilcrow">¶</a>
@@ -3118,7 +3176,7 @@ encoded as JSON and signed as JWS compliant to <span>[<a href="#VC_DATA" class="
 </pre><a href="#appendix-A.4-19" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-20">SHA-256 Hash: <code>w9rrWnA1RQ5dUOBaJDKGfAgtiW12obi1joeF_oLTaZ0</code><a href="#appendix-A.4-20" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-21"><strong>Disclosure for 'email':</strong><a href="#appendix-A.4-21" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-21"><strong>Disclosure for <code>email</code>:</strong><a href="#appendix-A.4-21" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-22">
 <pre>WyJrbnFPOXJYYldqc2llOEtTMkJJSkFRIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
 ZS5jb20iXQ
@@ -3130,7 +3188,7 @@ ZS5jb20iXQ
 </pre><a href="#appendix-A.4-24" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-25">SHA-256 Hash: <code>NVTo4oQvI0kuqdMYeb6M_sp_ByUY7d4zcLfHB483aVY</code><a href="#appendix-A.4-25" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-26"><strong>Disclosure for 'phone_number':</strong><a href="#appendix-A.4-26" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-26"><strong>Disclosure for <code>phone_number</code>:</strong><a href="#appendix-A.4-26" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-27">
 <pre>WyJSbVdDWEhxaE41TDg2SllqOUdYN0h3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
 NTU1LTAxMDEiXQ
@@ -3142,7 +3200,7 @@ NTU1LTAxMDEiXQ
 </pre><a href="#appendix-A.4-29" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-30">SHA-256 Hash: <code>zOJJSAmcB0OqPmFkOZebY70hHI3GpJC1x4beJRtIPbM</code><a href="#appendix-A.4-30" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-31"><strong>Disclosure for 'street_address':</strong><a href="#appendix-A.4-31" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-31"><strong>Disclosure for <code>street_address</code>:</strong><a href="#appendix-A.4-31" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-32">
 <pre>WyJjTE84ZnZpNlVHYUstbF91QmFJYTVRIiwgInN0cmVldF9hZGRyZXNzIiwgIjEyMyBN
 YWluIFN0Il0
@@ -3154,7 +3212,7 @@ YWluIFN0Il0
 </pre><a href="#appendix-A.4-34" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-35">SHA-256 Hash: <code>Hl_wpSSSagpXtSk_rGoE-xkYGVnIHBO-ZzhUWchy8bo</code><a href="#appendix-A.4-35" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-36"><strong>Disclosure for 'locality':</strong><a href="#appendix-A.4-36" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-36"><strong>Disclosure for <code>locality</code>:</strong><a href="#appendix-A.4-36" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-37">
 <pre>WyJOSzBZQU1MWUwtLXRVdi1EdGNoaU1RIiwgImxvY2FsaXR5IiwgIkFueXRvd24iXQ
 </pre><a href="#appendix-A.4-37" class="pilcrow">¶</a>
@@ -3165,7 +3223,7 @@ YWluIFN0Il0
 </pre><a href="#appendix-A.4-39" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-40">SHA-256 Hash: <code>4zIfrBGk3TStRDz_wlxi4VgYDza81mBs_zeJ84czsS4</code><a href="#appendix-A.4-40" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-41"><strong>Disclosure for 'region':</strong><a href="#appendix-A.4-41" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-41"><strong>Disclosure for <code>region</code>:</strong><a href="#appendix-A.4-41" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-42">
 <pre>WyI3c3FoSU1aMlkzOHM4aWxaY012c2RRIiwgInJlZ2lvbiIsICJBbnlzdGF0ZSJd
 </pre><a href="#appendix-A.4-42" class="pilcrow">¶</a>
@@ -3176,7 +3234,7 @@ YWluIFN0Il0
 </pre><a href="#appendix-A.4-44" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-45">SHA-256 Hash: <code>ySoQUT3JlKF5NdTPMWzmlDamB4TY2EMmGCgrzzJzih0</code><a href="#appendix-A.4-45" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-46"><strong>Disclosure for 'country':</strong><a href="#appendix-A.4-46" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-46"><strong>Disclosure for <code>country</code>:</strong><a href="#appendix-A.4-46" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-47">
 <pre>WyJISXlPZXkzNXEzX0ZTbDRVV0g2Mm5BIiwgImNvdW50cnkiLCAiVVMiXQ
 </pre><a href="#appendix-A.4-47" class="pilcrow">¶</a>
@@ -3187,7 +3245,7 @@ YWluIFN0Il0
 </pre><a href="#appendix-A.4-49" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-50">SHA-256 Hash: <code>0mcZNz0nIGNYBI4WgKJFx9mjaaB10E59Bc_pefmm544</code><a href="#appendix-A.4-50" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-51"><strong>Disclosure for 'birthdate':</strong><a href="#appendix-A.4-51" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-51"><strong>Disclosure for <code>birthdate</code>:</strong><a href="#appendix-A.4-51" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-52">
 <pre>WyJpUU5VWU9tblo1N1Z5VHBRaGZnV2lnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
 Il0
@@ -3199,7 +3257,7 @@ Il0
 </pre><a href="#appendix-A.4-54" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-55">SHA-256 Hash: <code>Um7LRM6Ol51wJZLobMeREW6HsMyO3DCCHnWtaikD-40</code><a href="#appendix-A.4-55" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-56"><strong>Disclosure for 'is<em>over</em>18':</strong><a href="#appendix-A.4-56" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-56"><strong>Disclosure for <code>is_over_18</code>:</strong><a href="#appendix-A.4-56" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-57">
 <pre>WyJ0cmNEb1BJUDVzeW5wWFhZU0dFc0FRIiwgImlzX292ZXJfMTgiLCB0cnVlXQ
 </pre><a href="#appendix-A.4-57" class="pilcrow">¶</a>
@@ -3210,7 +3268,7 @@ Il0
 </pre><a href="#appendix-A.4-59" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-60">SHA-256 Hash: <code>8wawaYT3XNlnl0zUdP8Xri1252yHK6pjgr8JInBzMQg</code><a href="#appendix-A.4-60" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-61"><strong>Disclosure for 'is<em>over</em>21':</strong><a href="#appendix-A.4-61" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-61"><strong>Disclosure for <code>is_over_21</code>:</strong><a href="#appendix-A.4-61" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-62">
 <pre>WyJRMnhzRWpnUnBhSE5rdUdEM2tUNUpnIiwgImlzX292ZXJfMjEiLCB0cnVlXQ
 </pre><a href="#appendix-A.4-62" class="pilcrow">¶</a>
@@ -3221,7 +3279,7 @@ Il0
 </pre><a href="#appendix-A.4-64" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.4-65">SHA-256 Hash: <code>UQ6IHUAtHqW8Xcik7GqVikWtoviseS4BKjvCmmon6xA</code><a href="#appendix-A.4-65" class="pilcrow">¶</a></p>
-<p id="appendix-A.4-66"><strong>Disclosure for 'is<em>over</em>65':</strong><a href="#appendix-A.4-66" class="pilcrow">¶</a></p>
+<p id="appendix-A.4-66"><strong>Disclosure for <code>is_over_65</code>:</strong><a href="#appendix-A.4-66" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.4-67">
 <pre>WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ
 </pre><a href="#appendix-A.4-67" class="pilcrow">¶</a>
@@ -3255,6 +3313,8 @@ Il0
         <li class="normal" id="appendix-B-3.5">Examples are now pulled in from the examples directory, not inlined.<a href="#appendix-B-3.5" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="appendix-B-3.6">Updated and automated the W3C VC example.<a href="#appendix-B-3.6" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-3.7">Added examples with multibyte characters to show that the specification and demo code work well with UTF-8.<a href="#appendix-B-3.7" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="appendix-B-4">-02<a href="#appendix-B-4" class="pilcrow">¶</a></p>

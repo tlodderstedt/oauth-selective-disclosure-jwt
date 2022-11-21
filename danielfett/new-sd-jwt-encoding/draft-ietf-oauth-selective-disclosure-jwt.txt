@@ -79,7 +79,10 @@ Table of Contents
        5.2.3.  Holder Public Key Claim
      5.3.  Example 1: SD-JWT
      5.4.  Combined Format for Issuance
+       5.4.1.  Example
      5.5.  Combined Format for Presentation
+       5.5.1.  Enabling Holder Binding
+       5.5.2.  Example
    6.  Verification and Processing
      6.1.  Processing by the Holder
      6.2.  Verification by the Verifier
@@ -686,7 +689,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    The Issuer would create the following Disclosure:
 
-   *Disclosure for 'address':*
+   *Disclosure for address:*
 
    WyJEa1daaVFLdW1SYXIzbHBmNHFFYlNBIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
    ZXNzIjogIlNjaHVsc3RyLiAxMiIsICJsb2NhbGl0eSI6ICJTY2h1bHBmb3J0YSIsICJy
@@ -724,7 +727,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    In this case, the Issuer would use the following data in the
    Disclosures for the address sub-claims:
 
-   *Disclosure for 'street_address':*
+   *Disclosure for street_address:*
 
    WyI0d3dqUzlyMm4tblBxdzNpTHR0TkFBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
    c3RyLiAxMiJd
@@ -735,7 +738,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: pEtkKwoFK_JHN7yNby0Lc_Jc10BAxCm5yXJjDbVehvU
 
-   *Disclosure for 'locality':*
+   *Disclosure for locality:*
 
    WyJXcEtIQmVTa3A5U2MyNVV4a1F1RmNRIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
    Il0
@@ -746,7 +749,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: nTzPZ3Q68z1Ko_9ao9LK0mSYXY5gY6UG6KEkQ_BdqU0
 
-   *Disclosure for 'region':*
+   *Disclosure for region:*
 
    WyIzSl9xWGctdUwxYzdtN1FoT0hUNTJnIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
    dCJd
@@ -757,7 +760,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: 9-VdSnvRTZNDo-4Bxcp3X-V9VtLOCRUkR6oLWZQl81I
 
-   *Disclosure for 'country':*
+   *Disclosure for country:*
 
    WyIwN2U3bWY2YWpTUDJjZkQ3NmJCZE93IiwgImNvdW50cnkiLCAiREUiXQ
 
@@ -791,7 +794,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    In this case, the Issuer would issue the following Disclosures:
 
-   *Disclosure for 'street_address':*
+   *Disclosure for street_address:*
 
    WyJkTWZMOXBrOVFXUUNPajJRVDA0c21BIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
    c3RyLiAxMiJd
@@ -802,7 +805,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: ToD9fSNGo_SOCnTM0r0AaGjdHEIh4doXinCkKjR2fk4
 
-   *Disclosure for 'locality':*
+   *Disclosure for locality:*
 
    WyJsNklkRC1FeDZ5eHFGck9DUjFNbktBIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
    Il0
@@ -813,7 +816,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: bIPnfvtg9QQSGd7W9srnYOVTK-sNUFz9kr1Js7XaU4E
 
-   *Disclosure for 'region':*
+   *Disclosure for region:*
 
    WyI3WFB4R21ldC1vaWFoOEhDdmU3bTJBIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
    dCJd
@@ -945,7 +948,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    The Issuer creates the following Disclosures:
 
-   *Disclosure for 'sub':*
+   *Disclosure for sub:*
 
    WyJkcVR2WE14UzBHYTNEb2FHbmU5eDBRIiwgInN1YiIsICJqb2huX2RvZV80MiJd
 
@@ -955,7 +958,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: ZkSJxxeGluIdYBb7CqkZbJVm0w2V5UrReNTzAQCYBjw
 
-   *Disclosure for 'given_name':*
+   *Disclosure for given_name:*
 
    WyIzanFjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
 
@@ -965,7 +968,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: qqvcqnczAMgYx7EykI6wwtspyvyvK790ge7MBbQ-Nus
 
-   *Disclosure for 'family_name':*
+   *Disclosure for family_name:*
 
    WyJxUVdtakpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
 
@@ -975,7 +978,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: l9qIJ9JTQwLG7OLEICTFBVxmArw8Pjy65dD6mtQVG5c
 
-   *Disclosure for 'email':*
+   *Disclosure for email:*
 
    WyJLVXhTNWhFX1hiVmFjckdBYzdFRnd3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
    ZS5jb20iXQ
@@ -986,7 +989,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: o1SAsJ33YMioO9pX5VeAM1lxuHF6hZW2kGdkKKBnVlo
 
-   *Disclosure for 'phone_number':*
+   *Disclosure for phone_number:*
 
    WyIzcXZWSjFCQURwSERTUzkzOVEtUml3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
    NTU1LTAxMDEiXQ
@@ -997,7 +1000,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: SY8n2BbkX9lrY3exHlSwPRFXoD09GF8a9CPO-G8j208
 
-   *Disclosure for 'address':*
+   *Disclosure for address:*
 
    WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
    ZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9u
@@ -1010,7 +1013,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    SHA-256 Hash: TPsGNPYA46wmBxfv2znOJhfdoN5Y1GkezbpaGZCT1ac
 
-   *Disclosure for 'birthdate':*
+   *Disclosure for birthdate:*
 
    WyJFUktNMENOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
    Il0
@@ -1038,6 +1041,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    The Disclosures and SD-JWT are implicitly linked through the digest
    values of the Disclosures included in the SD-JWT.
+
+5.4.1.  Example
 
    For Example 1, the Combined Format for Issuance looks as follows:
 
@@ -1092,12 +1097,38 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    The Holder MAY send any subset of the Disclosures to the Verifier,
    i.e., none, multiple, or all Disclosures.
 
+   A Holder MUST NOT send a Disclosure that was not included in the SD-
+   JWT or send a Disclosure more than once.
+
+5.5.1.  Enabling Holder Binding
+
    The Holder MAY add an optional JWT to prove Holder Binding to the
    Verifier.  The precise contents of the JWT are out of scope of this
    specification.  Usually, a nonce and aud claim are included to show
    that the proof is intended for the Verifier and to prevent replay
    attacks.  How the nonce or other claims are obtained by the Holder is
    out of scope of this specification.
+
+   Example Holder Binding JWT payload:
+
+   {
+     "nonce": "XZOUco1u_gEPknxS78sWWg",
+     "aud": "https://example.com/verifier",
+     "iat": 1669054203
+   }
+
+   Which is then signed by the Holder to create a JWT like the
+   following:
+
+   eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
+   ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
+   1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
+   DE2NjkwNTQyMDN9.h1BoAGgbK7q6flKDrZ_7e1_OV37Udo7uVW6Zs1hwHuWXSyEGSVKj
+   U-WQZJ6yXtSoZuMxK-fJrquGA8AvpKah3_XjJ-HOocrt1MlyXJ3aJQR7-3oDULY_zelN
+   sgmD0um6fyNdHu7diXWWXcmiWpEdo6DEHdBIGba6lSkG8GZvxcdbQGEq0ieKI0Krxzqw
+   1OMkeXu9XPbn8sFy5IRB6mMt3gDWJ998Sx-UjV51AVqWxAKFHz9ed2f_AcyPNPUzIwYn
+   -hQ-P3J-n00KDu80vaNbHJ7YRVOn2EThDoCz0q5nSqu6E8utxMcls90Lchd7Z3IKWbZx
+   luNxvqGBmU6GLZkTRg
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1109,10 +1140,13 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    If no Holder Binding JWT is included, the Combined Format for
    Presentation ends with the ~ character after the last Disclosure.
 
+5.5.2.  Example
+
    The following is a non-normative example of the contents of a
    Presentation for Example 1, disclosing the claims given_name,
    family_name, and address, as it would be sent from the Holder to the
-   Verifier.  There is also a Holder Binding JWT included.
+   Verifier.  The Holder Binding JWT as shown before is included as the
+   last element.
 
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
    UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ
@@ -1144,12 +1178,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
    a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
    fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIn0.XZ4d4taSLy2XZN34pjeMa-OidpN_kphd2
-   SB0ub15Il8NhjE3z11CQ4TrdIzeIiZGnNJqWTSe18vplkA4eR7qQa7y0BsdLnCcbt20b
-   3xe_gNzrAUBw00ajR_MXMLSz5x0ospAqub_kDjrUXBBDYqaGfD0gmY_4x9qgsRiNN6r0
-   j3KgWweSYrh_eh7H1JSTohI_rRHN8dajvskAniHtkZ3kUJvo9A7bUTID1v3QvCWgOumB
-   8aAmwu_jeaq8PS2HUVD3XF6ruT2--HqrmLwkUw6nhN-QYRr6_4cwCZleGsJAkwDu7Gl1
-   Ntp2YtT44bTMWxniSo539fU-Bv_ukyJOS1KuA
+   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQyMDN9.h1BoAGgb
+   K7q6flKDrZ_7e1_OV37Udo7uVW6Zs1hwHuWXSyEGSVKjU-WQZJ6yXtSoZuMxK-fJrquG
+   A8AvpKah3_XjJ-HOocrt1MlyXJ3aJQR7-3oDULY_zelNsgmD0um6fyNdHu7diXWWXcmi
+   WpEdo6DEHdBIGba6lSkG8GZvxcdbQGEq0ieKI0Krxzqw1OMkeXu9XPbn8sFy5IRB6mMt
+   3gDWJ998Sx-UjV51AVqWxAKFHz9ed2f_AcyPNPUzIwYn-hQ-P3J-n00KDu80vaNbHJ7Y
+   RVOn2EThDoCz0q5nSqu6E8utxMcls90Lchd7Z3IKWbZxluNxvqGBmU6GLZkTRg
 
 6.  Verification and Processing
 
@@ -1252,7 +1286,9 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
                    Presentation.
 
                2.  If the claim name already exists, the Verifier MUST
-                   reject the Presentation.
+                   reject the Presentation.  Note that this also means
+                   that if a Holder sends the same Disclosure multiple
+                   times, the Verifier MUST reject the Presentation.
 
                3.  If the claim value is an object and contains an _sd
                    key, the Verifier MUST reject the Presentation.
@@ -1613,7 +1649,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    The Disclosures for this SD-JWT are as follows:
 
-   *Disclosure for 'sub':*
+   *Disclosure for sub:*
 
    WyJOMzJUYXZ2bnByVjB4UTVYQl9PaElRIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
    MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
@@ -1625,7 +1661,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: QP1mnvUz-ZblKK2hiD6X7sDYaI8YTX79IWAZqM1LX64
 
-   *Disclosure for 'given_name':*
+   *Disclosure for given_name:*
 
    WyJyU3pjLVBFVEVhaDFqX1dKU2ItT1NRIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
    MGNlIl0
@@ -1636,7 +1672,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: QVNU9Xooq5vLnYtQ9uqYUgXcX6f4matA9rmjZ834b6E
 
-   *Disclosure for 'family_name':*
+   *Disclosure for family_name:*
 
    WyJrdGRLMThLb3VJTFNMNUxQQWNoQ2tRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
    NzUzMCJd
@@ -1647,7 +1683,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: geqKIxiKSSJyPshE7AQF36kqp8Plu8DHO8HvZNshLww
 
-   *Disclosure for 'email':*
+   *Disclosure for email:*
 
    WyJvMFZZMXdGaXE5TUNuOGlobkdfQ3dRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
    bCBhZGRyZXNzXCJAXHU2NWU1XHU2NzJjLmNvbSJd
@@ -1659,7 +1695,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: _fWXPu-XKuF-TuGoKSoGdTeT_vqxWtkftXuDRaKZJL8
 
-   *Disclosure for 'phone_number':*
+   *Disclosure for phone_number:*
 
    WyIwaldnSk0xUk5YNWJWZlFyclRyc0hnIiwgInBob25lX251bWJlciIsICIxMjM0NTYi
    XQ
@@ -1670,7 +1706,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: 9NEmRF3rhaSHqT05xEsEQ2d7V4HSNHahzdXyPPQ-Tvk
 
-   *Disclosure for 'street_address':*
+   *Disclosure for street_address:*
 
    WyJCWEk3Q0FqVEUzSHBMclVDS2FlYlV3IiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
    MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTcxMlx1ZmYxNFx1
@@ -1683,7 +1719,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: AviuWE4YRymLVuoNZkqad1iaYMGdzzjdstAjDKpb6lk
 
-   *Disclosure for 'locality':*
+   *Disclosure for locality:*
 
    WyJwWjlPMHdTZ1dXVjZvT2hUbGhuT3NnIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
    Y1x1OTBmZCJd
@@ -1694,7 +1730,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: aQhnCIssfb5upnNBd_uKcWNjYYyo7vhAmc_tV5XIGPU
 
-   *Disclosure for 'region':*
+   *Disclosure for region:*
 
    WyJHZ0M2NmZ3eWU0Nlc2M21HbDY2Y05nIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
    XQ
@@ -1705,7 +1741,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: 6bDJBECANbRfJ0lu8ErtZkTwqSNMeiXcJt74_YtLpmQ
 
-   *Disclosure for 'country':*
+   *Disclosure for country:*
 
    WyIwa1JnRExxQnY4UjEwNUs4bmU5LTZBIiwgImNvdW50cnkiLCAiSlAiXQ
 
@@ -1715,7 +1751,7 @@ A.1.  Example 2a: Handling Structured Claims
 
    SHA-256 Hash: lokpwW_yH1SAqX0gmpoPDQ7IzagsrbdhjK7-mYVJi_A
 
-   *Disclosure for 'birthdate':*
+   *Disclosure for birthdate:*
 
    WyJiMC11SFlDTjFOaHFST1pIZ0tId1hnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
    Il0
@@ -1888,7 +1924,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    Disclosures:
 
-   *Disclosure for 'given_name':*
+   *Disclosure for given_name:*
 
    WyI5S05NMUxWcU1PVXR6Rk9iSFV4Q2J3IiwgImdpdmVuX25hbWUiLCAiSm9obiJd
 
@@ -1898,7 +1934,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: jIjo9ElQ4Ng2mMzs0SoWq2molpyU80OE_LENjk2Ha_8
 
-   *Disclosure for 'family_name':*
+   *Disclosure for family_name:*
 
    WyJJeC1jVTQzcXpBUFhvU2xZclF3RnRnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
 
@@ -1908,7 +1944,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: w9rrWnA1RQ5dUOBaJDKGfAgtiW12obi1joeF_oLTaZ0
 
-   *Disclosure for 'email':*
+   *Disclosure for email:*
 
    WyJrbnFPOXJYYldqc2llOEtTMkJJSkFRIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
    ZS5jb20iXQ
@@ -1919,7 +1955,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: NVTo4oQvI0kuqdMYeb6M_sp_ByUY7d4zcLfHB483aVY
 
-   *Disclosure for 'phone_number':*
+   *Disclosure for phone_number:*
 
    WyJSbVdDWEhxaE41TDg2SllqOUdYN0h3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
    NTU1LTAxMDEiXQ
@@ -1930,7 +1966,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: zOJJSAmcB0OqPmFkOZebY70hHI3GpJC1x4beJRtIPbM
 
-   *Disclosure for 'street_address':*
+   *Disclosure for street_address:*
 
    WyJjTE84ZnZpNlVHYUstbF91QmFJYTVRIiwgInN0cmVldF9hZGRyZXNzIiwgIjEyMyBN
    YWluIFN0Il0
@@ -1941,7 +1977,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: Hl_wpSSSagpXtSk_rGoE-xkYGVnIHBO-ZzhUWchy8bo
 
-   *Disclosure for 'locality':*
+   *Disclosure for locality:*
 
    WyJOSzBZQU1MWUwtLXRVdi1EdGNoaU1RIiwgImxvY2FsaXR5IiwgIkFueXRvd24iXQ
 
@@ -1951,7 +1987,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: 4zIfrBGk3TStRDz_wlxi4VgYDza81mBs_zeJ84czsS4
 
-   *Disclosure for 'region':*
+   *Disclosure for region:*
 
    WyI3c3FoSU1aMlkzOHM4aWxaY012c2RRIiwgInJlZ2lvbiIsICJBbnlzdGF0ZSJd
 
@@ -1961,7 +1997,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: ySoQUT3JlKF5NdTPMWzmlDamB4TY2EMmGCgrzzJzih0
 
-   *Disclosure for 'country':*
+   *Disclosure for country:*
 
    WyJISXlPZXkzNXEzX0ZTbDRVV0g2Mm5BIiwgImNvdW50cnkiLCAiVVMiXQ
 
@@ -1971,7 +2007,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: 0mcZNz0nIGNYBI4WgKJFx9mjaaB10E59Bc_pefmm544
 
-   *Disclosure for 'birthdate':*
+   *Disclosure for birthdate:*
 
    WyJpUU5VWU9tblo1N1Z5VHBRaGZnV2lnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
    Il0
@@ -1982,7 +2018,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: Um7LRM6Ol51wJZLobMeREW6HsMyO3DCCHnWtaikD-40
 
-   *Disclosure for 'is_over_18':*
+   *Disclosure for is_over_18:*
 
    WyJ0cmNEb1BJUDVzeW5wWFhZU0dFc0FRIiwgImlzX292ZXJfMTgiLCB0cnVlXQ
 
@@ -1992,7 +2028,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: 8wawaYT3XNlnl0zUdP8Xri1252yHK6pjgr8JInBzMQg
 
-   *Disclosure for 'is_over_21':*
+   *Disclosure for is_over_21:*
 
    WyJRMnhzRWpnUnBhSE5rdUdEM2tUNUpnIiwgImlzX292ZXJfMjEiLCB0cnVlXQ
 
@@ -2002,7 +2038,7 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    SHA-256 Hash: UQ6IHUAtHqW8Xcik7GqVikWtoviseS4BKjvCmmon6xA
 
-   *Disclosure for 'is_over_65':*
+   *Disclosure for is_over_65:*
 
    WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ
 
@@ -2034,6 +2070,9 @@ Appendix B.  Document History
       inlined.
 
    *  Updated and automated the W3C VC example.
+
+   *  Added examples with multibyte characters to show that the
+      specification and demo code work well with UTF-8.
 
    -02
 
