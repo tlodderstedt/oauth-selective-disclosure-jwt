@@ -80,7 +80,6 @@ Table of Contents
      5.3.  Example 1: SD-JWT
      5.4.  Combined Format for Issuance
      5.5.  Combined Format for Presentation
-     5.6.  Example: Combined Format for Presentation for Example 1
    6.  Verification and Processing
      6.1.  Processing by the Holder
      6.2.  Verification by the Verifier
@@ -656,7 +655,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
      "address": {
        "street_address": "Schulstr. 12",
        "locality": "Schulpforta",
-       "region": "Sachsen-Anhalte",
+       "region": "Sachsen-Anhalt",
        "country": "DE"
      }
    }
@@ -676,7 +675,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    {
      "_sd": [
-       "Ha16ca-c-KXYlAcp9VfUL5nZ8yIuneE1sNI3h_swenk"
+       "vNhbLbXx6SFqIJZn5lNXyrASjpaXGUT2uNGuy_gSMbw"
      ],
      "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
      "iss": "https://example.com/issuer",
@@ -689,17 +688,17 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    *Disclosure for 'address':*
 
-   WyJnX0Q5SmtWMjk4UmZBa3gtRHJwQlRBIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
+   WyJEa1daaVFLdW1SYXIzbHBmNHFFYlNBIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
    ZXNzIjogIlNjaHVsc3RyLiAxMiIsICJsb2NhbGl0eSI6ICJTY2h1bHBmb3J0YSIsICJy
-   ZWdpb24iOiAiU2FjaHNlbi1BbmhhbHRlIiwgImNvdW50cnkiOiAiREUifV0
+   ZWdpb24iOiAiU2FjaHNlbi1BbmhhbHQiLCAiY291bnRyeSI6ICJERSJ9XQ
 
    Contents:
 
-   ["g_D9JkV298RfAkx-DrpBTA", "address", {"street_address": "Schulstr.
-   12", "locality": "Schulpforta", "region": "Sachsen-Anhalte",
+   ["DkWZiQKumRar3lpf4qEbSA", "address", {"street_address": "Schulstr.
+   12", "locality": "Schulpforta", "region": "Sachsen-Anhalt",
    "country": "DE"}]
 
-   SHA-256 Hash: Ha16ca-c-KXYlAcp9VfUL5nZ8yIuneE1sNI3h_swenk
+   SHA-256 Hash: vNhbLbXx6SFqIJZn5lNXyrASjpaXGUT2uNGuy_gSMbw
 
 5.2.1.5.2.  Option 2: Structured SD-JWT
 
@@ -710,10 +709,10 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
      "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
      "address": {
        "_sd": [
-         "5GcOWoYSuDtJ6mmwOVBpohx7km5Jn6fqV3EuKjbnx1E",
-         "Y9YwGhQiiy6woOi5erWQdHfHT9ZC-WqBWcMaxmiabyo",
-         "YVeajj6L3bQvb_uSgWsqi5A9JbWtwszFWbtzlBEMZ1s",
-         "i8GJhq3bHnL0RImnEePpgAiKMFWjVhhdXy0u5ksfXIU"
+         "7pHe1uQ5uSClgAxXdG0E6dKnBgXcxEO1zvoQO9E5Lr4",
+         "9-VdSnvRTZNDo-4Bxcp3X-V9VtLOCRUkR6oLWZQl81I",
+         "nTzPZ3Q68z1Ko_9ao9LK0mSYXY5gY6UG6KEkQ_BdqU0",
+         "pEtkKwoFK_JHN7yNby0Lc_Jc10BAxCm5yXJjDbVehvU"
        ]
      },
      "iss": "https://example.com/issuer",
@@ -727,46 +726,46 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    *Disclosure for 'street_address':*
 
-   WyJTY3MwWEtrLUVpYmg3bGV3T0pXTmVBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
+   WyI0d3dqUzlyMm4tblBxdzNpTHR0TkFBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
    c3RyLiAxMiJd
 
    Contents:
 
-   ["Scs0XKk-Eibh7lewOJWNeA", "street_address", "Schulstr. 12"]
+   ["4wwjS9r2n-nPqw3iLttNAA", "street_address", "Schulstr. 12"]
 
-   SHA-256 Hash: i8GJhq3bHnL0RImnEePpgAiKMFWjVhhdXy0u5ksfXIU
+   SHA-256 Hash: pEtkKwoFK_JHN7yNby0Lc_Jc10BAxCm5yXJjDbVehvU
 
    *Disclosure for 'locality':*
 
-   WyJaY1lTYk5jV3BIODdIZ1p1X2J3azB3IiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
+   WyJXcEtIQmVTa3A5U2MyNVV4a1F1RmNRIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
    Il0
 
    Contents:
 
-   ["ZcYSbNcWpH87HgZu_bwk0w", "locality", "Schulpforta"]
+   ["WpKHBeSkp9Sc25UxkQuFcQ", "locality", "Schulpforta"]
 
-   SHA-256 Hash: 5GcOWoYSuDtJ6mmwOVBpohx7km5Jn6fqV3EuKjbnx1E
+   SHA-256 Hash: nTzPZ3Q68z1Ko_9ao9LK0mSYXY5gY6UG6KEkQ_BdqU0
 
    *Disclosure for 'region':*
 
-   WyJidGNydXFNbHJwSzY4MVBGQVZMNnRRIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
-   dGUiXQ
+   WyIzSl9xWGctdUwxYzdtN1FoT0hUNTJnIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
+   dCJd
 
    Contents:
 
-   ["btcruqMlrpK681PFAVL6tQ", "region", "Sachsen-Anhalte"]
+   ["3J_qXg-uL1c7m7QhOHT52g", "region", "Sachsen-Anhalt"]
 
-   SHA-256 Hash: YVeajj6L3bQvb_uSgWsqi5A9JbWtwszFWbtzlBEMZ1s
+   SHA-256 Hash: 9-VdSnvRTZNDo-4Bxcp3X-V9VtLOCRUkR6oLWZQl81I
 
    *Disclosure for 'country':*
 
-   WyJBUHdBS0NpVWktNlJSSXk5aWNCazBBIiwgImNvdW50cnkiLCAiREUiXQ
+   WyIwN2U3bWY2YWpTUDJjZkQ3NmJCZE93IiwgImNvdW50cnkiLCAiREUiXQ
 
    Contents:
 
-   ["APwAKCiUi-6RRIy9icBk0A", "country", "DE"]
+   ["07e7mf6ajSP2cfD76bBdOw", "country", "DE"]
 
-   SHA-256 Hash: Y9YwGhQiiy6woOi5erWQdHfHT9ZC-WqBWcMaxmiabyo
+   SHA-256 Hash: 7pHe1uQ5uSClgAxXdG0E6dKnBgXcxEO1zvoQO9E5Lr4
 
 5.2.1.5.3.  Option 3: Structured SD-JWT, only some properties
             selectively disclosable
@@ -778,9 +777,9 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
      "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
      "address": {
        "_sd": [
-         "BMD-ZCkL825F6P55v7SIUUnczRiP7pGd8nK2vH4iBWo",
-         "COuVnjyZqf50HTjQotT4vEXkJrGYRaiFs8_8bdJaNIo",
-         "_oY3EClWWHrxSnS_04-lnZv2U2mCc6Hu-NgwBOnLYsY"
+         "ToD9fSNGo_SOCnTM0r0AaGjdHEIh4doXinCkKjR2fk4",
+         "bIPnfvtg9QQSGd7W9srnYOVTK-sNUFz9kr1Js7XaU4E",
+         "xWq47lkkG-K5CYfcWtHqwi9CbL9LCP3q8v5YsSlmoUQ"
        ],
        "country": "DE"
      },
@@ -794,36 +793,36 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    *Disclosure for 'street_address':*
 
-   WyIxMnV3T0E3TFlHNjRQVUVzbnBaTjNBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
+   WyJkTWZMOXBrOVFXUUNPajJRVDA0c21BIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
    c3RyLiAxMiJd
 
    Contents:
 
-   ["12uwOA7LYG64PUEsnpZN3A", "street_address", "Schulstr. 12"]
+   ["dMfL9pk9QWQCOj2QT04smA", "street_address", "Schulstr. 12"]
 
-   SHA-256 Hash: _oY3EClWWHrxSnS_04-lnZv2U2mCc6Hu-NgwBOnLYsY
+   SHA-256 Hash: ToD9fSNGo_SOCnTM0r0AaGjdHEIh4doXinCkKjR2fk4
 
    *Disclosure for 'locality':*
 
-   WyIwVnJZV2szTHBIS2pWbWVRNnhGRkRRIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
+   WyJsNklkRC1FeDZ5eHFGck9DUjFNbktBIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
    Il0
 
    Contents:
 
-   ["0VrYWk3LpHKjVmeQ6xFFDQ", "locality", "Schulpforta"]
+   ["l6IdD-Ex6yxqFrOCR1MnKA", "locality", "Schulpforta"]
 
-   SHA-256 Hash: BMD-ZCkL825F6P55v7SIUUnczRiP7pGd8nK2vH4iBWo
+   SHA-256 Hash: bIPnfvtg9QQSGd7W9srnYOVTK-sNUFz9kr1Js7XaU4E
 
    *Disclosure for 'region':*
 
-   WyJVenY3T09aNXpublpDLWhtc0p2Rm1nIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
-   dGUiXQ
+   WyI3WFB4R21ldC1vaWFoOEhDdmU3bTJBIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
+   dCJd
 
    Contents:
 
-   ["Uzv7OOZ5znnZC-hmsJvFmg", "region", "Sachsen-Anhalte"]
+   ["7XPxGmet-oiah8HCve7m2A", "region", "Sachsen-Anhalt"]
 
-   SHA-256 Hash: COuVnjyZqf50HTjQotT4vEXkJrGYRaiFs8_8bdJaNIo
+   SHA-256 Hash: xWq47lkkG-K5CYfcWtHqwi9CbL9LCP3q8v5YsSlmoUQ
 
 5.2.2.  Digest Derivation Function Claim
 
@@ -866,12 +865,11 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 5.3.  Example 1: SD-JWT
 
-   This example, Example 2a in Appendix A.1 and Example 2b in
-   Appendix A.2 use the following object as the set of claims that the
+   This example uses the following object as the set of claims that the
    Issuer is issuing:
 
    {
-     "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
+     "sub": "john_doe_42",
      "given_name": "John",
      "family_name": "Doe",
      "email": "johndoe@example.com",
@@ -891,119 +889,137 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    {
      "_sd": [
-       "6LlIUDMsteqLDUTuSeYbyGfYR3HFwlAuMFprV71uDbk",
-       "JNnnsE7gNggbEUi38jM2qv6KTKgzO0EeRG8d2BVQ3Rs",
-       "STiegE8aBohuzf07cCcOkvMWKjw-dfHAwkIXeqxN5A8",
-       "VDGtd7GETe7AkvIzmTF3iVJsXHvUAErJelozsscllVU",
-       "Yrvc0XisV6BOe1ZtWbvNQoD0mw3jBhpkojmHkyGv_ZQ",
-       "v-Q-MMj-y-fd6EmPO14RlBZVf3Glc8xTqWYqZdKGyvk",
-       "yJarAJIcdhdR2vG-vRzYXGu3feAvxM9vPWuEXPzXY8U"
+       "NYCoSRKEYwXdpe5yduJXCxxhynEU8z-b4TyNiap77UY",
+       "SY8n2BbkX9lrY3exHlSwPRFXoD09GF8a9CPO-G8j208",
+       "TPsGNPYA46wmBxfv2znOJhfdoN5Y1GkezbpaGZCT1ac",
+       "ZkSJxxeGluIdYBb7CqkZbJVm0w2V5UrReNTzAQCYBjw",
+       "l9qIJ9JTQwLG7OLEICTFBVxmArw8Pjy65dD6mtQVG5c",
+       "o1SAsJ33YMioO9pX5VeAM1lxuHF6hZW2kGdkKKBnVlo",
+       "qqvcqnczAMgYx7EykI6wwtspyvyvK790ge7MBbQ-Nus"
      ],
      "iss": "https://example.com/issuer",
      "iat": 1516239022,
      "exp": 1516247022,
-     "sd_digest_derivation_alg": "sha-256"
+     "sd_digest_derivation_alg": "sha-256",
+     "cnf": {
+       "jwk": {
+         "kty": "RSA",
+         "n": "pm4bOHBg-oYhAyPWzR56AWX3rUIXp11_ICDkGgS6W3ZWLts-hzwI3x65
+           659kg4hVo9dbGoCJE3ZGF_eaetE30UhBUEgpGwrDrQiJ9zqprmcFfr3qvvkG
+           jtth8Zgl1eM2bJcOwE7PCBHWTKWYs152R7g6Jg2OVph-a8rq-q79MhKG5QoW
+           _mTz10QT_6H4c7PjWG1fjh8hpWNnbP_pv6d1zSwZfc5fl6yVRL0DV0V3lGHK
+           e2Wqf_eNGjBrBLVklDTk8-stX_MWLcR-EGmXAOv0UBWitS_dXJKJu-vXJyw1
+           4nHSGuxTIK2hx1pttMft9CsvqimXKeDTU14qQL1eE7ihcw",
+         "e": "AQAB"
+       }
+     }
    }
 
    The SD-JWT is then signed by the Issuer to create a JWT like the
    following:
 
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
-   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjZMbElVRE1zdGVxTERVVHVTZVlie
-   UdmWVIzSEZ3bEF1TUZwclY3MXVEYmsiLCAiSk5ubnNFN2dOZ2diRVVpMzhqTTJxdjZLV
-   Etnek8wRWVSRzhkMkJWUTNScyIsICJTVGllZ0U4YUJvaHV6ZjA3Y0NjT2t2TVdLanctZ
-   GZIQXdrSVhlcXhONUE4IiwgIlZER3RkN0dFVGU3QWt2SXptVEYzaVZKc1hIdlVBRXJKZ
-   WxvenNzY2xsVlUiLCAiWXJ2YzBYaXNWNkJPZTFadFdidk5Rb0QwbXczakJocGtvam1Ia
-   3lHdl9aUSIsICJ2LVEtTU1qLXktZmQ2RW1QTzE0UmxCWlZmM0dsYzh4VHFXWXFaZEtHe
-   XZrIiwgInlKYXJBSkljZGhkUjJ2Ry12UnpZWEd1M2ZlQXZ4TTl2UFd1RVhQelhZOFUiX
+   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ
+   3h4aHluRVU4ei1iNFR5TmlhcDc3VVkiLCAiU1k4bjJCYmtYOWxyWTNleEhsU3dQUkZYb
+   0QwOUdGOGE5Q1BPLUc4ajIwOCIsICJUUHNHTlBZQTQ2d21CeGZ2MnpuT0poZmRvTjVZM
+   UdrZXpicGFHWkNUMWFjIiwgIlprU0p4eGVHbHVJZFlCYjdDcWtaYkpWbTB3MlY1VXJSZ
+   U5UekFRQ1lCanciLCAibDlxSUo5SlRRd0xHN09MRUlDVEZCVnhtQXJ3OFBqeTY1ZEQ2b
+   XRRVkc1YyIsICJvMVNBc0ozM1lNaW9POXBYNVZlQU0xbHh1SEY2aFpXMmtHZGtLS0JuV
+   mxvIiwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiX
    SwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2M
    jM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZ
-   yI6ICJzaGEtMjU2In0.KVFIEs0SUWmxNjzn1ETMVUQYnYtZRecOn0nrGSchC6IsJPTpv
-   grOfk8Ydpv9IIWVoj3d-vQQekM2I6fdGj01f0Wdoj4HREUDM83tGq0-bzcJlzhDN-maq
-   Iuh4zCYRUGZddbxQqsqaQDLIIBnPoKDldse13TuJlsqMQh5PoFUdkwRg1_oiAjFfv-D1
-   hynI0zUDtgKs2Ef4lX1Lsv3Je3w3tBOy8UiIqfWtfs6SQxSdDJaC-7SbWR1zgtE6mcoK
-   Qg9qXJJ9wsdTg7mzKUq4wnsqIoOxaYcRD5YpHvlBdQejtg9GkQTuN-SsDXiSEXV93ClO
-   Kw7vLZCM0GopE4Q9KHmog
+   yI6ICJzaGEtMjU2IiwgImNuZiI6IHsiandrIjogeyJrdHkiOiAiUlNBIiwgIm4iOiAic
+   G00Yk9IQmctb1loQXlQV3pSNTZBV1gzclVJWHAxMV9JQ0RrR2dTNlczWldMdHMtaHp3S
+   TN4NjU2NTlrZzRoVm85ZGJHb0NKRTNaR0ZfZWFldEUzMFVoQlVFZ3BHd3JEclFpSjl6c
+   XBybWNGZnIzcXZ2a0dqdHRoOFpnbDFlTTJiSmNPd0U3UENCSFdUS1dZczE1MlI3ZzZKZ
+   zJPVnBoLWE4cnEtcTc5TWhLRzVRb1dfbVR6MTBRVF82SDRjN1BqV0cxZmpoOGhwV05uY
+   lBfcHY2ZDF6U3daZmM1Zmw2eVZSTDBEVjBWM2xHSEtlMldxZl9lTkdqQnJCTFZrbERUa
+   zgtc3RYX01XTGNSLUVHbVhBT3YwVUJXaXRTX2RYSktKdS12WEp5dzE0bkhTR3V4VElLM
+   mh4MXB0dE1mdDlDc3ZxaW1YS2VEVFUxNHFRTDFlRTdpaGN3IiwgImUiOiAiQVFBQiJ9f
+   X0.rV7UrCdR64tA-G0_rjqYaKYukzIJi1RPgvX4eGSk5HHYWPl3-j8LEUnePSX-OlQXe
+   5RgsOqPo9DCj7-CLvKKxam-PbEQZurYX4qEzFyCJUOTMbOTQSLdsSe9tf1pD_yIrJhIs
+   cjXiq_mtJww_abdT8fIiS4h8kir2ClZifjNnLkKzqceVgrCipjbt76iZ6m_DGO2jFhU8
+   Zzrat3UZALacw4fRD0l5MGIGHdQcipouhhvVBnWyl6lH8gtcOFMl4YSSoWP9ytFLoahC
+   SRrF5mCo1tSFg3I70v4mk2U59GfcU94GaEB0q6uF__fbEmOClUPX9yOrYryeqjJR0bBR
+   UK_NA
 
    The Issuer creates the following Disclosures:
 
    *Disclosure for 'sub':*
 
-   WyI5V2E2RlFTX2FZSUJuTmE4T1Z6YTZ3IiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
-   MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
+   WyJkcVR2WE14UzBHYTNEb2FHbmU5eDBRIiwgInN1YiIsICJqb2huX2RvZV80MiJd
 
    Contents:
 
-   ["9Wa6FQS_aYIBnNa8OVza6w", "sub",
-   "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
+   ["dqTvXMxS0Ga3DoaGne9x0Q", "sub", "john_doe_42"]
 
-   SHA-256 Hash: v-Q-MMj-y-fd6EmPO14RlBZVf3Glc8xTqWYqZdKGyvk
+   SHA-256 Hash: ZkSJxxeGluIdYBb7CqkZbJVm0w2V5UrReNTzAQCYBjw
 
    *Disclosure for 'given_name':*
 
-   WyJzbV9jREJPVnV6N0ZfRDNVdGFrcHlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
+   WyIzanFjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
 
    Contents:
 
-   ["sm_cDBOVuz7F_D3UtakpyQ", "given_name", "John"]
+   ["3jqcb67z9wks08zwiK7EyQ", "given_name", "John"]
 
-   SHA-256 Hash: VDGtd7GETe7AkvIzmTF3iVJsXHvUAErJelozsscllVU
+   SHA-256 Hash: qqvcqnczAMgYx7EykI6wwtspyvyvK790ge7MBbQ-Nus
 
    *Disclosure for 'family_name':*
 
-   WyJ1RkszcmhIejIyMzZXWHhKczhWd1F3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
+   WyJxUVdtakpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
 
    Contents:
 
-   ["uFK3rhHz2236WXxJs8VwQw", "family_name", "Doe"]
+   ["qQWmjJl1s1R4lqhENLRrrw", "family_name", "Doe"]
 
-   SHA-256 Hash: yJarAJIcdhdR2vG-vRzYXGu3feAvxM9vPWuEXPzXY8U
+   SHA-256 Hash: l9qIJ9JTQwLG7OLEICTFBVxmArw8Pjy65dD6mtQVG5c
 
    *Disclosure for 'email':*
 
-   WyJCQ3lzYzdzS3lJY0FjMkEycDNzZ1BnIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
+   WyJLVXhTNWhFX1hiVmFjckdBYzdFRnd3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
    ZS5jb20iXQ
 
    Contents:
 
-   ["BCysc7sKyIcAc2A2p3sgPg", "email", "johndoe@example.com"]
+   ["KUxS5hE_XbVacrGAc7EFww", "email", "johndoe@example.com"]
 
-   SHA-256 Hash: STiegE8aBohuzf07cCcOkvMWKjw-dfHAwkIXeqxN5A8
+   SHA-256 Hash: o1SAsJ33YMioO9pX5VeAM1lxuHF6hZW2kGdkKKBnVlo
 
    *Disclosure for 'phone_number':*
 
-   WyJVa1hWam1rUE4ya0xvQ0IyVDR1VThBIiwgInBob25lX251bWJlciIsICIrMS0yMDIt
+   WyIzcXZWSjFCQURwSERTUzkzOVEtUml3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
    NTU1LTAxMDEiXQ
 
    Contents:
 
-   ["UkXVjmkPN2kLoCB2T4uU8A", "phone_number", "+1-202-555-0101"]
+   ["3qvVJ1BADpHDSS939Q-Riw", "phone_number", "+1-202-555-0101"]
 
-   SHA-256 Hash: Yrvc0XisV6BOe1ZtWbvNQoD0mw3jBhpkojmHkyGv_ZQ
+   SHA-256 Hash: SY8n2BbkX9lrY3exHlSwPRFXoD09GF8a9CPO-G8j208
 
    *Disclosure for 'address':*
 
-   WyJuYkFNc2VEZHRJaVRJSTIwNU1RVjZ3IiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
+   WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
    ZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9u
    IjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0
 
    Contents:
 
-   ["nbAMseDdtIiTII205MQV6w", "address", {"street_address": "123 Main
+   ["0xGzn3MiqsctZI_OpDlAbQ", "address", {"street_address": "123 Main
    St", "locality": "Anytown", "region": "Anystate", "country": "US"}]
 
-   SHA-256 Hash: JNnnsE7gNggbEUi38jM2qv6KTKgzO0EeRG8d2BVQ3Rs
+   SHA-256 Hash: TPsGNPYA46wmBxfv2znOJhfdoN5Y1GkezbpaGZCT1ac
 
    *Disclosure for 'birthdate':*
 
-   WyIzZ28zOTYtUDFiNXVyZVR6N3BnTDl3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+   WyJFUktNMENOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
    Il0
 
    Contents:
 
-   ["3go396-P1b5ureTz7pgL9w", "birthdate", "1940-01-01"]
+   ["ERKM0CNeFJkaD5mTXV_X8w", "birthdate", "1940-01-01"]
 
-   SHA-256 Hash: 6LlIUDMsteqLDUTuSeYbyGfYR3HFwlAuMFprV71uDbk
+   SHA-256 Hash: NYCoSRKEYwXdpe5yduJXCxxhynEU8z-b4TyNiap77UY
 
 5.4.  Combined Format for Issuance
 
@@ -1026,30 +1042,38 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    For Example 1, the Combined Format for Issuance looks as follows:
 
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
-   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjZMbElVRE1zdGVxTERVVHVTZVlie
-   UdmWVIzSEZ3bEF1TUZwclY3MXVEYmsiLCAiSk5ubnNFN2dOZ2diRVVpMzhqTTJxdjZLV
-   Etnek8wRWVSRzhkMkJWUTNScyIsICJTVGllZ0U4YUJvaHV6ZjA3Y0NjT2t2TVdLanctZ
-   GZIQXdrSVhlcXhONUE4IiwgIlZER3RkN0dFVGU3QWt2SXptVEYzaVZKc1hIdlVBRXJKZ
-   WxvenNzY2xsVlUiLCAiWXJ2YzBYaXNWNkJPZTFadFdidk5Rb0QwbXczakJocGtvam1Ia
-   3lHdl9aUSIsICJ2LVEtTU1qLXktZmQ2RW1QTzE0UmxCWlZmM0dsYzh4VHFXWXFaZEtHe
-   XZrIiwgInlKYXJBSkljZGhkUjJ2Ry12UnpZWEd1M2ZlQXZ4TTl2UFd1RVhQelhZOFUiX
+   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ
+   3h4aHluRVU4ei1iNFR5TmlhcDc3VVkiLCAiU1k4bjJCYmtYOWxyWTNleEhsU3dQUkZYb
+   0QwOUdGOGE5Q1BPLUc4ajIwOCIsICJUUHNHTlBZQTQ2d21CeGZ2MnpuT0poZmRvTjVZM
+   UdrZXpicGFHWkNUMWFjIiwgIlprU0p4eGVHbHVJZFlCYjdDcWtaYkpWbTB3MlY1VXJSZ
+   U5UekFRQ1lCanciLCAibDlxSUo5SlRRd0xHN09MRUlDVEZCVnhtQXJ3OFBqeTY1ZEQ2b
+   XRRVkc1YyIsICJvMVNBc0ozM1lNaW9POXBYNVZlQU0xbHh1SEY2aFpXMmtHZGtLS0JuV
+   mxvIiwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiX
    SwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2M
    jM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZ
-   yI6ICJzaGEtMjU2In0.KVFIEs0SUWmxNjzn1ETMVUQYnYtZRecOn0nrGSchC6IsJPTpv
-   grOfk8Ydpv9IIWVoj3d-vQQekM2I6fdGj01f0Wdoj4HREUDM83tGq0-bzcJlzhDN-maq
-   Iuh4zCYRUGZddbxQqsqaQDLIIBnPoKDldse13TuJlsqMQh5PoFUdkwRg1_oiAjFfv-D1
-   hynI0zUDtgKs2Ef4lX1Lsv3Je3w3tBOy8UiIqfWtfs6SQxSdDJaC-7SbWR1zgtE6mcoK
-   Qg9qXJJ9wsdTg7mzKUq4wnsqIoOxaYcRD5YpHvlBdQejtg9GkQTuN-SsDXiSEXV93ClO
-   Kw7vLZCM0GopE4Q9KHmog~WyI5V2E2RlFTX2FZSUJuTmE4T1Z6YTZ3IiwgInN1YiIsIC
-   I2YzVjMGE0OS1iNTg5LTQzMWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ~WyJzbV9jREJPVnV
-   6N0ZfRDNVdGFrcHlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyJ1RkszcmhIejIyMz
-   ZXWHhKczhWd1F3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyJCQ3lzYzdzS3lJY0FjM
-   kEycDNzZ1BnIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBsZS5jb20iXQ~WyJVa1hWam
-   1rUE4ya0xvQ0IyVDR1VThBIiwgInBob25lX251bWJlciIsICIrMS0yMDItNTU1LTAxMD
-   EiXQ~WyJuYkFNc2VEZHRJaVRJSTIwNU1RVjZ3IiwgImFkZHJlc3MiLCB7InN0cmVldF9
-   hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmV
-   naW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyIzZ28zOTYtUDFiNXV
-   yZVR6N3BnTDl3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxIl0
+   yI6ICJzaGEtMjU2IiwgImNuZiI6IHsiandrIjogeyJrdHkiOiAiUlNBIiwgIm4iOiAic
+   G00Yk9IQmctb1loQXlQV3pSNTZBV1gzclVJWHAxMV9JQ0RrR2dTNlczWldMdHMtaHp3S
+   TN4NjU2NTlrZzRoVm85ZGJHb0NKRTNaR0ZfZWFldEUzMFVoQlVFZ3BHd3JEclFpSjl6c
+   XBybWNGZnIzcXZ2a0dqdHRoOFpnbDFlTTJiSmNPd0U3UENCSFdUS1dZczE1MlI3ZzZKZ
+   zJPVnBoLWE4cnEtcTc5TWhLRzVRb1dfbVR6MTBRVF82SDRjN1BqV0cxZmpoOGhwV05uY
+   lBfcHY2ZDF6U3daZmM1Zmw2eVZSTDBEVjBWM2xHSEtlMldxZl9lTkdqQnJCTFZrbERUa
+   zgtc3RYX01XTGNSLUVHbVhBT3YwVUJXaXRTX2RYSktKdS12WEp5dzE0bkhTR3V4VElLM
+   mh4MXB0dE1mdDlDc3ZxaW1YS2VEVFUxNHFRTDFlRTdpaGN3IiwgImUiOiAiQVFBQiJ9f
+   X0.rV7UrCdR64tA-G0_rjqYaKYukzIJi1RPgvX4eGSk5HHYWPl3-j8LEUnePSX-OlQXe
+   5RgsOqPo9DCj7-CLvKKxam-PbEQZurYX4qEzFyCJUOTMbOTQSLdsSe9tf1pD_yIrJhIs
+   cjXiq_mtJww_abdT8fIiS4h8kir2ClZifjNnLkKzqceVgrCipjbt76iZ6m_DGO2jFhU8
+   Zzrat3UZALacw4fRD0l5MGIGHdQcipouhhvVBnWyl6lH8gtcOFMl4YSSoWP9ytFLoahC
+   SRrF5mCo1tSFg3I70v4mk2U59GfcU94GaEB0q6uF__fbEmOClUPX9yOrYryeqjJR0bBR
+   UK_NA~WyJkcVR2WE14UzBHYTNEb2FHbmU5eDBRIiwgInN1YiIsICJqb2huX2RvZV80Mi
+   Jd~WyIzanFjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~
+   WyJxUVdtakpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyJ
+   LVXhTNWhFX1hiVmFjckdBYzdFRnd3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBsZS5
+   jb20iXQ~WyIzcXZWSjFCQURwSERTUzkzOVEtUml3IiwgInBob25lX251bWJlciIsICIr
+   MS0yMDItNTU1LTAxMDEiXQ~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc
+   3MiLCB7InN0cmVldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogI
+   kFueXRvd24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~W
+   yJFUktNMENOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxI
+   l0
 
    (Line breaks for presentation only.)
 
@@ -1085,33 +1109,47 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    If no Holder Binding JWT is included, the Combined Format for
    Presentation ends with the ~ character after the last Disclosure.
 
-5.6.  Example: Combined Format for Presentation for Example 1
-
    The following is a non-normative example of the contents of a
    Presentation for Example 1, disclosing the claims given_name,
    family_name, and address, as it would be sent from the Holder to the
-   Verifier:
+   Verifier.  There is also a Holder Binding JWT included.
 
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
-   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjZMbElVRE1zdGVxTERVVHVTZVlie
-   UdmWVIzSEZ3bEF1TUZwclY3MXVEYmsiLCAiSk5ubnNFN2dOZ2diRVVpMzhqTTJxdjZLV
-   Etnek8wRWVSRzhkMkJWUTNScyIsICJTVGllZ0U4YUJvaHV6ZjA3Y0NjT2t2TVdLanctZ
-   GZIQXdrSVhlcXhONUE4IiwgIlZER3RkN0dFVGU3QWt2SXptVEYzaVZKc1hIdlVBRXJKZ
-   WxvenNzY2xsVlUiLCAiWXJ2YzBYaXNWNkJPZTFadFdidk5Rb0QwbXczakJocGtvam1Ia
-   3lHdl9aUSIsICJ2LVEtTU1qLXktZmQ2RW1QTzE0UmxCWlZmM0dsYzh4VHFXWXFaZEtHe
-   XZrIiwgInlKYXJBSkljZGhkUjJ2Ry12UnpZWEd1M2ZlQXZ4TTl2UFd1RVhQelhZOFUiX
+   UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ
+   3h4aHluRVU4ei1iNFR5TmlhcDc3VVkiLCAiU1k4bjJCYmtYOWxyWTNleEhsU3dQUkZYb
+   0QwOUdGOGE5Q1BPLUc4ajIwOCIsICJUUHNHTlBZQTQ2d21CeGZ2MnpuT0poZmRvTjVZM
+   UdrZXpicGFHWkNUMWFjIiwgIlprU0p4eGVHbHVJZFlCYjdDcWtaYkpWbTB3MlY1VXJSZ
+   U5UekFRQ1lCanciLCAibDlxSUo5SlRRd0xHN09MRUlDVEZCVnhtQXJ3OFBqeTY1ZEQ2b
+   XRRVkc1YyIsICJvMVNBc0ozM1lNaW9POXBYNVZlQU0xbHh1SEY2aFpXMmtHZGtLS0JuV
+   mxvIiwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiX
    SwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2M
    jM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZ
-   yI6ICJzaGEtMjU2In0.KVFIEs0SUWmxNjzn1ETMVUQYnYtZRecOn0nrGSchC6IsJPTpv
-   grOfk8Ydpv9IIWVoj3d-vQQekM2I6fdGj01f0Wdoj4HREUDM83tGq0-bzcJlzhDN-maq
-   Iuh4zCYRUGZddbxQqsqaQDLIIBnPoKDldse13TuJlsqMQh5PoFUdkwRg1_oiAjFfv-D1
-   hynI0zUDtgKs2Ef4lX1Lsv3Je3w3tBOy8UiIqfWtfs6SQxSdDJaC-7SbWR1zgtE6mcoK
-   Qg9qXJJ9wsdTg7mzKUq4wnsqIoOxaYcRD5YpHvlBdQejtg9GkQTuN-SsDXiSEXV93ClO
-   Kw7vLZCM0GopE4Q9KHmog~WyJuYkFNc2VEZHRJaVRJSTIwNU1RVjZ3IiwgImFkZHJlc3
-   MiLCB7InN0cmVldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIk
-   FueXRvd24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~Wy
-   JzbV9jREJPVnV6N0ZfRDNVdGFrcHlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyJ1R
-   kszcmhIejIyMzZXWHhKczhWd1F3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~
+   yI6ICJzaGEtMjU2IiwgImNuZiI6IHsiandrIjogeyJrdHkiOiAiUlNBIiwgIm4iOiAic
+   G00Yk9IQmctb1loQXlQV3pSNTZBV1gzclVJWHAxMV9JQ0RrR2dTNlczWldMdHMtaHp3S
+   TN4NjU2NTlrZzRoVm85ZGJHb0NKRTNaR0ZfZWFldEUzMFVoQlVFZ3BHd3JEclFpSjl6c
+   XBybWNGZnIzcXZ2a0dqdHRoOFpnbDFlTTJiSmNPd0U3UENCSFdUS1dZczE1MlI3ZzZKZ
+   zJPVnBoLWE4cnEtcTc5TWhLRzVRb1dfbVR6MTBRVF82SDRjN1BqV0cxZmpoOGhwV05uY
+   lBfcHY2ZDF6U3daZmM1Zmw2eVZSTDBEVjBWM2xHSEtlMldxZl9lTkdqQnJCTFZrbERUa
+   zgtc3RYX01XTGNSLUVHbVhBT3YwVUJXaXRTX2RYSktKdS12WEp5dzE0bkhTR3V4VElLM
+   mh4MXB0dE1mdDlDc3ZxaW1YS2VEVFUxNHFRTDFlRTdpaGN3IiwgImUiOiAiQVFBQiJ9f
+   X0.rV7UrCdR64tA-G0_rjqYaKYukzIJi1RPgvX4eGSk5HHYWPl3-j8LEUnePSX-OlQXe
+   5RgsOqPo9DCj7-CLvKKxam-PbEQZurYX4qEzFyCJUOTMbOTQSLdsSe9tf1pD_yIrJhIs
+   cjXiq_mtJww_abdT8fIiS4h8kir2ClZifjNnLkKzqceVgrCipjbt76iZ6m_DGO2jFhU8
+   Zzrat3UZALacw4fRD0l5MGIGHdQcipouhhvVBnWyl6lH8gtcOFMl4YSSoWP9ytFLoahC
+   SRrF5mCo1tSFg3I70v4mk2U59GfcU94GaEB0q6uF__fbEmOClUPX9yOrYryeqjJR0bBR
+   UK_NA~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmVldF
+   9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicm
+   VnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJxUVdtakpsMXMxUj
+   RscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3MwO
+   Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
+   a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
+   fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
+   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIn0.XZ4d4taSLy2XZN34pjeMa-OidpN_kphd2
+   SB0ub15Il8NhjE3z11CQ4TrdIzeIiZGnNJqWTSe18vplkA4eR7qQa7y0BsdLnCcbt20b
+   3xe_gNzrAUBw00ajR_MXMLSz5x0ospAqub_kDjrUXBBDYqaGfD0gmY_4x9qgsRiNN6r0
+   j3KgWweSYrh_eh7H1JSTohI_rRHN8dajvskAniHtkZ3kUJvo9A7bUTID1v3QvCWgOumB
+   8aAmwu_jeaq8PS2HUVD3XF6ruT2--HqrmLwkUw6nhN-QYRr6_4cwCZleGsJAkwDu7Gl1
+   Ntp2YtT44bTMWxniSo539fU-Bv_ukyJOS1KuA
 
 6.  Verification and Processing
 
@@ -1527,10 +1565,28 @@ Appendix A.  Additional Examples
 
 A.1.  Example 2a: Handling Structured Claims
 
-   This example is based on the same claim values as Example 1, but here
-   the Issuer decided to create a structured object for the digests.
-   This allows for the disclosure of individual members of the address
-   claim separately.
+   This example uses the following object as the set of claims that the
+   Issuer is issuing:
+
+   {
+     "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
+     "given_name": "\u592a\u90ce",
+     "family_name": "\u5c71\u7530",
+     "email": "\"unusual email address\"@\u65e5\u672c.com",
+     "phone_number": "123456",
+     "address": {
+       "street_address": "\u6771\u4eac\u90fd\u6e2f\u533a\u829d\u516c\u5
+         712\uff14\u4e01\u76ee\uff12\u2212\uff18",
+       "locality": "\u6771\u4eac\u90fd",
+       "region": "\u6e2f\u533a",
+       "country": "JP"
+     },
+     "birthdate": "1940-01-01"
+   }
+
+   Note that in contrast to Example 1, here the Issuer decided to create
+   a structured object for the address claim, allowing for separate
+   disclosure of the individual members of the claim.
 
    {
      "_sd": [
@@ -1671,7 +1727,8 @@ A.1.  Example 2a: Handling Structured Claims
    SHA-256 Hash: bXgwqQiv8htzdOpdc-InIsosQHp0irfOklEXTANmnb4
 
    A Presentation for the SD-JWT that discloses only region and country
-   of the address property could look as follows:
+   of the address property and without a Holder Binding JWT could look
+   as follows:
 
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
    UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjlORW1SRjNyaGFTSHFUMDV4RXNFU
@@ -1702,35 +1759,32 @@ A.1.  Example 2a: Handling Structured Claims
 
 A.2.  Example 2b: Adding Decoys
 
-   This example is based on the same set of user data as Example 1 and
-   Example 2a, but here, the Issuer decided to add decoy digests to the
-   SD-JWT.
+   This example is based on the same set of user data as Example 2a, but
+   here, the Issuer decided to add decoy digests to the SD-JWT.
 
    The SD-JWT payload is as follows:
 
    {
      "_sd": [
-       "05aLRlDgF63ZcpkFEu0D3eMDfiA7nBU6Me3X08Thnc4",
-       "4oXf9WUldZn8kSjrajZGReflaaJ5KcmZptuIgZBN6Cc",
-       "8ksb9q1-0zwGuof5ohl-gfioRE9V_lXrmzcmLIJyXTE",
-       "AQHHxTAXNcctXciLglp5YdUAv5L1CK-IBxWE15KJmBY",
-       "A_iBPCQ4szwuIBywLH5TOpkMmelCOu7mkAzIwjX-DnE",
-       "PBZeggXotURSLpE2aurrUj54AXMWfL3MRUBhbXd5gnY",
-       "PTmVMwb40pxKMCVykdU_zm6S5yphwGm5FRa1m3KOd-o",
-       "TDC-Jsdq-VyKA0Z25Ubx6tL7dk1OwAbGXIN2K_ItYvw",
-       "ZRq0Mx8bsF7QFEj7d-AkkyegxbSsFg_kU2tlsEskkLc",
-       "_quPDs_FDezZNLZ1WILfqthsRGJmrEEzRgrWgwpRWmI",
-       "ag8or__yKLbwAj4kHDKaRt47xiX49jvEHMKh8LvMycw",
-       "l97gH6Plr8xi0GGRPJBFtnhOfc5MdEfcq-PaUT2eYJE"
+       "F7FmqOT1qLbcvXE7JH0ZU9tCwLNS_gGG5HVJpEJhoKo",
+       "HfO8OBD5TiO9NkVMYuHf2y1tRPRzsO4vD4kUO3k--Rc",
+       "I5MIO3LppLAEoO4b91ufH2O0878hspuJEBJSmA_S5Fs",
+       "IiApkhig8WiIpOb37u1a-oLhYuyFkxOEBXNC7DSMvL4",
+       "XGbpbupkm5gGimDnMa9eT0tCfINeDXjdVoHt02pu2Ow",
+       "iRS2dVAl_bpXlyvwDSShEJ22v28ZFfXoTd_vp5QNCzM",
+       "lKTMGzf0d79BaiwuEpMYC26hABeIUtcI7WHl7zgeXCU",
+       "owFz8f_V9Btgrni-Acds_LkZkOu2oX719PIQSVvthac",
+       "pnL_1_uTFP1zJsfp7hC_KtxwJyhewS0a-sTYk1yZpLo",
+       "whEP-gBQG2R_bcA_qnNrmJO0K58Z05GpOuG5BsBMhHU"
      ],
      "address": {
        "_sd": [
-         "3zkPqkRYlhsjGCRf70YwcnT2Uuo00cd7nsjXOpr-UTg",
-         "CIdL4buJbO9IQ4zdy13Q35Ov41JEVy9NFQ6lAwIBcGE",
-         "I29Sl8nSMVVf-jUzvjRJFbKIdZkks7lmyIZ9ZDw-v3I",
-         "J3Zg5NDlVOadcFAn8fi1F4am-hxH4T8NdN1lcghW95w",
-         "RsWikMC_5eWT2pysz3J0QeKZV-309ypMhRhmk2wY8OY",
-         "UOKDqn5wTYHbo9F3p30Cfj6hFBpeWd9gsJh8JvtndOg"
+         "O9gL7Tof4PtmSzuG6C2758uvpqJlJisMtJXAD8DDSBU",
+         "OS38kU3-IrxPpbs1Owdmr1BsXw7o6v6Wvo0-P8Gj4cE",
+         "OgnrDpEDASg6nam6-pv24yzlDODX-NIKNgzVICVbVK8",
+         "bTvbv9_F4EGMTwOZ9BKguES9p2WCGC2xXyZ1tiPWuNI",
+         "l8JvgLKuPV-IpKRNHg15DVJ-f2yf_DNXLrIW5Ujmjws",
+         "tJp1yih2z-xmXrx0SpTqyYGLEnQDlF0ShHbPE14ijMQ"
        ]
      },
      "iss": "https://example.com/issuer",
@@ -1790,7 +1844,173 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
 
    Body:
 
+   {
+     "iss": "https://example.com/issuer",
+     "jti": "http://example.com/credentials/3732",
+     "nbf": 1541493724,
+     "iat": 1516239022,
+     "cnf": {
+       "jwk": {
+         "kty": "RSA",
+         "n": "0vx7agoebGcQSuuPiLJXZptN9nndrQmbXEps2aiAFbWhM78LhWx4cbbf
+           AAtVT86zwu1RK7aPFFxuhDR1L6tSoc_BJECPebWKRXjBZCiFV4n3oknjhMst
+           n64tZ_2W-5JsGY4Hc5n9yBXArwl93lqt7_RN5w6Cf0h4QyQ5v-65YGjQR0_F
+           DW2QvzqY368QQMicAtaSqzs8KJZgnYb9c7d0zgdAZHzu6qMQvRL5hajrn1n9
+           1CbOpbISD08qNLyrdkt-bFTWhAI4vMQFh6WeZu0fM4lFd2NcRwr3XPksINHa
+           Q-G_xBniIqbw0Ls1jF44-csFCur-kEgU8awapJzKnqDKgw",
+         "e": "AQAB"
+       }
+     },
+     "type": "IdentityCredential",
+     "credentialSubject": {
+       "_sd": [
+         "8Bcr2ZGImJ9FlsBNmGiLgj7XmHm-g8QOuYVSXOWoM58",
+         "8wawaYT3XNlnl0zUdP8Xri1252yHK6pjgr8JInBzMQg",
+         "NVTo4oQvI0kuqdMYeb6M_sp_ByUY7d4zcLfHB483aVY",
+         "UQ6IHUAtHqW8Xcik7GqVikWtoviseS4BKjvCmmon6xA",
+         "Um7LRM6Ol51wJZLobMeREW6HsMyO3DCCHnWtaikD-40",
+         "jIjo9ElQ4Ng2mMzs0SoWq2molpyU80OE_LENjk2Ha_8",
+         "w9rrWnA1RQ5dUOBaJDKGfAgtiW12obi1joeF_oLTaZ0",
+         "zOJJSAmcB0OqPmFkOZebY70hHI3GpJC1x4beJRtIPbM"
+       ],
+       "address": {
+         "_sd": [
+           "0mcZNz0nIGNYBI4WgKJFx9mjaaB10E59Bc_pefmm544",
+           "4zIfrBGk3TStRDz_wlxi4VgYDza81mBs_zeJ84czsS4",
+           "Hl_wpSSSagpXtSk_rGoE-xkYGVnIHBO-ZzhUWchy8bo",
+           "ySoQUT3JlKF5NdTPMWzmlDamB4TY2EMmGCgrzzJzih0"
+         ]
+       }
+     },
+     "exp": 1516247022,
+     "sd_digest_derivation_alg": "sha-256"
+   }
+
    Disclosures:
+
+   *Disclosure for 'given_name':*
+
+   WyI5S05NMUxWcU1PVXR6Rk9iSFV4Q2J3IiwgImdpdmVuX25hbWUiLCAiSm9obiJd
+
+   Contents:
+
+   ["9KNM1LVqMOUtzFObHUxCbw", "given_name", "John"]
+
+   SHA-256 Hash: jIjo9ElQ4Ng2mMzs0SoWq2molpyU80OE_LENjk2Ha_8
+
+   *Disclosure for 'family_name':*
+
+   WyJJeC1jVTQzcXpBUFhvU2xZclF3RnRnIiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
+
+   Contents:
+
+   ["Ix-cU43qzAPXoSlYrQwFtg", "family_name", "Doe"]
+
+   SHA-256 Hash: w9rrWnA1RQ5dUOBaJDKGfAgtiW12obi1joeF_oLTaZ0
+
+   *Disclosure for 'email':*
+
+   WyJrbnFPOXJYYldqc2llOEtTMkJJSkFRIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
+   ZS5jb20iXQ
+
+   Contents:
+
+   ["knqO9rXbWjsie8KS2BIJAQ", "email", "johndoe@example.com"]
+
+   SHA-256 Hash: NVTo4oQvI0kuqdMYeb6M_sp_ByUY7d4zcLfHB483aVY
+
+   *Disclosure for 'phone_number':*
+
+   WyJSbVdDWEhxaE41TDg2SllqOUdYN0h3IiwgInBob25lX251bWJlciIsICIrMS0yMDIt
+   NTU1LTAxMDEiXQ
+
+   Contents:
+
+   ["RmWCXHqhN5L86JYj9GX7Hw", "phone_number", "+1-202-555-0101"]
+
+   SHA-256 Hash: zOJJSAmcB0OqPmFkOZebY70hHI3GpJC1x4beJRtIPbM
+
+   *Disclosure for 'street_address':*
+
+   WyJjTE84ZnZpNlVHYUstbF91QmFJYTVRIiwgInN0cmVldF9hZGRyZXNzIiwgIjEyMyBN
+   YWluIFN0Il0
+
+   Contents:
+
+   ["cLO8fvi6UGaK-l_uBaIa5Q", "street_address", "123 Main St"]
+
+   SHA-256 Hash: Hl_wpSSSagpXtSk_rGoE-xkYGVnIHBO-ZzhUWchy8bo
+
+   *Disclosure for 'locality':*
+
+   WyJOSzBZQU1MWUwtLXRVdi1EdGNoaU1RIiwgImxvY2FsaXR5IiwgIkFueXRvd24iXQ
+
+   Contents:
+
+   ["NK0YAMLYL--tUv-DtchiMQ", "locality", "Anytown"]
+
+   SHA-256 Hash: 4zIfrBGk3TStRDz_wlxi4VgYDza81mBs_zeJ84czsS4
+
+   *Disclosure for 'region':*
+
+   WyI3c3FoSU1aMlkzOHM4aWxaY012c2RRIiwgInJlZ2lvbiIsICJBbnlzdGF0ZSJd
+
+   Contents:
+
+   ["7sqhIMZ2Y38s8ilZcMvsdQ", "region", "Anystate"]
+
+   SHA-256 Hash: ySoQUT3JlKF5NdTPMWzmlDamB4TY2EMmGCgrzzJzih0
+
+   *Disclosure for 'country':*
+
+   WyJISXlPZXkzNXEzX0ZTbDRVV0g2Mm5BIiwgImNvdW50cnkiLCAiVVMiXQ
+
+   Contents:
+
+   ["HIyOey35q3_FSl4UWH62nA", "country", "US"]
+
+   SHA-256 Hash: 0mcZNz0nIGNYBI4WgKJFx9mjaaB10E59Bc_pefmm544
+
+   *Disclosure for 'birthdate':*
+
+   WyJpUU5VWU9tblo1N1Z5VHBRaGZnV2lnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+   Il0
+
+   Contents:
+
+   ["iQNUYOmnZ57VyTpQhfgWig", "birthdate", "1940-01-01"]
+
+   SHA-256 Hash: Um7LRM6Ol51wJZLobMeREW6HsMyO3DCCHnWtaikD-40
+
+   *Disclosure for 'is_over_18':*
+
+   WyJ0cmNEb1BJUDVzeW5wWFhZU0dFc0FRIiwgImlzX292ZXJfMTgiLCB0cnVlXQ
+
+   Contents:
+
+   ["trcDoPIP5synpXXYSGEsAQ", "is_over_18", true]
+
+   SHA-256 Hash: 8wawaYT3XNlnl0zUdP8Xri1252yHK6pjgr8JInBzMQg
+
+   *Disclosure for 'is_over_21':*
+
+   WyJRMnhzRWpnUnBhSE5rdUdEM2tUNUpnIiwgImlzX292ZXJfMjEiLCB0cnVlXQ
+
+   Contents:
+
+   ["Q2xsEjgRpaHNkuGD3kT5Jg", "is_over_21", true]
+
+   SHA-256 Hash: UQ6IHUAtHqW8Xcik7GqVikWtoviseS4BKjvCmmon6xA
+
+   *Disclosure for 'is_over_65':*
+
+   WyI0RDd2N1JWTTh2THUwN0tRVUJqOF9RIiwgImlzX292ZXJfNjUiLCB0cnVlXQ
+
+   Contents:
+
+   ["4D7v7RVM8vLu07KQUBj8_Q", "is_over_65", true]
+
+   SHA-256 Hash: 8Bcr2ZGImJ9FlsBNmGiLgj7XmHm-g8QOuYVSXOWoM58
 
 Appendix B.  Document History
 
