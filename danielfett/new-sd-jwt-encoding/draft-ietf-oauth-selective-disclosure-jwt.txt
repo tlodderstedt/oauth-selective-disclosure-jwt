@@ -2108,6 +2108,9 @@ Appendix B.  Document History
    *  Holder Binding is now separate from delivering the Disclosures and
       implemented, if required, with a separate JWT.
 
+   *  Examples updated and modified to properly explain the specifics of
+      the new SD-JWT format.
+
    *  Examples are now pulled in from the examples directory, not
       inlined.
 
