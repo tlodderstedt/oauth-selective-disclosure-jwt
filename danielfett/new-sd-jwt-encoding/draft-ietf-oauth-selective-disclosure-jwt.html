@@ -1042,7 +1042,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett &amp; Yasuda</td>
-<td class="center">Expires 22 May 2023</td>
+<td class="center">Expires 25 May 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1055,12 +1055,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-11-18" class="published">18 November 2022</time>
+<time datetime="2022-11-21" class="published">21 November 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-05-22">22 May 2023</time></dd>
+<dd class="expires"><time datetime="2023-05-25">25 May 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1110,7 +1110,7 @@ documents that support selective disclosure of JWT claim values.<a href="#sectio
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 May 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1163,13 +1163,13 @@ documents that support selective disclosure of JWT claim values.<a href="#sectio
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-creating-an-sd-jwt" class="internal xref">Creating an SD-JWT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-creating-a-holder-selected-" class="internal xref">Creating a Holder-Selected Disclosures JWT</a></p>
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-creating-holder-selected-di" class="internal xref">Creating Holder-Selected Disclosures</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
                 <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-optional-holder-binding" class="internal xref">Optional Holder Binding</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-verifying-a-holder-selected" class="internal xref">Verifying a Holder-Selected Disclosures JWT</a></p>
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-verifying-holder-selected-d" class="internal xref">Verifying Holder-Selected Disclosures</a></p>
 </li>
             </ul>
 </li>
@@ -1197,22 +1197,13 @@ documents that support selective disclosure of JWT claim values.<a href="#sectio
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="auto internal xref">5.3</a>.  <a href="#name-example-1-sd-jwt" class="internal xref">Example 1: SD-JWT</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.4">
-                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-format-of-an-issuer-issued-" class="internal xref">Format of an Issuer-Issued Disclosures Object</a></p>
+                <p id="section-toc.1-1.5.2.4.1"><a href="#section-5.4" class="auto internal xref">5.4</a>.  <a href="#name-combined-format-for-issuanc" class="internal xref">Combined Format for Issuance</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.5">
-                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-example-issuer-issued-discl" class="internal xref">Example: Issuer-Issued Disclosures Object for the Flat SD-JWT in Example 1</a></p>
+                <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="auto internal xref">5.5</a>.  <a href="#name-combined-format-for-present" class="internal xref">Combined Format for Presentation</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6">
-                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-combined-format-for-issuanc" class="internal xref">Combined Format for Issuance</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7">
-                <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="auto internal xref">5.7</a>.  <a href="#name-format-of-a-holder-selected" class="internal xref">Format of a Holder-Selected Disclosures JWT</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.8">
-                <p id="section-toc.1-1.5.2.8.1"><a href="#section-5.8" class="auto internal xref">5.8</a>.  <a href="#name-example-holder-selected-dis" class="internal xref">Example: Holder-Selected Disclosures JWT for Example 1</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.9">
-                <p id="section-toc.1-1.5.2.9.1"><a href="#section-5.9" class="auto internal xref">5.9</a>.  <a href="#name-combined-format-for-present" class="internal xref">Combined Format for Presentation</a></p>
+                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="auto internal xref">5.6</a>.  <a href="#name-example-combined-format-for" class="internal xref">Example: Combined Format for Presentation for Example 1</a></p>
 </li>
             </ul>
 </li>
@@ -1220,7 +1211,7 @@ documents that support selective disclosure of JWT claim values.<a href="#sectio
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-verification-and-processing" class="internal xref">Verification and Processing</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-verification-by-the-holder-" class="internal xref">Verification by the Holder when Receiving SD-JWT and Issuer-Issued Disclosures Object</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-verification-by-the-holder" class="internal xref">Verification by the Holder</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-verification-by-the-verifie" class="internal xref">Verification by the Verifier when Receiving SD-JWT and Holder-Selected Disclosures JWT</a></p>
@@ -1260,10 +1251,13 @@ documents that support selective disclosure of JWT claim values.<a href="#sectio
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-privacy-considerations" class="internal xref">Privacy Considerations</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
-                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-claim-names" class="internal xref">Claim Names</a></p>
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-decoy-digests-2" class="internal xref">Decoy Digests</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
-                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-unlinkability" class="internal xref">Unlinkability</a></p>
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-claim-names" class="internal xref">Claim Names</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.3">
+                <p id="section-toc.1-1.8.2.3.1"><a href="#section-8.3" class="auto internal xref">8.3</a>.  <a href="#name-unlinkability" class="internal xref">Unlinkability</a></p>
 </li>
             </ul>
 </li>
@@ -1352,12 +1346,12 @@ selective disclosure of claims.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">In an SD-JWT, claims can be hidden, but cryptographically protected
 against undetected modification. When issuing the SD-JWT to the Holder,
 the Issuer also sends the cleartext counterparts of all hidden claims, the so-called
-Issuer-Issued Disclosures, separate from the SD-JWT itself.<a href="#section-1-4" class="pilcrow">¶</a></p>
-<p id="section-1-5">The Holder decides which claims to disclose to a Verifier. The Holder sends the SD-JWT and the
-so-called Holder-Selected Disclosures (HS-Disclosures) to the Verifier. The Verifier
+Disclosures, separate from the SD-JWT itself.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">The Holder decides which claims to disclose to a Verifier and forwards the respective
+Disclosures together with the SD-JWT to the Verifier. The Verifier
 has to verify that all disclosed claim values were part of the original,
 Issuer-signed SD-JWT. The Verifier will not, however, learn any claim
-values not disclosed in HS-Disclosures.<a href="#section-1-5" class="pilcrow">¶</a></p>
+values not disclosed in the Disclosures.<a href="#section-1-5" class="pilcrow">¶</a></p>
 <p id="section-1-6">While JWTs for claims describing natural persons are a common use case,
 the mechanisms defined in this document can be used for many other use
 cases as well.<a href="#section-1-6" class="pilcrow">¶</a></p>
@@ -1431,30 +1425,22 @@ that supports selective disclosure as defined in this document and can contain b
         <dd style="margin-left: 1.5em" id="section-2-1.6">A combination of a salt, a cleartext claim name, and a cleartext claim value that is used to calculate a digest for a certain claim.<a href="#section-2-1.6" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-1.7">Issuer-Issued Disclosures (II-Disclosures):</dt>
-        <dd style="margin-left: 1.5em" id="section-2-1.8">Disclosures created by the Issuer for all selectively-disclosable claims in an SD-JWT.<a href="#section-2-1.8" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-2-1.9">Holder-Selected Disclosures (HS-Disclosures):</dt>
-        <dd style="margin-left: 1.5em" id="section-2-1.10">A subset of the Issuer-Issued Disclosures selected by the Holder for disclosing the respective claim names and values to a Verifier.<a href="#section-2-1.10" class="pilcrow">¶</a>
-</dd>
-        <dd class="break"></dd>
-<dt id="section-2-1.11">Holder Binding:</dt>
-        <dd style="margin-left: 1.5em" id="section-2-1.12">Ability of the Holder to prove legitimate possession of an SD-JWT by proving
+<dt id="section-2-1.7">Holder Binding:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.8">Ability of the Holder to prove legitimate possession of an SD-JWT by proving
 control over the same private key during the issuance and presentation. An SD-JWT with Holder Binding contains
-a public key or a reference to a public key that matches to the private key controlled by the Holder.<a href="#section-2-1.12" class="pilcrow">¶</a>
+a public key or a reference to a public key that matches to the private key controlled by the Holder.<a href="#section-2-1.8" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-1.13">Issuer:</dt>
-        <dd style="margin-left: 1.5em" id="section-2-1.14">An entity that creates SD-JWTs.<a href="#section-2-1.14" class="pilcrow">¶</a>
+<dt id="section-2-1.9">Issuer:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.10">An entity that creates SD-JWTs.<a href="#section-2-1.10" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-1.15">Holder:</dt>
-        <dd style="margin-left: 1.5em" id="section-2-1.16">An entity that received SD-JWTs from the Issuer and has control over them.<a href="#section-2-1.16" class="pilcrow">¶</a>
+<dt id="section-2-1.11">Holder:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.12">An entity that received SD-JWTs from the Issuer and has control over them.<a href="#section-2-1.12" class="pilcrow">¶</a>
 </dd>
         <dd class="break"></dd>
-<dt id="section-2-1.17">Verifier:</dt>
-        <dd style="margin-left: 1.5em" id="section-2-1.18">An entity that requests, checks and extracts the claims from an SD-JWT and HS-Disclosures.<a href="#section-2-1.18" class="pilcrow">¶</a>
+<dt id="section-2-1.13">Verifier:</dt>
+        <dd style="margin-left: 1.5em" id="section-2-1.14">An entity that requests, checks and extracts the claims from an SD-JWT and respective Disclosures.<a href="#section-2-1.14" class="pilcrow">¶</a>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -1508,7 +1494,7 @@ ensuring continuity and separating the entity from the actor.<a href="#section-2
       <h2 id="name-concepts">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-concepts" class="section-name selfRef">Concepts</a>
       </h2>
-<p id="section-4-1">In the following, the contents of SD-JWTs and HS-Disclosures are described at a
+<p id="section-4-1">In the following, the contents of SD-JWTs and Disclosures are described at a
 conceptual level, abstracting from the data formats described afterwards.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <div id="creating-an-sd-jwt">
 <section id="section-4.1">
@@ -1534,26 +1520,26 @@ SD-JWT = SD-JWT-DOC | SIG(SD-JWT-DOC, ISSUER-PRIV-KEY)
 However, the term "salt" is used throughout this document for brevity.<a href="#section-4.1-5" class="pilcrow">¶</a></p>
 <p id="section-4.1-6"><code>SD-CLAIMS</code> can also be nested deeper to capture more complex objects, as will be shown later.<a href="#section-4.1-6" class="pilcrow">¶</a></p>
 <p id="section-4.1-7"><code>SD-JWT</code> is sent from the Issuer to the Holder, together with the mapping of the plain-text claim values, the salt values, and potentially some other information.<a href="#section-4.1-7" class="pilcrow">¶</a></p>
-<p id="section-4.1-8">The Issuer further creates a set of Issuer-Issued Disclosures (II-Disclosures) for all claims in the SD-JWT. The II-Disclosures are sent to the Holder together with the SD-JWT:<a href="#section-4.1-8" class="pilcrow">¶</a></p>
+<p id="section-4.1-8">The Issuer further creates a set of Disclosures for all claims in the SD-JWT. The Disclosures are sent to the Holder together with the SD-JWT:<a href="#section-4.1-8" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.1-9">
-<pre>II-DISCLOSURES = (
+<pre>DISCLOSURES = (
     (SALT, CLAIM-NAME, CLAIM-VALUE)
 )*
 </pre><a href="#section-4.1-9" class="pilcrow">¶</a>
 </div>
-<p id="section-4.1-10">The SD-JWT and the II-Disclosures are sent to the Holder by the Issuer:<a href="#section-4.1-10" class="pilcrow">¶</a></p>
+<p id="section-4.1-10">The SD-JWT and the Disclosures are sent to the Holder by the Issuer:<a href="#section-4.1-10" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.1-11">
-<pre>COMBINED-ISSUANCE = (SD-JWT, II-DISCLOSURES)
+<pre>COMBINED-ISSUANCE = (SD-JWT, DISCLOSURES)
 </pre><a href="#section-4.1-11" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
-<div id="creating-a-holder-selected-disclosures-jwt">
+<div id="creating-holder-selected-disclosures">
 <section id="section-4.2">
-        <h3 id="name-creating-a-holder-selected-">
-<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-creating-a-holder-selected-" class="section-name selfRef">Creating a Holder-Selected Disclosures JWT</a>
+        <h3 id="name-creating-holder-selected-di">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-creating-holder-selected-di" class="section-name selfRef">Creating Holder-Selected Disclosures</a>
         </h3>
-<p id="section-4.2-1">To disclose to a Verifier a subset of the SD-JWT claim values, a Holder selects a subset of the II-Disclosures and sends it to the Verifier along with the SD-JWT.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">To disclose to a Verifier a subset of the SD-JWT claim values, a Holder selects a subset of the Disclosures and sends it to the Verifier along with the SD-JWT.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.2-2">
 <pre>HOLDER-SELECTED-DISCLOSURES = (
     (SALT, CLAIM-NAME, CLAIM-VALUE)
@@ -1595,10 +1581,10 @@ HOLDER-BINDING-JWT = HOLDER-BINDING-JWT-DOC |
 <p id="section-4.3-9">Note that there may be other ways to send the Holder Binding JWT to the Verifier or to prove Holder Binding. In these cases, inclusion of the Holder Binding JWT in the <code>COMBINED-PRESENTATION</code> is not required.<a href="#section-4.3-9" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="verifying-a-holder-selected-disclosures-jwt">
+<div id="verifying-holder-selected-disclosures">
 <section id="section-4.4">
-        <h3 id="name-verifying-a-holder-selected">
-<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-verifying-a-holder-selected" class="section-name selfRef">Verifying a Holder-Selected Disclosures JWT</a>
+        <h3 id="name-verifying-holder-selected-d">
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-verifying-holder-selected-d" class="section-name selfRef">Verifying Holder-Selected Disclosures</a>
         </h3>
 <p id="section-4.4-1">On a high level, the Verifier<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -1625,7 +1611,7 @@ HOLDER-BINDING-JWT = HOLDER-BINDING-JWT-DOC |
         <h3 id="name-the-challenge-of-canonicali">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-the-challenge-of-canonicali" class="section-name selfRef">The Challenge of Canonicalization</a>
         </h3>
-<p id="section-5.1-1">When receiving an SD-JWT with associated HS-Disclosures, a Verifier must
+<p id="section-5.1-1">When receiving an SD-JWT with associated Disclosures, a Verifier must
 be able to re-compute digests of the disclosed claim values and, given
 the same input values, obtain the same digest values as signed by the
 Issuer.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
@@ -1704,10 +1690,10 @@ on widely available JWT, JSON, and Base64 encoding and decoding libraries.<a hre
 extracting the original JSON data. Variations in the encoding of the source
 string are implicitly tolerated by the Verifier, as the digest is computed over a
 predefined byte string and not over a JSON object.<a href="#section-5.1-15" class="pilcrow">¶</a></p>
-<p id="section-5.1-16">It is important to note that the HS-Disclosures are neither intended nor
+<p id="section-5.1-16">It is important to note that the Disclosures are neither intended nor
 suitable for direct consumption by
 an application that needs to access the disclosed claim values. The
-HS-Disclosures are only intended to be used by a Verifier to check
+Disclosures are only intended to be used by a Verifier to check
 the digests over the source strings and to extract the original JSON
 data. The original JSON data is then used by the application. See
 <a href="#processing_model" class="auto internal xref">Section 6.3</a> for details.<a href="#section-5.1-16" class="pilcrow">¶</a></p>
@@ -1728,8 +1714,8 @@ required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcro
           <h4 id="name-selectively-disclosable-cla">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-selectively-disclosable-cla" class="section-name selfRef">Selectively Disclosable Claims</a>
           </h4>
-<p id="section-5.2.1-1">For each claim that is to be selectively disclosed, the Issuer creates a Disclosure object, hashes it, and includes the hash instead of the original claim in the SD-JWT, as described next. The Disclosures are then sent as II-Disclosures to the Holder.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
-<div id="creating-disclosures">
+<p id="section-5.2.1-1">For each claim that is to be selectively disclosed, the Issuer creates a Disclosure object, hashes it, and includes the hash instead of the original claim in the SD-JWT, as described next. The Disclosures are then sent to the Holder.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<div id="creating_disclosures">
 <section id="section-5.2.1.1">
             <h5 id="name-creating-disclosures">
 <a href="#section-5.2.1.1" class="section-number selfRef">5.2.1.1. </a><a href="#name-creating-disclosures" class="section-name selfRef">Creating Disclosures</a>
@@ -1758,45 +1744,73 @@ required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcro
 <pre class="lang-json sourcecode">["6qMQvRL5haj", "family_name", "Möbius"]
 </pre><a href="#section-5.2.1.1-5" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.1-6">The resulting Disclosure could be as follows:<a href="#section-5.2.1.1-6" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5.2.1.1-7">
-<pre>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0
-</pre><a href="#section-5.2.1.1-7" class="pilcrow">¶</a>
-</div>
-<p id="section-5.2.1.1-8">Note that the JSON encoding of the object is not canonicalized, so variations in white space, encoding
+<p id="section-5.2.1.1-6">The resulting Disclosure would be <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code>.<a href="#section-5.2.1.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.1-7">Note that the JSON encoding of the object is not canonicalized, so variations in white space, encoding
 of Unicode characters, and ordering of object properties are allowed. For example, the following strings
-are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class="pilcrow">¶</a></p>
+are all valid and encode the same claim value:<a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2.1.1-9.1">A different way to encode the umlaut: <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd</code><a href="#section-5.2.1.1-9.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1.1-8.1">A different way to encode the umlaut: <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd</code><a href="#section-5.2.1.1-8.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.1-9.2">No white space: <code>WyI2cU1RdlJMNWhhaiIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd</code><a href="#section-5.2.1.1-9.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.1-8.2">No white space: <code>WyI2cU1RdlJMNWhhaiIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd</code><a href="#section-5.2.1.1-8.2" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.1-9.3">Newline characters between elements: <code>WwoiNnFNUXZSTDVoYWoiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ</code><a href="#section-5.2.1.1-9.3" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.1-8.3">Newline characters between elements: <code>WwoiNnFNUXZSTDVoYWoiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ</code><a href="#section-5.2.1.1-8.3" class="pilcrow">¶</a>
 </li>
             </ul>
 </section>
 </div>
-<div id="creating-an-sd-jwt-1">
+<div id="hashing-disclosures">
 <section id="section-5.2.1.2">
-            <h5 id="name-creating-an-sd-jwt-2">
-<a href="#section-5.2.1.2" class="section-number selfRef">5.2.1.2. </a><a href="#name-creating-an-sd-jwt-2" class="section-name selfRef">Creating an SD-JWT</a>
+            <h5 id="name-hashing-disclosures">
+<a href="#section-5.2.1.2" class="section-number selfRef">5.2.1.2. </a><a href="#name-hashing-disclosures" class="section-name selfRef">Hashing Disclosures</a>
             </h5>
-<p id="section-5.2.1.2-1">An SD-JWT is a JWT that MUST be signed using the Issuer's private key.<a href="#section-5.2.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.2-2">An SD-JWT MAY contain both selectively disclosable claims and non-selectively disclosable claims, i.e., claims that are always contained in the SD-JWT in plaintext and are always visible to a Verifier.<a href="#section-5.2.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.2-3">Claims controlling the validity of the SD-JWT, such as <code>iss</code>, <code>exp</code>, or <code>nbf</code> are usually included in plaintext. End-User claims MAY be included as plaintext as well, e.g., if hiding the particular claims from the Verifier does not make sense in the intended use case. Ultimately, an Issuer decides which claims are selectively disclosable and which are not.<a href="#section-5.2.1.2-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.2-4">Plaintext claims are included in the SD-JWT just as in any other JWT.<a href="#section-5.2.1.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.2-5">Selectively disclosable claims are omitted from the SD-JWT. Instead, the hash digests of the respective Disclosures are contained as an array in a new claim, <code>_sd</code>. The <code>_sd</code> claim MUST be an array of strings, each string being a base64url-encoded hash digest of a Disclosure. The Issuer MUST hide the original order of the claims in the array. To this end, it is RECOMMENDED to either sort the array (e.g., alphanumerically, but the precise method does not matter) or to shuffle the array randomly. The array MAY be empty, although it is RECOMMENDED to omit the claim in this case to save space.<a href="#section-5.2.1.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.2-1">For embedding the Disclosures in the SD-JWT, the Disclosures are hashed using the digest algorithm specified in the <code>sd_digest_derivation_alg</code> claim described below. The resulting hash is then included in the SD-JWT instead of the original claim value, as described next.<a href="#section-5.2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.2-2">The hash digest MUST be taken over the US-ASCII bytes of the base64url-encoded Disclosure. This follows the convention in JWS <span>[<a href="#RFC7515" class="cite xref">RFC7515</a>]</span> and JWE <span>[<a href="#RFC7516" class="cite xref">RFC7516</a>]</span>. The bytes of the hash digest MUST then be base64url-encoded.<a href="#section-5.2.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.2-3">Note:<a href="#section-5.2.1.2-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2.1.2-4.1">The input to the hash function is the base64url-encoded Disclosure, not the bytes encoded by the base64url string.<a href="#section-5.2.1.2-4.1" class="pilcrow">¶</a>
+</li>
+              <li class="normal" id="section-5.2.1.2-4.2">The bytes of the output of the hash function are base64url-encoded, not the bytes making up the (often used) hex representation of the bytes of the hash digest.<a href="#section-5.2.1.2-4.2" class="pilcrow">¶</a>
+</li>
+            </ul>
+<p id="section-5.2.1.2-5">For example, the
+SHA-256 hash digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code> would be
+<code>uutlBuYeMDyjLLTpf6Jxi7yNkEF35jdyWMn9U7b_RYY</code>.<a href="#section-5.2.1.2-5" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="decoy-digests">
+<section id="section-5.2.1.3">
+            <h5 id="name-decoy-digests">
+<a href="#section-5.2.1.3" class="section-number selfRef">5.2.1.3. </a><a href="#name-decoy-digests" class="section-name selfRef">Decoy Digests</a>
+            </h5>
+<p id="section-5.2.1.3-1">An Issuer MAY add additional hash digests to the SD-JWT that are not associated with any claim.  The purpose of such "decoy" digests is to make it more difficult for an attacker to see the original number of claims contained in the SD-JWT. It is RECOMMENDED to create the decoy digests by hashing over a cryptographically secure random number. The bytes of the hash digest MUST then be base64url-encoded as above. The same digest function as for the Disclosures MUST be used.<a href="#section-5.2.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.3-2">For decoy digests, no Disclosure is sent to the Holder, i.e., the Holder will see hash digests that do not correspond to any Disclosure. See <a href="#decoy_digests_privacy" class="auto internal xref">Section 8.1</a> for additional privacy considerations.<a href="#section-5.2.1.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.3-3">To ensure readability and replicability, the examples in this specification do not contain decoy digests unless explicitly stated.<a href="#section-5.2.1.3-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="creating-an-sd-jwt-1">
+<section id="section-5.2.1.4">
+            <h5 id="name-creating-an-sd-jwt-2">
+<a href="#section-5.2.1.4" class="section-number selfRef">5.2.1.4. </a><a href="#name-creating-an-sd-jwt-2" class="section-name selfRef">Creating an SD-JWT</a>
+            </h5>
+<p id="section-5.2.1.4-1">An SD-JWT is a JWT that MUST be signed using the Issuer's private key.<a href="#section-5.2.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-2">An SD-JWT MAY contain both selectively disclosable claims and non-selectively disclosable claims, i.e., claims that are always contained in the SD-JWT in plaintext and are always visible to a Verifier.<a href="#section-5.2.1.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-3">Claims controlling the validity of the SD-JWT, such as <code>iss</code>, <code>exp</code>, or <code>nbf</code> are usually included in plaintext. End-User claims MAY be included as plaintext as well, e.g., if hiding the particular claims from the Verifier does not make sense in the intended use case. Ultimately, an Issuer decides which claims are selectively disclosable and which are not.<a href="#section-5.2.1.4-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-4">Plaintext claims are included in the SD-JWT just as they would be in any other JWT.<a href="#section-5.2.1.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-5">Selectively disclosable claims are omitted from the SD-JWT. Instead, the hash digests of the respective Disclosures and potentially decoy digests are contained as an array in a new claim, <code>_sd</code>.<a href="#section-5.2.1.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-6">The <code>_sd</code> claim MUST be an array of strings, each string being a hash digests of a Disclosure or a decoy digest as described above.
+The array MAY be empty, although it is RECOMMENDED to omit the claim in this case to save space.<a href="#section-5.2.1.4-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-7">The Issuer MUST hide the original order of the claims in the array. To ensure this, it is RECOMMENDED to shuffle the array, e.g., by sorting it alphanumerically or randomly. The precise method does not matter as long as it does not depend on the original order of elements.<a href="#section-5.2.1.4-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="nested-data-in-sd-jwts">
-<section id="section-5.2.1.3">
+<section id="section-5.2.1.5">
             <h5 id="name-nested-data-in-sd-jwts">
-<a href="#section-5.2.1.3" class="section-number selfRef">5.2.1.3. </a><a href="#name-nested-data-in-sd-jwts" class="section-name selfRef">Nested Data in SD-JWTs</a>
+<a href="#section-5.2.1.5" class="section-number selfRef">5.2.1.5. </a><a href="#name-nested-data-in-sd-jwts" class="section-name selfRef">Nested Data in SD-JWTs</a>
             </h5>
-<p id="section-5.2.1.3-1">Just like any JWT, an SD-JWT MAY contain objects that themselves contain other data. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some some of the object's properties selectively disclosable and others not.<a href="#section-5.2.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.3-2">In any case, the <code>_sd</code> claim MUST be included in the SD-JWT at the same level as the original claim and therefore MAY appear multiple times in an SD-JWT.<a href="#section-5.2.1.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.3-3">Taking the OpenID Connect <code>address</code> claim as an example, the Issuer may want to produce an SD-JWT with the following End-User data:<a href="#section-5.2.1.3-3" class="pilcrow">¶</a></p>
-<div id="section-5.2.1.3-4">
+<p id="section-5.2.1.5-1">Just like any JWT, an SD-JWT MAY contain objects that themselves contain other data. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some some of the object's properties selectively disclosable and others not.<a href="#section-5.2.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5-2">In any case, the <code>_sd</code> claim MUST be included in the SD-JWT at the same level as the original claim and therefore MAY appear multiple times in an SD-JWT.<a href="#section-5.2.1.5-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5-3">The following examples show some of the options an Issuer has when producing an SD-JWT with the following End-User data.<a href="#section-5.2.1.5-3" class="pilcrow">¶</a></p>
+<div id="section-5.2.1.5-4">
 <pre class="lang-json sourcecode">{
   "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
   "address": {
@@ -1806,34 +1820,64 @@ are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class
     "country": "DE"
   }
 }
-</pre><a href="#section-5.2.1.3-4" class="pilcrow">¶</a>
+</pre><a href="#section-5.2.1.5-4" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.3-5">The Issuer can decide to treat the <code>address</code> claim as a block that can either be disclosed completely or not at all:<a href="#section-5.2.1.3-5" class="pilcrow">¶</a></p>
-<div id="section-5.2.1.3-6">
+<p id="section-5.2.1.5-5">Important: Throughout the examples in this document, line breaks had to
+be added to JSON strings and base64-encoded strings (as shown in the
+next example) to adhere to the 72 character limit for lines in RFCs and
+for readability. JSON does not allow line breaks in strings.<a href="#section-5.2.1.5-5" class="pilcrow">¶</a></p>
+<div id="option-1-flat-sd-jwt">
+<section id="section-5.2.1.5.1">
+              <h6 id="name-option-1-flat-sd-jwt">
+<a href="#section-5.2.1.5.1" class="section-number selfRef">5.2.1.5.1. </a><a href="#name-option-1-flat-sd-jwt" class="section-name selfRef">Option 1: Flat SD-JWT</a>
+              </h6>
+<p id="section-5.2.1.5.1-1">The Issuer can decide to treat the <code>address</code> claim as a block that can either be disclosed completely or not at all. The following example shows that in this case, the entire <code>address</code> claim is treated as an object in the Disclosure.<a href="#section-5.2.1.5.1-1" class="pilcrow">¶</a></p>
+<div id="section-5.2.1.5.1-2">
 <pre class="lang-json sourcecode">{
   "_sd": [
-    "k8f8eq6sIxqKjmbO-OylY4jalkvW4DZg5cyV8N_TXqA",
-    "ri7L7wKKi0AJAIr8SpiIcFu2tXmQJNnRjCHuzQvUUQg"
+    "Ha16ca-c-KXYlAcp9VfUL5nZ8yIuneE1sNI3h_swenk"
   ],
+  "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
   "iss": "https://example.com/issuer",
   "iat": 1516239022,
   "exp": 1516247022,
   "sd_digest_derivation_alg": "sha-256"
 }
-</pre><a href="#section-5.2.1.3-6" class="pilcrow">¶</a>
+</pre><a href="#section-5.2.1.5.1-2" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.3-7">The Issuer may instead decide to make the <code>address</code> claim contents selectively disclosable individually:<a href="#section-5.2.1.3-7" class="pilcrow">¶</a></p>
-<div id="section-5.2.1.3-8">
+<p id="section-5.2.1.5.1-3">The Issuer would create the following Disclosure:<a href="#section-5.2.1.5.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.1-4"><strong>Disclosure for 'address':</strong><a href="#section-5.2.1.5.1-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.1-5">
+<pre>WyJnX0Q5SmtWMjk4UmZBa3gtRHJwQlRBIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
+ZXNzIjogIlNjaHVsc3RyLiAxMiIsICJsb2NhbGl0eSI6ICJTY2h1bHBmb3J0YSIsICJy
+ZWdpb24iOiAiU2FjaHNlbi1BbmhhbHRlIiwgImNvdW50cnkiOiAiREUifV0
+</pre><a href="#section-5.2.1.5.1-5" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.1-6">Contents:<a href="#section-5.2.1.5.1-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.1-7">
+<pre>["g_D9JkV298RfAkx-DrpBTA", "address", {"street_address": "Schulstr.
+12", "locality": "Schulpforta", "region": "Sachsen-Anhalte",
+"country": "DE"}]
+</pre><a href="#section-5.2.1.5.1-7" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.1-8">SHA-256 Hash: <code>Ha16ca-c-KXYlAcp9VfUL5nZ8yIuneE1sNI3h_swenk</code><a href="#section-5.2.1.5.1-8" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="option-2-structured-sd-jwt">
+<section id="section-5.2.1.5.2">
+              <h6 id="name-option-2-structured-sd-jwt">
+<a href="#section-5.2.1.5.2" class="section-number selfRef">5.2.1.5.2. </a><a href="#name-option-2-structured-sd-jwt" class="section-name selfRef">Option 2: Structured SD-JWT</a>
+              </h6>
+<p id="section-5.2.1.5.2-1">The Issuer may instead decide to make the <code>address</code> claim contents selectively disclosable individually:<a href="#section-5.2.1.5.2-1" class="pilcrow">¶</a></p>
+<div id="section-5.2.1.5.2-2">
 <pre class="lang-json sourcecode">{
-  "_sd": [
-    "2lwEEfEpYi-_B_ZBCwjLVNIoeGBPSVl95SnrUxCMRQ8"
-  ],
+  "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
   "address": {
     "_sd": [
-      "-hhHkLTKhCitAz2I7EHh6oMQNn6QsEG30i-HU1aXCs4",
-      "7yuMSE4fQM9CR2atuQv42S4-FjFX2uXMU8IOc1LOeFU",
-      "_EZp0gVJKsTd5iEgsWezy2RFihn7s6WN-9YtNZBsfqw",
-      "sIA6f43LlrQo_28d3E5EEBF9-anFic7y1_mfT7xLsZQ"
+      "5GcOWoYSuDtJ6mmwOVBpohx7km5Jn6fqV3EuKjbnx1E",
+      "Y9YwGhQiiy6woOi5erWQdHfHT9ZC-WqBWcMaxmiabyo",
+      "YVeajj6L3bQvb_uSgWsqi5A9JbWtwszFWbtzlBEMZ1s",
+      "i8GJhq3bHnL0RImnEePpgAiKMFWjVhhdXy0u5ksfXIU"
     ]
   },
   "iss": "https://example.com/issuer",
@@ -1841,19 +1885,72 @@ are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class
   "exp": 1516247022,
   "sd_digest_derivation_alg": "sha-256"
 }
-</pre><a href="#section-5.2.1.3-8" class="pilcrow">¶</a>
+</pre><a href="#section-5.2.1.5.2-2" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.3-9">The Issuer may also make one claim in address non-selectively disclosable and hide only the other claims:<a href="#section-5.2.1.3-9" class="pilcrow">¶</a></p>
-<div id="section-5.2.1.3-10">
+<p id="section-5.2.1.5.2-3">In this case, the Issuer would use the following data in the Disclosures for the <code>address</code> sub-claims:<a href="#section-5.2.1.5.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-4"><strong>Disclosure for 'street_address':</strong><a href="#section-5.2.1.5.2-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-5">
+<pre>WyJTY3MwWEtrLUVpYmg3bGV3T0pXTmVBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
+c3RyLiAxMiJd
+</pre><a href="#section-5.2.1.5.2-5" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-6">Contents:<a href="#section-5.2.1.5.2-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-7">
+<pre>["Scs0XKk-Eibh7lewOJWNeA", "street_address", "Schulstr. 12"]
+</pre><a href="#section-5.2.1.5.2-7" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-8">SHA-256 Hash: <code>i8GJhq3bHnL0RImnEePpgAiKMFWjVhhdXy0u5ksfXIU</code><a href="#section-5.2.1.5.2-8" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-9"><strong>Disclosure for 'locality':</strong><a href="#section-5.2.1.5.2-9" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-10">
+<pre>WyJaY1lTYk5jV3BIODdIZ1p1X2J3azB3IiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
+Il0
+</pre><a href="#section-5.2.1.5.2-10" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-11">Contents:<a href="#section-5.2.1.5.2-11" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-12">
+<pre>["ZcYSbNcWpH87HgZu_bwk0w", "locality", "Schulpforta"]
+</pre><a href="#section-5.2.1.5.2-12" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-13">SHA-256 Hash: <code>5GcOWoYSuDtJ6mmwOVBpohx7km5Jn6fqV3EuKjbnx1E</code><a href="#section-5.2.1.5.2-13" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-14"><strong>Disclosure for 'region':</strong><a href="#section-5.2.1.5.2-14" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-15">
+<pre>WyJidGNydXFNbHJwSzY4MVBGQVZMNnRRIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
+dGUiXQ
+</pre><a href="#section-5.2.1.5.2-15" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-16">Contents:<a href="#section-5.2.1.5.2-16" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-17">
+<pre>["btcruqMlrpK681PFAVL6tQ", "region", "Sachsen-Anhalte"]
+</pre><a href="#section-5.2.1.5.2-17" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-18">SHA-256 Hash: <code>YVeajj6L3bQvb_uSgWsqi5A9JbWtwszFWbtzlBEMZ1s</code><a href="#section-5.2.1.5.2-18" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.2-19"><strong>Disclosure for 'country':</strong><a href="#section-5.2.1.5.2-19" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-20">
+<pre>WyJBUHdBS0NpVWktNlJSSXk5aWNCazBBIiwgImNvdW50cnkiLCAiREUiXQ
+</pre><a href="#section-5.2.1.5.2-20" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-21">Contents:<a href="#section-5.2.1.5.2-21" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.2-22">
+<pre>["APwAKCiUi-6RRIy9icBk0A", "country", "DE"]
+</pre><a href="#section-5.2.1.5.2-22" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.2-23">SHA-256 Hash: <code>Y9YwGhQiiy6woOi5erWQdHfHT9ZC-WqBWcMaxmiabyo</code><a href="#section-5.2.1.5.2-23" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="option-3-structured-sd-jwt-only-some-properties-selectively-disclosable">
+<section id="section-5.2.1.5.3">
+              <h6 id="name-option-3-structured-sd-jwt-">
+<a href="#section-5.2.1.5.3" class="section-number selfRef">5.2.1.5.3. </a><a href="#name-option-3-structured-sd-jwt-" class="section-name selfRef">Option 3: Structured SD-JWT, only some properties selectively disclosable</a>
+              </h6>
+<p id="section-5.2.1.5.3-1">The Issuer may also make one sub-claim of <code>address</code> non-selectively disclosable and hide only the other sub-claims:<a href="#section-5.2.1.5.3-1" class="pilcrow">¶</a></p>
+<div id="section-5.2.1.5.3-2">
 <pre class="lang-json sourcecode">{
-  "_sd": [
-    "YXmI9ujDmiwzssL98qCZep4x9Jbd9d2fcJmXVIxA2SA"
-  ],
+  "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
   "address": {
     "_sd": [
-      "0mKYKYMf2doo6bqzwdZx0_py-QEwWQgIEhVVfB-ebWQ",
-      "3n5TziNfz46aOmMLF8c6SDKJYmqbuXHYKpnNyAfCfDw",
-      "vH5jSSEiHDnG9s09pr44D5sFK_fUYl4588RklPhdWhM"
+      "BMD-ZCkL825F6P55v7SIUUnczRiP7pGd8nK2vH4iBWo",
+      "COuVnjyZqf50HTjQotT4vEXkJrGYRaiFs8_8bdJaNIo",
+      "_oY3EClWWHrxSnS_04-lnZv2U2mCc6Hu-NgwBOnLYsY"
     ],
     "country": "DE"
   },
@@ -1862,7 +1959,46 @@ are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class
   "exp": 1516247022,
   "sd_digest_derivation_alg": "sha-256"
 }
-</pre><a href="#section-5.2.1.3-10" class="pilcrow">¶</a>
+</pre><a href="#section-5.2.1.5.3-2" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-3">In this case, the Issuer would issue the following Disclosures:<a href="#section-5.2.1.5.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.3-4"><strong>Disclosure for 'street_address':</strong><a href="#section-5.2.1.5.3-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.3-5">
+<pre>WyIxMnV3T0E3TFlHNjRQVUVzbnBaTjNBIiwgInN0cmVldF9hZGRyZXNzIiwgIlNjaHVs
+c3RyLiAxMiJd
+</pre><a href="#section-5.2.1.5.3-5" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-6">Contents:<a href="#section-5.2.1.5.3-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.3-7">
+<pre>["12uwOA7LYG64PUEsnpZN3A", "street_address", "Schulstr. 12"]
+</pre><a href="#section-5.2.1.5.3-7" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-8">SHA-256 Hash: <code>_oY3EClWWHrxSnS_04-lnZv2U2mCc6Hu-NgwBOnLYsY</code><a href="#section-5.2.1.5.3-8" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.3-9"><strong>Disclosure for 'locality':</strong><a href="#section-5.2.1.5.3-9" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.3-10">
+<pre>WyIwVnJZV2szTHBIS2pWbWVRNnhGRkRRIiwgImxvY2FsaXR5IiwgIlNjaHVscGZvcnRh
+Il0
+</pre><a href="#section-5.2.1.5.3-10" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-11">Contents:<a href="#section-5.2.1.5.3-11" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.3-12">
+<pre>["0VrYWk3LpHKjVmeQ6xFFDQ", "locality", "Schulpforta"]
+</pre><a href="#section-5.2.1.5.3-12" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-13">SHA-256 Hash: <code>BMD-ZCkL825F6P55v7SIUUnczRiP7pGd8nK2vH4iBWo</code><a href="#section-5.2.1.5.3-13" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5.3-14"><strong>Disclosure for 'region':</strong><a href="#section-5.2.1.5.3-14" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.3-15">
+<pre>WyJVenY3T09aNXpublpDLWhtc0p2Rm1nIiwgInJlZ2lvbiIsICJTYWNoc2VuLUFuaGFs
+dGUiXQ
+</pre><a href="#section-5.2.1.5.3-15" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-16">Contents:<a href="#section-5.2.1.5.3-16" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2.1.5.3-17">
+<pre>["Uzv7OOZ5znnZC-hmsJvFmg", "region", "Sachsen-Anhalte"]
+</pre><a href="#section-5.2.1.5.3-17" class="pilcrow">¶</a>
+</div>
+<p id="section-5.2.1.5.3-18">SHA-256 Hash: <code>COuVnjyZqf50HTjQotT4vEXkJrGYRaiFs8_8bdJaNIo</code><a href="#section-5.2.1.5.3-18" class="pilcrow">¶</a></p>
+</section>
 </div>
 </section>
 </div>
@@ -1912,7 +2048,6 @@ Holder and Issuer MAY use pre-established key material.<a href="#section-5.2.3-2
         </h3>
 <p id="section-5.3-1">This example and Example 2a in <a href="#example-simple-structured-sd-jwt" class="auto internal xref">Appendix A.1.1</a> use the following object as the set
 of claims that the Issuer is issuing:<a href="#section-5.3-1" class="pilcrow">¶</a></p>
-<div id="example-simple-user_claims">
 <div id="section-5.3-2">
 <pre class="lang-json sourcecode">{
   "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
@@ -1930,363 +2065,244 @@ of claims that the Issuer is issuing:<a href="#section-5.3-1" class="pilcrow">¶
 }
 </pre><a href="#section-5.3-2" class="pilcrow">¶</a>
 </div>
-</div>
 <p id="section-5.3-3">The following non-normative example shows the payload of an SD-JWT. The Issuer
 is using a flat structure, i.e., all of the claims in the <code>address</code> claim can only
 be disclosed in full.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
-<div id="example-simple-sd_jwt_payload">
 <div id="section-5.3-4">
 <pre class="lang-json sourcecode">{
+  "_sd": [
+    "6LlIUDMsteqLDUTuSeYbyGfYR3HFwlAuMFprV71uDbk",
+    "JNnnsE7gNggbEUi38jM2qv6KTKgzO0EeRG8d2BVQ3Rs",
+    "STiegE8aBohuzf07cCcOkvMWKjw-dfHAwkIXeqxN5A8",
+    "VDGtd7GETe7AkvIzmTF3iVJsXHvUAErJelozsscllVU",
+    "Yrvc0XisV6BOe1ZtWbvNQoD0mw3jBhpkojmHkyGv_ZQ",
+    "v-Q-MMj-y-fd6EmPO14RlBZVf3Glc8xTqWYqZdKGyvk",
+    "yJarAJIcdhdR2vG-vRzYXGu3feAvxM9vPWuEXPzXY8U"
+  ],
   "iss": "https://example.com/issuer",
-  "cnf": {
-    "jwk": {
-      "kty": "RSA",
-      "n": "pm4bOHBg-oYhAyPWzR56AWX3rUIXp11_ICDkGgS6W3ZWLts-hzwI3x65
-        659kg4hVo9dbGoCJE3ZGF_eaetE30UhBUEgpGwrDrQiJ9zqprmcFfr3qvvkG
-        jtth8Zgl1eM2bJcOwE7PCBHWTKWYs152R7g6Jg2OVph-a8rq-q79MhKG5QoW
-        _mTz10QT_6H4c7PjWG1fjh8hpWNnbP_pv6d1zSwZfc5fl6yVRL0DV0V3lGHK
-        e2Wqf_eNGjBrBLVklDTk8-stX_MWLcR-EGmXAOv0UBWitS_dXJKJu-vXJyw1
-        4nHSGuxTIK2hx1pttMft9CsvqimXKeDTU14qQL1eE7ihcw",
-      "e": "AQAB"
-    }
-  },
   "iat": 1516239022,
   "exp": 1516247022,
-  "sd_digest_derivation_alg": "sha-256",
-  "sd_digests": {
-    "sub": "2EDXXZ1JcE6aTcM70fZopFneYAS9-hY3lalaoLuWD1s",
-    "given_name": "pC56LWpTgec18Ll1kps3koXapnw6SOiI0d1ba34t-mY",
-    "family_name": "EySQc316Ln3ZGJXwioELWSyylm_6OXV6rcL6LyPb7oI",
-    "email": "qHv6gGaq4oFmIXyKh9ZlFjQ5rOClS-dXHiPMZyl2FaU",
-    "phone_number": "jhr_PsauT4xsYZS_OxBW8y_1MLULOovKseRvF9CE0TM",
-    "address": "eQXgmowqkT_ORkedoqeW0wBUy4vzkWG1VhvOjh3tl_o",
-    "birthdate": "qgDxFuNpf83MkKe4GCaiLuL_XZdzO4pYD7lQKbv4zos"
-  }
+  "sd_digest_derivation_alg": "sha-256"
 }
 </pre><a href="#section-5.3-4" class="pilcrow">¶</a>
 </div>
+<p id="section-5.3-5">The SD-JWT is then signed by the Issuer to create a JWT like the following:<a href="#section-5.3-5" class="pilcrow">¶</a></p>
+<div id="section-5.3-6">
+<pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
+UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjZMbElVRE1zdGVxTERVVHVTZVlie
+UdmWVIzSEZ3bEF1TUZwclY3MXVEYmsiLCAiSk5ubnNFN2dOZ2diRVVpMzhqTTJxdjZLV
+Etnek8wRWVSRzhkMkJWUTNScyIsICJTVGllZ0U4YUJvaHV6ZjA3Y0NjT2t2TVdLanctZ
+GZIQXdrSVhlcXhONUE4IiwgIlZER3RkN0dFVGU3QWt2SXptVEYzaVZKc1hIdlVBRXJKZ
+WxvenNzY2xsVlUiLCAiWXJ2YzBYaXNWNkJPZTFadFdidk5Rb0QwbXczakJocGtvam1Ia
+3lHdl9aUSIsICJ2LVEtTU1qLXktZmQ2RW1QTzE0UmxCWlZmM0dsYzh4VHFXWXFaZEtHe
+XZrIiwgInlKYXJBSkljZGhkUjJ2Ry12UnpZWEd1M2ZlQXZ4TTl2UFd1RVhQelhZOFUiX
+SwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2M
+jM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZ
+yI6ICJzaGEtMjU2In0.KVFIEs0SUWmxNjzn1ETMVUQYnYtZRecOn0nrGSchC6IsJPTpv
+grOfk8Ydpv9IIWVoj3d-vQQekM2I6fdGj01f0Wdoj4HREUDM83tGq0-bzcJlzhDN-maq
+Iuh4zCYRUGZddbxQqsqaQDLIIBnPoKDldse13TuJlsqMQh5PoFUdkwRg1_oiAjFfv-D1
+hynI0zUDtgKs2Ef4lX1Lsv3Je3w3tBOy8UiIqfWtfs6SQxSdDJaC-7SbWR1zgtE6mcoK
+Qg9qXJJ9wsdTg7mzKUq4wnsqIoOxaYcRD5YpHvlBdQejtg9GkQTuN-SsDXiSEXV93ClO
+Kw7vLZCM0GopE4Q9KHmog
+</pre><a href="#section-5.3-6" class="pilcrow">¶</a>
 </div>
-<p id="section-5.3-5">Important: Throughout the examples in this document, line breaks had to
-be added to JSON strings and base64-encoded strings (as shown in the
-next example) to adhere to the 72 character limit for lines in RFCs and
-for readability. JSON does not allow line breaks in strings.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
-<p id="section-5.3-6">The SD-JWT is then signed by the Issuer to create a JWT like the following:<a href="#section-5.3-6" class="pilcrow">¶</a></p>
-<div id="example-simple-serialized_sd_jwt">
-<div class="alignLeft art-text artwork" id="section-5.3-7">
-<pre>eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
-UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc
-3N1ZXIiLCAiY25mIjogeyJqd2siOiB7Imt0eSI6ICJSU0EiLCAibiI6ICJwbTRiT0hCZ
-y1vWWhBeVBXelI1NkFXWDNyVUlYcDExX0lDRGtHZ1M2VzNaV0x0cy1oendJM3g2NTY1O
-WtnNGhWbzlkYkdvQ0pFM1pHRl9lYWV0RTMwVWhCVUVncEd3ckRyUWlKOXpxcHJtY0Zmc
-jNxdnZrR2p0dGg4WmdsMWVNMmJKY093RTdQQ0JIV1RLV1lzMTUyUjdnNkpnMk9WcGgtY
-ThycS1xNzlNaEtHNVFvV19tVHoxMFFUXzZINGM3UGpXRzFmamg4aHBXTm5iUF9wdjZkM
-XpTd1pmYzVmbDZ5VlJMMERWMFYzbEdIS2UyV3FmX2VOR2pCckJMVmtsRFRrOC1zdFhfT
-VdMY1ItRUdtWEFPdjBVQldpdFNfZFhKS0p1LXZYSnl3MTRuSFNHdXhUSUsyaHgxcHR0T
-WZ0OUNzdnFpbVhLZURUVTE0cVFMMWVFN2loY3ciLCAiZSI6ICJBUUFCIn19LCAiaWF0I
-jogMTUxNjIzOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJzZF9kaWdlc3RfZGVyaXZhd
-Glvbl9hbGciOiAic2hhLTI1NiIsICJzZF9kaWdlc3RzIjogeyJzdWIiOiAiMkVEWFhaM
-UpjRTZhVGNNNzBmWm9wRm5lWUFTOS1oWTNsYWxhb0x1V0QxcyIsICJnaXZlbl9uYW1lI
-jogInBDNTZMV3BUZ2VjMThMbDFrcHMza29YYXBudzZTT2lJMGQxYmEzNHQtbVkiLCAiZ
-mFtaWx5X25hbWUiOiAiRXlTUWMzMTZMbjNaR0pYd2lvRUxXU3l5bG1fNk9YVjZyY0w2T
-HlQYjdvSSIsICJlbWFpbCI6ICJxSHY2Z0dhcTRvRm1JWHlLaDlabEZqUTVyT0NsUy1kW
-EhpUE1aeWwyRmFVIiwgInBob25lX251bWJlciI6ICJqaHJfUHNhdVQ0eHNZWlNfT3hCV
-zh5XzFNTFVMT292S3NlUnZGOUNFMFRNIiwgImFkZHJlc3MiOiAiZVFYZ21vd3FrVF9PU
-mtlZG9xZVcwd0JVeTR2emtXRzFWaHZPamgzdGxfbyIsICJiaXJ0aGRhdGUiOiAicWdEe
-EZ1TnBmODNNa0tlNEdDYWlMdUxfWFpkek80cFlEN2xRS2J2NHpvcyJ9fQ.0w8PQ_tg2K
-6Q82XhXn3-Nmi7uGeXkOFFMSfp_8iMKRRlfg-HXXdoZWv8UECv1B2PIJITjH2RAz_egY
-j-dLkPopnJ-0vIDKjKhvMCIIo0FEnTV3qQct-8s6NifR2exU1TuyF66Z9Jekk1V3M4Bn
-KxCc6-mEf7_d1K-EfQ34dI-6XJFh05s1_sE7ePFvLRGtj4tHHQlwWGm7wQJqPRYtA_F0
-N10jIlyFbw4B6T59TpI8ZjHgucCxF9p1IUb-RYb6P1dYF4sVdQT258jAJVCAPz62JoRn
--cPPwV-QbpAKD7npkk7pTxkYg0T9_iyvMcq_RdXGqqANkJn8qxEffwp_OsgA
-</pre><a href="#section-5.3-7" class="pilcrow">¶</a>
+<p id="section-5.3-7">The Issuer creates the following Disclosures:<a href="#section-5.3-7" class="pilcrow">¶</a></p>
+<p id="section-5.3-8"><strong>Disclosure for 'sub':</strong><a href="#section-5.3-8" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-9">
+<pre>WyI5V2E2RlFTX2FZSUJuTmE4T1Z6YTZ3IiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
+MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
+</pre><a href="#section-5.3-9" class="pilcrow">¶</a>
 </div>
+<p id="section-5.3-10">Contents:<a href="#section-5.3-10" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-11">
+<pre>["9Wa6FQS_aYIBnNa8OVza6w", "sub",
+"6c5c0a49-b589-431d-bae7-219122a9ec2c"]
+</pre><a href="#section-5.3-11" class="pilcrow">¶</a>
 </div>
-</section>
+<p id="section-5.3-12">SHA-256 Hash: <code>v-Q-MMj-y-fd6EmPO14RlBZVf3Glc8xTqWYqZdKGyvk</code><a href="#section-5.3-12" class="pilcrow">¶</a></p>
+<p id="section-5.3-13"><strong>Disclosure for 'given_name':</strong><a href="#section-5.3-13" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-14">
+<pre>WyJzbV9jREJPVnV6N0ZfRDNVdGFrcHlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd
+</pre><a href="#section-5.3-14" class="pilcrow">¶</a>
 </div>
-<div id="format-of-an-issuer-issued-disclosures-object">
-<section id="section-5.4">
-        <h3 id="name-format-of-an-issuer-issued-">
-<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-format-of-an-issuer-issued-" class="section-name selfRef">Format of an Issuer-Issued Disclosures Object</a>
-        </h3>
-<p id="section-5.4-1">Besides the SD-JWT itself, the Holder needs to learn the raw claim values that
-are contained in the SD-JWT, along with the precise input to the digest
-calculation and the salts. There MAY be other information the Issuer needs to
-communicate to the Holder, such as a private key if the Issuer selected the
-Holder key pair.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
-<p id="section-5.4-2">An Issuer-Issued Disclosures Object (II-Disclosures Object) is a JSON object containing at least the
-top-level property <code>sd_ii_disclosures</code>. Its structure mirrors the one of <code>sd_digests</code> in
-the SD-JWT, but the values are the inputs to the digest calculations the Issuer
-used (the Disclosures), as strings.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
-<p id="section-5.4-3">The II-Disclosures Object MAY contain further properties, for example, to transport the Holder
-private key.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
-</section>
+<p id="section-5.3-15">Contents:<a href="#section-5.3-15" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-16">
+<pre>["sm_cDBOVuz7F_D3UtakpyQ", "given_name", "John"]
+</pre><a href="#section-5.3-16" class="pilcrow">¶</a>
 </div>
-<div id="example-issuer-issued-disclosures-object-for-the-flat-sd-jwt-in-example-1">
-<section id="section-5.5">
-        <h3 id="name-example-issuer-issued-discl">
-<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-example-issuer-issued-discl" class="section-name selfRef">Example: Issuer-Issued Disclosures Object for the Flat SD-JWT in Example 1</a>
-        </h3>
-<p id="section-5.5-1">The II-Disclosures Object for Example 1 is as follows:<a href="#section-5.5-1" class="pilcrow">¶</a></p>
-<div id="example-simple-iid_payload">
-<div id="section-5.5-2">
-<pre class="lang-json sourcecode">{
-  "sd_ii_disclosures": {
-    "sub": "{\"s\": \"YZSmzeu7lFHUbZ8Z1QqH9Q\", \"v\":
-      \"6c5c0a49-b589-431d-bae7-219122a9ec2c\"}",
-    "given_name": "{\"s\": \"kHHp91-tAZt8m9E4Jl4XbQ\", \"v\":
-      \"John\"}",
-    "family_name": "{\"s\": \"PjIqpGWl4eB4QroDhqQw0w\", \"v\":
-      \"Doe\"}",
-    "email": "{\"s\": \"QRamZSB5Ky0MeJyz4EAleA\", \"v\":
-      \"johndoe@example.com\"}",
-    "phone_number": "{\"s\": \"xniP4JZtNWIH-Lk_Dt-o-A\", \"v\":
-      \"+1-202-555-0101\"}",
-    "address": "{\"s\": \"KtfsxxTm2mw0YLUcKZU8tA\", \"v\":
-      {\"street_address\": \"123 Main St\", \"locality\":
-      \"Anytown\", \"region\": \"Anystate\", \"country\": \"US\"}}",
-    "birthdate": "{\"s\": \"Ozd4wBLBwqGzJhJvTmQwdQ\", \"v\":
-      \"1940-01-01\"}"
-  }
-}
-</pre><a href="#section-5.5-2" class="pilcrow">¶</a>
+<p id="section-5.3-17">SHA-256 Hash: <code>VDGtd7GETe7AkvIzmTF3iVJsXHvUAErJelozsscllVU</code><a href="#section-5.3-17" class="pilcrow">¶</a></p>
+<p id="section-5.3-18"><strong>Disclosure for 'family_name':</strong><a href="#section-5.3-18" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-19">
+<pre>WyJ1RkszcmhIejIyMzZXWHhKczhWd1F3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd
+</pre><a href="#section-5.3-19" class="pilcrow">¶</a>
 </div>
+<p id="section-5.3-20">Contents:<a href="#section-5.3-20" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-21">
+<pre>["uFK3rhHz2236WXxJs8VwQw", "family_name", "Doe"]
+</pre><a href="#section-5.3-21" class="pilcrow">¶</a>
 </div>
-<p id="section-5.5-3">Important: As described in <a href="#canonicalization" class="auto internal xref">Section 5.1</a>, digests are calculated
-over the JSON literal formed by serializing an object containing the
-salt, the claim value, and optionally the claim name. This ensures that
-the Issuer and Verifier use the same input to their digest derivation
-algorithms and avoids issues with canonicalization of JSON values that
-would lead to different digests. The II-Disclosures Object therefore
-maps claim names to JSON-encoded arrays.<a href="#section-5.5-3" class="pilcrow">¶</a></p>
+<p id="section-5.3-22">SHA-256 Hash: <code>yJarAJIcdhdR2vG-vRzYXGu3feAvxM9vPWuEXPzXY8U</code><a href="#section-5.3-22" class="pilcrow">¶</a></p>
+<p id="section-5.3-23"><strong>Disclosure for 'email':</strong><a href="#section-5.3-23" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-24">
+<pre>WyJCQ3lzYzdzS3lJY0FjMkEycDNzZ1BnIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
+ZS5jb20iXQ
+</pre><a href="#section-5.3-24" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-25">Contents:<a href="#section-5.3-25" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-26">
+<pre>["BCysc7sKyIcAc2A2p3sgPg", "email", "johndoe@example.com"]
+</pre><a href="#section-5.3-26" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-27">SHA-256 Hash: <code>STiegE8aBohuzf07cCcOkvMWKjw-dfHAwkIXeqxN5A8</code><a href="#section-5.3-27" class="pilcrow">¶</a></p>
+<p id="section-5.3-28"><strong>Disclosure for 'phone_number':</strong><a href="#section-5.3-28" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-29">
+<pre>WyJVa1hWam1rUE4ya0xvQ0IyVDR1VThBIiwgInBob25lX251bWJlciIsICIrMS0yMDIt
+NTU1LTAxMDEiXQ
+</pre><a href="#section-5.3-29" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-30">Contents:<a href="#section-5.3-30" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-31">
+<pre>["UkXVjmkPN2kLoCB2T4uU8A", "phone_number", "+1-202-555-0101"]
+</pre><a href="#section-5.3-31" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-32">SHA-256 Hash: <code>Yrvc0XisV6BOe1ZtWbvNQoD0mw3jBhpkojmHkyGv_ZQ</code><a href="#section-5.3-32" class="pilcrow">¶</a></p>
+<p id="section-5.3-33"><strong>Disclosure for 'address':</strong><a href="#section-5.3-33" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-34">
+<pre>WyJuYkFNc2VEZHRJaVRJSTIwNU1RVjZ3IiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRy
+ZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9u
+IjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0
+</pre><a href="#section-5.3-34" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-35">Contents:<a href="#section-5.3-35" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-36">
+<pre>["nbAMseDdtIiTII205MQV6w", "address", {"street_address": "123 Main
+St", "locality": "Anytown", "region": "Anystate", "country": "US"}]
+</pre><a href="#section-5.3-36" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-37">SHA-256 Hash: <code>JNnnsE7gNggbEUi38jM2qv6KTKgzO0EeRG8d2BVQ3Rs</code><a href="#section-5.3-37" class="pilcrow">¶</a></p>
+<p id="section-5.3-38"><strong>Disclosure for 'birthdate':</strong><a href="#section-5.3-38" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-39">
+<pre>WyIzZ28zOTYtUDFiNXVyZVR6N3BnTDl3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+Il0
+</pre><a href="#section-5.3-39" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-40">Contents:<a href="#section-5.3-40" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.3-41">
+<pre>["3go396-P1b5ureTz7pgL9w", "birthdate", "1940-01-01"]
+</pre><a href="#section-5.3-41" class="pilcrow">¶</a>
+</div>
+<p id="section-5.3-42">SHA-256 Hash: <code>6LlIUDMsteqLDUTuSeYbyGfYR3HFwlAuMFprV71uDbk</code><a href="#section-5.3-42" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="combined-format-for-issuance">
-<section id="section-5.6">
+<section id="section-5.4">
         <h3 id="name-combined-format-for-issuanc">
-<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-combined-format-for-issuanc" class="section-name selfRef">Combined Format for Issuance</a>
+<a href="#section-5.4" class="section-number selfRef">5.4. </a><a href="#name-combined-format-for-issuanc" class="section-name selfRef">Combined Format for Issuance</a>
         </h3>
-<p id="section-5.6-1">For transporting the II-Disclosures Object together with the SD-JWT from
-the Issuer to the Holder, the II-Disclosures Object is base64url-encoded
-and appended to the SD-JWT using a period character <code>.</code> as the
-separator. This means that the resulting string consists of four dot-separated parts as follows:<a href="#section-5.6-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5.6-2">
-<pre>&lt;SD-JWT Header&gt;
-.
-&lt;SD-JWT Payload&gt;
-.
-&lt;SD-JWT Signature&gt;
-.
-&lt;II-Disclosures&gt;
-</pre><a href="#section-5.6-2" class="pilcrow">¶</a>
+<p id="section-5.4-1">Besides the SD-JWT itself, the Holder needs to learn the raw claim values that
+are contained in the SD-JWT, along with the precise input to the digest
+calculation and the salts. To this end, the Issuer sends the Disclosure objects
+that were also used for the hash calculation, as described in <a href="#creating_disclosures" class="auto internal xref">Section 5.2.1.1</a>,
+to the Holder.<a href="#section-5.4-1" class="pilcrow">¶</a></p>
+<p id="section-5.4-2">The data format for sending the SD-JWT and the Disclosures to the Holder is
+as follows:<a href="#section-5.4-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.4-3">
+<pre>&lt;SD-JWT&gt;~&lt;Disclosure 1&gt;~&lt;Disclosure 2&gt;~...~&lt;Disclosure N&gt;
+</pre><a href="#section-5.4-3" class="pilcrow">¶</a>
 </div>
-<p id="section-5.6-3">(Line breaks for presentation only.)<a href="#section-5.6-3" class="pilcrow">¶</a></p>
-<p id="section-5.6-4">This is called the Combined Format for Issuance.<a href="#section-5.6-4" class="pilcrow">¶</a></p>
-<p id="section-5.6-5">The II-Disclosures Object and SD-JWT are implicitly linked through the
-digest values of the claims in the II-Disclosures Object that is
-included in the SD-JWT. To ensure that the correct II-Disclosures Object
-and SD-JWT pairings are being used, the Holder SHOULD verify the binding
-between II-Disclosures Object and SD-JWT as defined in
-<a href="#holder-verification" class="auto internal xref">Section 6.1</a>.<a href="#section-5.6-5" class="pilcrow">¶</a></p>
-<p id="section-5.6-6">For Example 1, the Combined Format for Issuance looks as follows:<a href="#section-5.6-6" class="pilcrow">¶</a></p>
-<div id="example-simple-combined_sd_jwt_svc">
-<div class="alignLeft art-text artwork" id="section-5.6-7">
-<pre>eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZU
-kF6VmRsZnhOMjgwTmdIYUEifQ.eyJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N
-1ZXIiLCAiY25mIjogeyJqd2siOiB7Imt0eSI6ICJSU0EiLCAibiI6ICJwbTRiT0hCZy1v
-WWhBeVBXelI1NkFXWDNyVUlYcDExX0lDRGtHZ1M2VzNaV0x0cy1oendJM3g2NTY1OWtnN
-GhWbzlkYkdvQ0pFM1pHRl9lYWV0RTMwVWhCVUVncEd3ckRyUWlKOXpxcHJtY0ZmcjNxdn
-ZrR2p0dGg4WmdsMWVNMmJKY093RTdQQ0JIV1RLV1lzMTUyUjdnNkpnMk9WcGgtYThycS1
-xNzlNaEtHNVFvV19tVHoxMFFUXzZINGM3UGpXRzFmamg4aHBXTm5iUF9wdjZkMXpTd1pm
-YzVmbDZ5VlJMMERWMFYzbEdIS2UyV3FmX2VOR2pCckJMVmtsRFRrOC1zdFhfTVdMY1ItR
-UdtWEFPdjBVQldpdFNfZFhKS0p1LXZYSnl3MTRuSFNHdXhUSUsyaHgxcHR0TWZ0OUNzdn
-FpbVhLZURUVTE0cVFMMWVFN2loY3ciLCAiZSI6ICJBUUFCIn19LCAiaWF0IjogMTUxNjI
-zOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJzZF9oYXNoX2FsZyI6ICJzaGEtMjU2Iiwg
-InNkX2RpZ2VzdHMiOiB7InN1YiI6ICJPTWR3a2sySFB1aUluUHlwV1VXTXhvdDFZMnRTd
-EdzTHVJY0RNaktkWE1VIiwgImdpdmVuX25hbWUiOiAiQWZLS0g0YTBJWmtpOE1GRHl0aE
-ZhRlNfWHF6bi13UnZBTWZpeV9WallwRSIsICJmYW1pbHlfbmFtZSI6ICJlVW1YbXJ5MzJ
-KaUtfNzZ4TWFzYWdrQVFRc21TVmRXNTdBamsxOHJpU0YwIiwgImVtYWlsIjogIi1SY3I0
-ZkR5andsTV9pdGNNeG9RWkNFMVFBRXd5TEpjaWJFcEgxMTRLaUUiLCAicGhvbmVfbnVtY
-mVyIjogIkp2Mm53MEMxd1A1QVN1dFlOQXhyV0VuYURSSXBpRjBlVFVBa1VPcDhGNlkiLC
-AiYWRkcmVzcyI6ICJacmpLcy1SbUVBVmVBWVN6U3c2R1BGck1wY2djdENmYUo2dDlxUWh
-iZko0IiwgImJpcnRoZGF0ZSI6ICJxWFBSUlBkcE5hZWJQOGp0YkVwTy1za0Y0bjd2N0FT
-VGg4b0xnMG1rQWRRIn19.QgoJn9wkjFvM9bAr0hTDHLspuqdA21WzfBRVHkASa2ck4PFD
-3TC9MiZSi3AiRytRbYT4ZzvkH3BSbm6vy68y62gj0A6OYvZ1Z60Wxho14bxZQveJZgw3u
-_lMvYj6GKiUtskypFEHU-Kd-LoDVqEpf6lPQHdpsac__yQ_JL24oCEBlVQRXB-T-6ZNZf
-ID6JafSkNNCYQbI8nXbzIEp1LBFm0fE8eUd4G4yPYOj1SeuR6Gy92T0vAoL5QtpIAHo49
-oAmiSIj6DQNl2cNYs74jhrBIcNZyt4l8H1lV20wS5OS3T0vXaYD13fgm0p4iWD9cVg3HK
-ShUVulEyrSbq94jIKg.eyJzZF9yZWxlYXNlIjogeyJzdWIiOiAie1wic1wiOiBcIjJHTE
-M0MnNLUXZlQ2ZHZnJ5TlJOOXdcIiwgXCJ2XCI6IFwiNmM1YzBhNDktYjU4OS00MzFkLWJ
-hZTctMjE5MTIyYTllYzJjXCJ9IiwgImdpdmVuX25hbWUiOiAie1wic1wiOiBcIjZJajd0
-TS1hNWlWUEdib1M1dG12VkFcIiwgXCJ2XCI6IFwiSm9oblwifSIsICJmYW1pbHlfbmFtZ
-SI6ICJ7XCJzXCI6IFwiUWdfTzY0enFBeGU0MTJhMTA4aXJvQVwiLCBcInZcIjogXCJEb2
-VcIn0iLCAiZW1haWwiOiAie1wic1wiOiBcIlBjMzNKTTJMY2hjVV9sSGdndl91ZlFcIiw
-gXCJ2XCI6IFwiam9obmRvZUBleGFtcGxlLmNvbVwifSIsICJwaG9uZV9udW1iZXIiOiAi
-e1wic1wiOiBcImxrbHhGNWpNWWxHVFBVb3ZNTkl2Q0FcIiwgXCJ2XCI6IFwiKzEtMjAyL
-TU1NS0wMTAxXCJ9IiwgImFkZHJlc3MiOiAie1wic1wiOiBcIjViUHMxSXF1Wk5hMGhrYU
-Z6enpaTndcIiwgXCJ2XCI6IHtcInN0cmVldF9hZGRyZXNzXCI6IFwiMTIzIE1haW4gU3R
-cIiwgXCJsb2NhbGl0eVwiOiBcIkFueXRvd25cIiwgXCJyZWdpb25cIjogXCJBbnlzdGF0
-ZVwiLCBcImNvdW50cnlcIjogXCJVU1wifX0iLCAiYmlydGhkYXRlIjogIntcInNcIjogX
-CJ5MXNWVTV3ZGZKYWhWZGd3UGdTN1JRXCIsIFwidlwiOiBcIjE5NDAtMDEtMDFcIn0ifX
-0
-</pre><a href="#section-5.6-7" class="pilcrow">¶</a>
+<p id="section-5.4-4">This is called the Combined Format for Issuance.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
+<p id="section-5.4-5">The Disclosures and SD-JWT are implicitly linked through the
+digest values of the Disclosures included in the SD-JWT.<a href="#section-5.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.4-6">For Example 1, the Combined Format for Issuance looks as follows:<a href="#section-5.4-6" class="pilcrow">¶</a></p>
+<div id="section-5.4-7">
+<pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
+UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjZMbElVRE1zdGVxTERVVHVTZVlie
+UdmWVIzSEZ3bEF1TUZwclY3MXVEYmsiLCAiSk5ubnNFN2dOZ2diRVVpMzhqTTJxdjZLV
+Etnek8wRWVSRzhkMkJWUTNScyIsICJTVGllZ0U4YUJvaHV6ZjA3Y0NjT2t2TVdLanctZ
+GZIQXdrSVhlcXhONUE4IiwgIlZER3RkN0dFVGU3QWt2SXptVEYzaVZKc1hIdlVBRXJKZ
+WxvenNzY2xsVlUiLCAiWXJ2YzBYaXNWNkJPZTFadFdidk5Rb0QwbXczakJocGtvam1Ia
+3lHdl9aUSIsICJ2LVEtTU1qLXktZmQ2RW1QTzE0UmxCWlZmM0dsYzh4VHFXWXFaZEtHe
+XZrIiwgInlKYXJBSkljZGhkUjJ2Ry12UnpZWEd1M2ZlQXZ4TTl2UFd1RVhQelhZOFUiX
+SwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2M
+jM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZ
+yI6ICJzaGEtMjU2In0.KVFIEs0SUWmxNjzn1ETMVUQYnYtZRecOn0nrGSchC6IsJPTpv
+grOfk8Ydpv9IIWVoj3d-vQQekM2I6fdGj01f0Wdoj4HREUDM83tGq0-bzcJlzhDN-maq
+Iuh4zCYRUGZddbxQqsqaQDLIIBnPoKDldse13TuJlsqMQh5PoFUdkwRg1_oiAjFfv-D1
+hynI0zUDtgKs2Ef4lX1Lsv3Je3w3tBOy8UiIqfWtfs6SQxSdDJaC-7SbWR1zgtE6mcoK
+Qg9qXJJ9wsdTg7mzKUq4wnsqIoOxaYcRD5YpHvlBdQejtg9GkQTuN-SsDXiSEXV93ClO
+Kw7vLZCM0GopE4Q9KHmog~WyI5V2E2RlFTX2FZSUJuTmE4T1Z6YTZ3IiwgInN1YiIsIC
+I2YzVjMGE0OS1iNTg5LTQzMWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ~WyJzbV9jREJPVnV
+6N0ZfRDNVdGFrcHlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyJ1RkszcmhIejIyMz
+ZXWHhKczhWd1F3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyJCQ3lzYzdzS3lJY0FjM
+kEycDNzZ1BnIiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBsZS5jb20iXQ~WyJVa1hWam
+1rUE4ya0xvQ0IyVDR1VThBIiwgInBob25lX251bWJlciIsICIrMS0yMDItNTU1LTAxMD
+EiXQ~WyJuYkFNc2VEZHRJaVRJSTIwNU1RVjZ3IiwgImFkZHJlc3MiLCB7InN0cmVldF9
+hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmV
+naW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyIzZ28zOTYtUDFiNXV
+yZVR6N3BnTDl3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxIl0
+</pre><a href="#section-5.4-7" class="pilcrow">¶</a>
 </div>
-</div>
-<p id="section-5.6-8">(Line breaks for presentation only.)<a href="#section-5.6-8" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="format-of-a-holder-selected-disclosures-jwt">
-<section id="section-5.7">
-        <h3 id="name-format-of-a-holder-selected">
-<a href="#section-5.7" class="section-number selfRef">5.7. </a><a href="#name-format-of-a-holder-selected" class="section-name selfRef">Format of a Holder-Selected Disclosures JWT</a>
-        </h3>
-<p id="section-5.7-1">The HS-Disclosures JWT contains the Disclosures of the claims the Holder
-has consented to disclose to the Verifier. This enables the Verifier to
-verify the claims received from the Holder by computing the digests of
-the claim values, salts, and potentially cleartext claim names revealed
-in the HS-Disclosures JWT using the digest derivation algorithm
-specified in SD-JWT and comparing them to the digests included in
-SD-JWT.<a href="#section-5.7-1" class="pilcrow">¶</a></p>
-<p id="section-5.7-2">The Disclosures are contained in the <code>sd_hs_disclosures</code> object. The
-structure of the <code>sd_hs_disclosures</code> object in the HS-Disclosures JWT is
-the same as the structure of the <code>sd_ii_disclosures</code> object in the
-II-Disclosures Object, but any claims the Holder wishes not to disclose
-are omitted.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
-<p id="section-5.7-3">The HS-Disclosures JWT MAY contain further claims, for example, to ensure a binding
-to a concrete transaction (in the example below, the <code>nonce</code> and <code>aud</code> claims).<a href="#section-5.7-3" class="pilcrow">¶</a></p>
-<p id="section-5.7-4">When the Holder sends the HS-Disclosures JWT to the Verifier, the HS-Disclosures JWT MUST be a JWS
-represented as the JWS Compact Serialization as described in
-Section 7.1 of <span>[<a href="#RFC7515" class="cite xref">RFC7515</a>]</span>.<a href="#section-5.7-4" class="pilcrow">¶</a></p>
-<p id="section-5.7-5">If Holder Binding is desired, the HS-Disclosures JWT is signed by the Holder. If no
-Holder Binding is to be used, the <code>none</code> algorithm is used, i.e., the document
-is not signed.<a href="#section-5.7-5" class="pilcrow">¶</a></p>
-<p id="section-5.7-6">Whether to check the signature of the HS-Disclosures JWT is up to the Verifier's policy,
-based on the set of trust requirements such as trust frameworks it belongs to.
-As described in <a href="#verifier-verification" class="auto internal xref">Section 6.2</a>, the Verifier MUST NOT accept HS-Disclosures
-JWTs using "none" algorithm, when the Verifier's policy requires a signed
-HS-Disclosures JWT. See also <a href="#holder_binding_security" class="auto internal xref">Section 7.6</a>.<a href="#section-5.7-6" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="example-holder-selected-disclosures-jwt-for-example-1">
-<section id="section-5.8">
-        <h3 id="name-example-holder-selected-dis">
-<a href="#section-5.8" class="section-number selfRef">5.8. </a><a href="#name-example-holder-selected-dis" class="section-name selfRef">Example: Holder-Selected Disclosures JWT for Example 1</a>
-        </h3>
-<p id="section-5.8-1">The following is a non-normative example of the contents of a HS-Disclosures JWT for Example 1:<a href="#section-5.8-1" class="pilcrow">¶</a></p>
-<div id="example-simple-hsd_jwt_payload">
-<div id="section-5.8-2">
-<pre class="lang-json sourcecode">{
-  "nonce": "XZOUco1u_gEPknxS78sWWg",
-  "aud": "https://example.com/verifier",
-  "sd_hs_disclosures": {
-    "given_name": "{\"s\": \"kHHp91-tAZt8m9E4Jl4XbQ\", \"v\":
-      \"John\"}",
-    "family_name": "{\"s\": \"PjIqpGWl4eB4QroDhqQw0w\", \"v\":
-      \"Doe\"}",
-    "address": "{\"s\": \"KtfsxxTm2mw0YLUcKZU8tA\", \"v\":
-      {\"street_address\": \"123 Main St\", \"locality\":
-      \"Anytown\", \"region\": \"Anystate\", \"country\": \"US\"}}"
-  }
-}
-</pre><a href="#section-5.8-2" class="pilcrow">¶</a>
-</div>
-</div>
-<p id="section-5.8-3">For each disclosed claim, a JSON literal that decodes to an object with the digest and the claim
-value (plus optionally the claim name) is contained in the <code>sd_hs_disclosures</code> object.<a href="#section-5.8-3" class="pilcrow">¶</a></p>
-<p id="section-5.8-4">Again, the HS-Disclosures JWT follows the same structure as the <code>sd_digests</code> in the SD-JWT.<a href="#section-5.8-4" class="pilcrow">¶</a></p>
-<p id="section-5.8-5">Below is a non-normative example of a representation of the HS-Disclosures JWT using JWS Compact
-Serialization:<a href="#section-5.8-5" class="pilcrow">¶</a></p>
-<div id="example-simple-serialized_sd_jwt_release">
-<div class="alignLeft art-text artwork" id="section-5.8-6">
-<pre>eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZ
-ExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1d
-nIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgInNkX3JlbGVh
-c2UiOiB7ImdpdmVuX25hbWUiOiAie1wic1wiOiBcIjZJajd0TS1hNWlWUEdib1M1dG12V
-kFcIiwgXCJ2XCI6IFwiSm9oblwifSIsICJmYW1pbHlfbmFtZSI6ICJ7XCJzXCI6IFwiUW
-dfTzY0enFBeGU0MTJhMTA4aXJvQVwiLCBcInZcIjogXCJEb2VcIn0iLCAiYWRkcmVzcyI
-6ICJ7XCJzXCI6IFwiNWJQczFJcXVaTmEwaGthRnp6elpOd1wiLCBcInZcIjoge1wic3Ry
-ZWV0X2FkZHJlc3NcIjogXCIxMjMgTWFpbiBTdFwiLCBcImxvY2FsaXR5XCI6IFwiQW55d
-G93blwiLCBcInJlZ2lvblwiOiBcIkFueXN0YXRlXCIsIFwiY291bnRyeVwiOiBcIlVTXC
-J9fSJ9fQ.fw4xRl7m1mDPCZvCTn3GOr2PgBZ--fTKfy7s-GuEifNvzW5KsJaBBFvzdZzt
-m25XGhk29uw-XwEw00r0hyxXLBvWfA0XbDK3JBmdpOSW1bEyNBdSHPJoeq9Xyts2JN40v
-JzU2UxNaLKDaEheWf3F_E52yhHxvMLNdvZJ9FksJdSMK6ZCyGfRJadPN2GhNltqph52sW
-iFKUyUk_4RtwXmT_lF49tWOMZqtG-akN9wrBoMsleM0soA0BXIK10rG5cKZoSNr-u2luz
-bdZx3CFdAenaqScIkluPPcrXBZGYyX2zYUbGQs2RRXnBmox_yl6CvLbb0qTTYhDnDEo_M
-H-ZtWw
-</pre><a href="#section-5.8-6" class="pilcrow">¶</a>
-</div>
-</div>
+<p id="section-5.4-8">(Line breaks for presentation only.)<a href="#section-5.4-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="combined-format-for-presentation">
-<section id="section-5.9">
+<section id="section-5.5">
         <h3 id="name-combined-format-for-present">
-<a href="#section-5.9" class="section-number selfRef">5.9. </a><a href="#name-combined-format-for-present" class="section-name selfRef">Combined Format for Presentation</a>
+<a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-combined-format-for-present" class="section-name selfRef">Combined Format for Presentation</a>
         </h3>
-<p id="section-5.9-1">The SD-JWT and the HS-Disclosures JWT can be combined into one document
-using period character <code>.</code> as a separator. This means that the resulting string consists of
-six dot-separated parts as described below.<a href="#section-5.9-1" class="pilcrow">¶</a></p>
-<p id="section-5.9-2">The last part (HSD Signature) may be empty when Holder Binding is not used and
- HS-Disclosures JWT is not signed.<a href="#section-5.9-2" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-5.9-3">
-<pre>&lt;SD-JWT Header&gt;
-.
-&lt;SD-JWT Payload&gt;
-.
-&lt;SD-JWT Signature&gt;
-.
-&lt;HSD Header&gt;
-.
-&lt;HSD Payload&gt;
-.
-&lt;HSD Signature?&gt;
-</pre><a href="#section-5.9-3" class="pilcrow">¶</a>
+<p id="section-5.5-1">For presentation to a Verifier, the Holder sends the SD-JWT and a selected
+subset of the Disclosures to the Verifier.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.5-2">The data format for sending the SD-JWT and the Disclosures to the Verifier is
+as follows (line break added for readability):<a href="#section-5.5-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.5-3">
+<pre>&lt;SD-JWT&gt;~&lt;Disclosure 1&gt;~&lt;Disclosure 2&gt;~...~&lt;Disclosure M&gt;~&lt;optional Holder Binding JWT&gt;
+</pre><a href="#section-5.5-3" class="pilcrow">¶</a>
 </div>
-<p id="section-5.9-4">(Line breaks for presentation only.)<a href="#section-5.9-4" class="pilcrow">¶</a></p>
-<p id="section-5.9-5">This is called the Combined Format for Presentation.<a href="#section-5.9-5" class="pilcrow">¶</a></p>
-<p id="section-5.9-6">For Example 1, the Combined Format for Presentation looks as follows:<a href="#section-5.9-6" class="pilcrow">¶</a></p>
-<div id="example-simple-combined_sd_jwt_sd_jwt_release">
-<div class="alignLeft art-text artwork" id="section-5.9-7">
-<pre>eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZU
-kF6VmRsZnhOMjgwTmdIYUEifQ.eyJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N
-1ZXIiLCAiY25mIjogeyJqd2siOiB7Imt0eSI6ICJSU0EiLCAibiI6ICJwbTRiT0hCZy1v
-WWhBeVBXelI1NkFXWDNyVUlYcDExX0lDRGtHZ1M2VzNaV0x0cy1oendJM3g2NTY1OWtnN
-GhWbzlkYkdvQ0pFM1pHRl9lYWV0RTMwVWhCVUVncEd3ckRyUWlKOXpxcHJtY0ZmcjNxdn
-ZrR2p0dGg4WmdsMWVNMmJKY093RTdQQ0JIV1RLV1lzMTUyUjdnNkpnMk9WcGgtYThycS1
-xNzlNaEtHNVFvV19tVHoxMFFUXzZINGM3UGpXRzFmamg4aHBXTm5iUF9wdjZkMXpTd1pm
-YzVmbDZ5VlJMMERWMFYzbEdIS2UyV3FmX2VOR2pCckJMVmtsRFRrOC1zdFhfTVdMY1ItR
-UdtWEFPdjBVQldpdFNfZFhKS0p1LXZYSnl3MTRuSFNHdXhUSUsyaHgxcHR0TWZ0OUNzdn
-FpbVhLZURUVTE0cVFMMWVFN2loY3ciLCAiZSI6ICJBUUFCIn19LCAiaWF0IjogMTUxNjI
-zOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJzZF9oYXNoX2FsZyI6ICJzaGEtMjU2Iiwg
-InNkX2RpZ2VzdHMiOiB7InN1YiI6ICJPTWR3a2sySFB1aUluUHlwV1VXTXhvdDFZMnRTd
-EdzTHVJY0RNaktkWE1VIiwgImdpdmVuX25hbWUiOiAiQWZLS0g0YTBJWmtpOE1GRHl0aE
-ZhRlNfWHF6bi13UnZBTWZpeV9WallwRSIsICJmYW1pbHlfbmFtZSI6ICJlVW1YbXJ5MzJ
-KaUtfNzZ4TWFzYWdrQVFRc21TVmRXNTdBamsxOHJpU0YwIiwgImVtYWlsIjogIi1SY3I0
-ZkR5andsTV9pdGNNeG9RWkNFMVFBRXd5TEpjaWJFcEgxMTRLaUUiLCAicGhvbmVfbnVtY
-mVyIjogIkp2Mm53MEMxd1A1QVN1dFlOQXhyV0VuYURSSXBpRjBlVFVBa1VPcDhGNlkiLC
-AiYWRkcmVzcyI6ICJacmpLcy1SbUVBVmVBWVN6U3c2R1BGck1wY2djdENmYUo2dDlxUWh
-iZko0IiwgImJpcnRoZGF0ZSI6ICJxWFBSUlBkcE5hZWJQOGp0YkVwTy1za0Y0bjd2N0FT
-VGg4b0xnMG1rQWRRIn19.QgoJn9wkjFvM9bAr0hTDHLspuqdA21WzfBRVHkASa2ck4PFD
-3TC9MiZSi3AiRytRbYT4ZzvkH3BSbm6vy68y62gj0A6OYvZ1Z60Wxho14bxZQveJZgw3u
-_lMvYj6GKiUtskypFEHU-Kd-LoDVqEpf6lPQHdpsac__yQ_JL24oCEBlVQRXB-T-6ZNZf
-ID6JafSkNNCYQbI8nXbzIEp1LBFm0fE8eUd4G4yPYOj1SeuR6Gy92T0vAoL5QtpIAHo49
-oAmiSIj6DQNl2cNYs74jhrBIcNZyt4l8H1lV20wS5OS3T0vXaYD13fgm0p4iWD9cVg3HK
-ShUVulEyrSbq94jIKg.eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcj
-RfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28x
-dV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3Zlcmlma
-WVyIiwgInNkX3JlbGVhc2UiOiB7ImdpdmVuX25hbWUiOiAie1wic1wiOiBcIjZJajd0TS
-1hNWlWUEdib1M1dG12VkFcIiwgXCJ2XCI6IFwiSm9oblwifSIsICJmYW1pbHlfbmFtZSI
-6ICJ7XCJzXCI6IFwiUWdfTzY0enFBeGU0MTJhMTA4aXJvQVwiLCBcInZcIjogXCJEb2Vc
-In0iLCAiYWRkcmVzcyI6ICJ7XCJzXCI6IFwiNWJQczFJcXVaTmEwaGthRnp6elpOd1wiL
-CBcInZcIjoge1wic3RyZWV0X2FkZHJlc3NcIjogXCIxMjMgTWFpbiBTdFwiLCBcImxvY2
-FsaXR5XCI6IFwiQW55dG93blwiLCBcInJlZ2lvblwiOiBcIkFueXN0YXRlXCIsIFwiY29
-1bnRyeVwiOiBcIlVTXCJ9fSJ9fQ.fw4xRl7m1mDPCZvCTn3GOr2PgBZ--fTKfy7s-GuEi
-fNvzW5KsJaBBFvzdZztm25XGhk29uw-XwEw00r0hyxXLBvWfA0XbDK3JBmdpOSW1bEyNB
-dSHPJoeq9Xyts2JN40vJzU2UxNaLKDaEheWf3F_E52yhHxvMLNdvZJ9FksJdSMK6ZCyGf
-RJadPN2GhNltqph52sWiFKUyUk_4RtwXmT_lF49tWOMZqtG-akN9wrBoMsleM0soA0BXI
-K10rG5cKZoSNr-u2luzbdZx3CFdAenaqScIkluPPcrXBZGYyX2zYUbGQs2RRXnBmox_yl
-6CvLbb0qTTYhDnDEo_MH-ZtWw
-</pre><a href="#section-5.9-7" class="pilcrow">¶</a>
+<p id="section-5.5-4">This is called the Combined Format for Presentation.<a href="#section-5.5-4" class="pilcrow">¶</a></p>
+<p id="section-5.5-5">The Holder MAY send any subset of the Disclosures to the Verifier, i.e.,
+none, multiple, or all Disclosures.<a href="#section-5.5-5" class="pilcrow">¶</a></p>
+<p id="section-5.5-6">The Holder MAY add an optional JWT to prove Holder Binding to the Verifier.
+The precise contents of the JWT are out of scope of this specification.
+Usually, a <code>nonce</code> and <code>aud</code> claim are included to show that the proof is
+intended for the Verifier and to prevent replay attacks. How the <code>nonce</code> or
+other claims are obtained by the Holder is out of scope of this specification.<a href="#section-5.5-6" class="pilcrow">¶</a></p>
+<p id="section-5.5-7">Whether to require Holder Binding is up to the Verifier's policy,
+based on the set of trust requirements such as trust frameworks it belongs to.<a href="#section-5.5-7" class="pilcrow">¶</a></p>
+<p id="section-5.5-8">Other ways of proving Holder Binding are possible, e.g., when the Combined Format
+for Presentation is itself embedded in a signed JWT.<a href="#section-5.5-8" class="pilcrow">¶</a></p>
+<p id="section-5.5-9">If no Holder Binding JWT is included, the Combined Format for Presentation ends with
+the <code>~</code> character after the last Disclosure.<a href="#section-5.5-9" class="pilcrow">¶</a></p>
+</section>
 </div>
+<div id="example-combined-format-for-presentation-for-example-1">
+<section id="section-5.6">
+        <h3 id="name-example-combined-format-for">
+<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-example-combined-format-for" class="section-name selfRef">Example: Combined Format for Presentation for Example 1</a>
+        </h3>
+<p id="section-5.6-1">The following is a non-normative example of the contents of a Presentation for Example 1, disclosing
+the claims <code>given_name</code>, <code>family_name</code>, and <code>address</code>:<a href="#section-5.6-1" class="pilcrow">¶</a></p>
+<div id="section-5.6-2">
+<pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
+UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjZMbElVRE1zdGVxTERVVHVTZVlie
+UdmWVIzSEZ3bEF1TUZwclY3MXVEYmsiLCAiSk5ubnNFN2dOZ2diRVVpMzhqTTJxdjZLV
+Etnek8wRWVSRzhkMkJWUTNScyIsICJTVGllZ0U4YUJvaHV6ZjA3Y0NjT2t2TVdLanctZ
+GZIQXdrSVhlcXhONUE4IiwgIlZER3RkN0dFVGU3QWt2SXptVEYzaVZKc1hIdlVBRXJKZ
+WxvenNzY2xsVlUiLCAiWXJ2YzBYaXNWNkJPZTFadFdidk5Rb0QwbXczakJocGtvam1Ia
+3lHdl9aUSIsICJ2LVEtTU1qLXktZmQ2RW1QTzE0UmxCWlZmM0dsYzh4VHFXWXFaZEtHe
+XZrIiwgInlKYXJBSkljZGhkUjJ2Ry12UnpZWEd1M2ZlQXZ4TTl2UFd1RVhQelhZOFUiX
+SwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2M
+jM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZ
+yI6ICJzaGEtMjU2In0.KVFIEs0SUWmxNjzn1ETMVUQYnYtZRecOn0nrGSchC6IsJPTpv
+grOfk8Ydpv9IIWVoj3d-vQQekM2I6fdGj01f0Wdoj4HREUDM83tGq0-bzcJlzhDN-maq
+Iuh4zCYRUGZddbxQqsqaQDLIIBnPoKDldse13TuJlsqMQh5PoFUdkwRg1_oiAjFfv-D1
+hynI0zUDtgKs2Ef4lX1Lsv3Je3w3tBOy8UiIqfWtfs6SQxSdDJaC-7SbWR1zgtE6mcoK
+Qg9qXJJ9wsdTg7mzKUq4wnsqIoOxaYcRD5YpHvlBdQejtg9GkQTuN-SsDXiSEXV93ClO
+Kw7vLZCM0GopE4Q9KHmog~WyJuYkFNc2VEZHRJaVRJSTIwNU1RVjZ3IiwgImFkZHJlc3
+MiLCB7InN0cmVldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIk
+FueXRvd24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~Wy
+JzbV9jREJPVnV6N0ZfRDNVdGFrcHlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyJ1R
+kszcmhIejIyMzZXWHhKczhWd1F3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~
+</pre><a href="#section-5.6-2" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -2299,12 +2315,26 @@ K10rG5cKZoSNr-u2luzbdZx3CFdAenaqScIkluPPcrXBZGYyX2zYUbGQs2RRXnBmox_yl
       </h2>
 <div id="holder-verification">
 <section id="section-6.1">
-        <h3 id="name-verification-by-the-holder-">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-verification-by-the-holder-" class="section-name selfRef">Verification by the Holder when Receiving SD-JWT and Issuer-Issued Disclosures Object</a>
+        <h3 id="name-verification-by-the-holder">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-verification-by-the-holder" class="section-name selfRef">Verification by the Holder</a>
         </h3>
-<p id="section-6.1-1">The Holder SHOULD verify the binding between SD-JWT and II-Disclosures Object by performing the following steps:
- 1. Check that all the claims in the II-Disclosures Object are present in the SD-JWT and that there are no claims in the SD-JWT that are not in the II-Disclosures Object
- 2. Check that the digests of the claims in the II-Disclosures Object match those in the SD-JWT<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-1">The Holder MUST perform the following (or equivalent) steps when receiving
+a Combined Format for Issuance:<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.1-2">
+<li id="section-6.1-2.1">Separate the SD-JWT and the Disclosures in the Combined Format for Issuance.<a href="#section-6.1-2.1" class="pilcrow">¶</a>
+</li>
+          <li id="section-6.1-2.2">Hash all of the Disclosures separately.<a href="#section-6.1-2.2" class="pilcrow">¶</a>
+</li>
+          <li id="section-6.1-2.3">Find the places in the SD-JWT where the digests of the Disclosures are
+included.<a href="#section-6.1-2.3" class="pilcrow">¶</a>
+</li>
+          <li id="section-6.1-2.4">Decide which Disclosures to release to the Verifier, obtaining proper End-User consent if necessary.<a href="#section-6.1-2.4" class="pilcrow">¶</a>
+</li>
+          <li id="section-6.1-2.5">If Holder Binding is required, create a Holder Binding JWT.<a href="#section-6.1-2.5" class="pilcrow">¶</a>
+</li>
+          <li id="section-6.1-2.6">Create the Combined Format for Presentation, including the selected Disclosures and, if applicable, the Holder Binding JWT.<a href="#section-6.1-2.6" class="pilcrow">¶</a>
+</li>
+        </ol>
 </section>
 </div>
 <div id="verifier-verification">
@@ -2313,7 +2343,7 @@ K10rG5cKZoSNr-u2luzbdZx3CFdAenaqScIkluPPcrXBZGYyX2zYUbGQs2RRXnBmox_yl
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-verification-by-the-verifie" class="section-name selfRef">Verification by the Verifier when Receiving SD-JWT and Holder-Selected Disclosures JWT</a>
         </h3>
 <p id="section-6.2-1">Verifiers MUST follow <span>[<a href="#RFC8725" class="cite xref">RFC8725</a>]</span> for checking the SD-JWT and, if signed, the
-HS-Disclosures JWT.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+Disclosures JWT.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">Verifiers MUST go through (at least) the following steps before
 trusting/using any of the contents of an SD-JWT:<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-3">
@@ -2603,7 +2633,7 @@ example, ordering by unicode code points or by lexicographic order is
 sufficient to hide the original order of claims.<a href="#section-7.7-14.2" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-7.7-15">This applies to Issuers (SD-JWT and II-Disclosures document) and
+<p id="section-7.7-15">This applies to Issuers (SD-JWT and Disclosures document) and
 Holders (HS-Disclosures JWT).<a href="#section-7.7-15" class="pilcrow">¶</a></p>
 <p id="section-7.7-16">With the approach chosen in this specification, claim names of objects
 that are not themselves selectively disclosable are not blinded.  This
@@ -2627,36 +2657,45 @@ MUST be chosen by the Issuer.<a href="#section-7.7-17" class="pilcrow">¶</a></p
       <h2 id="name-privacy-considerations">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-privacy-considerations" class="section-name selfRef">Privacy Considerations</a>
       </h2>
-<div id="claim-names">
+<div id="decoy_digests_privacy">
 <section id="section-8.1">
-        <h3 id="name-claim-names">
-<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-claim-names" class="section-name selfRef">Claim Names</a>
+        <h3 id="name-decoy-digests-2">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-decoy-digests-2" class="section-name selfRef">Decoy Digests</a>
         </h3>
-<p id="section-8.1-1">By default, claim names are not blinded in an SD-JWT. In this case, even when
+<p id="section-8.1-1">The use of decoy digests is RECOMMENDED when the number of claims (or the existence of particular claims) can be a side-channel disclosing information about otherwise undisclosed claims. In particular, if a claim in an SD-JWT is present only if a certain condition is met (e.g., a membership number is only contained if the End-User is a member of a group), the Issuer SHOULD add decoy digests when the condition is not met.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
+<p id="section-8.1-2">Decoy digests increase the size of the SD-JWT. The number of decoy digests (or whether to use them at all) is a trade-off between the size of the SD-JWT and the privacy of the End-User's data.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="claim-names">
+<section id="section-8.2">
+        <h3 id="name-claim-names">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-claim-names" class="section-name selfRef">Claim Names</a>
+        </h3>
+<p id="section-8.2-1">By default, claim names are not blinded in an SD-JWT. In this case, even when
 the claim's value is not known to a Verifier, the claim name can disclose some
 information to the Verifier. For example, if the SD-JWT contains a claim named
 <code>super_secret_club_membership_no</code>, the Verifier might assume that the end-user
-is a member of the Super Secret Club.<a href="#section-8.1-1" class="pilcrow">¶</a></p>
-<p id="section-8.1-2">Blinding claim names can help to avoid this potential privacy issue. In many
+is a member of the Super Secret Club.<a href="#section-8.2-1" class="pilcrow">¶</a></p>
+<p id="section-8.2-2">Blinding claim names can help to avoid this potential privacy issue. In many
 cases, however, Verifiers can already deduce this or similar information just
 from the identification of the Issuer and the schema used for the SD-JWT.
-Blinding claim names might not provide additional privacy if this is the case.<a href="#section-8.1-2" class="pilcrow">¶</a></p>
-<p id="section-8.1-3">Furthermore, re-using the same value to blind a claim name may limit the privacy benefits.<a href="#section-8.1-3" class="pilcrow">¶</a></p>
+Blinding claim names might not provide additional privacy if this is the case.<a href="#section-8.2-2" class="pilcrow">¶</a></p>
+<p id="section-8.2-3">Furthermore, re-using the same value to blind a claim name may limit the privacy benefits.<a href="#section-8.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="unlinkability">
-<section id="section-8.2">
+<section id="section-8.3">
         <h3 id="name-unlinkability">
-<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-unlinkability" class="section-name selfRef">Unlinkability</a>
+<a href="#section-8.3" class="section-number selfRef">8.3. </a><a href="#name-unlinkability" class="section-name selfRef">Unlinkability</a>
         </h3>
-<p id="section-8.2-1">Colluding Issuer/Verifier or Verifier/Verifier pairs could link issuance/presentation
+<p id="section-8.3-1">Colluding Issuer/Verifier or Verifier/Verifier pairs could link issuance/presentation
 or two presentation sessions to the same user on the basis of unique values encoded in the SD-JWT
-(Issuer signature, salts, digests, etc.).<a href="#section-8.2-1" class="pilcrow">¶</a></p>
-<p id="section-8.2-2">To prevent these types of linkability, various methods, including but not limited to the following ones can be used:<a href="#section-8.2-2" class="pilcrow">¶</a></p>
+(Issuer signature, salts, digests, etc.).<a href="#section-8.3-1" class="pilcrow">¶</a></p>
+<p id="section-8.3-2">To prevent these types of linkability, various methods, including but not limited to the following ones can be used:<a href="#section-8.3-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-8.2-3.1">Use advanced cryptographic schemes, outside the scope of this specification.<a href="#section-8.2-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-8.3-3.1">Use advanced cryptographic schemes, outside the scope of this specification.<a href="#section-8.3-3.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-8.2-3.2">Issue a batch of SD-JWTs to the Holder to enable the Holder to use a unique SD-JWT per Verifier. This only helps with Verifier/Verifier unlinkability.<a href="#section-8.2-3.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-8.3-3.2">Issue a batch of SD-JWTs to the Holder to enable the Holder to use a unique SD-JWT per Verifier. This only helps with Verifier/Verifier unlinkability.<a href="#section-8.3-3.2" class="pilcrow">¶</a>
 </li>
         </ul>
 </section>
@@ -2708,10 +2747,6 @@ for their contributions (some of which substantial) to this draft and to the ini
       <dd>
 <span class="refAuthor">Bray, T., Ed.</span> and <span class="refAuthor">RFC Publisher</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">RFC 7159</span>, <span class="seriesInfo">DOI 10.17487/RFC7159</span>, <time datetime="2014-03" class="refDate">March 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7159">https://www.rfc-editor.org/info/rfc7159</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC7515">[RFC7515]</dt>
-      <dd>
-<span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Bradley, J.</span>, <span class="refAuthor">Sakimura, N.</span>, and <span class="refAuthor">RFC Publisher</span>, <span class="refTitle">"JSON Web Signature (JWS)"</span>, <span class="seriesInfo">RFC 7515</span>, <span class="seriesInfo">DOI 10.17487/RFC7515</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7515">https://www.rfc-editor.org/info/rfc7515</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC7519">[RFC7519]</dt>
       <dd>
 <span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Bradley, J.</span>, <span class="refAuthor">Sakimura, N.</span>, and <span class="refAuthor">RFC Publisher</span>, <span class="refTitle">"JSON Web Token (JWT)"</span>, <span class="seriesInfo">RFC 7519</span>, <span class="seriesInfo">DOI 10.17487/RFC7519</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7519">https://www.rfc-editor.org/info/rfc7519</a>&gt;</span>. </dd>
@@ -2742,6 +2777,14 @@ for their contributions (some of which substantial) to this draft and to the ini
 <dt id="RFC0020">[RFC0020]</dt>
       <dd>
 <span class="refAuthor">Cerf, V.</span> and <span class="refAuthor">RFC Publisher</span>, <span class="refTitle">"ASCII format for network interchange"</span>, <span class="seriesInfo">STD 80</span>, <span class="seriesInfo">RFC 20</span>, <span class="seriesInfo">DOI 10.17487/RFC0020</span>, <time datetime="1969-10" class="refDate">October 1969</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc20">https://www.rfc-editor.org/info/rfc20</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7515">[RFC7515]</dt>
+      <dd>
+<span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Bradley, J.</span>, <span class="refAuthor">Sakimura, N.</span>, and <span class="refAuthor">RFC Publisher</span>, <span class="refTitle">"JSON Web Signature (JWS)"</span>, <span class="seriesInfo">RFC 7515</span>, <span class="seriesInfo">DOI 10.17487/RFC7515</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7515">https://www.rfc-editor.org/info/rfc7515</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7516">[RFC7516]</dt>
+      <dd>
+<span class="refAuthor">Jones, M.</span> and <span class="refAuthor">J. Hildebrand</span>, <span class="refTitle">"JSON Web Encryption (JWE)"</span>, <span class="seriesInfo">RFC 7516</span>, <span class="seriesInfo">DOI 10.17487/RFC7516</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc7516">https://www.rfc-editor.org/info/rfc7516</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7800">[RFC7800]</dt>
       <dd>
@@ -2819,7 +2862,7 @@ allows for the disclosure of individual members of the <code>address</code> clai
 </pre><a href="#appendix-A.1.1-2" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="appendix-A.1.1-3">The II-Disclosures Object for this SD-JWT is as follows:<a href="#appendix-A.1.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-A.1.1-3">The Disclosures Object for this SD-JWT is as follows:<a href="#appendix-A.1.1-3" class="pilcrow">¶</a></p>
 <div id="example-simple_structured-iid_payload">
 <div id="appendix-A.1.1-4">
 <pre class="lang-json sourcecode">{
@@ -3276,13 +3319,13 @@ then pass the result on to the application for further processing:<a href="#appe
 <p id="appendix-A.2-1">This example illustrates how the artifacts defined in this specification can be
 represented using W3C Verifiable Credentials Data Model as defined in
 <span>[<a href="#VC_DATA" class="cite xref">VC_DATA</a>]</span>.<a href="#appendix-A.2-1" class="pilcrow">¶</a></p>
-<p id="appendix-A.2-2">SD-JWT is equivalent to an Issuer-signed W3C Verifiable Credential (W3C VC). II-Disclosures Object is sent alongside a VC.<a href="#appendix-A.2-2" class="pilcrow">¶</a></p>
+<p id="appendix-A.2-2">SD-JWT is equivalent to an Issuer-signed W3C Verifiable Credential (W3C VC). Disclosures Object is sent alongside a VC.<a href="#appendix-A.2-2" class="pilcrow">¶</a></p>
 <p id="appendix-A.2-3">HS-Disclosures JWT is equivalent to a Holder-signed W3C Verifiable Presentation (W3C VP).<a href="#appendix-A.2-3" class="pilcrow">¶</a></p>
 <p id="appendix-A.2-4">Holder Binding is applied and HS-Disclosures JWT is signed using a raw public key passed in a <code>cnf</code> Claim in a W3C VC (SD-JWT).<a href="#appendix-A.2-4" class="pilcrow">¶</a></p>
 <p id="appendix-A.2-5">HS-Disclosures JWT as a W3C VP contains a <code>verifiableCredential</code> claim inside a <code>vp</code> claim that is a string array of an SD-JWT as a W3C VC using JWT compact serialization.<a href="#appendix-A.2-5" class="pilcrow">¶</a></p>
 <p id="appendix-A.2-6">Below is a non-normative example of an SD-JWT represented as a verifiable credential
 encoded as JSON and signed as JWS compliant to <span>[<a href="#VC_DATA" class="cite xref">VC_DATA</a>]</span>.<a href="#appendix-A.2-6" class="pilcrow">¶</a></p>
-<p id="appendix-A.2-7">II-Disclosures Object is the same as in Example 1.<a href="#appendix-A.2-7" class="pilcrow">¶</a></p>
+<p id="appendix-A.2-7">Disclosures Object is the same as in Example 1.<a href="#appendix-A.2-7" class="pilcrow">¶</a></p>
 <div id="appendix-A.2-8">
 <pre class="lang-json sourcecode">{
   "sub": "urn:ietf:params:oauth:jwk-thumbprint:sha-256:NzbLsXh8uDCc
@@ -3463,7 +3506,7 @@ numbers) as described in <a href="#blinding-claim-names" class="auto internal xr
 </pre><a href="#appendix-A.3.1-4" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="appendix-A.3.1-5">In the II-Disclosures Object, it can be seen that the blinded claim's original name is <code>secret_club_membership_no</code>. Note that the claims are sorted alphabetically as described in <a href="#blinding-claim-names" class="auto internal xref">Section 7.7</a>.<a href="#appendix-A.3.1-5" class="pilcrow">¶</a></p>
+<p id="appendix-A.3.1-5">In the Disclosures Object, it can be seen that the blinded claim's original name is <code>secret_club_membership_no</code>. Note that the claims are sorted alphabetically as described in <a href="#blinding-claim-names" class="auto internal xref">Section 7.7</a>.<a href="#appendix-A.3.1-5" class="pilcrow">¶</a></p>
 <div id="example-simple_structured_some_blinded-iid_payload">
 <div id="appendix-A.3.1-6">
 <pre class="lang-json sourcecode">{
@@ -3638,7 +3681,7 @@ salts and blinded claim names are used for them:<a href="#appendix-A.3.2-1" clas
 </pre><a href="#appendix-A.3.2-4" class="pilcrow">¶</a>
 </div>
 </div>
-<p id="appendix-A.3.2-5">The II-Disclosures Object:
+<p id="appendix-A.3.2-5">The Disclosures Object:
 {#example-simple<em>structured</em>all<em>blinded-iid</em>payload}<a href="#appendix-A.3.2-5" class="pilcrow">¶</a></p>
 <div id="appendix-A.3.2-6">
 <pre class="lang-json sourcecode">{
@@ -3733,99 +3776,112 @@ salts and blinded claim names are used for them:<a href="#appendix-A.3.2-1" clas
 <a href="#appendix-B" class="section-number selfRef">Appendix B. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
 <p id="appendix-B-1">[[ To be removed from the final specification ]]<a href="#appendix-B-1" class="pilcrow">¶</a></p>
-<p id="appendix-B-2">-02<a href="#appendix-B-2" class="pilcrow">¶</a></p>
+<p id="appendix-B-2">-03<a href="#appendix-B-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-3.1">reformatted<a href="#appendix-B-3.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B-3.1">Disclosures are now delivered not as a JWT but as separate base64url-encoded JSON objects.<a href="#appendix-B-3.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-3.2">In the SD-JWT, hash digests are collected under a <code>_sd</code> claim per level.<a href="#appendix-B-3.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-3.3">Terms "II-Disclosures" and "HS-Disclosures" are replaces with "Disclosures".<a href="#appendix-B-3.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-3.4">Holder Binding is now separate from delivering the Disclosures and implemented, if required, with a separate JWT.<a href="#appendix-B-3.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-3.5">Examples are now pulled in from the examples directory, not inlined.<a href="#appendix-B-3.5" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-B-4">-01<a href="#appendix-B-4" class="pilcrow">¶</a></p>
+<p id="appendix-B-4">-02<a href="#appendix-B-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-5.1">introduced blinded claim names<a href="#appendix-B-5.1" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.2">explained why JSON-encoding of values is needed<a href="#appendix-B-5.2" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.3">explained merging algorithm ("processing model")<a href="#appendix-B-5.3" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.4">generalized hash alg to digest derivation alg which also enables HMAC to calculate digests<a href="#appendix-B-5.4" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.5">
-          <code>sd_hash_alg</code> renamed to <code>sd_digest_derivation_alg</code><a href="#appendix-B-5.5" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.6">Salt/Value Container (SVC) renamed to Issuer-Issued Disclosures (II-Disclosures)<a href="#appendix-B-5.6" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.7">SD-JWT-Release (SD-JWT-R) renamed to Holder-Selected Disclosures (HS-Disclosures)<a href="#appendix-B-5.7" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.8">
-          <code>sd_disclosure</code> in II-Disclosures renamed to <code>sd_ii_disclosures</code><a href="#appendix-B-5.8" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.9">
-          <code>sd_disclosure</code> in HS-Disclosures renamed to <code>sd_hs_disclosures</code><a href="#appendix-B-5.9" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.10">clarified relationship between <code>sd_hs_disclosure</code> and SD-JWT<a href="#appendix-B-5.10" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.11">clarified combined formats for issuance and presentation<a href="#appendix-B-5.11" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.12">clarified security requirements for blinded claim names<a href="#appendix-B-5.12" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.13">improved description of Holder Binding security considerations - especially around the usage of "alg=none".<a href="#appendix-B-5.13" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.14">updated examples<a href="#appendix-B-5.14" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.15">text clarifications<a href="#appendix-B-5.15" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.16">fixed <code>cnf</code> structure in examples<a href="#appendix-B-5.16" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-5.17">added feature summary<a href="#appendix-B-5.17" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B-5.1">reformatted<a href="#appendix-B-5.1" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-B-6">-00<a href="#appendix-B-6" class="pilcrow">¶</a></p>
+<p id="appendix-B-6">-01<a href="#appendix-B-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-7.1">Upload as draft-ietf-oauth-selective-disclosure-jwt-00<a href="#appendix-B-7.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B-7.1">introduced blinded claim names<a href="#appendix-B-7.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.2">explained why JSON-encoding of values is needed<a href="#appendix-B-7.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.3">explained merging algorithm ("processing model")<a href="#appendix-B-7.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.4">generalized hash alg to digest derivation alg which also enables HMAC to calculate digests<a href="#appendix-B-7.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.5">
+          <code>sd_hash_alg</code> renamed to <code>sd_digest_derivation_alg</code><a href="#appendix-B-7.5" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.6">Salt/Value Container (SVC) renamed to Issuer-Issued Disclosures (II-Disclosures)<a href="#appendix-B-7.6" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.7">SD-JWT-Release (SD-JWT-R) renamed to Holder-Selected Disclosures (HS-Disclosures)<a href="#appendix-B-7.7" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.8">
+          <code>sd_disclosure</code> in II-Disclosures renamed to <code>sd_ii_disclosures</code><a href="#appendix-B-7.8" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.9">
+          <code>sd_disclosure</code> in HS-Disclosures renamed to <code>sd_hs_disclosures</code><a href="#appendix-B-7.9" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.10">clarified relationship between <code>sd_hs_disclosure</code> and SD-JWT<a href="#appendix-B-7.10" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.11">clarified combined formats for issuance and presentation<a href="#appendix-B-7.11" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.12">clarified security requirements for blinded claim names<a href="#appendix-B-7.12" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.13">improved description of Holder Binding security considerations - especially around the usage of "alg=none".<a href="#appendix-B-7.13" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.14">updated examples<a href="#appendix-B-7.14" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.15">text clarifications<a href="#appendix-B-7.15" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.16">fixed <code>cnf</code> structure in examples<a href="#appendix-B-7.16" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-7.17">added feature summary<a href="#appendix-B-7.17" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-B-8">[[ pre Working Group Adoption: ]]<a href="#appendix-B-8" class="pilcrow">¶</a></p>
-<p id="appendix-B-9">-02<a href="#appendix-B-9" class="pilcrow">¶</a></p>
+<p id="appendix-B-8">-00<a href="#appendix-B-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-10.1">Added acknowledgements<a href="#appendix-B-10.1" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-10.2">Improved Security Considerations<a href="#appendix-B-10.2" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-10.3">Stressed entropy requirements for salts<a href="#appendix-B-10.3" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-10.4">Python reference implementation clean-up and refactoring<a href="#appendix-B-10.4" class="pilcrow">¶</a>
-</li>
-        <li class="normal" id="appendix-B-10.5">
-          <code>hash_alg</code> renamed to <code>sd_hash_alg</code><a href="#appendix-B-10.5" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B-9.1">Upload as draft-ietf-oauth-selective-disclosure-jwt-00<a href="#appendix-B-9.1" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-B-11">-01<a href="#appendix-B-11" class="pilcrow">¶</a></p>
+<p id="appendix-B-10">[[ pre Working Group Adoption: ]]<a href="#appendix-B-10" class="pilcrow">¶</a></p>
+<p id="appendix-B-11">-02<a href="#appendix-B-11" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-12.1">Editorial fixes<a href="#appendix-B-12.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B-12.1">Added acknowledgements<a href="#appendix-B-12.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-12.2">Added <code>hash_alg</code> claim<a href="#appendix-B-12.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-12.2">Improved Security Considerations<a href="#appendix-B-12.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-12.3">Renamed <code>_sd</code> to <code>sd_digests</code> and <code>sd_release</code><a href="#appendix-B-12.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-12.3">Stressed entropy requirements for salts<a href="#appendix-B-12.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-12.4">Added descriptions on Holder Binding - more work to do<a href="#appendix-B-12.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-12.4">Python reference implementation clean-up and refactoring<a href="#appendix-B-12.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-12.5">Clarify that signing the SD-JWT is mandatory<a href="#appendix-B-12.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-12.5">
+          <code>hash_alg</code> renamed to <code>sd_hash_alg</code><a href="#appendix-B-12.5" class="pilcrow">¶</a>
 </li>
       </ul>
-<p id="appendix-B-13">-00<a href="#appendix-B-13" class="pilcrow">¶</a></p>
+<p id="appendix-B-13">-01<a href="#appendix-B-13" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="appendix-B-14.1">Renamed to SD-JWT (focus on JWT instead of JWS since signature is optional)<a href="#appendix-B-14.1" class="pilcrow">¶</a>
+<li class="normal" id="appendix-B-14.1">Editorial fixes<a href="#appendix-B-14.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-14.2">Make Holder Binding optional<a href="#appendix-B-14.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-14.2">Added <code>hash_alg</code> claim<a href="#appendix-B-14.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-14.3">Rename proof to release, since when there is no signature, the term "proof" can be misleading<a href="#appendix-B-14.3" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-14.3">Renamed <code>_sd</code> to <code>sd_digests</code> and <code>sd_release</code><a href="#appendix-B-14.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-14.4">Improved the structure of the description<a href="#appendix-B-14.4" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-14.4">Added descriptions on Holder Binding - more work to do<a href="#appendix-B-14.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-14.5">Described verification steps<a href="#appendix-B-14.5" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-14.5">Clarify that signing the SD-JWT is mandatory<a href="#appendix-B-14.5" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-14.6">All examples generated from python demo implementation<a href="#appendix-B-14.6" class="pilcrow">¶</a>
+      </ul>
+<p id="appendix-B-15">-00<a href="#appendix-B-15" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-B-16.1">Renamed to SD-JWT (focus on JWT instead of JWS since signature is optional)<a href="#appendix-B-16.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-14.7">Examples for structured objects<a href="#appendix-B-14.7" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-16.2">Make Holder Binding optional<a href="#appendix-B-16.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-16.3">Rename proof to release, since when there is no signature, the term "proof" can be misleading<a href="#appendix-B-16.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-16.4">Improved the structure of the description<a href="#appendix-B-16.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-16.5">Described verification steps<a href="#appendix-B-16.5" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-16.6">All examples generated from python demo implementation<a href="#appendix-B-16.6" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-16.7">Examples for structured objects<a href="#appendix-B-16.7" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
