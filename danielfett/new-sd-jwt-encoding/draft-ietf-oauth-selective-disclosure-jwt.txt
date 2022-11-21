@@ -1915,7 +1915,9 @@ A.4.  Example 4 - W3C Verifiable Credentials Data Model (work in
    Header:
 
    {
-     "typ": "sd-jwt-vc"
+     "typ": "sd-jwt-vc",
+     "alg": "RS256",
+     "kid": "cAEIUqJ0cmLzD1kzGzheiBag0YRAzVdlfxN280NgHaA"
    }
 
    Body:
