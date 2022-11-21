@@ -1114,7 +1114,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    {
      "nonce": "XZOUco1u_gEPknxS78sWWg",
      "aud": "https://example.com/verifier",
-     "iat": 1669054203
+     "iat": 1669054501
    }
 
    Which is then signed by the Holder to create a JWT like the
@@ -1123,12 +1123,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
    ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
    1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
-   DE2NjkwNTQyMDN9.h1BoAGgbK7q6flKDrZ_7e1_OV37Udo7uVW6Zs1hwHuWXSyEGSVKj
-   U-WQZJ6yXtSoZuMxK-fJrquGA8AvpKah3_XjJ-HOocrt1MlyXJ3aJQR7-3oDULY_zelN
-   sgmD0um6fyNdHu7diXWWXcmiWpEdo6DEHdBIGba6lSkG8GZvxcdbQGEq0ieKI0Krxzqw
-   1OMkeXu9XPbn8sFy5IRB6mMt3gDWJ998Sx-UjV51AVqWxAKFHz9ed2f_AcyPNPUzIwYn
-   -hQ-P3J-n00KDu80vaNbHJ7YRVOn2EThDoCz0q5nSqu6E8utxMcls90Lchd7Z3IKWbZx
-   luNxvqGBmU6GLZkTRg
+   DE2NjkwNTQ1MDF9.OULEOQFc8Wwc1dgGQlLt6UQHboXqLX5-i_rgZimzhzgVSwOvexlB
+   yhEWBY33Oer94Hf0hNp3EcMVHTEMadx8fPaQQK_DEs5ZI7lp_kz25hBBWoD92BrNIXjr
+   duAob_0zVI-rINomD5yWDpVDDjxE4OAOT9smjTJLtAFNPRRul2GibXSKLizLS3YxykDP
+   ePhfeAM9y7GroLMbctJK1OdLgqM3EDGigkB34GdxHBuo1jDS7koF1vFELvEJ_xPulMdq
+   XdyMm4YipGlyh_SSRiRYbyogYFYRgrEIf2xC2ztGtAAKdALs-zLGSEyWRY3-lWobhGJT
+   Z47sNsX2nk1U_4ajpg
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1178,12 +1178,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
    a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
    fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQyMDN9.h1BoAGgb
-   K7q6flKDrZ_7e1_OV37Udo7uVW6Zs1hwHuWXSyEGSVKjU-WQZJ6yXtSoZuMxK-fJrquG
-   A8AvpKah3_XjJ-HOocrt1MlyXJ3aJQR7-3oDULY_zelNsgmD0um6fyNdHu7diXWWXcmi
-   WpEdo6DEHdBIGba6lSkG8GZvxcdbQGEq0ieKI0Krxzqw1OMkeXu9XPbn8sFy5IRB6mMt
-   3gDWJ998Sx-UjV51AVqWxAKFHz9ed2f_AcyPNPUzIwYn-hQ-P3J-n00KDu80vaNbHJ7Y
-   RVOn2EThDoCz0q5nSqu6E8utxMcls90Lchd7Z3IKWbZxluNxvqGBmU6GLZkTRg
+   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQ1MDF9.OULEOQFc
+   8Wwc1dgGQlLt6UQHboXqLX5-i_rgZimzhzgVSwOvexlByhEWBY33Oer94Hf0hNp3EcMV
+   HTEMadx8fPaQQK_DEs5ZI7lp_kz25hBBWoD92BrNIXjrduAob_0zVI-rINomD5yWDpVD
+   DjxE4OAOT9smjTJLtAFNPRRul2GibXSKLizLS3YxykDPePhfeAM9y7GroLMbctJK1OdL
+   gqM3EDGigkB34GdxHBuo1jDS7koF1vFELvEJ_xPulMdqXdyMm4YipGlyh_SSRiRYbyog
+   YFYRgrEIf2xC2ztGtAAKdALs-zLGSEyWRY3-lWobhGJTZ47sNsX2nk1U_4ajpg
 
 6.  Verification and Processing
 
@@ -1802,25 +1802,26 @@ A.2.  Example 2b: Adding Decoys
 
    {
      "_sd": [
-       "F7FmqOT1qLbcvXE7JH0ZU9tCwLNS_gGG5HVJpEJhoKo",
+       "0--cgzkgM91JyfIA_iZW_bk0NTNjk--MkMuaA_tuIxY",
+       "G0ovA7TMC4JdDDt54P5EBdDcQSatb77H5zufZeHyxIc",
        "HfO8OBD5TiO9NkVMYuHf2y1tRPRzsO4vD4kUO3k--Rc",
        "I5MIO3LppLAEoO4b91ufH2O0878hspuJEBJSmA_S5Fs",
        "IiApkhig8WiIpOb37u1a-oLhYuyFkxOEBXNC7DSMvL4",
-       "XGbpbupkm5gGimDnMa9eT0tCfINeDXjdVoHt02pu2Ow",
+       "Ogxyqqp6jFRvfmDMzEdychfk6EKoFm8QWMNcBd2AqAk",
+       "S_nZ1PS6Yuai3BSI7VMUkDei05xEeiCj5RdWAbfPB-c",
+       "hu6ydLh2YvK5hsfeLiDm2gcBuPxpfFhBZ1_tS9M7Ld0",
        "iRS2dVAl_bpXlyvwDSShEJ22v28ZFfXoTd_vp5QNCzM",
        "lKTMGzf0d79BaiwuEpMYC26hABeIUtcI7WHl7zgeXCU",
-       "owFz8f_V9Btgrni-Acds_LkZkOu2oX719PIQSVvthac",
-       "pnL_1_uTFP1zJsfp7hC_KtxwJyhewS0a-sTYk1yZpLo",
-       "whEP-gBQG2R_bcA_qnNrmJO0K58Z05GpOuG5BsBMhHU"
+       "sjEgA8-j44T-2XXJZshzDOnLSaLQF8Iyhb4a7BcZrRY"
      ],
      "address": {
        "_sd": [
+         "0JOH_ZsjHpzU6RBYBTzSOWRzT6BPNYBRo3eaa0mb6Qc",
          "O9gL7Tof4PtmSzuG6C2758uvpqJlJisMtJXAD8DDSBU",
          "OS38kU3-IrxPpbs1Owdmr1BsXw7o6v6Wvo0-P8Gj4cE",
-         "OgnrDpEDASg6nam6-pv24yzlDODX-NIKNgzVICVbVK8",
          "bTvbv9_F4EGMTwOZ9BKguES9p2WCGC2xXyZ1tiPWuNI",
          "l8JvgLKuPV-IpKRNHg15DVJ-f2yf_DNXLrIW5Ujmjws",
-         "tJp1yih2z-xmXrx0SpTqyYGLEnQDlF0ShHbPE14ijMQ"
+         "srYNH_kZ-h7VkI1OAp8ndz9151q4qQpkFiUeH8T8_hs"
        ]
      },
      "iss": "https://example.com/issuer",
