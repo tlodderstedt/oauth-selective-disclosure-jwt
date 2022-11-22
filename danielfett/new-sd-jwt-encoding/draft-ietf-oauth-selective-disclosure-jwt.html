@@ -1683,7 +1683,7 @@ string are implicitly tolerated by the Verifier, as the digest is computed over 
 predefined byte string and not over a JSON object.<a href="#section-5.1-15" class="pilcrow">¶</a></p>
 <p id="section-5.1-16">It is important to note that the Disclosures are neither intended nor
 suitable for direct consumption by
-an application that needs to access the disclosed claim values. The
+an application that needs to access the disclosed claim values after the verification by the Verifier. The
 Disclosures are only intended to be used by a Verifier to check
 the digests over the source strings and to extract the original JSON
 data. The original JSON data is then used by the application. See
@@ -1705,7 +1705,7 @@ required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcro
           <h4 id="name-selectively-disclosable-cla">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-selectively-disclosable-cla" class="section-name selfRef">Selectively Disclosable Claims</a>
           </h4>
-<p id="section-5.2.1-1">For each claim that is to be selectively disclosed, the Issuer creates a Disclosure object, hashes it, and includes the hash instead of the original claim in the SD-JWT, as described next. The Disclosures are then sent to the Holder.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1-1">For each claim that is to be selectively disclosed, the Issuer creates a Disclosure, hashes it, and includes the hash instead of the original claim in the SD-JWT, as described next. The Disclosures are then sent to the Holder.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
 <div id="creating_disclosures">
 <section id="section-5.2.1.1">
             <h5 id="name-creating-disclosures">
@@ -1729,22 +1729,23 @@ required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcro
               <li class="normal" id="section-5.2.1.1-2.3">base64url-encode the byte representation of the UTF-8 string, producing a US-ASCII <span>[<a href="#RFC0020" class="cite xref">RFC0020</a>]</span> string. This string is the Disclosure.<a href="#section-5.2.1.1-2.3" class="pilcrow">¶</a>
 </li>
             </ul>
-<p id="section-5.2.1.1-3">The following example illustrates the steps described above.<a href="#section-5.2.1.1-3" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.1-4">The array is created as follows:<a href="#section-5.2.1.1-4" class="pilcrow">¶</a></p>
-<div id="section-5.2.1.1-5">
+<p id="section-5.2.1.1-3">The order is decided based on the readability considerations: salts would have a constant length within the SD-JWT, claim names would be around the same length all the time, and claim values would vary in size, potentially being large objects.<a href="#section-5.2.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.1-4">The following example illustrates the steps described above.<a href="#section-5.2.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.1-5">The array is created as follows:<a href="#section-5.2.1.1-5" class="pilcrow">¶</a></p>
+<div id="section-5.2.1.1-6">
 <pre class="lang-json sourcecode">["6qMQvRL5haj", "family_name", "Möbius"]
-</pre><a href="#section-5.2.1.1-5" class="pilcrow">¶</a>
+</pre><a href="#section-5.2.1.1-6" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.1-6">The resulting Disclosure would be <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code>.<a href="#section-5.2.1.1-6" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.1-7">Note that the JSON encoding of the object is not canonicalized, so variations in white space, encoding
+<p id="section-5.2.1.1-7">The resulting Disclosure would be <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code>.<a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.1-8">Note that the JSON encoding of the object is not canonicalized, so variations in white space, encoding
 of Unicode characters, and ordering of object properties are allowed. For example, the following strings
-are all valid and encode the same claim value:<a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
+are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2.1.1-8.1">A different way to encode the umlaut: <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd</code><a href="#section-5.2.1.1-8.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1.1-9.1">A different way to encode the umlaut (two dots <code>&amp;#168;</code> placed over the letter): <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd</code><a href="#section-5.2.1.1-9.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.1-8.2">No white space: <code>WyI2cU1RdlJMNWhhaiIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd</code><a href="#section-5.2.1.1-8.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.1-9.2">No white space: <code>WyI2cU1RdlJMNWhhaiIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd</code><a href="#section-5.2.1.1-9.2" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.1-8.3">Newline characters between elements: <code>WwoiNnFNUXZSTDVoYWoiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ</code><a href="#section-5.2.1.1-8.3" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.1-9.3">Newline characters between elements: <code>WwoiNnFNUXZSTDVoYWoiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ</code><a href="#section-5.2.1.1-9.3" class="pilcrow">¶</a>
 </li>
             </ul>
 </section>
@@ -1789,15 +1790,15 @@ SHA-256 hash digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFt
 <p id="section-5.2.1.4-4">Claims that are not selectively disclosable are included in the SD-JWT in plaintext just as they would be in any other JWT.<a href="#section-5.2.1.4-4" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-5">Selectively disclosable claims are omitted from the SD-JWT. Instead, the hash digests of the respective Disclosures and potentially decoy digests are contained as an array in a new JWT claim, <code>_sd</code>.<a href="#section-5.2.1.4-5" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-6">The <code>_sd</code> claim MUST be an array of strings, each string being a hash digests of a Disclosure or a decoy digest as described above.
-The array MAY be empty, although it is RECOMMENDED to omit the claim in this case to save space.<a href="#section-5.2.1.4-6" class="pilcrow">¶</a></p>
+The array MAY be empty in case the Issuer decided not to selectively disclose any of the claims at that level. However, it is RECOMMENDED to omit <code>_sd</code> claim in this case to save space.<a href="#section-5.2.1.4-6" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-7">The Issuer MUST hide the original order of the claims in the array. To ensure this, it is RECOMMENDED to shuffle the array of hashes, e.g., by sorting it alphanumerically or randomly. The precise method does not matter as long as it does not depend on the original order of elements.<a href="#section-5.2.1.4-7" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-8">Issuers MUST NOT issue SD-JWTs where<a href="#section-5.2.1.4-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2.1.4-9.1">the key <code>_sd</code> is used for any other purpose than to contain the array of hash digests, or<a href="#section-5.2.1.4-9.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1.4-9.1">the key <code>_sd</code> is already used for the purpose other than to contain the array of hash digests, or<a href="#section-5.2.1.4-9.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.4-9.2">the key <code>_sd</code> is itself used inside a claim value (when the claim value is an object), or<a href="#section-5.2.1.4-9.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.4-9.2">plaintext claim value is an object that contains the <code>_sd</code> claim array, or<a href="#section-5.2.1.4-9.2" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.4-9.3">the same Disclosure appears more than once (in the same array or in different arrays).<a href="#section-5.2.1.4-9.3" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.4-9.3">the same Disclosure value appears more than once (in the same array or in different arrays).<a href="#section-5.2.1.4-9.3" class="pilcrow">¶</a>
 </li>
             </ul>
 </section>
@@ -1807,7 +1808,7 @@ The array MAY be empty, although it is RECOMMENDED to omit the claim in this cas
             <h5 id="name-nested-data-in-sd-jwts">
 <a href="#section-5.2.1.5" class="section-number selfRef">5.2.1.5. </a><a href="#name-nested-data-in-sd-jwts" class="section-name selfRef">Nested Data in SD-JWTs</a>
             </h5>
-<p id="section-5.2.1.5-1">Just like any JWT, an SD-JWT MAY contain objects that themselves contain other data. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some some of the object's properties selectively disclosable and others not.<a href="#section-5.2.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5-1">Just like any JWT, an SD-JWT MAY contain key value pairs where the value is an object. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some some of the object's properties selectively disclosable and others not.<a href="#section-5.2.1.5-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.5-2">In any case, the <code>_sd</code> claim MUST be included in the SD-JWT at the same level as the original claim and therefore MAY appear multiple times in an SD-JWT.<a href="#section-5.2.1.5-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.5-3">The following examples show some of the options an Issuer has when producing an SD-JWT with the following End-User data.<a href="#section-5.2.1.5-3" class="pilcrow">¶</a></p>
 <div id="section-5.2.1.5-4">
@@ -2411,15 +2412,16 @@ Holder MUST reject the SD-JWT.<a href="#section-6.1-2.3" class="pilcrow">¶</a>
           <li id="section-6.1-2.4">Decode Disclosures and obtain plaintext of the claim values.<a href="#section-6.1-2.4" class="pilcrow">¶</a>
 </li>
         </ol>
-<p id="section-6.1-3">For presentation to a Verifier, the Holder MUST perform the following (or equivalent) steps:<a href="#section-6.1-3" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.1-4">
-<li id="section-6.1-4.1">Decide which Disclosures to release to the Verifier, obtaining proper End-User consent if necessary.<a href="#section-6.1-4.1" class="pilcrow">¶</a>
+<p id="section-6.1-3">It is up to the Holder how to maintain the mapping between the Disclosures and the plaintext claim values to be able to display them to the End-User when needed.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
+<p id="section-6.1-4">For presentation to a Verifier, the Holder MUST perform the following (or equivalent) steps:<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.1-5">
+<li id="section-6.1-5.1">Decide which Disclosures to release to the Verifier, obtaining proper End-User consent if necessary.<a href="#section-6.1-5.1" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-4.2">If Holder Binding is required, create a Holder Binding JWT.<a href="#section-6.1-4.2" class="pilcrow">¶</a>
+          <li id="section-6.1-5.2">If Holder Binding is required, create a Holder Binding JWT.<a href="#section-6.1-5.2" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-4.3">Create the Combined Format for Presentation, including the selected Disclosures and, if applicable, the Holder Binding JWT.<a href="#section-6.1-4.3" class="pilcrow">¶</a>
+          <li id="section-6.1-5.3">Create the Combined Format for Presentation, including the selected Disclosures and, if applicable, the Holder Binding JWT.<a href="#section-6.1-5.3" class="pilcrow">¶</a>
 </li>
-          <li id="section-6.1-4.4">Send the Presentation to the Verifier.<a href="#section-6.1-4.4" class="pilcrow">¶</a>
+          <li id="section-6.1-5.4">Send the Presentation to the Verifier.<a href="#section-6.1-5.4" class="pilcrow">¶</a>
 </li>
         </ol>
 </section>
@@ -2456,13 +2458,13 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.3.2.3">Validate the Issuer of the SD-JWT and that the signing key belongs to this Issuer.<a href="#section-6.2-4.3.2.3" class="pilcrow">¶</a>
 </li>
-              <li id="section-6.2-4.3.2.4">Check that the SD-JWT is valid using <code>nbf</code>, <code>iat</code>, and <code>exp</code> claims, if provided in the SD-JWT.<a href="#section-6.2-4.3.2.4" class="pilcrow">¶</a>
+              <li id="section-6.2-4.3.2.4">Check that the SD-JWT is valid using <code>nbf</code>, <code>iat</code>, and <code>exp</code> claims, if provided in the SD-JWT, and not selectively disclosed.<a href="#section-6.2-4.3.2.4" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.3.2.5">Check that the <code>sd_digest_derivation_alg</code> claim is present and its value is understood and the digest derivation algorithm is deemed secure.<a href="#section-6.2-4.3.2.5" class="pilcrow">¶</a>
 </li>
             </ol>
 </li>
-          <li id="section-6.2-4.4">Create a copy of the SD-JWT payload for further processing, if required.<a href="#section-6.2-4.4" class="pilcrow">¶</a>
+          <li id="section-6.2-4.4">Create a copy of the SD-JWT payload, if required for further processing.<a href="#section-6.2-4.4" class="pilcrow">¶</a>
 </li>
           <li id="section-6.2-4.5">
             <p id="section-6.2-4.5.1">Process the Disclosures. For each Disclosure provided:<a href="#section-6.2-4.5.1" class="pilcrow">¶</a></p>
@@ -2470,7 +2472,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 <li id="section-6.2-4.5.2.1">Calculate the hash digest over the base64url string as described in <a href="#hashing_disclosures" class="auto internal xref">Section 5.2.1.2</a>.<a href="#section-6.2-4.5.2.1" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.5.2.2">
-                <p id="section-6.2-4.5.2.2.1">Find any <code>_sd</code> keys in the SD-JWT payload where the digest of the Disclosure is included in the array.<a href="#section-6.2-4.5.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.2-4.5.2.2.1">Find <code>_sd</code> key in the SD-JWT payload that contains a hash calculated in the previous step. Note that there might be more than one <code>_sd</code> arrays in on SD-JWT.<a href="#section-6.2-4.5.2.2.1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4.5.2.2.2">
 <li id="section-6.2-4.5.2.2.2.1">If the digest cannot be found in the SD-JWT payload, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.1" class="pilcrow">¶</a>
 </li>
@@ -2483,9 +2485,9 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4.5.2.2.2.4.2">
 <li id="section-6.2-4.5.2.2.2.4.2.1">If the Disclosure is not a JSON-encoded array of three elements, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.1" class="pilcrow">¶</a>
 </li>
-                      <li id="section-6.2-4.5.2.2.2.4.2.2">If the claim name already exists, the Verifier MUST reject the Presentation. Note that this also means that if a Holder sends the same Disclosure multiple times, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.2" class="pilcrow">¶</a>
+                      <li id="section-6.2-4.5.2.2.2.4.2.2">If the claim name already exists at the same level, the Verifier MUST reject the Presentation. Note that this also means that if a Holder sends the same Disclosure multiple times, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.2" class="pilcrow">¶</a>
 </li>
-                      <li id="section-6.2-4.5.2.2.2.4.2.3">If the claim value is an object and contains an <code>_sd</code> key, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.3" class="pilcrow">¶</a>
+                      <li id="section-6.2-4.5.2.2.2.4.2.3">If the claim value is an object and contains an <code>_sd</code> key with an array, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.3" class="pilcrow">¶</a>
 </li>
                     </ol>
 </li>
