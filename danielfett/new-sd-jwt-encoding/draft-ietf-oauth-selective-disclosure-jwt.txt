@@ -5,8 +5,8 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 25 May 2023                                           Microsoft
-                                                        21 November 2022
+Expires: 26 May 2023                                           Microsoft
+                                                        22 November 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 May 2023.
+   This Internet-Draft will expire on 26 May 2023.
 
 Copyright Notice
 
@@ -213,11 +213,12 @@ Table of Contents
       cleartext claim value that is used to calculate a digest for a
       certain claim.
 
-   Holder Binding:  Ability of the Holder to prove legitimate possession
-      of an SD-JWT by proving control over the same private key during
-      the issuance and presentation.  An SD-JWT with Holder Binding
-      contains a public key or a reference to a public key that matches
-      to the private key controlled by the Holder.
+   Cryptographic Holder Binding:  Ability of the Holder to prove
+      legitimate possession of an SD-JWT by proving control over the
+      same private key during the issuance and presentation.  An SD-JWT
+      with Holder Binding contains a public key or a reference to a
+      public key that matches to the private key controlled by the
+      Holder.
 
    Issuer:  An entity that creates SD-JWTs.
 
@@ -311,7 +312,7 @@ Table of Contents
 
    The SD-JWT and the Disclosures are sent to the Holder by the Issuer:
 
-   COMBINED-ISSUANCE = (SD-JWT, DISCLOSURES)
+   COMBINED-ISSUANCE = SD-JWT | DISCLOSURES
 
 4.2.  Creating Holder-Selected Disclosures
 
@@ -329,8 +330,9 @@ Table of Contents
 
    Some use-cases may require Holder Binding.
 
-   If Holder Binding is desired, SD-JWT must contain information about
-   key material controlled by the Holder:
+   Cryptographic Holder Binding is an optional feature, but when it is
+   desired, SD-JWT must contain information about key material
+   controlled by the Holder:
 
    SD-JWT-DOC = (METADATA, HOLDER-PUBLIC-KEY, SD-CLAIMS, NON-SD-CLAIMS)
 
@@ -359,16 +361,17 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 4.4.  Verifying Holder-Selected Disclosures
 
-   On a high level, the Verifier
+   At a high level, the Verifier
 
    *  receives the COMBINED-PRESENTATION from the Holder and verifies
       the signature of the SD-JWT using the Issuer's public key,
 
-   *  verifies the Holder Binding JWT, if Holder Binding is required,
-      using the public key included in the SD-JWT,
+   *  verifies the Holder Binding JWT, if Holder Binding is required by
+      the Verifier's policy, using the public key included in the SD-
+      JWT,
 
-   *  calculates the digests over the Holder-Selected Disclosures and
-      verifies that each digest is contained in the SD-JWT.
+   *  calculates the hash digests over the Holder-Selected Disclosures
+      and verifies that each digest is contained in the SD-JWT.
 
    The detailed algorithm is described in Section 6.2.
 
@@ -462,10 +465,10 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    requirement for a canonicalization library.  To harden the source
    string, any serialization format that supports the necessary data
    types could be used in theory, like protobuf, msgpack, or pickle.  In
-   this specification, JSON is used and the JSON document is encoded
-   using base64url-encoding for transport.  This approach means that SD-
-   JWTs can be implemented purely based on widely available JWT, JSON,
-   and Base64 encoding and decoding libraries.
+   this specification, JSON is used and plain text values of each
+   Disclosure is encoded using base64url-encoding for transport.  This
+   approach means that SD-JWTs can be implemented purely based on widely
+   available JWT, JSON, and Base64 encoding and decoding libraries.
 
    A Verifier can then easily check the digest over the source string
    before extracting the original JSON data.  Variations in the encoding
@@ -499,8 +502,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 5.2.1.1.  Creating Disclosures
 
-   The Issuer MUST create a Disclosure object for each selectively
-   disclosable claim as follows:
+   The Issuer MUST create a Disclosure for each selectively disclosable
+   claim as follows:
 
    *  Create an array of three elements in this order:
 
@@ -511,12 +514,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
           other type that is allowed in JSON MAY be used, e.g., a
           number.
 
-      2.  The claim name, or key, as it would be used in a regular JWT.
-          This MUST be a string.
+      2.  The claim name, or key, as it would be used in a regular JWT
+          body.  This MUST be a string.
 
-      3.  The claim's value, as it would be used in a regular JWT.  The
-          value MAY be of any type that is allowed in JSON, including
-          numbers, strings, booleans, arrays, and objects.
+      3.  The claim's value, as it would be used in a regular JWT body.
+          The value MAY be of any type that is allowed in JSON,
+          including numbers, strings, booleans, arrays, and objects.
 
    *  JSON-encode the array such that an UTF-8 string is produced.
 
@@ -560,7 +563,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    [RFC7515] and JWE [RFC7516].  The bytes of the hash digest MUST then
    be base64url-encoded.
 
-   Note:
+   It is important to note that:
 
    *  The input to the hash function is the base64url-encoded
       Disclosure, not the bytes encoded by the base64url string.
@@ -601,19 +604,19 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    contained in the SD-JWT in plaintext and are always visible to a
    Verifier.
 
-   Claims controlling the validity of the SD-JWT, such as iss, exp, or
-   nbf are usually included in plaintext.  End-User claims MAY be
-   included as plaintext as well, e.g., if hiding the particular claims
-   from the Verifier does not make sense in the intended use case.
-   Ultimately, an Issuer decides which claims are selectively
-   disclosable and which are not.
+   It is the Issuer who decides which claims are selectively disclosable
+   and which are not.  However, claims controlling the validity of the
+   SD-JWT, such as iss, exp, or nbf are usually included in plaintext.
+   End-User claims MAY be included as plaintext as well, e.g., if hiding
+   the particular claims from the Verifier does not make sense in the
+   intended use case.
 
-   Plaintext claims are included in the SD-JWT just as they would be in
-   any other JWT.
+   Claims that are not selectively disclosable are included in the SD-
+   JWT in plaintext just as they would be in any other JWT.
 
    Selectively disclosable claims are omitted from the SD-JWT.  Instead,
    the hash digests of the respective Disclosures and potentially decoy
-   digests are contained as an array in a new claim, _sd.
+   digests are contained as an array in a new JWT claim, _sd.
 
    The _sd claim MUST be an array of strings, each string being a hash
    digests of a Disclosure or a decoy digest as described above.  The
@@ -621,10 +624,10 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    this case to save space.
 
    The Issuer MUST hide the original order of the claims in the array.
-   To ensure this, it is RECOMMENDED to shuffle the array, e.g., by
-   sorting it alphanumerically or randomly.  The precise method does not
-   matter as long as it does not depend on the original order of
-   elements.
+   To ensure this, it is RECOMMENDED to shuffle the array of hashes,
+   e.g., by sorting it alphanumerically or randomly.  The precise method
+   does not matter as long as it does not depend on the original order
+   of elements.
 
    Issuers MUST NOT issue SD-JWTs where
 
@@ -1201,6 +1204,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
        Disclosures are included.  If any of the digests cannot be found
        in the SD-JWT, the Holder MUST reject the SD-JWT.
 
+   4.  Decode Disclosures and obtain plaintext of the claim values.
+
    For presentation to a Verifier, the Holder MUST perform the following
    (or equivalent) steps:
 
@@ -1306,11 +1311,10 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
        2.  Otherwise, verify the Holder Binding JWT as follows:
 
-           1.  If not Holder Binding JWT is provided, the Verifier MUST
+           1.  If Holder Binding JWT is not provided, the Verifier MUST
                reject the Presentation.
 
-           2.  Determine the public key for the Holder from the Holder
-               Binding JWT.
+           2.  Determine the public key for the Holder from the SD-JWT.
 
            3.  Ensure that a signing algorithm was used that was deemed
                secure for the application.  Refer to [RFC8725], Sections
@@ -1370,11 +1374,11 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    A naive Issuer that extracts all claim values from the Disclosures
    (without checking the hashes) and inserts them into the SD-JWT
-   payload is vulnerable to this attack.  However, without comparing the
-   digests of the Disclosures, such an implementation could not
-   determine the correct place in a nested object where a claim needs to
-   be inserted.  Therefore, the naive implementation would not only be
-   insecure, but also incorrect.
+   payload is vulnerable to this attack.  However, in a structured SD-
+   JWT, without comparing the digests of the Disclosures, such an
+   implementation could not determine the correct place in a nested
+   object where a claim needs to be inserted.  Therefore, the naive
+   implementation would not only be insecure, but also incorrect.
 
    The steps described in Section 6.2 ensure that the Verifier checks
    the Disclosures correctly.
@@ -1468,12 +1472,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 7.8.  Blinding Claim Names
 
    SD-JWT ensures that names of claims that are selectively disclosable
-   are blinded.  This prevents an attacker from learning the names of
-   the disclosable claims.  However, the names of the claims that are
-   not disclosable are not blinded.  This includes the keys of objects
-   that themselves are not blinded, but contain disclosable claims.
-   This limitation needs to be taken into account by Issuers when
-   creating the structure of the SD-JWT.
+   are always blinded.  This prevents an attacker from learning the
+   names of the disclosable claims.  However, the names of the claims
+   that are not disclosable are not blinded.  This includes the keys of
+   objects that themselves are not blinded, but contain disclosable
+   claims.  This limitation needs to be taken into account by Issuers
+   when creating the structure of the SD-JWT.
 
 8.  Privacy Considerations
 
