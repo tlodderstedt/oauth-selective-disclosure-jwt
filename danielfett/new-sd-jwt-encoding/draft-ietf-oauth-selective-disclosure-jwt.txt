@@ -5,8 +5,8 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 26 May 2023                                           Microsoft
-                                                        22 November 2022
+Expires: 27 May 2023                                           Microsoft
+                                                        23 November 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 May 2023.
+   This Internet-Draft will expire on 27 May 2023.
 
 Copyright Notice
 
@@ -642,8 +642,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    *  the key _sd is already used for the purpose other than to contain
       the array of hash digests, or
 
-   *  plaintext claim value is an object that contains the _sd claim
-      array, or
+   *  the claim value contained in a Disclosure is an object that
+      contains an _sd key, or
 
    *  the same Disclosure value appears more than once (in the same
       array or in different arrays).
@@ -1125,7 +1125,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    {
      "nonce": "XZOUco1u_gEPknxS78sWWg",
      "aud": "https://example.com/verifier",
-     "iat": 1669054690
+     "iat": 1669105763
    }
 
    Which is then signed by the Holder to create a JWT like the
@@ -1134,12 +1134,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
    ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
    1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
-   DE2NjkwNTQ2OTB9.WLSkCNDjhruO-wZaAnmUOEuFfX2WcxDKu13F269b94ZIxSdnTM_N
-   I5tMuh4XH6Q0QN_bP_UYISLavsYcObqGcQE-dGVXRN_K4ncEVZPuOewtPwigXLCFSC7J
-   1Fa1G6BnhB2AoDMhozCWSEB3yJOifiER5YpQAY347lG7QyOrYf7imGcq4IhUBCm0i7FB
-   KEG0pZove1JZ54H0ztq790rTe5mxYlRpB2h1MyrcEBsLfA7gsGNnMiLJkvkiNMhJ2wwA
-   Ebomi4YRub2COc5LVwHghDKbW8xZFHrv4r2UP0u2WT2rHxeIaxXqpl9mWc9pFYhTa6CR
-   yyAM7ndA9QW1u_Q8ag
+   DE2NjkxMDU3NjN9.kDFHo0o_BzTRK_8VUOpzmj0Siz5o-GfOk3vtRZpeFUNvxCzxGeqY
+   KkuLkWyIe1j4q09mRBC3YvGrFHSWywNspgXvqUGy0DDOgWTVjRubUQOLSVZ6zSNpkrS0
+   58163eUpMrG-28qBHSs3I3UO52bL9IrIkhRrrzsorRoDxLCPJHGInGh-ODPAyl5Xh4gV
+   _3O8ayG-kvA_2r69lwDEMyqV06r0w9-OEy2R8_J8GV9eyPPricjBmt6K1Wvyf5UiaAYQ
+   NeXbx2f1BOik1y49Ce7OjHx_JTBIsmBy7ntwtfYasXvv9qLWkqawD7OvUitAOC9jVPUg
+   1NzZ3rSd8SQj9pvprw
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1189,12 +1189,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
    a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
    fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkwNTQ2OTB9.WLSkCNDj
-   hruO-wZaAnmUOEuFfX2WcxDKu13F269b94ZIxSdnTM_NI5tMuh4XH6Q0QN_bP_UYISLa
-   vsYcObqGcQE-dGVXRN_K4ncEVZPuOewtPwigXLCFSC7J1Fa1G6BnhB2AoDMhozCWSEB3
-   yJOifiER5YpQAY347lG7QyOrYf7imGcq4IhUBCm0i7FBKEG0pZove1JZ54H0ztq790rT
-   e5mxYlRpB2h1MyrcEBsLfA7gsGNnMiLJkvkiNMhJ2wwAEbomi4YRub2COc5LVwHghDKb
-   W8xZFHrv4r2UP0u2WT2rHxeIaxXqpl9mWc9pFYhTa6CRyyAM7ndA9QW1u_Q8ag
+   zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkxMDU3NjN9.kDFHo0o_
+   BzTRK_8VUOpzmj0Siz5o-GfOk3vtRZpeFUNvxCzxGeqYKkuLkWyIe1j4q09mRBC3YvGr
+   FHSWywNspgXvqUGy0DDOgWTVjRubUQOLSVZ6zSNpkrS058163eUpMrG-28qBHSs3I3UO
+   52bL9IrIkhRrrzsorRoDxLCPJHGInGh-ODPAyl5Xh4gV_3O8ayG-kvA_2r69lwDEMyqV
+   06r0w9-OEy2R8_J8GV9eyPPricjBmt6K1Wvyf5UiaAYQNeXbx2f1BOik1y49Ce7OjHx_
+   JTBIsmBy7ntwtfYasXvv9qLWkqawD7OvUitAOC9jVPUg1NzZ3rSd8SQj9pvprw
 
 6.  Verification and Processing
 
@@ -2122,7 +2122,7 @@ Appendix B.  Document History
    *  In the SD-JWT, hash digests are collected under a _sd claim per
       level.
 
-   *  Terms "II-Disclosures" and "HS-Disclosures" are replaces with
+   *  Terms "II-Disclosures" and "HS-Disclosures" are replaced with
       "Disclosures".
 
    *  Holder Binding is now separate from delivering the Disclosures and
