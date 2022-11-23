@@ -6,6 +6,8 @@ Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
 Expires: 27 May 2023                                           Microsoft
+                                                             B. Campbell
+                                                           Ping Identity
                                                         23 November 2022
 
 
@@ -2239,3 +2241,8 @@ Authors' Addresses
    Kristina Yasuda
    Microsoft
    Email: Kristina.Yasuda@microsoft.com
+
+
+   Brian Campbell
+   Ping Identity
+   Email: bcampbell@pingidentity.com
