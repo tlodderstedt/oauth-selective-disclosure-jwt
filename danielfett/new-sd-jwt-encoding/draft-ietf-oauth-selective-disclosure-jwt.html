@@ -1796,7 +1796,7 @@ The array MAY be empty in case the Issuer decided not to selectively disclose an
 <ul class="normal">
 <li class="normal" id="section-5.2.1.4-9.1">the key <code>_sd</code> is already used for the purpose other than to contain the array of hash digests, or<a href="#section-5.2.1.4-9.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.4-9.2">the claim value contained in a Disclosure is an object that contains an <code>_sd</code> key, or<a href="#section-5.2.1.4-9.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.4-9.2">the claim value contained in a Disclosure contains (at the top level or nested deeper) an object with an <code>_sd</code> key, or<a href="#section-5.2.1.4-9.2" class="pilcrow">¶</a>
 </li>
               <li class="normal" id="section-5.2.1.4-9.3">the same Disclosure value appears more than once (in the same array or in different arrays).<a href="#section-5.2.1.4-9.3" class="pilcrow">¶</a>
 </li>
@@ -2311,7 +2311,7 @@ other claims are obtained by the Holder is out of scope of this specification.<a
 <pre class="lang-json sourcecode">{
   "nonce": "XZOUco1u_gEPknxS78sWWg",
   "aud": "https://example.com/verifier",
-  "iat": 1669105763
+  "iat": 1669193704
 }
 </pre><a href="#section-5.5.1-3" class="pilcrow">¶</a>
 </div>
@@ -2320,12 +2320,12 @@ other claims are obtained by the Holder is out of scope of this specification.<a
 <pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
 ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
 1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
-DE2NjkxMDU3NjN9.kDFHo0o_BzTRK_8VUOpzmj0Siz5o-GfOk3vtRZpeFUNvxCzxGeqY
-KkuLkWyIe1j4q09mRBC3YvGrFHSWywNspgXvqUGy0DDOgWTVjRubUQOLSVZ6zSNpkrS0
-58163eUpMrG-28qBHSs3I3UO52bL9IrIkhRrrzsorRoDxLCPJHGInGh-ODPAyl5Xh4gV
-_3O8ayG-kvA_2r69lwDEMyqV06r0w9-OEy2R8_J8GV9eyPPricjBmt6K1Wvyf5UiaAYQ
-NeXbx2f1BOik1y49Ce7OjHx_JTBIsmBy7ntwtfYasXvv9qLWkqawD7OvUitAOC9jVPUg
-1NzZ3rSd8SQj9pvprw
+DE2NjkxOTM3MDR9.Y5xmEip11zOmZR1xvgdbi9IanCNQ4ODJDNW8JKpNvBNOCP2j_Dbs
+CMoYAv6RrOYSzEPZplJ8MlfiZzC9ldcvByiAjWeJbMStZ1vf_K-AJnyNLwnA_v0zVwA0
+d8rkrIqSQomS5-GqN3zJtUpl2BslLa799UpdCwg7Rfow2wFSfL6S2J9j2mb5Q5UVxTcU
+27OXcLUn0aN8slIr5AmYd-EcoAqWe8feV6plkHnYac6M9LclgInE5IzwFJTezNmERocA
+DNB7ZGGoy9FzdNdepjnzjFVjazYT0gtR0XgOg5epZoTeOrJwdYT0d5VFwO4ep9_Q591b
+xnNHfPbr5AhdYALCGg
 </pre><a href="#section-5.5.1-5" class="pilcrow">¶</a>
 </div>
 <p id="section-5.5.1-6">Whether to require Holder Binding is up to the Verifier's policy,
@@ -2374,12 +2374,12 @@ RscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3MwO
 Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
 a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
 fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkxMDU3NjN9.kDFHo0o_
-BzTRK_8VUOpzmj0Siz5o-GfOk3vtRZpeFUNvxCzxGeqYKkuLkWyIe1j4q09mRBC3YvGr
-FHSWywNspgXvqUGy0DDOgWTVjRubUQOLSVZ6zSNpkrS058163eUpMrG-28qBHSs3I3UO
-52bL9IrIkhRrrzsorRoDxLCPJHGInGh-ODPAyl5Xh4gV_3O8ayG-kvA_2r69lwDEMyqV
-06r0w9-OEy2R8_J8GV9eyPPricjBmt6K1Wvyf5UiaAYQNeXbx2f1BOik1y49Ce7OjHx_
-JTBIsmBy7ntwtfYasXvv9qLWkqawD7OvUitAOC9jVPUg1NzZ3rSd8SQj9pvprw
+zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkxOTM3MDR9.Y5xmEip1
+1zOmZR1xvgdbi9IanCNQ4ODJDNW8JKpNvBNOCP2j_DbsCMoYAv6RrOYSzEPZplJ8Mlfi
+ZzC9ldcvByiAjWeJbMStZ1vf_K-AJnyNLwnA_v0zVwA0d8rkrIqSQomS5-GqN3zJtUpl
+2BslLa799UpdCwg7Rfow2wFSfL6S2J9j2mb5Q5UVxTcU27OXcLUn0aN8slIr5AmYd-Ec
+oAqWe8feV6plkHnYac6M9LclgInE5IzwFJTezNmERocADNB7ZGGoy9FzdNdepjnzjFVj
+azYT0gtR0XgOg5epZoTeOrJwdYT0d5VFwO4ep9_Q591bxnNHfPbr5AhdYALCGg
 </pre><a href="#section-5.5.2-2" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2472,7 +2472,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 <li id="section-6.2-4.5.2.1">Calculate the hash digest over the base64url string as described in <a href="#hashing_disclosures" class="auto internal xref">Section 5.2.1.2</a>.<a href="#section-6.2-4.5.2.1" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.5.2.2">
-                <p id="section-6.2-4.5.2.2.1">Find <code>_sd</code> key in the SD-JWT payload that contains a hash calculated in the previous step. Note that there might be more than one <code>_sd</code> arrays in on SD-JWT.<a href="#section-6.2-4.5.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.2-4.5.2.2.1">Find all <code>_sd</code> keys in the SD-JWT payload that contain a hash digest calculated in the previous step. Note that there might be more than one <code>_sd</code> arrays in on SD-JWT.<a href="#section-6.2-4.5.2.2.1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4.5.2.2.2">
 <li id="section-6.2-4.5.2.2.2.1">If the digest cannot be found in the SD-JWT payload, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.1" class="pilcrow">¶</a>
 </li>
@@ -2487,7 +2487,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 </li>
                       <li id="section-6.2-4.5.2.2.2.4.2.2">If the claim name already exists at the same level, the Verifier MUST reject the Presentation. Note that this also means that if a Holder sends the same Disclosure multiple times, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.2" class="pilcrow">¶</a>
 </li>
-                      <li id="section-6.2-4.5.2.2.2.4.2.3">If the claim value is an object and contains an <code>_sd</code> key with an array, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.3" class="pilcrow">¶</a>
+                      <li id="section-6.2-4.5.2.2.2.4.2.3">If the claim value contains an object with an <code>_sd</code> key (at the top level or nested deeper), the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.4.2.3" class="pilcrow">¶</a>
 </li>
                     </ol>
 </li>
@@ -2838,7 +2838,7 @@ for their contributions (some of which substantial) to this draft and to the ini
   "sub": "6c5c0a49-b589-431d-bae7-219122a9ec2c",
   "given_name": "太郎",
   "family_name": "山田",
-  "email": "\"unusual email address\"@日本.com",
+  "email": "\"unusual email address\"@nihon.com",
   "phone_number": "123456",
   "address": {
     "street_address": "東京都港区芝公園４丁目２−８",
@@ -2854,19 +2854,19 @@ for their contributions (some of which substantial) to this draft and to the ini
 <div id="appendix-A.1-4">
 <pre class="lang-json sourcecode">{
   "_sd": [
-    "9NEmRF3rhaSHqT05xEsEQ2d7V4HSNHahzdXyPPQ-Tvk",
-    "QP1mnvUz-ZblKK2hiD6X7sDYaI8YTX79IWAZqM1LX64",
-    "QVNU9Xooq5vLnYtQ9uqYUgXcX6f4matA9rmjZ834b6E",
-    "_fWXPu-XKuF-TuGoKSoGdTeT_vqxWtkftXuDRaKZJL8",
-    "bXgwqQiv8htzdOpdc-InIsosQHp0irfOklEXTANmnb4",
-    "geqKIxiKSSJyPshE7AQF36kqp8Plu8DHO8HvZNshLww"
+    "D12FaaMXCOWOF4xAUG1s_TnqhZ903-BkDewPkhjYIHY",
+    "VxQVQdOFk4_BOHHXraM_SDSPPvxVCGW6_69wawWrwNY",
+    "bTaxDBRbsB_ie5zCSrIe4vU2127_ogAGHF6RzwuJ6OA",
+    "buYCeBJzbr2ZRc2K99t70PDL2SaX-iUmQRMYIs8YiVs",
+    "tRg5w6WfauVXT2gFc0YjWfRm9GV50JIcgAO44ks-0ek",
+    "yrkuCa6g3rFwO_Vm32etnU1Qt6tiNklCo62vXQYEpic"
   ],
   "address": {
     "_sd": [
-      "6bDJBECANbRfJ0lu8ErtZkTwqSNMeiXcJt74_YtLpmQ",
-      "AviuWE4YRymLVuoNZkqad1iaYMGdzzjdstAjDKpb6lk",
-      "aQhnCIssfb5upnNBd_uKcWNjYYyo7vhAmc_tV5XIGPU",
-      "lokpwW_yH1SAqX0gmpoPDQ7IzagsrbdhjK7-mYVJi_A"
+      "JOX7_Uf-2VmlkAlMlw4xc3167nz5sh7V9ETf1NFJDe0",
+      "ONH0wP61O6pYPKSUIpNSLb09zlkXMOiIAkd2473JdUo",
+      "d78lCZs-sDFpvszslkGDo1nczu6LxVMxmyAq1b_mNMw",
+      "reKDjCT019ZN1PtVVH2xJzrGM2es-1RY4atd_RWt6Ck"
     ]
   },
   "iss": "https://example.com/issuer",
@@ -2879,156 +2879,156 @@ for their contributions (some of which substantial) to this draft and to the ini
 <p id="appendix-A.1-5">The Disclosures for this SD-JWT are as follows:<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-6"><strong>Disclosure for <code>sub</code>:</strong><a href="#appendix-A.1-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-7">
-<pre>WyJOMzJUYXZ2bnByVjB4UTVYQl9PaElRIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
+<pre>WyJCVzlzZUxQYllTUHpwZXJZNFQ0bnNBIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
 MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
 </pre><a href="#appendix-A.1-7" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-8">Contents:<a href="#appendix-A.1-8" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-9">
-<pre>["N32TavvnprV0xQ5XB_OhIQ", "sub",
+<pre>["BW9seLPbYSPzperY4T4nsA", "sub",
 "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
 </pre><a href="#appendix-A.1-9" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-10">SHA-256 Hash: <code>QP1mnvUz-ZblKK2hiD6X7sDYaI8YTX79IWAZqM1LX64</code><a href="#appendix-A.1-10" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-10">SHA-256 Hash: <code>bTaxDBRbsB_ie5zCSrIe4vU2127_ogAGHF6RzwuJ6OA</code><a href="#appendix-A.1-10" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-11"><strong>Disclosure for <code>given_name</code>:</strong><a href="#appendix-A.1-11" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-12">
-<pre>WyJyU3pjLVBFVEVhaDFqX1dKU2ItT1NRIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
+<pre>WyJqYXRCZjJEYTNDbmYxQWRkZzFvSjZnIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
 MGNlIl0
 </pre><a href="#appendix-A.1-12" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-13">Contents:<a href="#appendix-A.1-13" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-14">
-<pre>["rSzc-PETEah1j_WJSb-OSQ", "given_name", "\u592a\u90ce"]
+<pre>["jatBf2Da3Cnf1Addg1oJ6g", "given_name", "\u592a\u90ce"]
 </pre><a href="#appendix-A.1-14" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-15">SHA-256 Hash: <code>QVNU9Xooq5vLnYtQ9uqYUgXcX6f4matA9rmjZ834b6E</code><a href="#appendix-A.1-15" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-15">SHA-256 Hash: <code>yrkuCa6g3rFwO_Vm32etnU1Qt6tiNklCo62vXQYEpic</code><a href="#appendix-A.1-15" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-16"><strong>Disclosure for <code>family_name</code>:</strong><a href="#appendix-A.1-16" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-17">
-<pre>WyJrdGRLMThLb3VJTFNMNUxQQWNoQ2tRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
+<pre>WyJabEItelBYQmFfai1HQlVZYmJYNjRRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
 NzUzMCJd
 </pre><a href="#appendix-A.1-17" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-18">Contents:<a href="#appendix-A.1-18" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-19">
-<pre>["ktdK18KouILSL5LPAchCkQ", "family_name", "\u5c71\u7530"]
+<pre>["ZlB-zPXBa_j-GBUYbbX64Q", "family_name", "\u5c71\u7530"]
 </pre><a href="#appendix-A.1-19" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-20">SHA-256 Hash: <code>geqKIxiKSSJyPshE7AQF36kqp8Plu8DHO8HvZNshLww</code><a href="#appendix-A.1-20" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-20">SHA-256 Hash: <code>D12FaaMXCOWOF4xAUG1s_TnqhZ903-BkDewPkhjYIHY</code><a href="#appendix-A.1-20" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-21"><strong>Disclosure for <code>email</code>:</strong><a href="#appendix-A.1-21" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-22">
-<pre>WyJvMFZZMXdGaXE5TUNuOGlobkdfQ3dRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
-bCBhZGRyZXNzXCJAXHU2NWU1XHU2NzJjLmNvbSJd
+<pre>WyJpWDFuazhIZ3RXNVJzY1JTV3FCS2R3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
+bCBhZGRyZXNzXCJAbmlob24uY29tIl0
 </pre><a href="#appendix-A.1-22" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-23">Contents:<a href="#appendix-A.1-23" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-24">
-<pre>["o0VY1wFiq9MCn8ihnG_CwQ", "email", "\"unusual email
-address\"@\u65e5\u672c.com"]
+<pre>["iX1nk8HgtW5RscRSWqBKdw", "email", "\"unusual email
+address\"@nihon.com"]
 </pre><a href="#appendix-A.1-24" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-25">SHA-256 Hash: <code>_fWXPu-XKuF-TuGoKSoGdTeT_vqxWtkftXuDRaKZJL8</code><a href="#appendix-A.1-25" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-25">SHA-256 Hash: <code>buYCeBJzbr2ZRc2K99t70PDL2SaX-iUmQRMYIs8YiVs</code><a href="#appendix-A.1-25" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-26"><strong>Disclosure for <code>phone_number</code>:</strong><a href="#appendix-A.1-26" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-27">
-<pre>WyIwaldnSk0xUk5YNWJWZlFyclRyc0hnIiwgInBob25lX251bWJlciIsICIxMjM0NTYi
+<pre>WyJYYmZFSWRlNlR6T215M1pERGJ4MVJ3IiwgInBob25lX251bWJlciIsICIxMjM0NTYi
 XQ
 </pre><a href="#appendix-A.1-27" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-28">Contents:<a href="#appendix-A.1-28" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-29">
-<pre>["0jWgJM1RNX5bVfQrrTrsHg", "phone_number", "123456"]
+<pre>["XbfEIde6TzOmy3ZDDbx1Rw", "phone_number", "123456"]
 </pre><a href="#appendix-A.1-29" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-30">SHA-256 Hash: <code>9NEmRF3rhaSHqT05xEsEQ2d7V4HSNHahzdXyPPQ-Tvk</code><a href="#appendix-A.1-30" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-30">SHA-256 Hash: <code>VxQVQdOFk4_BOHHXraM_SDSPPvxVCGW6_69wawWrwNY</code><a href="#appendix-A.1-30" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-31"><strong>Disclosure for <code>street_address</code>:</strong><a href="#appendix-A.1-31" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-32">
-<pre>WyJCWEk3Q0FqVEUzSHBMclVDS2FlYlV3IiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
+<pre>WyJONEhuU0ZmQTJtNGN1MlJwNXdISEZRIiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
 MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTcxMlx1ZmYxNFx1
 NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCJd
 </pre><a href="#appendix-A.1-32" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-33">Contents:<a href="#appendix-A.1-33" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-34">
-<pre>["BXI7CAjTE3HpLrUCKaebUw", "street_address", "\u6771\u4eac\u90fd\u6e
+<pre>["N4HnSFfA2m4cu2Rp5wHHFQ", "street_address", "\u6771\u4eac\u90fd\u6e
 2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uff12\u2212\uff18"]
 </pre><a href="#appendix-A.1-34" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-35">SHA-256 Hash: <code>AviuWE4YRymLVuoNZkqad1iaYMGdzzjdstAjDKpb6lk</code><a href="#appendix-A.1-35" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-35">SHA-256 Hash: <code>reKDjCT019ZN1PtVVH2xJzrGM2es-1RY4atd_RWt6Ck</code><a href="#appendix-A.1-35" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-36"><strong>Disclosure for <code>locality</code>:</strong><a href="#appendix-A.1-36" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-37">
-<pre>WyJwWjlPMHdTZ1dXVjZvT2hUbGhuT3NnIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
+<pre>WyI5WmRLOTZwQVFNRThiUjR3ZXFiemZBIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
 Y1x1OTBmZCJd
 </pre><a href="#appendix-A.1-37" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-38">Contents:<a href="#appendix-A.1-38" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-39">
-<pre>["pZ9O0wSgWWV6oOhTlhnOsg", "locality", "\u6771\u4eac\u90fd"]
+<pre>["9ZdK96pAQME8bR4weqbzfA", "locality", "\u6771\u4eac\u90fd"]
 </pre><a href="#appendix-A.1-39" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-40">SHA-256 Hash: <code>aQhnCIssfb5upnNBd_uKcWNjYYyo7vhAmc_tV5XIGPU</code><a href="#appendix-A.1-40" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-40">SHA-256 Hash: <code>d78lCZs-sDFpvszslkGDo1nczu6LxVMxmyAq1b_mNMw</code><a href="#appendix-A.1-40" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-41"><strong>Disclosure for <code>region</code>:</strong><a href="#appendix-A.1-41" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-42">
-<pre>WyJHZ0M2NmZ3eWU0Nlc2M21HbDY2Y05nIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
+<pre>WyJDdEJ3VmEzd2ZiUEVGekhWLU0zaUJ3IiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
 XQ
 </pre><a href="#appendix-A.1-42" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-43">Contents:<a href="#appendix-A.1-43" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-44">
-<pre>["GgC66fwye46W63mGl66cNg", "region", "\u6e2f\u533a"]
+<pre>["CtBwVa3wfbPEFzHV-M3iBw", "region", "\u6e2f\u533a"]
 </pre><a href="#appendix-A.1-44" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-45">SHA-256 Hash: <code>6bDJBECANbRfJ0lu8ErtZkTwqSNMeiXcJt74_YtLpmQ</code><a href="#appendix-A.1-45" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-45">SHA-256 Hash: <code>ONH0wP61O6pYPKSUIpNSLb09zlkXMOiIAkd2473JdUo</code><a href="#appendix-A.1-45" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-46"><strong>Disclosure for <code>country</code>:</strong><a href="#appendix-A.1-46" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-47">
-<pre>WyIwa1JnRExxQnY4UjEwNUs4bmU5LTZBIiwgImNvdW50cnkiLCAiSlAiXQ
+<pre>WyJqMjhmbThJVlhQN3Q1TlZJb3FOeDBRIiwgImNvdW50cnkiLCAiSlAiXQ
 </pre><a href="#appendix-A.1-47" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-48">Contents:<a href="#appendix-A.1-48" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-49">
-<pre>["0kRgDLqBv8R105K8ne9-6A", "country", "JP"]
+<pre>["j28fm8IVXP7t5NVIoqNx0Q", "country", "JP"]
 </pre><a href="#appendix-A.1-49" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-50">SHA-256 Hash: <code>lokpwW_yH1SAqX0gmpoPDQ7IzagsrbdhjK7-mYVJi_A</code><a href="#appendix-A.1-50" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-50">SHA-256 Hash: <code>JOX7_Uf-2VmlkAlMlw4xc3167nz5sh7V9ETf1NFJDe0</code><a href="#appendix-A.1-50" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-51"><strong>Disclosure for <code>birthdate</code>:</strong><a href="#appendix-A.1-51" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-52">
-<pre>WyJiMC11SFlDTjFOaHFST1pIZ0tId1hnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+<pre>WyJCT05tUFE4S2ZtUW5FdWx0aTF3UTd3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
 Il0
 </pre><a href="#appendix-A.1-52" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-53">Contents:<a href="#appendix-A.1-53" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-54">
-<pre>["b0-uHYCN1NhqROZHgKHwXg", "birthdate", "1940-01-01"]
+<pre>["BONmPQ8KfmQnEulti1wQ7w", "birthdate", "1940-01-01"]
 </pre><a href="#appendix-A.1-54" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-55">SHA-256 Hash: <code>bXgwqQiv8htzdOpdc-InIsosQHp0irfOklEXTANmnb4</code><a href="#appendix-A.1-55" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-55">SHA-256 Hash: <code>tRg5w6WfauVXT2gFc0YjWfRm9GV50JIcgAO44ks-0ek</code><a href="#appendix-A.1-55" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-56">A Presentation for the SD-JWT that discloses only <code>region</code>
 and <code>country</code> of the <code>address</code> property and without a Holder Binding JWT could look as follows:<a href="#appendix-A.1-56" class="pilcrow">¶</a></p>
 <div id="appendix-A.1-57">
 <pre class="lang-txt sourcecode">eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
-UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjlORW1SRjNyaGFTSHFUMDV4RXNFU
-TJkN1Y0SFNOSGFoemRYeVBQUS1UdmsiLCAiUVAxbW52VXotWmJsS0syaGlENlg3c0RZY
-Uk4WVRYNzlJV0FacU0xTFg2NCIsICJRVk5VOVhvb3E1dkxuWXRROXVxWVVnWGNYNmY0b
-WF0QTlybWpaODM0YjZFIiwgIl9mV1hQdS1YS3VGLVR1R29LU29HZFRlVF92cXhXdGtmd
-Fh1RFJhS1pKTDgiLCAiYlhnd3FRaXY4aHR6ZE9wZGMtSW5Jc29zUUhwMGlyZk9rbEVYV
-EFObW5iNCIsICJnZXFLSXhpS1NTSnlQc2hFN0FRRjM2a3FwOFBsdThESE84SHZaTnNoT
-Hd3Il0sICJhZGRyZXNzIjogeyJfc2QiOiBbIjZiREpCRUNBTmJSZkowbHU4RXJ0WmtUd
-3FTTk1laVhjSnQ3NF9ZdExwbVEiLCAiQXZpdVdFNFlSeW1MVnVvTlprcWFkMWlhWU1HZ
-Hp6amRzdEFqREtwYjZsayIsICJhUWhuQ0lzc2ZiNXVwbk5CZF91S2NXTmpZWXlvN3ZoQ
-W1jX3RWNVhJR1BVIiwgImxva3B3V195SDFTQXFYMGdtcG9QRFE3SXphZ3NyYmRoaks3L
-W1ZVkppX0EiXX0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAia
+UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIkQxMkZhYU1YQ09XT0Y0eEFVRzFzX
+1RucWhaOTAzLUJrRGV3UGtoallJSFkiLCAiVnhRVlFkT0ZrNF9CT0hIWHJhTV9TRFNQU
+HZ4VkNHVzZfNjl3YXdXcndOWSIsICJiVGF4REJSYnNCX2llNXpDU3JJZTR2VTIxMjdfb
+2dBR0hGNlJ6d3VKNk9BIiwgImJ1WUNlQkp6YnIyWlJjMks5OXQ3MFBETDJTYVgtaVVtU
+VJNWUlzOFlpVnMiLCAidFJnNXc2V2ZhdVZYVDJnRmMwWWpXZlJtOUdWNTBKSWNnQU80N
+GtzLTBlayIsICJ5cmt1Q2E2ZzNyRndPX1ZtMzJldG5VMVF0NnRpTmtsQ282MnZYUVlFc
+GljIl0sICJhZGRyZXNzIjogeyJfc2QiOiBbIkpPWDdfVWYtMlZtbGtBbE1sdzR4YzMxN
+jduejVzaDdWOUVUZjFORkpEZTAiLCAiT05IMHdQNjFPNnBZUEtTVUlwTlNMYjA5emxrW
+E1PaUlBa2QyNDczSmRVbyIsICJkNzhsQ1pzLXNERnB2c3pzbGtHRG8xbmN6dTZMeFZNe
+G15QXExYl9tTk13IiwgInJlS0RqQ1QwMTlaTjFQdFZWSDJ4SnpyR00yZXMtMVJZNGF0Z
+F9SV3Q2Q2siXX0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAia
 WF0IjogMTUxNjIzOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJzZF9kaWdlc3RfZGVya
-XZhdGlvbl9hbGciOiAic2hhLTI1NiJ9.ksKdXU1sL6Tu80ImZoGnJzovvRK-sYb6yNZd
-dEPdljbd4BQSFi_my6YNsJdhB55-uNKKaxs36wmPVGhrnv36ig7HMi1a5LV-BkGwHDy8
-ql6D9Oirniro8MpxQ7-NLqDXn5S03F6jITdlJ0U94lc3lt2Qzy8j6MRyrR8v20Oh8Di0
-pcVGf6jPc_PtmDNCgVHtNkNCPyxixhEZnmJlaSxI7FlEKcv279AhSxgrDBnaCzHz8zZb
-JvRE6RyWmFmKbKy_1zfhydAJCyXNO6OdfN36nwRtP6zN_bw4vtwV78HMmfSffFvD47gj
-o6Q1cItRh7j4KRRTcF0CIkk64WoCmQkHlw~WyJyU3pjLVBFVEVhaDFqX1dKU2ItT1NRI
-iwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5MGNlIl0~WyJvMFZZMXdGaXE5TUNuOGlob
-kdfQ3dRIiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNzXCJAXHU2NWU1X
-HU2NzJjLmNvbSJd~WyJiMC11SFlDTjFOaHFST1pIZ0tId1hnIiwgImJpcnRoZGF0ZSIs
-ICIxOTQwLTAxLTAxIl0~WyJrdGRLMThLb3VJTFNMNUxQQWNoQ2tRIiwgImZhbWlseV9u
-YW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJHZ0M2NmZ3eWU0Nlc2M21HbDY2Y05nIiwgInJ
-lZ2lvbiIsICJcdTZlMmZcdTUzM2EiXQ~WyIwa1JnRExxQnY4UjEwNUs4bmU5LTZBIiwg
-ImNvdW50cnkiLCAiSlAiXQ~
+XZhdGlvbl9hbGciOiAic2hhLTI1NiJ9.CLsoXjTsEoBfP668ZXCoKz0cpO-UqnBxDJqv
+qDnkYpVdV2wg24ax9HFR5ubB7wICEM2dQGrO94qXlsOZ-dZIN3uT_TWqOGvydWeGcUdd
+bmQTI0fP9KtDCKZ0MvikpyoKrKonjbJ70I6SOaiEa4kGh4Pbqf0_HaCBrNwacT0TArJ1
+8ITmvA1KWmkqzlqgYExWCPkcJIknGdniGi962dlTd0xEGfnIoQ-VWOxfzgoxDA43xkE8
+sPrjl2nzR_C7r3UywshltjKVvh6SGK3A88JNF1QdfszNdWyqGBf2kcZvJOK6r9UoIyEe
+WDziiCQjZJkPM5Wa4mVOlmRt6mpn9zwyVQ~WyJabEItelBYQmFfai1HQlVZYmJYNjRRI
+iwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJpWDFuazhIZ3RXNVJzY1JT
+V3FCS2R3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNzXCJAbmlob24u
+Y29tIl0~WyJCT05tUFE4S2ZtUW5FdWx0aTF3UTd3IiwgImJpcnRoZGF0ZSIsICIxOTQw
+LTAxLTAxIl0~WyJqYXRCZjJEYTNDbmYxQWRkZzFvSjZnIiwgImdpdmVuX25hbWUiLCAi
+XHU1OTJhXHU5MGNlIl0~WyJqMjhmbThJVlhQN3Q1TlZJb3FOeDBRIiwgImNvdW50cnki
+LCAiSlAiXQ~WyJDdEJ3VmEzd2ZiUEVGekhWLU0zaUJ3IiwgInJlZ2lvbiIsICJcdTZlM
+mZcdTUzM2EiXQ~
 </pre><a href="#appendix-A.1-57" class="pilcrow">¶</a>
 </div>
 </section>
