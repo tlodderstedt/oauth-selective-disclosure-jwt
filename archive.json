@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-22T01:14:46.083287+00:00",
+  "timestamp": "2022-11-24T01:12:24.443752+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -2668,7 +2668,7 @@
       "labels": [],
       "body": "Once we resolve [this issue](https://github.com/oauthstuff/draft-selective-disclosure-jwt/issues/27) we'll be able to define a validation schema (in draft and in code) for SD-JWT, SVC and SD-JWT-R if you agree\r\n\r\nthe python implementation will adopts pydantic if you agree\r\n\r\nhere some examples\r\nhttps://github.com/italia/spid-cie-oidc-django/blob/main/spid_cie_oidc/entity/schemas/op_metadata.py#L84\r\nhttps://github.com/italia/spid-cie-oidc-django/blob/main/docs/schemas/METADATA.md",
       "createdAt": "2022-06-25T21:32:32Z",
-      "updatedAt": "2022-07-03T00:27:35Z",
+      "updatedAt": "2022-11-23T12:46:17Z",
       "closedAt": null,
       "comments": [
         {
@@ -2698,6 +2698,13 @@
           "body": "Ok, I can do a proposal in https://github.com/oauthstuff/draft-selective-disclosure-jwt/pull/61 once we decide the final structure ",
           "createdAt": "2022-07-03T00:27:34Z",
           "updatedAt": "2022-07-03T00:27:34Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "We have now once more updated the structure of SD-JWTs. @peppelinux Do you see an advantage of a JSON Schema for the current structure? There is not too much we could define in such a schema, I think.",
+          "createdAt": "2022-11-23T12:46:17Z",
+          "updatedAt": "2022-11-23T12:46:17Z"
         }
       ]
     },
@@ -2911,7 +2918,7 @@
       "id": "I_kwDOHTmVzM5MlN3I",
       "title": "Terms and definition formatting error",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/90",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "sakimura",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
@@ -2920,8 +2927,8 @@
       ],
       "body": "# Comments\r\nWhile some of the definitions refer to other terms with numbers, the corresponding term is not numbered. \r\n\r\n# Proposals\r\nAdd numbers and reformat. ",
       "createdAt": "2022-06-26T06:43:09Z",
-      "updatedAt": "2022-10-24T19:59:29Z",
-      "closedAt": null,
+      "updatedAt": "2022-11-23T12:44:48Z",
+      "closedAt": "2022-11-23T12:44:47Z",
       "comments": [
         {
           "author": "danielfett",
@@ -2936,6 +2943,13 @@
           "body": "Removing the numbers is one way to remove the inconsistency and I am fine with it. It should be one way or another and be consistent. \r\n\r\nHaving said that, the current format is hard to read, unfortunately. \r\n\r\nAlso, I know it is not a norm in IETF, but relying on upper-casing for defined words and keywords is a bad idea, as they often do not translate. So, we should make sure that the defined terms would not appear in the main text in a dictionary meaning regardless of the case. ",
           "createdAt": "2022-06-28T07:43:08Z",
           "updatedAt": "2022-06-28T07:43:08Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "We switched to a format that is also used in other published RFCs. The new format has a bit too much wide space, but otherwise works fine.",
+          "createdAt": "2022-11-23T12:44:47Z",
+          "updatedAt": "2022-11-23T12:44:47Z"
         }
       ]
     },
@@ -3471,15 +3485,15 @@
       "id": "I_kwDOHTmVzM5NXvce",
       "title": "[WIP] SD-JWT as a W3C VC-DATA-MODEL",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/110",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Current proposal is here: https://datatracker.ietf.org/doc/html/draft-fett-oauth-selective-disclosure-jwt-01#appendix-A.3\r\nAlternative proposal is here: https://github.com/oauthstuff/draft-selective-disclosure-jwt/issues/103#issuecomment-1175572062\r\n\r\nGuess yet another alternative would be:\r\n```\r\n     \"vc\": {\r\n       \"@context\": [\r\n         \"https://www.w3.org/2018/credentials/v1\",\r\n         \"https://www.w3.org/2018/credentials/examples/v1\"\r\n       ],\r\n       \"type\": [\r\n         \"VerifiableCredential\",\r\n         \"UniversityDegreeCredential\"\r\n       ],\r\n     \"credentialSubject\": {\r\n      \"given_name\": \"Alice\",\r\n      \"sd_digests\": {\r\n         \"given_name\": \"fUMdn88aaoyKTHrvZd6AuLmPraGhPJ0zF5r_JhxCVZs\",\r\n         \"family_name\": \"9h5vgv6TpFV6GmnPtugiMLl5tHetHeb5X_2cKHjN7cw\",\r\n         \"birthdate\": \"fvLCnDm3r4VSYcBF3pIlXP4ulEoHuHOfG_YmFZEuxpQ\"\r\n        }\r\n     }\r\n  }\r\n```",
       "createdAt": "2022-07-07T20:39:31Z",
-      "updatedAt": "2022-10-24T18:56:07Z",
-      "closedAt": null,
+      "updatedAt": "2022-11-23T12:42:07Z",
+      "closedAt": "2022-11-23T12:42:06Z",
       "comments": [
         {
           "author": "nikosft",
@@ -3508,6 +3522,13 @@
           "body": "PR #162",
           "createdAt": "2022-10-24T18:56:07Z",
           "updatedAt": "2022-10-24T18:56:07Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This has been superseded by the changes we made in PR #174. An example for a W3C VC is contained in the appendix.",
+          "createdAt": "2022-11-23T12:42:06Z",
+          "updatedAt": "2022-11-23T12:42:06Z"
         }
       ]
     },
@@ -3706,7 +3727,7 @@
       "labels": [],
       "body": "Considering that SD-JWT makes selective disclosure and many privacy features possibile in the data format level, without any costraint in the transport protocol adopted during the exchange, I was wondering how to make a combined presentation unique and not trackable in environment where that can be the risk of eavesdropping (NFC, BT, QR codes, any other link of proximity ...)\r\n\r\nAdopting a JWE and also a nesting strategy to a combined presentation can make the SD-JWT completely not trackable during the transport.\r\n\r\nat first sight nesting a combined presentation in an encrypted JWT that MUST changes at every exchange makes the need to create an envelope JWT. It's a trade off, I know but an envelope JWT can cover also other aspects, like this\r\n\r\nhttps://github.com/oauthstuff/draft-selective-disclosure-jwt/issues/114\r\n",
       "createdAt": "2022-07-12T00:45:00Z",
-      "updatedAt": "2022-07-13T18:28:03Z",
+      "updatedAt": "2022-11-23T17:41:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -3729,6 +3750,20 @@
           "body": "> Could you elaborate a little more what is being suggested? Is the idea to put multiple SD-JWT-Rs and SD-JWTs inside one JWE as claims? {header}.{ \"SD-JWT-R-1\": <...> \"SD-JWT-1\": <...> \"SD-JWT-2\": <...> }.{signature} kind of?\r\n\r\na simple array in a claim defined for this scope\r\n\r\n````\r\n\"sd_joses\": [ ... one or more SD-JWT ...],\r\n````",
           "createdAt": "2022-07-13T08:48:53Z",
           "updatedAt": "2022-07-13T18:28:03Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "We discussed this at the IETF meeting in London. I think it is clear that we will not support multiple SD-JWTs in the format itself, as this opens up a whole new layer. For example, we would need to talk about relationships between SD-JWTs, what happens if only single credentials fail validation, etc.; all of this is not strictly related to the credential format and is much better handled on the transport protocol layer, e.g., OIDC4VC.",
+          "createdAt": "2022-11-23T12:40:27Z",
+          "updatedAt": "2022-11-23T12:40:27Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I actually have a new perspective. I think instead of defining holder binding JWT as a separate object we should define it as an envelope for SD-JWT+ Disclosures. This will have better alignment with VCs and will address multiple SD-JWTs request from Giuseppe. now that disclosures are separate from the holder binding JWT, I think it makes more sense to go in this direction",
+          "createdAt": "2022-11-23T17:41:00Z",
+          "updatedAt": "2022-11-23T17:41:00Z"
         }
       ]
     },
@@ -4254,15 +4289,15 @@
       "id": "I_kwDOHTmVzM5SR41M",
       "title": "Can we achieve this structure ??",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/142",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Muthurajj",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "{\r\n  \"sub\": \"did:example:ebfeb1f712ebc6f1c276e12ec21\",\r\n  \"jti\": \"http://example.edu/credentials/3732\",\r\n  \"iss\": \"https://example.com/keys/foo.jwk\",\r\n  \"nbf\": 1541493724,\r\n  \"iat\": 1541493724,\r\n  \"exp\": 1573029723,\r\n  \"vc\": {\r\n    \"@context\": [\r\n      \"https://www.w3.org/2018/credentials/v1\",\r\n      \"https://www.w3.org/2018/credentials/examples/v1\"\r\n    ],\r\n    \"type\": [\r\n      \"VerifiableCredential\",\r\n      \"UniversityDegreeCredential\"\r\n    ]\r\n  },\r\n  \"sd_digests\": {\r\n    \"given_name\": \"fUMdn88aaoyKTHrvZd6AuLmPraGhPJ0zF5r_JhxCVZs\",\r\n    \"family_name\": \"9h5vgv6TpFV6GmnPtugiMLl5tHetHeb5X_2cKHjN7cw\",\r\n    \"birthdate\": \"fvLCnDm3r4VSYcBF3pIlXP4ulEoHuHOfG_YmFZEuxpQ\"\r\n  }\r\n}\r\n\r\n\r\nThis python code support for VC generation?\r\nAny changes require for achieving this structure?\r\nPls respond i am  new to python..\r\n ",
       "createdAt": "2022-09-21T06:54:21Z",
-      "updatedAt": "2022-09-29T05:18:21Z",
-      "closedAt": null,
+      "updatedAt": "2022-11-23T12:37:12Z",
+      "closedAt": "2022-11-23T12:37:12Z",
       "comments": [
         {
           "author": "Sakurann",
@@ -4277,6 +4312,13 @@
           "body": "there are also 3 other implementations in different languages jfyi\r\n",
           "createdAt": "2022-09-29T05:18:21Z",
           "updatedAt": "2022-09-29T05:18:21Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "We added an example in the document with PR #174 that shows a W3C VC. The example is generated from the python code.",
+          "createdAt": "2022-11-23T12:37:12Z",
+          "updatedAt": "2022-11-23T12:37:12Z"
         }
       ]
     },
@@ -4395,15 +4437,15 @@
       "id": "I_kwDOHTmVzM5VdfyD",
       "title": "validate what? -01 ",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/166",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bc-pi",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "https://www.ietf.org/archive/id/draft-ietf-oauth-selective-disclosure-jwt-01.html#section-6.2-3.5.1 has, \"Validate the HS-Disclosures JWT: ... If Holder Binding is required, validate the signature over the SD-JWT using the same steps as for the SD-JWT plus the following steps:\", which can't be right with both mentions of SD-JWT.  \r\n\r\nFurthermore I'd strongly suggest that validation steps for the HS-Disclosures JWT be described independently.  Things like \"using the same steps as for the SD-JWT\" seem likely to lead to confusion and/or require extrapolation (which steps exactly? the issuer step above is kinda about the signature but not really needed in HS-Disclosures).  ",
       "createdAt": "2022-11-02T21:13:49Z",
-      "updatedAt": "2022-11-08T08:26:29Z",
-      "closedAt": null,
+      "updatedAt": "2022-11-23T12:32:57Z",
+      "closedAt": "2022-11-23T12:32:57Z",
       "comments": [
         {
           "author": "Sakurann",
@@ -4425,6 +4467,13 @@
           "body": "(This is also larger than this issue, but) With this new approach, the combined formats could be expressed with each component being separated by the tilda and if there are multiple SD-JWTs (w/ HSD objects) being presented with one Holder Disclosure JWT, they can be separated with two tildas:\r\n\u201csd-jwt~hsd-object~~sd-jwt~hsd-object~~sd-jwt~hsd-object~~HD JWT\u201d\r\n\r\nIf hsd-object is absolutely one per as-JWT it might make sense dropping \u2018sd_hs_disclosures\u201d, which means \u2018sd_ii_disclosures\u2019 is also dropped. Not sure yet if we are limiting future extensibility here.. probably not ",
           "createdAt": "2022-11-08T08:21:20Z",
           "updatedAt": "2022-11-08T08:21:20Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This has been solved in the PR for the new format, PR #174.",
+          "createdAt": "2022-11-23T12:32:57Z",
+          "updatedAt": "2022-11-23T12:32:57Z"
         }
       ]
     },
@@ -4449,23 +4498,31 @@
       "id": "I_kwDOHTmVzM5WEu0e",
       "title": "Avoid leaking information with number of digests.",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/170",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cobward",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "In order to prevent the number of digests leaking any information, ISO-18013-5 suggests adding additional digests that do not correlate to any of the hidden elements. The recently suggested format of sd-jwt would mean you would have to add these at every level that hidden elements are defined:\r\n\r\n```diff\r\n     \"family_name\": \"M\u00f6bius\",\r\n     \"sd|<real-digest>\": \"\",\r\n+    \"sd|<fake-digest-1>\": \"\",\r\n+    \"sd|<fake-digest-2>\": \"\",\r\n+    \"sd|<fake-digest-3>\": \"\"\r\n     \"address\": {\r\n       \"street_address\": \"Schulstr. 12\",\r\n       \"locality\": \"Schulpforta\",\r\n       \"sd|<real-digest>\": \"\",\r\n+      \"sd|<fake-digest-4>\": \"\",\r\n+      \"sd|<fake-digest-5>\": \"\",\r\n+      \"sd|<fake-digest-6>\": \"\"\r\n     }\r\n```\r\n\r\nThis obviously adds a lot of bloat. A better alternative for this would be for all selective-disclosures to be defined in a top-level array.\r\n\r\n```json\r\n     \"family_name\": \"M\u00f6bius\",\r\n     \"address\": {\r\n       \"street_address\": \"Schulstr. 12\",\r\n       \"locality\": \"Schulpforta\",\r\n     }\r\n     \"sd\": [\r\n       \"<real-digest-1>\",\r\n       \"<real-digest-2>\",\r\n       \"<fake-digest-1>\",\r\n       \"<fake-digest-2>\",\r\n       \"<fake-digest-3>\"\r\n     ]\r\n```",
       "createdAt": "2022-11-10T15:13:11Z",
-      "updatedAt": "2022-11-10T15:17:36Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2022-11-23T12:32:06Z",
+      "closedAt": "2022-11-23T12:31:55Z",
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This has been solved in the recently merged PR #174. We did not, however, pull the sd hashes to the top level, as the structured approach encourages secure implementations (see \"Verification by the Verifier\" and \"Manipulation of Disclosures\" sections in the updated document).",
+          "createdAt": "2022-11-23T12:31:55Z",
+          "updatedAt": "2022-11-23T12:32:06Z"
+        }
+      ]
     },
     {
       "number": 171,
       "id": "I_kwDOHTmVzM5WJZaI",
       "title": "Refactor the spec text and the code to the approach agreed in IETF 115:",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/171",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -4474,25 +4531,41 @@
       "labels": [],
       "body": "Refactor the spec text and the code to the approach agreed in IETF 115 described here:\r\nhttps://docs.google.com/presentation/d/1Hc3xBNN2RL9usCJQKQetrCRk7nYFw6OSLMZPvs1fh_Q/edit?usp=sharing\r\n\r\n`+ probably add Justin's suggestion to put hashes in an array as opposed to having them as separate top-level items.",
       "createdAt": "2022-11-11T10:57:34Z",
-      "updatedAt": "2022-11-16T16:17:48Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2022-11-23T12:30:02Z",
+      "closedAt": "2022-11-23T12:30:02Z",
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This was done in PR #174 which has been merged.",
+          "createdAt": "2022-11-23T12:30:02Z",
+          "updatedAt": "2022-11-23T12:30:02Z"
+        }
+      ]
     },
     {
       "number": 172,
       "id": "I_kwDOHTmVzM5WJZfQ",
       "title": "add Brian as an editor",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/172",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2022-11-11T10:57:51Z",
-      "updatedAt": "2022-11-11T10:57:51Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2022-11-23T17:38:39Z",
+      "closedAt": "2022-11-23T17:38:39Z",
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "PR in #179 ",
+          "createdAt": "2022-11-23T13:11:33Z",
+          "updatedAt": "2022-11-23T13:11:33Z"
+        }
+      ]
     },
     {
       "number": 173,
@@ -4509,6 +4582,70 @@
       "body": "- Add example\r\n- Holder has to release all necessary language tags\r\n",
       "createdAt": "2022-11-16T16:15:35Z",
       "updatedAt": "2022-11-16T16:17:54Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 175,
+      "id": "I_kwDOHTmVzM5XC-Js",
+      "title": "Location of \"Challenge of Canonicalization Section\"",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/175",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Suggest we move this section lower, as with the new encoding approach I anticipate less questions regarding canonicalization, while this is a good clarification.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174/files#r1028969018\r\n",
+      "createdAt": "2022-11-22T18:52:06Z",
+      "updatedAt": "2022-11-22T18:52:06Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 176,
+      "id": "I_kwDOHTmVzM5XC-hE",
+      "title": "terminology \"Source String hardening\"",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/176",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Might be clear enough, or might need alternative suggestion.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174/files#r1028968119",
+      "createdAt": "2022-11-22T18:53:20Z",
+      "updatedAt": "2022-11-22T18:53:20Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 177,
+      "id": "I_kwDOHTmVzM5XDEKY",
+      "title": "\"structured data\" or \"nested data\"?",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/177",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "+1 to nested data re conversation here: https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174/files#r1029001951",
+      "createdAt": "2022-11-22T19:11:47Z",
+      "updatedAt": "2022-11-22T19:12:15Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 178,
+      "id": "I_kwDOHTmVzM5XDFIm",
+      "title": "editorial",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/178",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "add a text somewhere before \"combined format for presentation\" saying that \"how to send disclosures alongside SD-JWT\" will be described later in the text.\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174/files#r1029003793",
+      "createdAt": "2022-11-22T19:15:08Z",
+      "updatedAt": "2022-11-22T19:15:17Z",
       "closedAt": null,
       "comments": []
     }
@@ -13614,25 +13751,33 @@
       "id": "PR_kwDOHTmVzM5CSE0C",
       "title": "validate how HS-disclosures JWT is validated",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/168",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "resolves #166 by clarifying HS-disclosures JWT validation and separating it into a separate section",
       "createdAt": "2022-11-06T18:47:03Z",
-      "updatedAt": "2022-11-07T11:18:38Z",
+      "updatedAt": "2022-11-22T16:51:18Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "654d00b1fde3fcd3153815b6922f3a819b166c07",
       "headRepository": "Sakurann/draft-selective-disclosure-jwt",
       "headRefName": "brian-editorial",
       "headRefOid": "6353337c7a7bb4788c0909951d24950e05fffee5",
-      "closedAt": null,
+      "closedAt": "2022-11-22T16:51:18Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "superceded by IETF 115 and events",
+          "createdAt": "2022-11-22T16:51:17Z",
+          "updatedAt": "2022-11-22T16:51:17Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOHTmVzM5FvK4m",
@@ -13781,26 +13926,1569 @@
       "id": "PR_kwDOHTmVzM5DWDvF",
       "title": "New SD-JWT Encoding",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danielfett",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "**Link to editor's copy:** https://drafts.oauth.net/oauth-selective-disclosure-jwt/danielfett/new-sd-jwt-encoding/draft-ietf-oauth-selective-disclosure-jwt.html\r\n\r\n   * Disclosures are now delivered not as a JWT but as separate base64url-encoded JSON objects.\r\n   * In the SD-JWT, hash digests are collected under a `_sd` claim per level.\r\n   * Terms \"II-Disclosures\" and \"HS-Disclosures\" are replaced with \"Disclosures\".\r\n   * Holder Binding is now separate from delivering the Disclosures and implemented, if required, with a separate JWT.\r\n   * Examples updated and modified to properly explain the specifics of the new SD-JWT format.\r\n   * Examples are now pulled in from the examples directory, not inlined.\r\n   * Updated and automated the W3C VC example.\r\n   * Added examples with multibyte characters to show that the specification and demo code work well with UTF-8.\r\n\r\n@Sakurann I updated the W3C example since I had to adapt it to the new format. Also made some updates together with @tlodderstedt, please check. \r\n\r\n@Sakurann I added an example with a Japanese address that was thankfully AI-generated by Github Copilot. I have no clue if it makes sense or not, please take a look!",
       "createdAt": "2022-11-21T10:48:16Z",
-      "updatedAt": "2022-11-21T18:35:02Z",
+      "updatedAt": "2022-11-23T09:00:53Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "654d00b1fde3fcd3153815b6922f3a819b166c07",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "danielfett/new-sd-jwt-encoding",
-      "headRefOid": "36189a0960498b9bd48ee5f4d8652729004434f7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "800f48e1beb4c3a5f5efc8abff7c16fb9604dea3",
+      "closedAt": "2022-11-23T09:00:53Z",
+      "mergedAt": "2022-11-23T09:00:53Z",
+      "mergedBy": "Sakurann",
+      "mergeCommit": {
+        "oid": "15710f2b14410dcabdc126b7f6f59e9b02eaf398"
+      },
+      "comments": [
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think updated SD-JWT-VC is clean and nice. we should probably clarify in the text that it is not \"compliant\" with vc-data-model v1.1 and is \"future-looking\" in the light of v2.0 conversations.\r\n\r\nthe Japanese address is legit and correct and is pretty close from where I lived. I suspect it is an address of a tokyo tower, but have not checked. tho \"(@\u65e5\u672c.com)\" looked weird so I changed to nihon.com?",
+          "createdAt": "2022-11-22T19:35:17Z",
+          "updatedAt": "2022-11-22T19:35:17Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5G5EFQ",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "tlodderstedt",
+          "authorAssociation": "NONE",
+          "state": "APPROVED",
+          "body": "The SD-JWT-VC example looks good to me.",
+          "createdAt": "2022-11-22T05:41:20Z",
+          "updatedAt": "2022-11-22T05:41:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G5j9s",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T07:13:36Z",
+          "updatedAt": "2022-11-22T08:37:00Z",
+          "comments": [
+            {
+              "originalPosition": 121,
+              "body": "```suggestion\r\n    HASH(SALT, CLAIM-NAME, CLAIM-VALUE)\r\n```\r\n\r\nI would revert this back to `HASH` or did you want this to be a separate PR?",
+              "createdAt": "2022-11-22T07:13:36Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 145,
+              "body": "Why is this not `COMBINED-ISSUANCE = SD-JWT | DISCLOSURES` ?\r\nseems inconsistent with Holder-Selected Disclosures...",
+              "createdAt": "2022-11-22T07:15:43Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 173,
+              "body": "```suggestion\r\nCryptographic Holder Binding is an optional feature, but when it is desired, `SD-JWT` must contain information about key material controlled by the Holder:\r\n```",
+              "createdAt": "2022-11-22T07:32:49Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\nCryptographic Holder Binding:\r\n```\r\nto differentiate with Biometric/claim-based binding",
+              "createdAt": "2022-11-22T07:33:18Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 225,
+              "body": "```suggestion\r\nAt a high level, the Verifier\r\n```",
+              "createdAt": "2022-11-22T07:38:25Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 232,
+              "body": "```suggestion\r\n * verifies the Holder Binding JWT, if Holder Binding is required by the Verifier's policy, using the public key included in the SD-JWT,\r\n```",
+              "createdAt": "2022-11-22T07:38:56Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 233,
+              "body": "```suggestion\r\n * calculates the hashes over the Holder-Selected Disclosures and verifies that each hash is contained in the SD-JWT.\r\n```",
+              "createdAt": "2022-11-22T07:39:34Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 225,
+              "body": "Why is Verifier decoding the Disclosure and obtaining the plain text values out of scope here..?",
+              "createdAt": "2022-11-22T07:40:55Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 267,
+              "body": "is this a widely-used terminology? I am a little confused that the definition did not change but the term did?",
+              "createdAt": "2022-11-22T07:42:35Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 246,
+              "body": "let's discuss in another PR if we can move this section lower, as with the new encoding approach I anticipate less questions regarding canonicalization.",
+              "createdAt": "2022-11-22T07:43:50Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 314,
+              "body": "```suggestion\r\nspecification, JSON is used and plain text values of each Disclosure is encoded using base64url-encoding\r\n```",
+              "createdAt": "2022-11-22T07:48:28Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 331,
+              "body": "what is the differentiation between Varifier and application in this context?",
+              "createdAt": "2022-11-22T07:50:40Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 357,
+              "body": "```suggestion\r\nFor each claim that is to be selectively disclosed, the Issuer creates a Disclosure, hashes it, and includes the hash instead of the original claim in the SD-JWT, as described next. The Disclosures are then sent to the Holder.\r\n```\r\ndon't think we need to define \"DIsclosure object\"?",
+              "createdAt": "2022-11-22T07:52:56Z",
+              "updatedAt": "2022-11-22T18:56:57Z"
+            },
+            {
+              "originalPosition": 363,
+              "body": "```suggestion\r\nThe Issuer MUST create a Disclosure for each selectively disclosable claim as follows:\r\n```",
+              "createdAt": "2022-11-22T07:57:28Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 368,
+              "body": "I would emphasize the order in other places too...\r\n\r\njust curious, any logic for the order?",
+              "createdAt": "2022-11-22T08:00:01Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 370,
+              "body": "```suggestion\r\n   2. The claim name, or key, as it would be used in a regular JWT body. This MUST be a string.\r\n```\r\nnot sure what `as it would be used in a regular JWT body` means though to be honest..",
+              "createdAt": "2022-11-22T08:01:00Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 371,
+              "body": "```suggestion\r\n   3. The claim's value, as it would be used in a regular JWT body. The value MAY be of any type that is allowed in JSON, including numbers, strings, booleans, arrays, and objects.\r\n```",
+              "createdAt": "2022-11-22T08:01:23Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 395,
+              "body": "(I did not know the term umlaut...)",
+              "createdAt": "2022-11-22T08:02:52Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 405,
+              "body": "```suggestion\r\nIt is important to note that:\r\n```",
+              "createdAt": "2022-11-22T08:04:40Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 414,
+              "body": "I was also not familiar with a term decoy..",
+              "createdAt": "2022-11-22T08:05:27Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 428,
+              "body": "```suggestion\r\nIt is an Issuer who decides which claims are selectively disclosable and which are not. However, claims controlling the validity of the SD-JWT, such as `iss`, `exp`, or `nbf` are usually included in plaintext. End-User claims MAY be included as plaintext as well, e.g., if hiding the particular claims from the Verifier does not make sense in the intended use case.\r\n```",
+              "createdAt": "2022-11-22T08:09:10Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 430,
+              "body": "```suggestion\r\nClaims that are not selectively disclosed are included in the SD-JWT in plaintext just as they would be in any other JWT.\r\n```",
+              "createdAt": "2022-11-22T08:09:44Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 432,
+              "body": "```suggestion\r\nSelectively disclosable claims are omitted from the SD-JWT. Instead, the hash digests of the respective Disclosures and potentially decoy digests are contained as an array in a new JWT claim, `_sd`.\r\n```",
+              "createdAt": "2022-11-22T08:10:22Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 434,
+              "body": "definition of `_sd` claim can probably be defined clearer, but we can do it in another PR :)",
+              "createdAt": "2022-11-22T08:11:49Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 435,
+              "body": "when can an array be empty..?",
+              "createdAt": "2022-11-22T08:12:57Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 437,
+              "body": "```suggestion\r\nThe Issuer MUST hide the original order of the claims in the array. To ensure this, it is RECOMMENDED to shuffle the array of hashes, e.g., by sorting it alphanumerically or randomly. The precise method does not matter as long as it does not depend on the original order of elements.\r\n```\r\n\r\nwe should probably be precise since each disclosure also hashes over an array",
+              "createdAt": "2022-11-22T08:13:41Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 441,
+              "body": "```suggestion\r\n * the key `_sd` is already used for the purpose other than to contain the array of hash digests, or\r\n```",
+              "createdAt": "2022-11-22T08:15:12Z",
+              "updatedAt": "2022-11-22T19:08:26Z"
+            },
+            {
+              "originalPosition": 442,
+              "body": "why is this not ok..?",
+              "createdAt": "2022-11-22T08:15:40Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 443,
+              "body": "when would this be the case? same claim value? same salt? I though we are recommending against this? ",
+              "createdAt": "2022-11-22T08:16:23Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 448,
+              "body": "`objects that themselves contain other data` -> something like `key value pairs where the value is an object` or `where the claim value is expressed as an object` might be clearer, no?",
+              "createdAt": "2022-11-22T08:20:25Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 446,
+              "body": "why not \"structured data\" for consistency with the rest of the examples, etc?",
+              "createdAt": "2022-11-22T08:21:44Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 790,
+              "body": "I think we should explicitly call out Disclosures are individually sent, separated by tildas? this feels missing and I think it should come much earlier in the spec.",
+              "createdAt": "2022-11-22T08:23:26Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 965,
+              "body": "```suggestion\r\n    Holder MUST reject the SD-JWT.\r\n 4. Decode Disclosures and obtain plaintext of the claim values.\r\n```\r\nI think this should be made explicit?",
+              "createdAt": "2022-11-22T08:26:08Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 976,
+              "body": "maybe add a note that it is up to the holder how to maintain the mapping between the plaintext claim values and disclosures",
+              "createdAt": "2022-11-22T08:26:51Z",
+              "updatedAt": "2022-11-22T08:37:00Z"
+            },
+            {
+              "originalPosition": 1054,
+              "body": "why?",
+              "createdAt": "2022-11-22T08:28:10Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1008,
+              "body": "if these claims are selectively disclosed, would not be in this step, but don't know how relevant that is..",
+              "createdAt": "2022-11-22T08:29:01Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1057,
+              "body": "```suggestion\r\n    2. Find `_sd` key in the SD-JWT payload that contains a hash calculated in the previous step. Note that there might be more than one `_sd` arrays in on SD-JWT.\r\n```",
+              "createdAt": "2022-11-22T08:30:53Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1063,
+              "body": "what does this mean? I think we used to say the same claim name can be used in multiple places in one SD-JWT? like address?",
+              "createdAt": "2022-11-22T08:32:00Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1064,
+              "body": "I am confused..",
+              "createdAt": "2022-11-22T08:32:21Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1065,
+              "body": "```suggestion\r\n    5. Remove all `_sd` claims from the SD-JWT payload.\r\n```",
+              "createdAt": "2022-11-22T08:32:39Z",
+              "updatedAt": "2022-11-22T19:27:41Z"
+            },
+            {
+              "originalPosition": 1066,
+              "body": "why?",
+              "createdAt": "2022-11-22T08:32:50Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1070,
+              "body": "```suggestion\r\n       1. If Holder Binding JWT is not provided, the Verifier MUST reject the Presentation.\r\n```",
+              "createdAt": "2022-11-22T08:33:17Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1071,
+              "body": "A step that the public key signing the Holder Binding JWT must be included in the SD-JWT signed by the Issuer needs ot be added.",
+              "createdAt": "2022-11-22T08:34:26Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1096,
+              "body": "```suggestion\r\nis vulnerable to this attack. However, in a structured SD-JWT, without comparing the digests of the\r\n```",
+              "createdAt": "2022-11-22T08:35:11Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            },
+            {
+              "originalPosition": 1219,
+              "body": "```suggestion\r\nalways blinded. This prevents an attacker from learning the names of the\r\n```",
+              "createdAt": "2022-11-22T08:35:40Z",
+              "updatedAt": "2022-11-22T08:37:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6vUT",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:40:27Z",
+          "updatedAt": "2022-11-22T10:40:27Z",
+          "comments": [
+            {
+              "originalPosition": 121,
+              "body": "Let's do that in a separate PR.",
+              "createdAt": "2022-11-22T10:40:27Z",
+              "updatedAt": "2022-11-22T10:40:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6v2p",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:41:58Z",
+          "updatedAt": "2022-11-22T10:42:13Z",
+          "comments": [
+            {
+              "originalPosition": 145,
+              "body": "Correct!\r\n```suggestion\r\nCOMBINED-ISSUANCE = SD-JWT | DISCLOSURES\r\n```",
+              "createdAt": "2022-11-22T10:41:58Z",
+              "updatedAt": "2022-11-22T10:42:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6w5s",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:44:15Z",
+          "updatedAt": "2022-11-22T10:44:16Z",
+          "comments": [
+            {
+              "originalPosition": 233,
+              "body": "What is calculated is still a hash digest, so\r\n```suggestion\r\n * calculates the hash digests over the Holder-Selected Disclosures and verifies that each digest is contained in the SD-JWT.\r\n```",
+              "createdAt": "2022-11-22T10:44:15Z",
+              "updatedAt": "2022-11-22T10:44:16Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6xA7",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:44:34Z",
+          "updatedAt": "2022-11-22T10:44:34Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "Agree!",
+              "createdAt": "2022-11-22T10:44:34Z",
+              "updatedAt": "2022-11-22T10:44:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6xM-",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:45:06Z",
+          "updatedAt": "2022-11-22T10:45:06Z",
+          "comments": [
+            {
+              "originalPosition": 267,
+              "body": "I think it is. It was also used at IETF. But I'm open for other suggestions.",
+              "createdAt": "2022-11-22T10:45:06Z",
+              "updatedAt": "2022-11-22T10:45:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6xsh",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:46:29Z",
+          "updatedAt": "2022-11-22T10:46:29Z",
+          "comments": [
+            {
+              "originalPosition": 331,
+              "body": "Verifier (in a stricter sense than defined above): The component implementing SD-JWT. Application: Whatever component works with the data checked by the verifier.",
+              "createdAt": "2022-11-22T10:46:29Z",
+              "updatedAt": "2022-11-22T10:46:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6x9j",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:47:12Z",
+          "updatedAt": "2022-11-22T10:47:12Z",
+          "comments": [
+            {
+              "originalPosition": 357,
+              "body": "Agree, but we still need to introduce the Disclosure term here.",
+              "createdAt": "2022-11-22T10:47:12Z",
+              "updatedAt": "2022-11-22T10:47:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6zKB",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:50:25Z",
+          "updatedAt": "2022-11-22T10:50:25Z",
+          "comments": [
+            {
+              "originalPosition": 368,
+              "body": "At which other places? \r\n\r\nI don't have a strong opinion on the order, but my logic is that the value should come last, as it can be a large object. So having the salt (constant length) and claim name (roughly same length all the time) first makes it easier to read the disclosures, should that be necessary.",
+              "createdAt": "2022-11-22T10:50:25Z",
+              "updatedAt": "2022-11-22T10:50:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6zjk",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:51:30Z",
+          "updatedAt": "2022-11-22T10:51:31Z",
+          "comments": [
+            {
+              "originalPosition": 370,
+              "body": "I just want to say that it is used just as in a Non-SD JWT (no transformation or the likes).",
+              "createdAt": "2022-11-22T10:51:30Z",
+              "updatedAt": "2022-11-22T10:51:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G60Aw",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:52:47Z",
+          "updatedAt": "2022-11-22T10:52:47Z",
+          "comments": [
+            {
+              "originalPosition": 395,
+              "body": "We can replace it with \"letter with crazy german-looking dots on top\"? ;-) ",
+              "createdAt": "2022-11-22T10:52:47Z",
+              "updatedAt": "2022-11-22T10:52:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G60Vi",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:53:35Z",
+          "updatedAt": "2022-11-22T10:53:35Z",
+          "comments": [
+            {
+              "originalPosition": 414,
+              "body": "It's a bit of a military term, but I hope it captures the spirit just fine.",
+              "createdAt": "2022-11-22T10:53:35Z",
+              "updatedAt": "2022-11-22T10:53:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G61Rk",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:55:07Z",
+          "updatedAt": "2022-11-22T10:55:07Z",
+          "comments": [
+            {
+              "originalPosition": 428,
+              "body": "```suggestion\r\nIt is the Issuer who decides which claims are selectively disclosable and which are not. However, claims controlling the validity of the SD-JWT, such as `iss`, `exp`, or `nbf` are usually included in plaintext. End-User claims MAY be included as plaintext as well, e.g., if hiding the particular claims from the Verifier does not make sense in the intended use case.\r\n```",
+              "createdAt": "2022-11-22T10:55:07Z",
+              "updatedAt": "2022-11-22T10:55:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G61yS",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:56:19Z",
+          "updatedAt": "2022-11-22T10:56:19Z",
+          "comments": [
+            {
+              "originalPosition": 430,
+              "body": "```suggestion\r\nClaims that are not selectively disclosable are included in the SD-JWT in plaintext just as they would be in any other JWT.\r\n```",
+              "createdAt": "2022-11-22T10:56:19Z",
+              "updatedAt": "2022-11-22T10:56:19Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G62bF",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:58:03Z",
+          "updatedAt": "2022-11-22T10:58:03Z",
+          "comments": [
+            {
+              "originalPosition": 435,
+              "body": "Depending on the implementation of the Issuer, it might be convenient to just add `_sd` everywhere and leave it empty when it turns out that there's nothing to selectively disclose.",
+              "createdAt": "2022-11-22T10:58:03Z",
+              "updatedAt": "2022-11-22T10:58:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G62k-",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:58:29Z",
+          "updatedAt": "2022-11-22T10:58:29Z",
+          "comments": [
+            {
+              "originalPosition": 437,
+              "body": "Good point!",
+              "createdAt": "2022-11-22T10:58:29Z",
+              "updatedAt": "2022-11-22T10:58:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G628J",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T10:59:27Z",
+          "updatedAt": "2022-11-22T10:59:27Z",
+          "comments": [
+            {
+              "originalPosition": 441,
+              "body": "What is the intention here?",
+              "createdAt": "2022-11-22T10:59:27Z",
+              "updatedAt": "2022-11-22T10:59:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G63ar",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:00:40Z",
+          "updatedAt": "2022-11-22T11:00:40Z",
+          "comments": [
+            {
+              "originalPosition": 442,
+              "body": "It's a bit of an undefined area currently how to treat this situation. Should the Verifier handle nested _sd claims like normal ones or ignore them?",
+              "createdAt": "2022-11-22T11:00:40Z",
+              "updatedAt": "2022-11-22T11:00:40Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G6378",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:02:06Z",
+          "updatedAt": "2022-11-22T11:02:06Z",
+          "comments": [
+            {
+              "originalPosition": 443,
+              "body": "Since the same salt should not happen, it might be an error of the Issuer or intentional misbehavior. It is ruled out here and enforced by the Verifier.",
+              "createdAt": "2022-11-22T11:02:06Z",
+              "updatedAt": "2022-11-22T11:02:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G64Gb",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:02:33Z",
+          "updatedAt": "2022-11-22T11:02:34Z",
+          "comments": [
+            {
+              "originalPosition": 446,
+              "body": "I'm actually not sure if 'structured' is the best term. Nested is potentially more clear.",
+              "createdAt": "2022-11-22T11:02:33Z",
+              "updatedAt": "2022-11-22T11:02:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G64Or",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:02:55Z",
+          "updatedAt": "2022-11-22T11:02:56Z",
+          "comments": [
+            {
+              "originalPosition": 448,
+              "body": "Agree.",
+              "createdAt": "2022-11-22T11:02:55Z",
+              "updatedAt": "2022-11-22T11:02:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G64pk",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:04:01Z",
+          "updatedAt": "2022-11-22T11:04:01Z",
+          "comments": [
+            {
+              "originalPosition": 790,
+              "body": "This is first described in the Combined Format for Issuance.",
+              "createdAt": "2022-11-22T11:04:01Z",
+              "updatedAt": "2022-11-22T11:04:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G65i8",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:06:31Z",
+          "updatedAt": "2022-11-22T11:06:32Z",
+          "comments": [
+            {
+              "originalPosition": 1054,
+              "body": "I wasn't sure if we need to make this explicit, but the next steps are most easily described by saying how the JWT needs to be \"modified\". If we don't say that you can do this on a copy, people might complain when they have the JWT in a data structure that cannot be modified.",
+              "createdAt": "2022-11-22T11:06:31Z",
+              "updatedAt": "2022-11-22T11:06:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G66D1",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:07:54Z",
+          "updatedAt": "2022-11-22T11:07:55Z",
+          "comments": [
+            {
+              "originalPosition": 1063,
+              "body": "It can, but it must not already exist at the same level. Note that in this version of the draft there's no merging defined (as it is not strictly needed).",
+              "createdAt": "2022-11-22T11:07:54Z",
+              "updatedAt": "2022-11-22T11:07:55Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G66QU",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:08:27Z",
+          "updatedAt": "2022-11-22T11:08:28Z",
+          "comments": [
+            {
+              "originalPosition": 1064,
+              "body": "As above - prevents an undefined situation. Note that this refers to the disclosed claim value.",
+              "createdAt": "2022-11-22T11:08:27Z",
+              "updatedAt": "2022-11-22T11:08:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G66Yl",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:08:46Z",
+          "updatedAt": "2022-11-22T11:08:47Z",
+          "comments": [
+            {
+              "originalPosition": 1065,
+              "body": "No, the above process does not remove any claims.",
+              "createdAt": "2022-11-22T11:08:46Z",
+              "updatedAt": "2022-11-22T11:08:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G66hN",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:09:05Z",
+          "updatedAt": "2022-11-22T11:09:05Z",
+          "comments": [
+            {
+              "originalPosition": 1066,
+              "body": "Should not be a concern of the consuming application.",
+              "createdAt": "2022-11-22T11:09:05Z",
+              "updatedAt": "2022-11-22T11:09:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G66wj",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T11:09:45Z",
+          "updatedAt": "2022-11-22T11:09:45Z",
+          "comments": [
+            {
+              "originalPosition": 1071,
+              "body": "```suggestion\r\n       2. Determine the public key for the Holder from the SD-JWT.\r\n```",
+              "createdAt": "2022-11-22T11:09:45Z",
+              "updatedAt": "2022-11-22T11:09:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9P0I",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T16:56:06Z",
+          "updatedAt": "2022-11-22T16:56:06Z",
+          "comments": [
+            {
+              "originalPosition": 441,
+              "body": "just to clarify",
+              "createdAt": "2022-11-22T16:56:06Z",
+              "updatedAt": "2022-11-22T16:56:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9T0l",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T17:06:37Z",
+          "updatedAt": "2022-11-22T17:06:37Z",
+          "comments": [
+            {
+              "originalPosition": 790,
+              "body": "add a text somewhere above saying that how to send will be described later in the text (ie in this section)",
+              "createdAt": "2022-11-22T17:06:37Z",
+              "updatedAt": "2022-11-22T17:06:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9Utv",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T17:09:01Z",
+          "updatedAt": "2022-11-22T17:09:02Z",
+          "comments": [
+            {
+              "originalPosition": 976,
+              "body": "line in 652",
+              "createdAt": "2022-11-22T17:09:01Z",
+              "updatedAt": "2022-11-22T17:09:02Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G93iU",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T18:52:30Z",
+          "updatedAt": "2022-11-22T18:52:30Z",
+          "comments": [
+            {
+              "originalPosition": 246,
+              "body": "Issuer #175 ",
+              "createdAt": "2022-11-22T18:52:30Z",
+              "updatedAt": "2022-11-22T18:52:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G930g",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T18:53:31Z",
+          "updatedAt": "2022-11-22T18:53:32Z",
+          "comments": [
+            {
+              "originalPosition": 267,
+              "body": "Issue #176",
+              "createdAt": "2022-11-22T18:53:31Z",
+              "updatedAt": "2022-11-22T18:53:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G94ai",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T18:55:34Z",
+          "updatedAt": "2022-11-22T18:55:34Z",
+          "comments": [
+            {
+              "originalPosition": 334,
+              "body": "```suggestion\r\nan application that needs to access the disclosed claim values after the verification by the Verifier. The\r\n```",
+              "createdAt": "2022-11-22T18:55:34Z",
+              "updatedAt": "2022-11-22T18:55:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G94kK",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T18:56:04Z",
+          "updatedAt": "2022-11-22T18:56:05Z",
+          "comments": [
+            {
+              "originalPosition": 331,
+              "body": "makes sense - clarified.",
+              "createdAt": "2022-11-22T18:56:05Z",
+              "updatedAt": "2022-11-22T18:56:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G947F",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T18:57:18Z",
+          "updatedAt": "2022-11-22T18:57:18Z",
+          "comments": [
+            {
+              "originalPosition": 357,
+              "body": "changed disclosure object to disclosure, should be clear enough.",
+              "createdAt": "2022-11-22T18:57:18Z",
+              "updatedAt": "2022-11-22T18:57:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G96Zz",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:02:30Z",
+          "updatedAt": "2022-11-22T19:02:30Z",
+          "comments": [
+            {
+              "originalPosition": 377,
+              "body": "```suggestion\r\n\r\nThe order is decided based on the readability considerations: salts would have a constant length within the SD-JWT, claim names would be around the same length all the time, and claim values would vary in size, potentially being large objects.\r\n\r\n```",
+              "createdAt": "2022-11-22T19:02:30Z",
+              "updatedAt": "2022-11-22T19:02:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G964s",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:04:12Z",
+          "updatedAt": "2022-11-22T19:04:12Z",
+          "comments": [
+            {
+              "originalPosition": 395,
+              "body": "```suggestion\r\n * A different way to encode the umlaut (two dots `\u00a8` placed over the letter): `WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd`\r\n```",
+              "createdAt": "2022-11-22T19:04:12Z",
+              "updatedAt": "2022-11-22T19:04:13Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G978C",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:07:56Z",
+          "updatedAt": "2022-11-22T19:07:57Z",
+          "comments": [
+            {
+              "originalPosition": 435,
+              "body": "```suggestion\r\nThe array MAY be empty in case the Issuer decided not to selectively disclose any of the claims at that level. However, it is RECOMMENDED to omit `_sd` claim in this case to save space.\r\n```",
+              "createdAt": "2022-11-22T19:07:57Z",
+              "updatedAt": "2022-11-22T19:07:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G98ns",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:10:30Z",
+          "updatedAt": "2022-11-22T19:10:31Z",
+          "comments": [
+            {
+              "originalPosition": 442,
+              "body": "```suggestion\r\n * plaintext claim value is an object that contains the `_sd` claim array, or\r\n```",
+              "createdAt": "2022-11-22T19:10:31Z",
+              "updatedAt": "2022-11-22T19:10:31Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G98y4",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:11:08Z",
+          "updatedAt": "2022-11-22T19:11:09Z",
+          "comments": [
+            {
+              "originalPosition": 443,
+              "body": "```suggestion\r\n * the same Disclosure value appears more than once (in the same array or in different arrays).\r\n```",
+              "createdAt": "2022-11-22T19:11:08Z",
+              "updatedAt": "2022-11-22T19:11:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G99Jz",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:12:28Z",
+          "updatedAt": "2022-11-22T19:12:28Z",
+          "comments": [
+            {
+              "originalPosition": 446,
+              "body": "`+ 1 to nested. #177",
+              "createdAt": "2022-11-22T19:12:28Z",
+              "updatedAt": "2022-11-22T19:12:38Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G99bm",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:13:28Z",
+          "updatedAt": "2022-11-22T19:13:29Z",
+          "comments": [
+            {
+              "originalPosition": 448,
+              "body": "```suggestion\r\nJust like any JWT, an SD-JWT MAY contain key value pairs where the value is an object. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some some of the object's properties selectively disclosable and others not.\r\n```",
+              "createdAt": "2022-11-22T19:13:28Z",
+              "updatedAt": "2022-11-22T19:13:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G999j",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:15:24Z",
+          "updatedAt": "2022-11-22T19:15:25Z",
+          "comments": [
+            {
+              "originalPosition": 790,
+              "body": "#178",
+              "createdAt": "2022-11-22T19:15:24Z",
+              "updatedAt": "2022-11-22T19:15:25Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9-aS",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:17:02Z",
+          "updatedAt": "2022-11-22T19:17:03Z",
+          "comments": [
+            {
+              "originalPosition": 970,
+              "body": "```suggestion\r\n\r\nIt is up to the Holder how to maintain the mapping between the Disclosures and the plaintext claim values to be able to display them to the End-User when needed.\r\n\r\n```",
+              "createdAt": "2022-11-22T19:17:02Z",
+              "updatedAt": "2022-11-22T19:17:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9-kE",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:17:36Z",
+          "updatedAt": "2022-11-22T19:17:37Z",
+          "comments": [
+            {
+              "originalPosition": 1008,
+              "body": "```suggestion\r\n    4. Check that the SD-JWT is valid using `nbf`, `iat`, and `exp` claims, if provided in the SD-JWT, and not selectively disclosed.\r\n```",
+              "createdAt": "2022-11-22T19:17:36Z",
+              "updatedAt": "2022-11-22T19:17:37Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9-8t",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:19:06Z",
+          "updatedAt": "2022-11-22T19:19:07Z",
+          "comments": [
+            {
+              "originalPosition": 1054,
+              "body": "```suggestion\r\n 4. Create a copy of the SD-JWT payload, if required for further processing.\r\n```",
+              "createdAt": "2022-11-22T19:19:06Z",
+              "updatedAt": "2022-11-22T19:19:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G9_SR",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:20:21Z",
+          "updatedAt": "2022-11-22T19:20:21Z",
+          "comments": [
+            {
+              "originalPosition": 1063,
+              "body": "```suggestion\r\n          2. If the claim name already exists at the same level, the Verifier MUST reject the Presentation. Note that this also means that if a Holder sends the same Disclosure multiple times, the Verifier MUST reject the Presentation.\r\n```",
+              "createdAt": "2022-11-22T19:20:21Z",
+              "updatedAt": "2022-11-22T19:20:21Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-A6A",
+          "commit": {
+            "abbreviatedOid": "e50f520"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:26:20Z",
+          "updatedAt": "2022-11-22T19:26:20Z",
+          "comments": [
+            {
+              "originalPosition": 1064,
+              "body": "```suggestion\r\n          3. If the claim value is an object and contains an `_sd` key with an array, the Verifier MUST reject the Presentation.\r\n```",
+              "createdAt": "2022-11-22T19:26:20Z",
+              "updatedAt": "2022-11-22T19:26:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-CAc",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:30:19Z",
+          "updatedAt": "2022-11-22T19:30:20Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\n  \"email\": \"\\\"unusual email address\\\"@nihon.com\",\r\n```",
+              "createdAt": "2022-11-22T19:30:20Z",
+              "updatedAt": "2022-11-22T19:30:20Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-CFu",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:30:38Z",
+          "updatedAt": "2022-11-22T19:30:39Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n  \"email\": \"\\\"unusual email address\\\"@nihon.com\",\r\n```",
+              "createdAt": "2022-11-22T19:30:38Z",
+              "updatedAt": "2022-11-22T19:30:39Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-CKa",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:30:56Z",
+          "updatedAt": "2022-11-22T19:30:56Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n  \"phone_number\": \"08012345678\",\r\n```",
+              "createdAt": "2022-11-22T19:30:56Z",
+              "updatedAt": "2022-11-22T19:30:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-COG",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:31:09Z",
+          "updatedAt": "2022-11-22T19:31:10Z",
+          "comments": [
+            {
+              "originalPosition": 12,
+              "body": "```suggestion\r\n  \"email\": \"\\\"unusual email address\\\"@nihon.com\",\r\n```",
+              "createdAt": "2022-11-22T19:31:10Z",
+              "updatedAt": "2022-11-22T19:31:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-CUQ",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:31:30Z",
+          "updatedAt": "2022-11-22T19:31:30Z",
+          "comments": [
+            {
+              "originalPosition": 10,
+              "body": "```suggestion\r\n    \"email\": \"\\\"unusual email address\\\"@nihon.com\",\r\n```",
+              "createdAt": "2022-11-22T19:31:30Z",
+              "updatedAt": "2022-11-22T19:31:30Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-CYc",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:31:45Z",
+          "updatedAt": "2022-11-22T19:31:45Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n    \"email\": \"\\\"unusual email address\\\"@nihon.com\",\r\n```",
+              "createdAt": "2022-11-22T19:31:45Z",
+              "updatedAt": "2022-11-22T19:31:45Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G-CcZ",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-22T19:31:58Z",
+          "updatedAt": "2022-11-22T19:31:59Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n  \"email\": \"\\\"unusual email address\\\"@nihon.com\",\r\n```",
+              "createdAt": "2022-11-22T19:31:58Z",
+              "updatedAt": "2022-11-22T19:31:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G_7jt",
+          "commit": {
+            "abbreviatedOid": "566f795"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-23T07:42:01Z",
+          "updatedAt": "2022-11-23T07:42:01Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "Can we replace it with another domain with multibyte characters? \u65e5\u672c.example.com?",
+              "createdAt": "2022-11-23T07:42:01Z",
+              "updatedAt": "2022-11-23T07:42:01Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5G_8EU",
+          "commit": {
+            "abbreviatedOid": "36189a0"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-23T07:44:17Z",
+          "updatedAt": "2022-11-23T07:44:18Z",
+          "comments": [
+            {
+              "originalPosition": 225,
+              "body": "Good point, it should be mentioned.",
+              "createdAt": "2022-11-23T07:44:17Z",
+              "updatedAt": "2022-11-23T07:44:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HARvh",
+          "commit": {
+            "abbreviatedOid": "3654c92"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-23T08:59:06Z",
+          "updatedAt": "2022-11-23T08:59:07Z",
+          "comments": [
+            {
+              "originalPosition": 11,
+              "body": "```suggestion\r\n    \"phone_number\": \"08012345678\",\r\n```",
+              "createdAt": "2022-11-23T08:59:06Z",
+              "updatedAt": "2022-11-23T08:59:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HASEe",
+          "commit": {
+            "abbreviatedOid": "800f48e"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Thank you, Daniel!!",
+          "createdAt": "2022-11-23T09:00:02Z",
+          "updatedAt": "2022-11-23T09:00:02Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HASRf",
+          "commit": {
+            "abbreviatedOid": "56ba38a"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-23T09:00:36Z",
+          "updatedAt": "2022-11-23T09:00:37Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "no one uses such domains in Japan though..?",
+              "createdAt": "2022-11-23T09:00:37Z",
+              "updatedAt": "2022-11-23T09:00:37Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 179,
+      "id": "PR_kwDOHTmVzM5Dj2hY",
+      "title": "Add Brian as coauthor",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/179",
+      "state": "MERGED",
+      "author": "danielfett",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-11-23T12:59:23Z",
+      "updatedAt": "2022-11-23T17:38:34Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "15710f2b14410dcabdc126b7f6f59e9b02eaf398",
+      "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "headRefName": "danielfett/add-brian",
+      "headRefOid": "a3d8b11e039bf482216781289e76a7054987e544",
+      "closedAt": "2022-11-23T17:38:34Z",
+      "mergedAt": "2022-11-23T17:38:33Z",
+      "mergedBy": "Sakurann",
+      "mergeCommit": {
+        "oid": "6d363285371ae98a8023e0a99a552ffc6e159ec1"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5HDXJ3",
+          "commit": {
+            "abbreviatedOid": "a3d8b11"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-11-23T17:38:28Z",
+          "updatedAt": "2022-11-23T17:38:28Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
