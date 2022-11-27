@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-24T01:12:24.443752+00:00",
+  "timestamp": "2022-11-27T01:11:46.323958+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -4648,6 +4648,65 @@
       "updatedAt": "2022-11-22T19:15:17Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 180,
+      "id": "I_kwDOHTmVzM5XLrgg",
+      "title": "separate sd-jwt and Disclosures using `.` and not `~`",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/180",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "separation between sd-jwt and Disclosures should be ., not ~ for consistency and mental model wise. so `<SD-JWT>.<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`, instead of `<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`. ",
+      "createdAt": "2022-11-24T02:59:06Z",
+      "updatedAt": "2022-11-27T00:31:00Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "I guess this depends on the mental model :-)\r\n\r\nFor me, the SD-JWT is primarily a normal JWT. When sending it, some things (the Disclosures) are attached to it. There needs to be a separator different from the ones in the JWT itself for distinguishing the JWT from the \"attachment\". So these two would work in that mental model:\r\n`<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`\r\nor\r\n`<SD-JWT>~<Disclosure 1>.<Disclosure 2>.<...>.<Disclosure N>`\r\n\r\nI assume that your and the devs' mental model is that the whole thing that is being sent is a special form of JWT that consists of four instead of three parts:\r\n`<Header>.<Payload>.<Signature>.<Attachment>` where the Attachment is the `~`-separated Disclosures.\r\n\r\nThat would mean, however, that the whole Combined Format is a special kind of JWT with four parts. I don't see it that way. The Combined Format is just a means of sending a JWT and some extra data. ",
+          "createdAt": "2022-11-24T09:09:45Z",
+          "updatedAt": "2022-11-24T09:09:45Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Also, isn't it much easier to separate the document by `~` and then to process the individual parts, instead of splitting by `.` and then re-assembling the JWT?",
+          "createdAt": "2022-11-24T09:52:55Z",
+          "updatedAt": "2022-11-24T09:52:55Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I think the concern was that some libraries will take received string and process everything after the last \u2018.\u2019 as a signature, which in SD-JWT case includes disclosures.\n________________________________\nFrom: Daniel Fett ***@***.***>\nSent: Thursday, November 24, 2022 1:53:05 AM\nTo: oauth-wg/oauth-selective-disclosure-jwt ***@***.***>\nCc: Kristina Yasuda ***@***.***>; Author ***@***.***>\nSubject: Re: [oauth-wg/oauth-selective-disclosure-jwt] separate sd-jwt and Disclosures using `.` and not `~` (Issue #180)\n\n\nAlso, isn't it much easier to separate the document by ~ and then to process the individual parts, instead of splitting by . and then re-assembling the JWT?\n\n\u2014\nReply to this email directly, view it on GitHub<https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Foauth-wg%2Foauth-selective-disclosure-jwt%2Fissues%2F180%23issuecomment-1326209633&data=05%7C01%7Ckristina.yasuda%40microsoft.com%7C350ba78360eb426828d808dace01afac%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638048803898080811%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=lwGYrWXo8sV%2FnLlxtme7cCN37MGG5MpIptAYirOQnnM%3D&reserved=0>, or unsubscribe<https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fnotifications%2Funsubscribe-auth%2FAMTNZUYUHYARAKQOZXW3CALWJ43IDANCNFSM6AAAAAASJUPQUY&data=05%7C01%7Ckristina.yasuda%40microsoft.com%7C350ba78360eb426828d808dace01afac%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638048803898080811%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&sdata=wefrc90v3DXGw0qftPZSFOsxgftEddNbQcan5CTKoCw%3D&reserved=0>.\nYou are receiving this because you authored the thread.Message ID: ***@***.***>\n",
+          "createdAt": "2022-11-25T03:51:20Z",
+          "updatedAt": "2022-11-25T03:51:20Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "I don't understand that. The whole string will fail JWT validation in any case, as it is more than a JWT. Devs need to split it before processing.",
+          "createdAt": "2022-11-25T07:36:51Z",
+          "updatedAt": "2022-11-25T07:36:51Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": "You assume that the JWT Is signed, a JWT May be encrypted and the Number of values separated by . would be 5\r\n\r\nThe libraries used to parse a jwt checks the jwt headers to know if It is signed or encrypted and, where needed, also the typ.\r\n\r\nUsing . would be a pain for the parser libraries (and the implementers). \r\nUsing a typ like sd+jwt would be recommended to easy the implementers life.\r\nUsing an envelope jwt (with holder binding claims in It) would be better because this solution represent a self consistent object that could be also encrypted (bringing uniqueness in its presentation and being hard to be tracked on the wire. Its encrypted format would change during each presentation due to claims nonce/aud/iat/ext).\r\n\r\nWe have an issue on the envelope format (cryptable) and a PR for the typ header claim.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/118\r\n\r\nInstead of dealing with separation chars I'm in favor of an envelope schema encoded in JWT, signed or encrypted (nested)\r\n\r\n",
+          "createdAt": "2022-11-27T00:19:57Z",
+          "updatedAt": "2022-11-27T00:27:05Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This issue is also related to this thread\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/114#issuecomment-1193920626",
+          "createdAt": "2022-11-27T00:31:00Z",
+          "updatedAt": "2022-11-27T00:31:00Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -15487,6 +15546,115 @@
           "createdAt": "2022-11-23T17:38:28Z",
           "updatedAt": "2022-11-23T17:38:28Z",
           "comments": []
+        }
+      ]
+    },
+    {
+      "number": 181,
+      "id": "PR_kwDOHTmVzM5DnfZX",
+      "title": "revert to hash alg from digest derivation alg",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/181",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "per IETF115 WG agreement.",
+      "createdAt": "2022-11-24T05:33:00Z",
+      "updatedAt": "2022-11-24T09:26:16Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "6d363285371ae98a8023e0a99a552ffc6e159ec1",
+      "headRepository": "Sakurann/draft-selective-disclosure-jwt",
+      "headRefName": "revert-to-hash",
+      "headRefOid": "17b2a548e1fa2ede030d49dfcc7963a5a01824ea",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Can you please recompute the examples?",
+          "createdAt": "2022-11-24T09:26:15Z",
+          "updatedAt": "2022-11-24T09:26:15Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5HGGjM",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2022-11-24T09:18:41Z",
+          "updatedAt": "2022-11-24T09:25:57Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "```suggestion\r\n * calculates the digests over the Holder-Selected Disclosures and verifies that each digest is contained in the SD-JWT.\r\n```",
+              "createdAt": "2022-11-24T09:18:41Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "```suggestion\r\nsignature verification as was used for creating the signature. In the hash digest approach outlined above, the same problem exists: for the Issuer and the\r\n```",
+              "createdAt": "2022-11-24T09:19:01Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 47,
+              "body": "```suggestion\r\n   calculcation there. This means that the Verifier can easily compute and check the\r\n```",
+              "createdAt": "2022-11-24T09:19:18Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 75,
+              "body": "```suggestion\r\n * The bytes of the output of the hash function are base64url-encoded, not the bytes making up the (often used) hex representation of the bytes of the digest.\r\n```",
+              "createdAt": "2022-11-24T09:19:59Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 85,
+              "body": "Please fix `digest s` \u2192 `digests` everywhere.",
+              "createdAt": "2022-11-24T09:20:43Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 85,
+              "body": "Why replace `hash digests` with `digests` everywhere? ",
+              "createdAt": "2022-11-24T09:21:25Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 149,
+              "body": "```suggestion\r\n    1. Calculate the digest over the base64url string as described in (#hashing_disclosures).\r\n```",
+              "createdAt": "2022-11-24T09:22:19Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 150,
+              "body": "```suggestion\r\n    2. Find all `_sd` keys in the SD-JWT payload that contain a digest calculated in the previous step. Note that there might be more than one `_sd` arrays in on SD-JWT.\r\n```",
+              "createdAt": "2022-11-24T09:22:33Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 177,
+              "body": "I don't think this sentence adds information, the RECOMMENDATION is already there.\r\n```suggestion\r\n```",
+              "createdAt": "2022-11-24T09:23:39Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            },
+            {
+              "originalPosition": 197,
+              "body": "Technically speaking, that would not be a profile, as it would need to change normative things within this spec. We cannot really give this recommendation here. All we can say is: HMAC or similar is at your own risk, non-standard, etc.; I'm not sure if we want to say that here.",
+              "createdAt": "2022-11-24T09:25:19Z",
+              "updatedAt": "2022-11-24T09:25:57Z"
+            }
+          ]
         }
       ]
     }
