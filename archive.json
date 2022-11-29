@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-27T01:11:46.323958+00:00",
+  "timestamp": "2022-11-29T01:06:33.961948+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -4613,9 +4613,24 @@
       "labels": [],
       "body": "Might be clear enough, or might need alternative suggestion.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174/files#r1028968119",
       "createdAt": "2022-11-22T18:53:20Z",
-      "updatedAt": "2022-11-22T18:53:20Z",
+      "updatedAt": "2022-11-28T18:06:39Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "\"armoring\" is also often used. Let's summon the native speaker to guide us! @bc-pi ",
+          "createdAt": "2022-11-28T14:24:30Z",
+          "updatedAt": "2022-11-28T14:24:30Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Offhand, I think going back to just \"encoding\" is probably the way to go in this context. ",
+          "createdAt": "2022-11-28T18:06:38Z",
+          "updatedAt": "2022-11-28T18:06:38Z"
+        }
+      ]
     },
     {
       "number": 177,
@@ -4661,7 +4676,7 @@
       "labels": [],
       "body": "separation between sd-jwt and Disclosures should be ., not ~ for consistency and mental model wise. so `<SD-JWT>.<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`, instead of `<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`. ",
       "createdAt": "2022-11-24T02:59:06Z",
-      "updatedAt": "2022-11-27T00:31:00Z",
+      "updatedAt": "2022-11-28T23:52:57Z",
       "closedAt": null,
       "comments": [
         {
@@ -4695,9 +4710,9 @@
         {
           "author": "peppelinux",
           "authorAssociation": "COLLABORATOR",
-          "body": "You assume that the JWT Is signed, a JWT May be encrypted and the Number of values separated by . would be 5\r\n\r\nThe libraries used to parse a jwt checks the jwt headers to know if It is signed or encrypted and, where needed, also the typ.\r\n\r\nUsing . would be a pain for the parser libraries (and the implementers). \r\nUsing a typ like sd+jwt would be recommended to easy the implementers life.\r\nUsing an envelope jwt (with holder binding claims in It) would be better because this solution represent a self consistent object that could be also encrypted (bringing uniqueness in its presentation and being hard to be tracked on the wire. Its encrypted format would change during each presentation due to claims nonce/aud/iat/ext).\r\n\r\nWe have an issue on the envelope format (cryptable) and a PR for the typ header claim.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/118\r\n\r\nInstead of dealing with separation chars I'm in favor of an envelope schema encoded in JWT, signed or encrypted (nested)\r\n\r\n",
+          "body": "You assume that the JWT Is signed, a JWT May be encrypted and the Number of values separated by . would be 5\r\n\r\nThe libraries used to parse a jwt checks the jwt headers to know if It is signed or encrypted and, where needed, also the typ.\r\n\r\nUsing . would be a pain for the parser libraries (and the implementers). \r\nUsing a typ like `sd+jwt` or `sd+jwt-disclosure` (for an envelope JWT) would be recommended to easy the implementers life.\r\nUsing an envelope jwt (with holder binding claims in It) would be better because this solution represent a self consistent object that could be also encrypted (bringing uniqueness in its presentation and being hard to be tracked on the wire. Its encrypted format would change during each presentation due to claims nonce/aud/iat/ext).\r\n\r\nWe have an issue on the envelope format (cryptable) and a PR for the typ header claim.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/118\r\n\r\nInstead of dealing with separation chars I'm in favor of an envelope schema encoded in JWT, signed or encrypted (nested)\r\n\r\n",
           "createdAt": "2022-11-27T00:19:57Z",
-          "updatedAt": "2022-11-27T00:27:05Z"
+          "updatedAt": "2022-11-28T09:13:21Z"
         },
         {
           "author": "peppelinux",
@@ -4705,6 +4720,48 @@
           "body": "This issue is also related to this thread\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/114#issuecomment-1193920626",
           "createdAt": "2022-11-27T00:31:00Z",
           "updatedAt": "2022-11-27T00:31:00Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "IMHO `~` is a more appropriate model.",
+          "createdAt": "2022-11-28T13:17:52Z",
+          "updatedAt": "2022-11-28T13:17:52Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Let's discuss in our call later.\r\n\r\nSome initial thoughts:\r\n\r\n- If we use the `~` format, Giuseppe makes a good point with the number of dots.\r\n- An envelope increases the size of the data that needs to be transferred.\r\n- An envelope also means we need to think about `alg=none` again in case no signature/encryption is needed.\r\n- It adds two new JWTs that we need to describe and distinguish from existing ones (one JWT at issuance time, one at presentation time)\r\n- How does the envelope and a W3C VP work together?",
+          "createdAt": "2022-11-28T13:29:01Z",
+          "updatedAt": "2022-11-28T13:29:01Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "`Let's discuss in our call later.` +1 ",
+          "createdAt": "2022-11-28T14:35:54Z",
+          "updatedAt": "2022-11-28T14:35:54Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": ">     * An envelope increases the size of the data that needs to be transferred.\r\n\r\nOnly if you don't have the optional Holder binding attestation, otherwise it would be quite similar in size.\r\n \r\n>     * An envelope also means we need to think about `alg=none` again in case no signature/encryption is needed.\r\n\r\nthe Holder binding should consider to not use alg=none, otherwise it would be as without the holder binding attestation.\r\n \r\n>     * It adds two new JWTs that we need to describe and distinguish from existing ones (one JWT at issuance time, one at presentation time)\r\n\r\nyes, one is the envelope of another, and the first should have a `typ` claim in the header attesting its scope (combined disclosure)\r\n\r\n>     * How does the envelope and a W3C VP work together?\r\n\r\ngood question, SD-JWT-Combined-Disclosure  and W3C VP are self consistent formats, they should be agnostic and avulse each other. We may use SD-JWT even outside W3C vc-data-model. Anyway the SD-JWT disclosure envelope would be submitted in the W3C VP as it is.\r\n",
+          "createdAt": "2022-11-28T14:54:07Z",
+          "updatedAt": "2022-11-28T14:54:07Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "> > ```\r\n> > * An envelope increases the size of the data that needs to be transferred.\r\n> > ```\r\n> \r\n> Only if you don't have the optional Holder binding attestation, otherwise it would be quite similar in size.\r\n\r\nThere is a size increase due to the added layer of Base64. \r\n\r\nThis is an SD-JWT with Holder Binding according to the current draft in the repo:\r\n\r\n```\r\neyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZUkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIk5ZQ29TUktFWXdYZHBlNXlkdUpYQ3h4aHluRVU4ei1iNFR5TmlhcDc3VVkiLCAiU1k4bjJCYmtYOWxyWTNleEhsU3dQUkZYb0QwOUdGOGE5Q1BPLUc4ajIwOCIsICJUUHNHTlBZQTQ2d21CeGZ2MnpuT0poZmRvTjVZMUdrZXpicGFHWkNUMWFjIiwgIlprU0p4eGVHbHVJZFlCYjdDcWtaYkpWbTB3MlY1VXJSZU5UekFRQ1lCanciLCAibDlxSUo5SlRRd0xHN09MRUlDVEZCVnhtQXJ3OFBqeTY1ZEQ2bXRRVkc1YyIsICJvMVNBc0ozM1lNaW9POXBYNVZlQU0xbHh1SEY2aFpXMmtHZGtLS0JuVmxvIiwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiXSwgImlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2MjM5MDIyLCAiZXhwIjogMTUxNjI0NzAyMiwgInNkX2RpZ2VzdF9kZXJpdmF0aW9uX2FsZyI6ICJzaGEtMjU2IiwgImNuZiI6IHsiandrIjogeyJrdHkiOiAiUlNBIiwgIm4iOiAicG00Yk9IQmctb1loQXlQV3pSNTZBV1gzclVJWHAxMV9JQ0RrR2dTNlczWldMdHMtaHp3STN4NjU2NTlrZzRoVm85ZGJHb0NKRTNaR0ZfZWFldEUzMFVoQlVFZ3BHd3JEclFpSjl6cXBybWNGZnIzcXZ2a0dqdHRoOFpnbDFlTTJiSmNPd0U3UENCSFdUS1dZczE1MlI3ZzZKZzJPVnBoLWE4cnEtcTc5TWhLRzVRb1dfbVR6MTBRVF82SDRjN1BqV0cxZmpoOGhwV05uYlBfcHY2ZDF6U3daZmM1Zmw2eVZSTDBEVjBWM2xHSEtlMldxZl9lTkdqQnJCTFZrbERUazgtc3RYX01XTGNSLUVHbVhBT3YwVUJXaXRTX2RYSktKdS12WEp5dzE0bkhTR3V4VElLMmh4MXB0dE1mdDlDc3ZxaW1YS2VEVFUxNHFRTDFlRTdpaGN3IiwgImUiOiAiQVFBQiJ9fX0.rV7UrCdR64tA-G0_rjqYaKYukzIJi1RPgvX4eGSk5HHYWPl3-j8LEUnePSX-OlQXe5RgsOqPo9DCj7-CLvKKxam-PbEQZurYX4qEzFyCJUOTMbOTQSLdsSe9tf1pD_yIrJhIscjXiq_mtJww_abdT8fIiS4h8kir2ClZifjNnLkKzqceVgrCipjbt76iZ6m_DGO2jFhU8Zzrat3UZALacw4fRD0l5MGIGHdQcipouhhvVBnWyl6lH8gtcOFMl4YSSoWP9ytFLoahCSRrF5mCo1tSFg3I70v4mk2U59GfcU94GaEB0q6uF__fbEmOClUPX9yOrYryeqjJR0bBRUK_NA~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJxUVdtakpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkxOTM3MDR9.Y5xmEip11zOmZR1xvgdbi9IanCNQ4ODJDNW8JKpNvBNOCP2j_DbsCMoYAv6RrOYSzEPZplJ8MlfiZzC9ldcvByiAjWeJbMStZ1vf_K-AJnyNLwnA_v0zVwA0d8rkrIqSQomS5-GqN3zJtUpl2BslLa799UpdCwg7Rfow2wFSfL6S2J9j2mb5Q5UVxTcU27OXcLUn0aN8slIr5AmYd-EcoAqWe8feV6plkHnYac6M9LclgInE5IzwFJTezNmERocADNB7ZGGoy9FzdNdepjnzjFVjazYT0gtR0XgOg5epZoTeOrJwdYT0d5VFwO4ep9_Q591bxnNHfPbr5AhdYALCGg\r\n```\r\nIt has ~2440 chars.\r\n\r\nWith an envelope, the envelope JWT is as follows (quickly put together in jwt.io):\r\n\r\n```\r\neyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZC1qd3QiOiJleUpoYkdjaU9pQWlVbE15TlRZaUxDQWlhMmxrSWpvZ0ltTkJSVWxWY1Vvd1kyMU1la1F4YTNwSGVtaGxhVUpoWnpCWlVrRjZWbVJzWm5oT01qZ3dUbWRJWVVFaWZRLmV5SmZjMlFpT2lCYklrNVpRMjlUVWt0RldYZFlaSEJsTlhsa2RVcFlRM2g0YUhsdVJWVTRlaTFpTkZSNVRtbGhjRGMzVlZraUxDQWlVMWs0YmpKQ1ltdFlPV3h5V1RObGVFaHNVM2RRVWtaWWIwUXdPVWRHT0dFNVExQlBMVWM0YWpJd09DSXNJQ0pVVUhOSFRsQlpRVFEyZDIxQ2VHWjJNbnB1VDBwb1ptUnZUalZaTVVkclpYcGljR0ZIV2tOVU1XRmpJaXdnSWxwclUwcDRlR1ZIYkhWSlpGbENZamREY1d0YVlrcFdiVEIzTWxZMVZYSlNaVTVVZWtGUlExbENhbmNpTENBaWJEbHhTVW81U2xSUmQweEhOMDlNUlVsRFZFWkNWbmh0UVhKM09GQnFlVFkxWkVRMmJYUlJWa2MxWXlJc0lDSnZNVk5CYzBvek0xbE5hVzlQT1hCWU5WWmxRVTB4YkhoMVNFWTJhRnBYTW10SFpHdExTMEp1Vm14dklpd2dJbkZ4ZG1OeGJtTjZRVTFuV1hnM1JYbHJTVFozZDNSemNIbDJlWFpMTnprd1oyVTNUVUppVVMxT2RYTWlYU3dnSW1semN5STZJQ0pvZEhSd2N6b3ZMMlY0WVcxd2JHVXVZMjl0TDJsemMzVmxjaUlzSUNKcFlYUWlPaUF4TlRFMk1qTTVNREl5TENBaVpYaHdJam9nTVRVeE5qSTBOekF5TWl3Z0luTmtYMlJwWjJWemRGOWtaWEpwZG1GMGFXOXVYMkZzWnlJNklDSnphR0V0TWpVMklpd2dJbU51WmlJNklIc2lhbmRySWpvZ2V5SnJkSGtpT2lBaVVsTkJJaXdnSW00aU9pQWljRzAwWWs5SVFtY3RiMWxvUVhsUVYzcFNOVFpCVjFnemNsVkpXSEF4TVY5SlEwUnJSMmRUTmxjeldsZE1kSE10YUhwM1NUTjROalUyTlRsclp6Um9WbTg1WkdKSGIwTktSVE5hUjBaZlpXRmxkRVV6TUZWb1FsVkZaM0JIZDNKRWNsRnBTamw2Y1hCeWJXTkdabkl6Y1haMmEwZHFkSFJvT0ZwbmJERmxUVEppU21OUGQwVTNVRU5DU0ZkVVMxZFpjekUxTWxJM1p6WktaekpQVm5Cb0xXRTRjbkV0Y1RjNVRXaExSelZSYjFkZmJWUjZNVEJSVkY4MlNEUmpOMUJxVjBjeFptcG9PR2h3VjA1dVlsQmZjSFkyWkRGNlUzZGFabU0xWm13MmVWWlNUREJFVmpCV00yeEhTRXRsTWxkeFpsOWxUa2RxUW5KQ1RGWnJiRVJVYXpndGMzUllYMDFYVEdOU0xVVkhiVmhCVDNZd1ZVSlhhWFJUWDJSWVNrdEtkUzEyV0VwNWR6RTBia2hUUjNWNFZFbExNbWg0TVhCMGRFMW1kRGxEYzNaeGFXMVlTMlZFVkZVeE5IRlJUREZsUlRkcGFHTjNJaXdnSW1VaU9pQWlRVkZCUWlKOWZYMC5yVjdVckNkUjY0dEEtRzBfcmpxWWFLWXVreklKaTFSUGd2WDRlR1NrNUhIWVdQbDMtajhMRVVuZVBTWC1PbFFYZTVSZ3NPcVBvOURDajctQ0x2S0t4YW0tUGJFUVp1cllYNHFFekZ5Q0pVT1RNYk9UUVNMZHNTZTl0ZjFwRF95SXJKaElzY2pYaXFfbXRKd3dfYWJkVDhmSWlTNGg4a2lyMkNsWmlmak5uTGtLenFjZVZnckNpcGpidDc2aVo2bV9ER08yakZoVThaenJhdDNVWkFMYWN3NGZSRDBsNU1HSUdIZFFjaXBvdWhodlZCbld5bDZsSDhndGNPRk1sNFlTU29XUDl5dEZMb2FoQ1NSckY1bUNvMXRTRmczSTcwdjRtazJVNTlHZmNVOTRHYUVCMHE2dUZfX2ZiRW1PQ2xVUFg5eU9yWXJ5ZXFqSlIwYkJSVUtfTkEiLCJkaXNjbG9zdXJlcyI6WyJXeUl3ZUVkNmJqTk5hWEZ6WTNSYVNWOVBjRVJzUVdKUklpd2dJbUZrWkhKbGMzTWlMQ0I3SW5OMGNtVmxkRjloWkdSeVpYTnpJam9nSWpFeU15Qk5ZV2x1SUZOMElpd2dJbXh2WTJGc2FYUjVJam9nSWtGdWVYUnZkMjRpTENBaWNtVm5hVzl1SWpvZ0lrRnVlWE4wWVhSbElpd2dJbU52ZFc1MGNua2lPaUFpVlZNaWZWMCIsIld5SnhVVmR0YWtwc01YTXhValJzY1doRlRreFNjbkozSWl3Z0ltWmhiV2xzZVY5dVlXMWxJaXdnSWtSdlpTSmQiLCJXeUl6YW5GallqWTNlamwzYTNNd09IcDNhVXMzUlhsUklpd2dJbWRwZG1WdVgyNWhiV1VpTENBaVNtOW9iaUpkIl0sIm5vbmNlIjoiYWJjZCIsImF1ZCI6Imh0dHBzOi8vZXhhbXBsZS5jb20ifQ.0T47qH5qwRsWiAVN1JQVdhWAFfD4BIgDCSoJmapd92M\r\n```\r\nThis has ~2700 chars.\r\n\r\n> \r\n> > ```\r\n> > * An envelope also means we need to think about `alg=none` again in case no signature/encryption is needed.\r\n> > ```\r\n> \r\n> the Holder binding should consider to not use alg=none, otherwise it would be as without the holder binding attestation.\r\n\r\nHow would you do HB with an envelope but without alg=none? Just a JSON document?\r\n\r\n> \r\n> > ```\r\n> > * It adds two new JWTs that we need to describe and distinguish from existing ones (one JWT at issuance time, one at presentation time)\r\n> > ```\r\n> \r\n> yes, one is the envelope of another, and the first should have a `typ` claim in the header attesting its scope (combined disclosure)\r\n\r\nIgnoring the inner SD-JWT, two envelopes are needed: One during issuance (no Holder Binding, but maybe encrypted?), one during presentation (with optional HB).\r\n\r\n",
+          "createdAt": "2022-11-28T15:14:22Z",
+          "updatedAt": "2022-11-28T15:14:22Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": "\r\n> There is a size increase due to the added layer of Base64.\r\n\r\nthank you for this empiric analysis, we have roughly the 10% of additional weight using an envelope JWT.\r\n\r\nThe benefit is that an envelope JWT can be encrypted and be tracking resistant on the wire (in short/raw RF links), because the sequence of the bytes would always be different (thanks to variable claims like iat, exp, nonce ...). The disclosure object in the raw concatenation we already have are transmitted in plain b64 encoded text. The potential, and optional, encryption of the envelope JWT (sd-disclosure+jwt or whatever typ) wouldn't be a useless and exceeding security device I believe, it would concretely protect the confidentiality at the data format level.\r\n\r\n> How would you do HB with an envelope but without alg=none? Just a JSON document?\r\n\r\nNot sure to get this, I'm sorry. I mean that I wouldn't support alg=none for HB.\r\n\r\n> Ignoring the inner SD-JWT, two envelopes are needed: One during issuance (no Holder Binding, but maybe encrypted?), one during presentation (with optional HB).\r\n\r\nWell, probably it would be a necessary work of normalization between the two flows and I agree. For the issuance the holder binding would be in the inned SD-JWT (cnf, for example). But probably I'm missing something, my excuses again.\r\n\r\n",
+          "createdAt": "2022-11-28T23:52:57Z",
+          "updatedAt": "2022-11-28T23:52:57Z"
         }
       ]
     }
@@ -15561,7 +15618,7 @@
       "labels": [],
       "body": "per IETF115 WG agreement.",
       "createdAt": "2022-11-24T05:33:00Z",
-      "updatedAt": "2022-11-24T09:26:16Z",
+      "updatedAt": "2022-11-28T16:30:33Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "6d363285371ae98a8023e0a99a552ffc6e159ec1",
@@ -15653,6 +15710,166 @@
               "body": "Technically speaking, that would not be a profile, as it would need to change normative things within this spec. We cannot really give this recommendation here. All we can say is: HMAC or similar is at your own risk, non-standard, etc.; I'm not sure if we want to say that here.",
               "createdAt": "2022-11-24T09:25:19Z",
               "updatedAt": "2022-11-24T09:25:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRGtj",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T11:46:56Z",
+          "updatedAt": "2022-11-28T11:46:56Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "lots of `digest s` that need to be fixed to `digests`",
+              "createdAt": "2022-11-28T11:46:56Z",
+              "updatedAt": "2022-11-28T11:46:56Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRSDK",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T12:21:49Z",
+          "updatedAt": "2022-11-28T12:21:50Z",
+          "comments": [
+            {
+              "originalPosition": 194,
+              "body": "Do we need to say anything about truncated hashes here? I think probably so. The [registry](https://www.iana.org/assignments/named-information/named-information.xhtml ) has several including `sha-256-128`, which is probably okay security-wise and even useful as a space saving device. But it also has `sha-256-32`, which is probably never okay in this context. And a few in between those two that I'm not sure about. ",
+              "createdAt": "2022-11-28T12:21:50Z",
+              "updatedAt": "2022-11-28T12:21:50Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRi5Z",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T13:10:23Z",
+          "updatedAt": "2022-11-28T13:10:23Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "I think what we are trying to say here is that a smaller salt could potentially be used in conjunction with a more computationally expensive hash function. Where a hash function is a single input -> single digest output. And the  Hash Function Claim section says sd_hash_alg can be \"a value defined in another specification and/or profile of this specification\". Such a spec/profile would need to define that hash function for use at the SD-JWT layer as a single input to single digest output thing. But it could map/profile something like PBKDF2 to do that or define a 30 billion iteration sha2 thing. \r\n\r\nI'm not sure how much of that we want to say here. But it would be an \"at your own risk\" kind of thing. \r\n\r\nI think that the specific talk of HMAC and cryptographic secrets here is confusing things though. It certainly confused me :) \r\n\r\n\r\n\r\n",
+              "createdAt": "2022-11-28T13:10:23Z",
+              "updatedAt": "2022-11-28T13:10:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRkVF",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T13:14:23Z",
+          "updatedAt": "2022-11-28T13:14:23Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "I'd like to be consistent with the sd names.  So either \r\n\r\n`_sd` and `_sd_hash_alg` \r\n\r\nor\r\n\r\n`sd` and `sd_hash_alg`\r\n\r\nBut not mixed. \r\n\r\n",
+              "createdAt": "2022-11-28T13:14:23Z",
+              "updatedAt": "2022-11-28T13:14:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRk9v",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T13:15:47Z",
+          "updatedAt": "2022-11-28T13:15:48Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "and maybe shorten `[_]sd_hash_alg` to something like `[_]sdha`",
+              "createdAt": "2022-11-28T13:15:47Z",
+              "updatedAt": "2022-11-28T13:15:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRlV3",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T13:16:31Z",
+          "updatedAt": "2022-11-28T13:16:32Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "+1 for `_sd_hash_alg`. \r\n\r\nBTW, I added the underscore in front of `_sd` because it sorts nicely to the top (in case the claims are sorted alphabetically by key). With just `sd` the hashes sit somewhere in between the other non-sd claims.",
+              "createdAt": "2022-11-28T13:16:31Z",
+              "updatedAt": "2022-11-28T13:16:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HRqTu",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T13:29:51Z",
+          "updatedAt": "2022-11-28T13:29:52Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "`_sd_alg` may work as well.",
+              "createdAt": "2022-11-28T13:29:51Z",
+              "updatedAt": "2022-11-28T13:29:52Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HS5MQ",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-11-28T16:30:33Z",
+          "updatedAt": "2022-11-28T16:30:33Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "`_sd_alg` would work for me  ",
+              "createdAt": "2022-11-28T16:30:33Z",
+              "updatedAt": "2022-11-28T16:30:33Z"
             }
           ]
         }
