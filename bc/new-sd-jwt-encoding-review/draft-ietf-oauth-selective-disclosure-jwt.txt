@@ -1532,12 +1532,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 9.  Acknowledgements
 
-   We would like to thank Alen Horvat, Arjan Geluk, Brian Campbell,
-   Christian Paquin, David Bakker, David Waite, Fabian Hauck, Giuseppe
-   De Marco, Kushal Das, Mike Jones, Nat Sakimura, Orie Steele, Pieter
-   Kasselman, Ryosuke Abe, Shawn Butterfield, and Torsten Lodderstedt
-   for their contributions (some of which substantial) to this draft and
-   to the initial set of implementations.
+   We would like to thank Alen Horvat, Arjan Geluk, Christian Paquin,
+   David Bakker, David Waite, Fabian Hauck, Giuseppe De Marco, Kushal
+   Das, Mike Jones, Nat Sakimura, Orie Steele, Pieter Kasselman, Ryosuke
+   Abe, Shawn Butterfield, and Torsten Lodderstedt for their
+   contributions (some of which substantial) to this draft and to the
+   initial set of implementations.
 
    The work on this draft was started at OAuth Security Workshop 2022 in
    Trondheim, Norway.
