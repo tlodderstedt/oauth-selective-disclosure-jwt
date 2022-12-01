@@ -1740,7 +1740,7 @@ required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcro
 <pre class="lang-json sourcecode">["6qMQvRL5haj", "family_name", "Möbius"]
 </pre><a href="#section-5.2.1.1-6" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.1-7">The resulting Disclosure would be <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code>.<a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.1-7">The resulting Disclosure would be: <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code><a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.1-8">Note that the JSON encoding of the object is not canonicalized, so variations in white space, encoding
 of Unicode characters, and ordering of object properties are allowed. For example, the following strings
 are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class="pilcrow">¶</a></p>
@@ -1793,10 +1793,10 @@ SHA-256 hash digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFt
 <p id="section-5.2.1.4-3">It is the Issuer who decides which claims are selectively disclosable and which are not. However, claims controlling the validity of the SD-JWT, such as <code>iss</code>, <code>exp</code>, or <code>nbf</code> are usually included in plaintext. End-User claims MAY be included as plaintext as well, e.g., if hiding the particular claims from the Verifier does not make sense in the intended use case.<a href="#section-5.2.1.4-3" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-4">Claims that are not selectively disclosable are included in the SD-JWT in plaintext just as they would be in any other JWT.<a href="#section-5.2.1.4-4" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-5">Selectively disclosable claims are omitted from the SD-JWT. Instead, the hash digests of the respective Disclosures and potentially decoy digests are contained as an array in a new JWT claim, <code>_sd</code>.<a href="#section-5.2.1.4-5" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.4-6">The <code>_sd</code> claim MUST be an array of strings, each string being a hash digests of a Disclosure or a decoy digest as described above.
+<p id="section-5.2.1.4-6">The <code>_sd</code> claim MUST be an array of strings, each string being a hash digest of a Disclosure or a decoy digest as described above.
 The array MAY be empty in case the Issuer decided not to selectively disclose any of the claims at that level. However, it is RECOMMENDED to omit <code>_sd</code> claim in this case to save space.<a href="#section-5.2.1.4-6" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-7">The Issuer MUST hide the original order of the claims in the array. To ensure this, it is RECOMMENDED to shuffle the array of hashes, e.g., by sorting it alphanumerically or randomly. The precise method does not matter as long as it does not depend on the original order of elements.<a href="#section-5.2.1.4-7" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.4-8">Issuers MUST NOT issue SD-JWTs where<a href="#section-5.2.1.4-8" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-8">Issuers MUST NOT issue SD-JWTs where:<a href="#section-5.2.1.4-8" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.2.1.4-9.1">the key <code>_sd</code> is already used for the purpose other than to contain the array of hash digests, or<a href="#section-5.2.1.4-9.1" class="pilcrow">¶</a>
 </li>
@@ -1812,7 +1812,7 @@ The array MAY be empty in case the Issuer decided not to selectively disclose an
             <h5 id="name-nested-data-in-sd-jwts">
 <a href="#section-5.2.1.5" class="section-number selfRef">5.2.1.5. </a><a href="#name-nested-data-in-sd-jwts" class="section-name selfRef">Nested Data in SD-JWTs</a>
             </h5>
-<p id="section-5.2.1.5-1">Just like any JWT, an SD-JWT MAY contain key value pairs where the value is an object. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some some of the object's properties selectively disclosable and others not.<a href="#section-5.2.1.5-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.5-1">Just like any JWT, an SD-JWT MAY contain key value pairs where the value is an object. For any object in an SD-JWT, the Issuer MAY decide to either make the entire object selectively disclosable or to make its properties selectively disclosable individually. In the latter case, the Issuer MAY even choose to make some of the object's properties selectively disclosable and others not.<a href="#section-5.2.1.5-1" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.5-2">In any case, the <code>_sd</code> claim MUST be included in the SD-JWT at the same level as the original claim and therefore MAY appear multiple times in an SD-JWT.<a href="#section-5.2.1.5-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.5-3">The following examples show some of the options an Issuer has when producing an SD-JWT with the following End-User data.<a href="#section-5.2.1.5-3" class="pilcrow">¶</a></p>
 <div id="section-5.2.1.5-4">

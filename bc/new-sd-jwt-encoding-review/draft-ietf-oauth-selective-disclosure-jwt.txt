@@ -539,8 +539,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    ["6qMQvRL5haj", "family_name", "Möbius"]
 
-   The resulting Disclosure would be
-   WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0.
+   The resulting Disclosure would be:
+   WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0
 
    Note that the JSON encoding of the object is not canonicalized, so
    variations in white space, encoding of Unicode characters, and
@@ -626,7 +626,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    digests are contained as an array in a new JWT claim, _sd.
 
    The _sd claim MUST be an array of strings, each string being a hash
-   digests of a Disclosure or a decoy digest as described above.  The
+   digest of a Disclosure or a decoy digest as described above.  The
    array MAY be empty in case the Issuer decided not to selectively
    disclose any of the claims at that level.  However, it is RECOMMENDED
    to omit _sd claim in this case to save space.
@@ -637,7 +637,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    does not matter as long as it does not depend on the original order
    of elements.
 
-   Issuers MUST NOT issue SD-JWTs where
+   Issuers MUST NOT issue SD-JWTs where:
 
    *  the key _sd is already used for the purpose other than to contain
       the array of hash digests, or
@@ -654,8 +654,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    value is an object.  For any object in an SD-JWT, the Issuer MAY
    decide to either make the entire object selectively disclosable or to
    make its properties selectively disclosable individually.  In the
-   latter case, the Issuer MAY even choose to make some some of the
-   object's properties selectively disclosable and others not.
+   latter case, the Issuer MAY even choose to make some of the object's
+   properties selectively disclosable and others not.
 
    In any case, the _sd claim MUST be included in the SD-JWT at the same
    level as the original claim and therefore MAY appear multiple times
