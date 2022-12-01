@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-11-29T01:06:33.961948+00:00",
+  "timestamp": "2022-12-01T01:14:55.818227+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -4676,7 +4676,7 @@
       "labels": [],
       "body": "separation between sd-jwt and Disclosures should be ., not ~ for consistency and mental model wise. so `<SD-JWT>.<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`, instead of `<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`. ",
       "createdAt": "2022-11-24T02:59:06Z",
-      "updatedAt": "2022-11-28T23:52:57Z",
+      "updatedAt": "2022-11-29T13:40:03Z",
       "closedAt": null,
       "comments": [
         {
@@ -4762,6 +4762,48 @@
           "body": "\r\n> There is a size increase due to the added layer of Base64.\r\n\r\nthank you for this empiric analysis, we have roughly the 10% of additional weight using an envelope JWT.\r\n\r\nThe benefit is that an envelope JWT can be encrypted and be tracking resistant on the wire (in short/raw RF links), because the sequence of the bytes would always be different (thanks to variable claims like iat, exp, nonce ...). The disclosure object in the raw concatenation we already have are transmitted in plain b64 encoded text. The potential, and optional, encryption of the envelope JWT (sd-disclosure+jwt or whatever typ) wouldn't be a useless and exceeding security device I believe, it would concretely protect the confidentiality at the data format level.\r\n\r\n> How would you do HB with an envelope but without alg=none? Just a JSON document?\r\n\r\nNot sure to get this, I'm sorry. I mean that I wouldn't support alg=none for HB.\r\n\r\n> Ignoring the inner SD-JWT, two envelopes are needed: One during issuance (no Holder Binding, but maybe encrypted?), one during presentation (with optional HB).\r\n\r\nWell, probably it would be a necessary work of normalization between the two flows and I agree. For the issuance the holder binding would be in the inned SD-JWT (cnf, for example). But probably I'm missing something, my excuses again.\r\n\r\n",
           "createdAt": "2022-11-28T23:52:57Z",
           "updatedAt": "2022-11-28T23:52:57Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "> > There is a size increase due to the added layer of Base64.\r\n> \r\n> thank you for this empiric analysis, we have roughly the 10% of additional weight using an envelope JWT.\r\n\r\nThe size increase should be (in the generalized case) around 33%.\r\n\r\n\r\n> The benefit is that an envelope JWT can be encrypted and be tracking resistant on the wire (in short/raw RF links), because the sequence of the bytes would always be different (thanks to variable claims like iat, exp, nonce ...). The disclosure object in the raw concatenation we already have are transmitted in plain b64 encoded text. The potential, and optional, encryption of the envelope JWT (sd-disclosure+jwt or whatever typ) wouldn't be a useless and exceeding security device I believe, it would concretely protect the confidentiality at the data format level.\r\n\r\nI do see the benefit of the encryption, but I think that this should be handled by a lower layer, e.g., BLE encryption. In many cases, there is no benefit from the encryption or signing. In fact, if BLE is used, the 33% increase in size is certainly not desirable.\r\n\r\n> > How would you do HB with an envelope but without alg=none? Just a JSON document?\r\n> \r\n> Not sure to get this, I'm sorry. I mean that I wouldn't support alg=none for HB.\r\n\r\nCan you please provide a full example of what you imaging an SD-JWT issuance and presentation with and without HB look like for the benefit of the discussion? I'd like to avoid that we're talking about different things here.\r\n\r\n> > Ignoring the inner SD-JWT, two envelopes are needed: One during issuance (no Holder Binding, but maybe encrypted?), one during presentation (with optional HB).\r\n> \r\n> Well, probably it would be a necessary work of normalization between the two flows and I agree. For the issuance the holder binding would be in the inned SD-JWT (cnf, for example). But probably I'm missing something, my excuses again.\r\n\r\nAgain, a full example would be helpful to continue this discussion.",
+          "createdAt": "2022-11-29T08:04:55Z",
+          "updatedAt": "2022-11-29T08:04:55Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> I do see the benefit of the encryption, but I think that this should be handled by a lower layer, e.g., BLE encryption. In many cases, there is no benefit from the encryption or signing. In fact, if BLE is used, the 33% increase in size is certainly not desirable.\r\n\r\nthis implies that the security of the data format is dependant of the transport protocol. I'd prefer to keep it self-consistent also in this aspect\r\n\r\n> Can you please provide a full example of what you imaging an SD-JWT issuance and presentation with and without HB look like for the benefit of the discussion? I'd like to avoid that we're talking about different things here.\r\n\r\ntrue, I should have done that sooner!\r\n\r\nHere a Combined issuance:\r\n````\r\n{\r\n  \"alg\": \"RS256\", \r\n  \"kid\": \"TGBKFdOKy5t-1m2Km4X22n7DEj553yjGJVdprbOjR6c\",\r\n  \"typ\": \"sd+jwt-combined-issuance\"\r\n}\r\n.\r\n{\r\n  \"iss\": \"https://example.com/issuer\",\r\n  \"sub\": \"subject-id\",\r\n  \"iat\": \"unix-timestamp\",\r\n  \"aud\": \"holder-id\",\r\n  \"nonce\": \"that-unique-and-random-sequence\",\r\n  \"sd_jwt\": $sd-jwt,\r\n  \"sd_disclosures\": {\r\n    \"30jdaA9OfGpa3Tj5XJbtWiVrl4i66my26mOnbIuwY0w\": [\"Lz-3RoXunbH2oLZXNRbqLw\", \"number\", \"154554\"],\r\n    ... others ...\r\n  }\r\n}\r\n````\r\n\r\nWhere $sd-jwt is\r\n````\r\n{\r\n  \"alg\": \"RS256\", \r\n  \"kid\": \"TGBKFdOKy5t-1m2Km4X22n7DEj553yjGJVdprbOjR6c\",\r\n  \"typ\": \"sd+jwt\"\r\n}\r\n.\r\n{\r\n  \"_sd\": [\r\n    \"UxYjx8bYA86RGAHOjRjntztJ16doIL9tAFREFeQCKz0\"\r\n  ],\r\n  \"verified_claims\": {\r\n    \"verification\": {\r\n      \"_sd\": [\r\n        \"OKbpoO_RGyeF1FP_X4RI67ytOW5OO5pj8iAEHPPmGzQ\"\r\n      ],\r\n      \"trust_framework\": \"eidas\",\r\n      \"evidence\": [\r\n        {\r\n          \"_sd\": [\r\n            \"DwtOtYlPczP3j0CAGmwK_sG1PS15BePEWennozJtnc4\",\r\n            \"N5X-cmduA_hEiG-2-TFHWlYFPmuPAhgMSDAd5-_0ANw\"\r\n          ],\r\n          \"document\": {\r\n            \"_sd\": [\r\n              \"30jdaA9OfGpa3Tj5XJbtWiVrl4i66my26mOnbIuwY0w\",\r\n              \"Fsu1XL9NW1tHVpytr44jFbXwdhX1avNlRArOzRRj6FQ\",\r\n              \"PPzuOzIrbneVJ49-K3zgqOPDJvFgbipGcU1Psg2BqPY\",\r\n              \"wnXuBaY3ZVHy7qb8zhyVqGjs5ZywuwfDxJ3pIc1vHQo\"\r\n            ],\r\n            \"issuer\": {\r\n              \"_sd\": [\r\n                \"S-K8XHQ5-TipWeWHZNcKLe4gyqoTW8QPl6XXdmnBPiI\",\r\n                \"VBsVXxKHbC7-6dVZcdFg9kU7yCNsPWob4bDcVbZB4-w\"\r\n              ]\r\n            }\r\n          }\r\n        }\r\n      ]\r\n    },\r\n    \"claims\": {\r\n      \"_sd\": [\r\n        \"9C3BrCMDx2zsqn9IhN7siBJXSyZvvJoDYzGsyHhhnZU\",\r\n        \"QVtNjGpLtd7NpJgfjBTMhKwwef4EE2VuEE-jBKQJueA\",\r\n        \"zXwogmNL4aJrhL7OikfJCpDYpPNSA1SyFciDIcWP14k\"\r\n      ]\r\n    }\r\n  },\r\n  \"iss\": \"https://example.com/issuer\",\r\n  \"iat\": 1516239022,\r\n  \"exp\": 1516247022,\r\n  \"sd_digest_derivation_alg\": \"sha-256\"\r\n}\r\n````\r\n\r\nFor combined presentation the same formula of the issuance but with:\r\n\r\n- iss: different, that's the holder\r\n- sub: a pseudonymization issued by the holder is possibile here (additional feature)\r\n- aud: RP entity id \r\n- nonce: another-one\r\n- sd_jwt: as it is\r\n- sd_disclosure: what the end-users decides to disclose\r\n\r\nregarding the header of the presentation, the `typ` would be `sd+jwt-disclosure`.\r\n\r\nMay we add the JWT envelopes keeping at the same time the raw-combined approach with string concatenation in the draft for embedded implementations where size matters? The `typ` and the `~` help also in this, to understand which kind of format we're dealing with\r\n\r\n",
+          "createdAt": "2022-11-29T08:59:29Z",
+          "updatedAt": "2022-11-29T08:59:29Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "Thank you! In your example above, the disclosure is plain JSON, which will require canonicalization for reproducible hashes. Is that intentional?",
+          "createdAt": "2022-11-29T09:01:34Z",
+          "updatedAt": "2022-11-29T09:01:34Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> Thank you! In your example above, the disclosure is plain JSON, which will require canonicalization for reproducible hashes. Is that intentional?\r\n\r\ngood point. I think that we can adopt base64 encodings instead of plain json array if you agree.\r\n\r\nan important aspect of the proposed new structure is the mapping between the digest and the disclosure (which would be encoded in base64 following our last comments). This better explains the mapping between hashed _sd and related disclosure\r\n\r\nalso the disclosure would be resistant to reply attacks by default",
+          "createdAt": "2022-11-29T11:42:55Z",
+          "updatedAt": "2022-11-29T11:44:40Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This mapping is a bit dangerous - it allows a verifier to extract the claim contents without verifying the hash. This means that a malicious holder can modify the disclosures and a verifier might not notice it. In the current draft, this mapping is omitted on purpose - it forces verifiers to hash before they can use the contents.",
+          "createdAt": "2022-11-29T12:27:22Z",
+          "updatedAt": "2022-11-29T12:27:22Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> This mapping is a bit dangerous - it allows a verifier to extract the claim contents without verifying the hash. This means that a malicious holder can modify the disclosures and a verifier might not notice it. In the current draft, this mapping is omitted on purpose - it forces verifiers to hash before they can use the contents.\r\n\r\nwell, in the real world nothing prevents that an implementation simply decodes a JWT without verify its signature and so on, but I got the point and I agree with your strategy. So the mapping can be abandoned and a json array would be applied.",
+          "createdAt": "2022-11-29T13:40:03Z",
+          "updatedAt": "2022-11-29T13:40:03Z"
         }
       ]
     }
