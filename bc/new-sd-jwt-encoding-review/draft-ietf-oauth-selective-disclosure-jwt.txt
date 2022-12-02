@@ -1402,7 +1402,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 7.4.  Entropy of the salt
 
    The security model that conceals the cleartext claims relies on the
-   fact that the salt can not be learned or guessed by the attacker.  It
+   fact that the salt cannot be learned or guessed by the attacker.  It
    is vitally important to adhere to this principle.  As such, the salt
    MUST be created in such a manner that it is cryptographically random,
    long enough and has high entropy that it is not practical for the
