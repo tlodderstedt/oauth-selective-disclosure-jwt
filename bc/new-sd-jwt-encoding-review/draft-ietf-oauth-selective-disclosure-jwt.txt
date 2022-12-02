@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 4 June 2023                                           Microsoft
+Expires: 5 June 2023                                           Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                         1 December 2022
+                                                         2 December 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 June 2023.
+   This Internet-Draft will expire on 5 June 2023.
 
 Copyright Notice
 
@@ -1388,7 +1388,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    i.e., the hash digests of the Disclosures are actually present in the
    signed SD-JWT.
 
-   A naive Issuer that extracts all claim values from the Disclosures
+   A naive Verifier that extracts all claim values from the Disclosures
    (without checking the hashes) and inserts them into the SD-JWT
    payload is vulnerable to this attack.  However, in a structured SD-
    JWT, without comparing the digests of the Disclosures, such an
