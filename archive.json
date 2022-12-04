@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-12-01T01:14:55.818227+00:00",
+  "timestamp": "2022-12-04T01:03:15.906036+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -4613,7 +4613,7 @@
       "labels": [],
       "body": "Might be clear enough, or might need alternative suggestion.\r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/174/files#r1028968119",
       "createdAt": "2022-11-22T18:53:20Z",
-      "updatedAt": "2022-11-28T18:06:39Z",
+      "updatedAt": "2022-12-02T20:07:00Z",
       "closedAt": null,
       "comments": [
         {
@@ -4629,6 +4629,13 @@
           "body": "Offhand, I think going back to just \"encoding\" is probably the way to go in this context. ",
           "createdAt": "2022-11-28T18:06:38Z",
           "updatedAt": "2022-11-28T18:06:38Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "On reading it again, \"hardening\" seems okay too. I feel like \"armoring\" is mostly used in a different context so don't like that here. ",
+          "createdAt": "2022-12-02T20:07:00Z",
+          "updatedAt": "2022-12-02T20:07:00Z"
         }
       ]
     },
@@ -4676,7 +4683,7 @@
       "labels": [],
       "body": "separation between sd-jwt and Disclosures should be ., not ~ for consistency and mental model wise. so `<SD-JWT>.<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`, instead of `<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`. ",
       "createdAt": "2022-11-24T02:59:06Z",
-      "updatedAt": "2022-11-29T13:40:03Z",
+      "updatedAt": "2022-12-01T12:47:34Z",
       "closedAt": null,
       "comments": [
         {
@@ -4804,8 +4811,31 @@
           "body": "> This mapping is a bit dangerous - it allows a verifier to extract the claim contents without verifying the hash. This means that a malicious holder can modify the disclosures and a verifier might not notice it. In the current draft, this mapping is omitted on purpose - it forces verifiers to hash before they can use the contents.\r\n\r\nwell, in the real world nothing prevents that an implementation simply decodes a JWT without verify its signature and so on, but I got the point and I agree with your strategy. So the mapping can be abandoned and a json array would be applied.",
           "createdAt": "2022-11-29T13:40:03Z",
           "updatedAt": "2022-11-29T13:40:03Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "I thought about this a little more and I'm still convinced we're entering a whole new protocol layer with the envelope.\r\n\r\nWith the current proposal, we have:\r\n\r\n- Two byte-level interoperable string formats as output of Issuer and Holder and input to Holder and Verifier.\r\n- These strings can be packed into other objects as necessary.\r\n\r\nWith the envelope we have:\r\n\r\n- Another JWT that we need to explain and distinguish from the inner SD-JWT.\r\n- Fuzzy boundaries between the contents: E.g., we may have two `iat` claims.\r\n- A size increase due to double base64 encoding.\r\n- This may be my main concern: we default to a JWT for presentation, so if we want to skip holder binding, it's either:\r\n  - a deviation from the default by using a base64 encoded JSON, or\r\n  - a JWT with alg=none.\r\n\r\nThe only real advantage that I see for the envelope is the encryption.\r\n\r\nWhat about this?\r\n\r\n- Issuance combined format remains as-is, i.e., `<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>` (`<SD-JWT>~<Disclosure 1>.<Disclosure 2>.<...>.<Disclosure N>` would be fine for me as well)\r\n- Presentation combined format remains as-is, but\r\n- we highlight that the implementers that want to do holder binding using an envelope JWT can do so, and\r\n- implementers that need encryption should use an outer JWT.\r\n\r\nWe will define a claim, e.g., `_sd_jwt_presentation` that contains the presentation combined format in the envelope JWT.  ",
+          "createdAt": "2022-12-01T12:47:34Z",
+          "updatedAt": "2022-12-01T12:47:34Z"
         }
       ]
+    },
+    {
+      "number": 183,
+      "id": "I_kwDOHTmVzM5X0cOL",
+      "title": "truncated hashes",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/183",
+      "state": "OPEN",
+      "author": "Sakurann",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "> Do we need to say anything about truncated hashes here? I think probably so. The [registry](https://www.iana.org/assignments/named-information/named-information.xhtml) has several including sha-256-128, which is probably okay security-wise and even useful as a space saving device. But it also has sha-256-32, which is probably never okay in this context. And a few in between those two that I'm not sure about.\r\n\r\nfrom this PR https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/181#pullrequestreview-1195712714",
+      "createdAt": "2022-12-02T19:47:49Z",
+      "updatedAt": "2022-12-02T19:47:49Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -15660,13 +15690,13 @@
       "labels": [],
       "body": "per IETF115 WG agreement.",
       "createdAt": "2022-11-24T05:33:00Z",
-      "updatedAt": "2022-11-28T16:30:33Z",
+      "updatedAt": "2022-12-02T20:11:42Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "6d363285371ae98a8023e0a99a552ffc6e159ec1",
       "headRepository": "Sakurann/draft-selective-disclosure-jwt",
       "headRefName": "revert-to-hash",
-      "headRefOid": "17b2a548e1fa2ede030d49dfcc7963a5a01824ea",
+      "headRefOid": "337e7908770e6b8f9c6a053fee29060187e7ee89",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -15912,6 +15942,197 @@
               "body": "`_sd_alg` would work for me  ",
               "createdAt": "2022-11-28T16:30:33Z",
               "updatedAt": "2022-11-28T16:30:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Hs5Wi",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-02T19:09:45Z",
+          "updatedAt": "2022-12-02T19:16:24Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "fixed",
+              "createdAt": "2022-12-02T19:09:45Z",
+              "updatedAt": "2022-12-02T19:16:24Z"
+            },
+            {
+              "originalPosition": 57,
+              "body": "I think `_sd_hash_alg` is explicit and nice?",
+              "createdAt": "2022-12-02T19:13:26Z",
+              "updatedAt": "2022-12-02T19:16:24Z"
+            },
+            {
+              "originalPosition": 85,
+              "body": "> Why replace hash digests with digests everywhere?\r\n\r\nbecause digest implies it is a hash digest?",
+              "createdAt": "2022-12-02T19:14:23Z",
+              "updatedAt": "2022-12-02T19:16:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Hs9EV",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-02T19:20:09Z",
+          "updatedAt": "2022-12-02T19:20:10Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "> the Hash Function Claim section says sd_hash_alg can be \"a value defined in another specification and/or profile of this specification\"\r\npersonally, I am ok removing this section, with this PR, don't think it's relevant anymore.",
+              "createdAt": "2022-12-02T19:20:09Z",
+              "updatedAt": "2022-12-02T19:20:10Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HtDQW",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-02T19:45:12Z",
+          "updatedAt": "2022-12-02T19:45:12Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "also removed this clause to prevent confusion.",
+              "createdAt": "2022-12-02T19:45:12Z",
+              "updatedAt": "2022-12-02T19:45:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HtDmT",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-02T19:46:43Z",
+          "updatedAt": "2022-12-02T19:46:44Z",
+          "comments": [
+            {
+              "originalPosition": 197,
+              "body": "cc @christianpaquin for transparency that during IETF115 OAuth WG, there was a decision to revert to hashing alg because including HMAC includes a lot of additional definitions to be made, not just saying _sd_hash_alg can be HMAC, and we should keep SD-JWT spec simple.",
+              "createdAt": "2022-12-02T19:46:44Z",
+              "updatedAt": "2022-12-02T19:46:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HtD-C",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-02T19:48:23Z",
+          "updatedAt": "2022-12-02T19:48:23Z",
+          "comments": [
+            {
+              "originalPosition": 194,
+              "body": "externalized to Issue #183 so that we can merge this PR now, publish and come back to this later",
+              "createdAt": "2022-12-02T19:48:23Z",
+              "updatedAt": "2022-12-02T19:48:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HtMU2",
+          "commit": {
+            "abbreviatedOid": "17b2a54"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-02T20:11:42Z",
+          "updatedAt": "2022-12-02T20:11:42Z",
+          "comments": [
+            {
+              "originalPosition": 57,
+              "body": "I'd prefer `_sd_alg`. Size isn't everything but keeping JWTs as small as reasonable is worth keeping in mind. And JWT claim names are typically rather short/concise. `_sd_alg` is shorter but still conveys enough about what it is.  ",
+              "createdAt": "2022-12-02T20:11:42Z",
+              "updatedAt": "2022-12-02T20:11:42Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 182,
+      "id": "PR_kwDOHTmVzM5EKyUB",
+      "title": "little edits on review of the new sd jwt encoding ",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/182",
+      "state": "OPEN",
+      "author": "bc-pi",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Some hopefully uncontroversial changes to the new approach from IETF 115 and a few other minor things I noticed. ",
+      "createdAt": "2022-12-02T19:45:05Z",
+      "updatedAt": "2022-12-03T04:21:11Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "6d363285371ae98a8023e0a99a552ffc6e159ec1",
+      "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "headRefName": "bc/new-sd-jwt-encoding-review",
+      "headRefOid": "0d8108616d085184973b9d4f147004e83b6f17da",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5HuWs3",
+          "commit": {
+            "abbreviatedOid": "0d81086"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-12-03T04:18:52Z",
+          "updatedAt": "2022-12-03T04:21:11Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\n`SD-CLAIMS` is an array of digest values that ensures the integrity of and maps to the respective Disclosures.  Digest values are calculated over the Disclosures, each of which contains the claim name (`CLAIM-NAME`), the claim value (`CLAIM-VALUE`), and a random salt (`SALT`). Digests are calculated using a digest derivation function such as a hash function, HMAC, or other (`DIGEST-DERIVATION()`):\n```\n",
+              "createdAt": "2022-12-03T04:18:52Z",
+              "updatedAt": "2022-12-03T04:21:11Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "Was this perceived redundant?",
+              "createdAt": "2022-12-03T04:19:39Z",
+              "updatedAt": "2022-12-03T04:21:11Z"
+            },
+            {
+              "originalPosition": 92,
+              "body": "```suggestion\nThe security model that conceals the plaintext claims relies on the fact that the salt cannot be learned or guessed by\n```\n",
+              "createdAt": "2022-12-03T04:21:00Z",
+              "updatedAt": "2022-12-03T04:21:11Z"
             }
           ]
         }
