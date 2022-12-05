@@ -637,7 +637,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    does not matter as long as it does not depend on the original order
    of elements.
 
-   Issuers MUST NOT issue SD-JWTs where:
+   Issuers MUST NOT issue SD-JWTs where
 
    *  the key _sd is already used for the purpose other than to contain
       the array of hash digests, or
