@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 27 May 2023                                           Microsoft
+Expires: 8 June 2023                                           Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                        23 November 2022
+                                                         5 December 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -17,7 +17,7 @@ Expires: 27 May 2023                                           Microsoft
 Abstract
 
    This document specifies conventions for creating JSON Web Token (JWT)
-   documents that support selective disclosure of JWT claim values.
+   documents that support selective disclosure of JWT claims.
 
 Discussion Venues
 
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 May 2023.
+   This Internet-Draft will expire on 8 June 2023.
 
 Copyright Notice
 
@@ -212,8 +212,8 @@ Table of Contents
       selectively-disclosable claims.
 
    Disclosure:  A combination of a salt, a cleartext claim name, and a
-      cleartext claim value that is used to calculate a digest for a
-      certain claim.
+      cleartext claim value, all of which are used to calculate a digest
+      for the respective claim.
 
    Cryptographic Holder Binding:  Ability of the Holder to prove
       legitimate possession of an SD-JWT by proving control over the
@@ -283,8 +283,10 @@ Table of Contents
    SD-JWT-DOC = (METADATA, SD-CLAIMS, NON-SD-CLAIMS)
    SD-JWT = SD-JWT-DOC | SIG(SD-JWT-DOC, ISSUER-PRIV-KEY)
 
-   SD-CLAIMS is an object with claim names (CLAIM-NAME) mapped to the
-   digests over the claim values (CLAIM-VALUE) with random salts (SALT).
+   SD-CLAIMS is an array of digest values that ensure the integrity of
+   and map to the respective Disclosures.  Digest values are calculated
+   over the Disclosures, each of which contains the claim name (CLAIM-
+   NAME), the claim value (CLAIM-VALUE), and a random salt (SALT).
    Digests are calculated using a digest derivation function such as a
    hash function, HMAC, or other (DIGEST-DERIVATION()):
 
@@ -299,10 +301,6 @@ Table of Contents
 
    SD-CLAIMS can also be nested deeper to capture more complex objects,
    as will be shown later.
-
-   SD-JWT is sent from the Issuer to the Holder, together with the
-   mapping of the plain-text claim values, the salt values, and
-   potentially some other information.
 
    The Issuer further creates a set of Disclosures for all claims in the
    SD-JWT.  The Disclosures are sent to the Holder together with the SD-
@@ -468,7 +466,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    string, any serialization format that supports the necessary data
    types could be used in theory, like protobuf, msgpack, or pickle.  In
    this specification, JSON is used and plain text values of each
-   Disclosure is encoded using base64url-encoding for transport.  This
+   Disclosure are encoded using base64url-encoding for transport.  This
    approach means that SD-JWTs can be implemented purely based on widely
    available JWT, JSON, and Base64 encoding and decoding libraries.
 
@@ -541,8 +539,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    ["6qMQvRL5haj", "family_name", "Möbius"]
 
-   The resulting Disclosure would be
-   WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0.
+   The resulting Disclosure would be:
+   WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0
 
    Note that the JSON encoding of the object is not canonicalized, so
    variations in white space, encoding of Unicode characters, and
@@ -628,7 +626,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    digests are contained as an array in a new JWT claim, _sd.
 
    The _sd claim MUST be an array of strings, each string being a hash
-   digests of a Disclosure or a decoy digest as described above.  The
+   digest of a Disclosure or a decoy digest as described above.  The
    array MAY be empty in case the Issuer decided not to selectively
    disclose any of the claims at that level.  However, it is RECOMMENDED
    to omit _sd claim in this case to save space.
@@ -656,8 +654,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    value is an object.  For any object in an SD-JWT, the Issuer MAY
    decide to either make the entire object selectively disclosable or to
    make its properties selectively disclosable individually.  In the
-   latter case, the Issuer MAY even choose to make some some of the
-   object's properties selectively disclosable and others not.
+   latter case, the Issuer MAY even choose to make some of the object's
+   properties selectively disclosable and others not.
 
    In any case, the _sd claim MUST be included in the SD-JWT at the same
    level as the original claim and therefore MAY appear multiple times
@@ -1390,7 +1388,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    i.e., the hash digests of the Disclosures are actually present in the
    signed SD-JWT.
 
-   A naive Issuer that extracts all claim values from the Disclosures
+   A naive Verifier that extracts all claim values from the Disclosures
    (without checking the hashes) and inserts them into the SD-JWT
    payload is vulnerable to this attack.  However, in a structured SD-
    JWT, without comparing the digests of the Disclosures, such an
@@ -1403,12 +1401,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 7.4.  Entropy of the salt
 
-   The security model relies on the fact that the salt is not learned or
-   guessed by the attacker.  It is vitally important to adhere to this
-   principle.  As such, the salt MUST be created in such a manner that
-   it is cryptographically random, long enough and has high entropy that
-   it is not practical for the attacker to guess.  A new salt MUST be
-   chosen for each claim.
+   The security model that conceals the plaintext claims relies on the
+   fact that the salt cannot be learned or guessed by the attacker.  It
+   is vitally important to adhere to this principle.  As such, the salt
+   MUST be created in such a manner that it is cryptographically random,
+   long enough and has high entropy that it is not practical for the
+   attacker to guess.  A new salt MUST be chosen for each claim.
 
 7.5.  Minimum length of the salt
 
@@ -1532,12 +1530,12 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 9.  Acknowledgements
 
-   We would like to thank Alen Horvat, Arjan Geluk, Brian Campbell,
-   Christian Paquin, David Bakker, David Waite, Fabian Hauck, Giuseppe
-   De Marco, Kushal Das, Mike Jones, Nat Sakimura, Orie Steele, Pieter
-   Kasselman, Ryosuke Abe, Shawn Butterfield, and Torsten Lodderstedt
-   for their contributions (some of which substantial) to this draft and
-   to the initial set of implementations.
+   We would like to thank Alen Horvat, Arjan Geluk, Christian Paquin,
+   David Bakker, David Waite, Fabian Hauck, Giuseppe De Marco, Kushal
+   Das, Mike Jones, Nat Sakimura, Orie Steele, Pieter Kasselman, Ryosuke
+   Abe, Shawn Butterfield, and Torsten Lodderstedt for their
+   contributions (some of which substantial) to this draft and to the
+   initial set of implementations.
 
    The work on this draft was started at OAuth Security Workshop 2022 in
    Trondheim, Norway.
