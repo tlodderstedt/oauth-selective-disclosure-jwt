@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 5 June 2023                                           Microsoft
+Expires: 8 June 2023                                           Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                         2 December 2022
+                                                         5 December 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 June 2023.
+   This Internet-Draft will expire on 8 June 2023.
 
 Copyright Notice
 
@@ -1401,7 +1401,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
 7.4.  Entropy of the salt
 
-   The security model that conceals the cleartext claims relies on the
+   The security model that conceals the plaintext claims relies on the
    fact that the salt cannot be learned or guessed by the attacker.  It
    is vitally important to adhere to this principle.  As such, the salt
    MUST be created in such a manner that it is cryptographically random,
