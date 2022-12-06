@@ -1043,7 +1043,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett, et al.</td>
-<td class="center">Expires 8 June 2023</td>
+<td class="center">Expires 9 June 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1056,12 +1056,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-12-05" class="published">5 December 2022</time>
+<time datetime="2022-12-06" class="published">6 December 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-06-08">8 June 2023</time></dd>
+<dd class="expires"><time datetime="2023-06-09">9 June 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1115,7 +1115,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 8 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 9 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1191,7 +1191,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-selectively-disclosable-cla" class="internal xref">Selectively Disclosable Claims</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.2">
-                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-digest-derivation-function-" class="internal xref">Digest Derivation Function Claim</a></p>
+                    <p id="section-toc.1-1.5.2.2.2.2.1"><a href="#section-5.2.2" class="auto internal xref">5.2.2</a>.  <a href="#name-hash-function-claim" class="internal xref">Hash Function Claim</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.3">
                     <p id="section-toc.1-1.5.2.2.2.3.1"><a href="#section-5.2.3" class="auto internal xref">5.2.3</a>.  <a href="#name-holder-public-key-claim" class="internal xref">Holder Public Key Claim</a></p>
@@ -1252,7 +1252,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
                 <p id="section-toc.1-1.7.2.5.1"><a href="#section-7.5" class="auto internal xref">7.5</a>.  <a href="#name-minimum-length-of-the-salt" class="internal xref">Minimum length of the salt</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.6">
-                <p id="section-toc.1-1.7.2.6.1"><a href="#section-7.6" class="auto internal xref">7.6</a>.  <a href="#name-choice-of-a-digest-derivati" class="internal xref">Choice of a digest derivation algorithm</a></p>
+                <p id="section-toc.1-1.7.2.6.1"><a href="#section-7.6" class="auto internal xref">7.6</a>.  <a href="#name-choice-of-a-hash-algorithm" class="internal xref">Choice of a Hash Algorithm</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.7">
                 <p id="section-toc.1-1.7.2.7.1"><a href="#section-7.7" class="auto internal xref">7.7</a>.  <a href="#name-holder-binding" class="internal xref">Holder Binding</a></p>
@@ -1505,27 +1505,25 @@ It MUST be digitally signed using the Issuer's private key.<a href="#section-4.1
 SD-JWT = SD-JWT-DOC | SIG(SD-JWT-DOC, ISSUER-PRIV-KEY)
 </pre><a href="#section-4.1-2" class="pilcrow">¶</a>
 </div>
-<p id="section-4.1-3"><code>SD-CLAIMS</code> is an array of digest values that ensure the integrity of and map to the respective Disclosures.  Digest values are calculated over the Disclosures, each of which contains the claim name (<code>CLAIM-NAME</code>), the claim value (<code>CLAIM-VALUE</code>), and a random salt (<code>SALT</code>). Digests are calculated using a digest derivation function such as a hash function, HMAC, or other (<code>DIGEST-DERIVATION()</code>):<a href="#section-4.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.1-3"><code>SD-CLAIMS</code> is an array of digest values that ensure the integrity of and map to the respective Disclosures.  Digest values are calculated over the Disclosures, each of which contains the claim name (<code>CLAIM-NAME</code>), the claim value (<code>CLAIM-VALUE</code>), and a random salt (<code>SALT</code>). Digests are calculated using a hash function:<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.1-4">
 <pre>SD-CLAIMS = (
-    DIGEST-DERIVATION(SALT, CLAIM-NAME, CLAIM-VALUE)
+    HASH(SALT, CLAIM-NAME, CLAIM-VALUE)
 )*
 </pre><a href="#section-4.1-4" class="pilcrow">¶</a>
 </div>
-<p id="section-4.1-5">When an HMAC or another type of derivation function is used for digest calculation, a secret cryptographic key or other cryptographic secret is used instead of a salt value.
-However, the term "salt" is used throughout this document for brevity.<a href="#section-4.1-5" class="pilcrow">¶</a></p>
-<p id="section-4.1-6"><code>SD-CLAIMS</code> can also be nested deeper to capture more complex objects, as will be shown later.<a href="#section-4.1-6" class="pilcrow">¶</a></p>
-<p id="section-4.1-7">The Issuer further creates a set of Disclosures for all claims in the SD-JWT. The Disclosures are sent to the Holder together with the SD-JWT:<a href="#section-4.1-7" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.1-8">
+<p id="section-4.1-5"><code>SD-CLAIMS</code> can also be nested deeper to capture more complex objects, as will be shown later.<a href="#section-4.1-5" class="pilcrow">¶</a></p>
+<p id="section-4.1-6">The Issuer further creates a set of Disclosures for all claims in the SD-JWT. The Disclosures are sent to the Holder together with the SD-JWT:<a href="#section-4.1-6" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.1-7">
 <pre>DISCLOSURES = (
     (SALT, CLAIM-NAME, CLAIM-VALUE)
 )*
-</pre><a href="#section-4.1-8" class="pilcrow">¶</a>
+</pre><a href="#section-4.1-7" class="pilcrow">¶</a>
 </div>
-<p id="section-4.1-9">The SD-JWT and the Disclosures are sent to the Holder by the Issuer:<a href="#section-4.1-9" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.1-10">
+<p id="section-4.1-8">The SD-JWT and the Disclosures are sent to the Holder by the Issuer:<a href="#section-4.1-8" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.1-9">
 <pre>COMBINED-ISSUANCE = SD-JWT | DISCLOSURES
-</pre><a href="#section-4.1-10" class="pilcrow">¶</a>
+</pre><a href="#section-4.1-9" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
@@ -1587,7 +1585,7 @@ HOLDER-BINDING-JWT = HOLDER-BINDING-JWT-DOC |
 </li>
           <li class="normal" id="section-4.4-2.2">verifies the Holder Binding JWT, if Holder Binding is required by the Verifier's policy, using the public key included in the SD-JWT,<a href="#section-4.4-2.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-4.4-2.3">calculates the hash digests over the Holder-Selected Disclosures and verifies that each digest is contained in the SD-JWT.<a href="#section-4.4-2.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-4.4-2.3">calculates the digests over the Holder-Selected Disclosures and verifies that each digest is contained in the SD-JWT.<a href="#section-4.4-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-4.4-3">The detailed algorithm is described in <a href="#verifier_verification" class="auto internal xref">Section 6.2</a>.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
@@ -1622,7 +1620,7 @@ Issuer.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </pre><a href="#section-5.1-3" class="pilcrow">¶</a>
 </div>
 <p id="section-5.1-4">However, a problem arises when computation over the data need to be performed and verified, like signing or computing digests. Common signature schemes require the same byte string as input to the
-signature verification as was used for creating the signature. In the digest derivation approach outlined above, the same problem exists: for the Issuer and the
+signature verification as was used for creating the signature. In the digest approach outlined above, the same problem exists: for the Issuer and the
 Verifier to arrive at the same digest, the same byte string must be hashed.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.1-5">JSON <span>[<a href="#RFC7159" class="cite xref">RFC7159</a>]</span>, however, does not prescribe a unique encoding for data, but allows for variations in the encoded string. The data above, for example, can be encoded as<a href="#section-5.1-5" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.1-6">
@@ -1662,10 +1660,10 @@ string for computing a digest.<a href="#section-5.1-12.1" class="pilcrow">¶</a>
 </li>
           <li id="section-5.1-12.2">Source string hardening: Instead of transferring data in a format that
 may introduce variations, a representation of the data is serialized.
-This representation is then used as the digest input at the Verifier,
+This representation is then used as the hashing input at the Verifier,
 but also transferred to the Verifier and used for the same digest
-calculcation there. This means that the Verifier can easily check the
-digest over the byte string before finally deserializing and
+calculcation there. This means that the Verifier can easily compute and check the
+digest of the byte string before finally deserializing and
 accessing the data.<a href="#section-5.1-12.2" class="pilcrow">¶</a>
 </li>
         </ol>
@@ -1700,7 +1698,7 @@ data. The original JSON data is then used by the application. See
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-format-of-an-sd-jwt" class="section-name selfRef">Format of an SD-JWT</a>
         </h3>
 <p id="section-5.2-1">An SD-JWT is a JWT that MUST be signed using the Issuer's private key. The
-payload of an SD-JWT MUST contain the <code>sd_digest_derivation_alg</code> claim
+payload of an SD-JWT MUST contain the <code>_sd_alg</code> claim
 described in the following, MAY contain one or more selectively disclosable claims, and MAY contain a Holder's public key or a reference
 thereto, as well as further claims such as <code>iss</code>, <code>iat</code>, etc. as defined or
 required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
@@ -1759,17 +1757,17 @@ are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class
             <h5 id="name-hashing-disclosures">
 <a href="#section-5.2.1.2" class="section-number selfRef">5.2.1.2. </a><a href="#name-hashing-disclosures" class="section-name selfRef">Hashing Disclosures</a>
             </h5>
-<p id="section-5.2.1.2-1">For embedding the Disclosures in the SD-JWT, the Disclosures are hashed using the digest algorithm specified in the <code>sd_digest_derivation_alg</code> claim described below. The resulting hash is then included in the SD-JWT instead of the original claim value, as described next.<a href="#section-5.2.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.2-2">The hash digest MUST be taken over the US-ASCII bytes of the base64url-encoded Disclosure. This follows the convention in JWS <span>[<a href="#RFC7515" class="cite xref">RFC7515</a>]</span> and JWE <span>[<a href="#RFC7516" class="cite xref">RFC7516</a>]</span>. The bytes of the hash digest MUST then be base64url-encoded.<a href="#section-5.2.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.2-1">For embedding the Disclosures in the SD-JWT, the Disclosures are hashed using the hash algorithm specified in the <code>_sd_alg</code> claim described below. The resulting digest is then included in the SD-JWT instead of the original claim value, as described next.<a href="#section-5.2.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.2-2">The digest MUST be taken over the US-ASCII bytes of the base64url-encoded Disclosure. This follows the convention in JWS <span>[<a href="#RFC7515" class="cite xref">RFC7515</a>]</span> and JWE <span>[<a href="#RFC7516" class="cite xref">RFC7516</a>]</span>. The bytes of the digest MUST then be base64url-encoded.<a href="#section-5.2.1.2-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.2-3">It is important to note that:<a href="#section-5.2.1.2-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.2.1.2-4.1">The input to the hash function is the base64url-encoded Disclosure, not the bytes encoded by the base64url string.<a href="#section-5.2.1.2-4.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.2-4.2">The bytes of the output of the hash function are base64url-encoded, not the bytes making up the (often used) hex representation of the bytes of the hash digest.<a href="#section-5.2.1.2-4.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.2-4.2">The bytes of the output of the hash function are base64url-encoded, not the bytes making up the (often used) hex representation of the bytes of the digest.<a href="#section-5.2.1.2-4.2" class="pilcrow">¶</a>
 </li>
             </ul>
 <p id="section-5.2.1.2-5">For example, the
-SHA-256 hash digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code> would be
+SHA-256 digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code> would be
 <code>uutlBuYeMDyjLLTpf6Jxi7yNkEF35jdyWMn9U7b_RYY</code>.<a href="#section-5.2.1.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1778,8 +1776,8 @@ SHA-256 hash digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFt
             <h5 id="name-decoy-digests">
 <a href="#section-5.2.1.3" class="section-number selfRef">5.2.1.3. </a><a href="#name-decoy-digests" class="section-name selfRef">Decoy Digests</a>
             </h5>
-<p id="section-5.2.1.3-1">An Issuer MAY add additional hash digests to the SD-JWT that are not associated with any claim.  The purpose of such "decoy" digests is to make it more difficult for an attacker to see the original number of claims contained in the SD-JWT. It is RECOMMENDED to create the decoy digests by hashing over a cryptographically secure random number. The bytes of the hash digest MUST then be base64url-encoded as above. The same digest function as for the Disclosures MUST be used.<a href="#section-5.2.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.3-2">For decoy digests, no Disclosure is sent to the Holder, i.e., the Holder will see hash digests that do not correspond to any Disclosure. See <a href="#decoy_digests_privacy" class="auto internal xref">Section 8.1</a> for additional privacy considerations.<a href="#section-5.2.1.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.3-1">An Issuer MAY add additional digests to the SD-JWT that are not associated with any claim.  The purpose of such "decoy" digests is to make it more difficult for an attacker to see the original number of claims contained in the SD-JWT. It is RECOMMENDED to create the decoy digests by hashing over a cryptographically secure random number. The bytes of the digest MUST then be base64url-encoded as above. The same digest function as for the Disclosures MUST be used.<a href="#section-5.2.1.3-1" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.3-2">For decoy digests, no Disclosure is sent to the Holder, i.e., the Holder will see digests that do not correspond to any Disclosure. See <a href="#decoy_digests_privacy" class="auto internal xref">Section 8.1</a> for additional privacy considerations.<a href="#section-5.2.1.3-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.3-3">To ensure readability and replicability, the examples in this specification do not contain decoy digests unless explicitly stated.<a href="#section-5.2.1.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1792,17 +1790,17 @@ SHA-256 hash digest of the Disclosure <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFt
 <p id="section-5.2.1.4-2">An SD-JWT MAY contain both selectively disclosable claims and non-selectively disclosable claims, i.e., claims that are always contained in the SD-JWT in plaintext and are always visible to a Verifier.<a href="#section-5.2.1.4-2" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-3">It is the Issuer who decides which claims are selectively disclosable and which are not. However, claims controlling the validity of the SD-JWT, such as <code>iss</code>, <code>exp</code>, or <code>nbf</code> are usually included in plaintext. End-User claims MAY be included as plaintext as well, e.g., if hiding the particular claims from the Verifier does not make sense in the intended use case.<a href="#section-5.2.1.4-3" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.4-4">Claims that are not selectively disclosable are included in the SD-JWT in plaintext just as they would be in any other JWT.<a href="#section-5.2.1.4-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.4-5">Selectively disclosable claims are omitted from the SD-JWT. Instead, the hash digests of the respective Disclosures and potentially decoy digests are contained as an array in a new JWT claim, <code>_sd</code>.<a href="#section-5.2.1.4-5" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.4-6">The <code>_sd</code> claim MUST be an array of strings, each string being a hash digest of a Disclosure or a decoy digest as described above.
-The array MAY be empty in case the Issuer decided not to selectively disclose any of the claims at that level. However, it is RECOMMENDED to omit <code>_sd</code> claim in this case to save space.<a href="#section-5.2.1.4-6" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.4-7">The Issuer MUST hide the original order of the claims in the array. To ensure this, it is RECOMMENDED to shuffle the array of hashes, e.g., by sorting it alphanumerically or randomly. The precise method does not matter as long as it does not depend on the original order of elements.<a href="#section-5.2.1.4-7" class="pilcrow">¶</a></p>
-<p id="section-5.2.1.4-8">Issuers MUST NOT issue SD-JWTs where<a href="#section-5.2.1.4-8" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-5">Selectively disclosable claims are omitted from the SD-JWT. Instead, the digests of the respective Disclosures and potentially decoy digests are contained as an array in a new JWT claim, <code>_sd</code>.<a href="#section-5.2.1.4-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-6">The <code>_sd</code> claim MUST be an array of strings, each string being a digest of a Disclosure or a decoy digest as described above.<a href="#section-5.2.1.4-6" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-7">The array MAY be empty in case the Issuer decided not to selectively disclose any of the claims at that level. However, it is RECOMMENDED to omit <code>_sd</code> claim in this case to save space.<a href="#section-5.2.1.4-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-8">The Issuer MUST hide the original order of the claims in the array. To ensure this, it is RECOMMENDED to shuffle the array of hashes, e.g., by sorting it alphanumerically or randomly. The precise method does not matter as long as it does not depend on the original order of elements.<a href="#section-5.2.1.4-8" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.4-9">Issuers MUST NOT issue SD-JWTs where<a href="#section-5.2.1.4-9" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2.1.4-9.1">the key <code>_sd</code> is already used for the purpose other than to contain the array of hash digests, or<a href="#section-5.2.1.4-9.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1.4-10.1">the key <code>_sd</code> is already used for the purpose other than to contain the array of digests, or<a href="#section-5.2.1.4-10.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.4-9.2">the claim value contained in a Disclosure contains (at the top level or nested deeper) an object with an <code>_sd</code> key, or<a href="#section-5.2.1.4-9.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.4-10.2">the claim value contained in a Disclosure contains (at the top level or nested deeper) an object with an <code>_sd</code> key, or<a href="#section-5.2.1.4-10.2" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.4-9.3">the same Disclosure value appears more than once (in the same array or in different arrays).<a href="#section-5.2.1.4-9.3" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.4-10.3">the same Disclosure value appears more than once (in the same array or in different arrays).<a href="#section-5.2.1.4-10.3" class="pilcrow">¶</a>
 </li>
             </ul>
 </section>
@@ -2009,25 +2007,17 @@ dCJd
 </div>
 </section>
 </div>
-<div id="digest_derivation_function_claim">
+<div id="hash_function_claim">
 <section id="section-5.2.2">
-          <h4 id="name-digest-derivation-function-">
-<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-digest-derivation-function-" class="section-name selfRef">Digest Derivation Function Claim</a>
+          <h4 id="name-hash-function-claim">
+<a href="#section-5.2.2" class="section-number selfRef">5.2.2. </a><a href="#name-hash-function-claim" class="section-name selfRef">Hash Function Claim</a>
           </h4>
-<p id="section-5.2.2-1">The claim <code>sd_digest_derivation_alg</code> indicates the digest derivation algorithm
+<p id="section-5.2.2-1">The claim <code>_sd_alg</code> indicates the hash algorithm
 used by the Issuer to generate the digests over the salts and the
 claim values.<a href="#section-5.2.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2.2-2">The digest derivation algorithm identifier MUST be one of the following:<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-5.2.2-3.1">a hash algorithm value from the "Hash Name String" column in the IANA "Named Information Hash Algorithm" registry <span>[<a href="#IANA.Hash.Algorithms" class="cite xref">IANA.Hash.Algorithms</a>]</span><a href="#section-5.2.2-3.1" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-5.2.2-3.2">an HMAC algorithm value from the "Algorithmn Name" column in the IANA "JSON Web Signature and Encryption Algorithms" registry <span>[<a href="#IANA.JWS.Algorithms" class="cite xref">IANA.JWS.Algorithms</a>]</span><a href="#section-5.2.2-3.2" class="pilcrow">¶</a>
-</li>
-            <li class="normal" id="section-5.2.2-3.3">a value defined in another specification and/or profile of this specification<a href="#section-5.2.2-3.3" class="pilcrow">¶</a>
-</li>
-          </ul>
-<p id="section-5.2.2-4">To promote interoperability, implementations MUST support the SHA-256 hash algorithm.<a href="#section-5.2.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2.2-5">See <a href="#security_considerations" class="auto internal xref">Section 7</a> for requirements regarding entropy of the salt, minimum length of the salt, and choice of a digest derivation algorithm.<a href="#section-5.2.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-2">The hash algorithm identifier MUST be a hash algorithm value from the "Hash Name String" column in the IANA "Named Information Hash Algorithm" registry <span>[<a href="#IANA.Hash.Algorithms" class="cite xref">IANA.Hash.Algorithms</a>]</span>.<a href="#section-5.2.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-3">To promote interoperability, implementations MUST support the SHA-256 hash algorithm.<a href="#section-5.2.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2.2-4">See <a href="#security_considerations" class="auto internal xref">Section 7</a> for requirements regarding entropy of the salt, minimum length of the salt, and choice of a hash algorithm.<a href="#section-5.2.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="holder_public_key_claim">
@@ -2315,7 +2305,7 @@ other claims are obtained by the Holder is out of scope of this specification.<a
 <pre>{
   "nonce": "XZOUco1u_gEPknxS78sWWg",
   "aud": "https://example.com/verifier",
-  "iat": 1669193704
+  "iat": 1670222060
 }
 </pre><a href="#section-5.5.1-3" class="pilcrow">¶</a>
 </div>
@@ -2324,12 +2314,12 @@ other claims are obtained by the Holder is out of scope of this specification.<a
 <pre>eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThK
 ZExZVHJFQktKaF9oNWlfclUifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV
 1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6I
-DE2NjkxOTM3MDR9.Y5xmEip11zOmZR1xvgdbi9IanCNQ4ODJDNW8JKpNvBNOCP2j_Dbs
-CMoYAv6RrOYSzEPZplJ8MlfiZzC9ldcvByiAjWeJbMStZ1vf_K-AJnyNLwnA_v0zVwA0
-d8rkrIqSQomS5-GqN3zJtUpl2BslLa799UpdCwg7Rfow2wFSfL6S2J9j2mb5Q5UVxTcU
-27OXcLUn0aN8slIr5AmYd-EcoAqWe8feV6plkHnYac6M9LclgInE5IzwFJTezNmERocA
-DNB7ZGGoy9FzdNdepjnzjFVjazYT0gtR0XgOg5epZoTeOrJwdYT0d5VFwO4ep9_Q591b
-xnNHfPbr5AhdYALCGg
+DE2NzAyMjIwNjB9.NwDzG3UEoA1vhc5R7jfh6xxvc9CdWlcwc_T0iAucz-YqwdvmBYrc
+fZ7KVzNN9f9bq7MdBBbrcIgQ8jfcEIgyA2OglRKWKyqn-ktgsgfQ1yJX6pX4RZ-_EQdj
+V7qYZ2cW8B1hppZTatqkuMFmc1hVH2BEV9BQSh5uRvvrwwCZ8fOZHPlMr2V4R6b8zFbj
+p3JmNcqcESeML9NUWPV0DkL0oLFeLJqmslH0QQkgdrDHPRlZfTKhoIHFEvuxvI1lHMbc
+WEZaga1CCEfw2DSAzGKS1EwTkdPFhYRlWRyKyOwD2OP2FHVeqTvHaJ5vnYA4fNjK2Pnk
+rOePNr1-Esvg04FR3Q
 </pre><a href="#section-5.5.1-5" class="pilcrow">¶</a>
 </div>
 <p id="section-5.5.1-6">Whether to require Holder Binding is up to the Verifier's policy,
@@ -2378,12 +2368,12 @@ RscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3MwO
 Hp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiUlMyNTYiLCAi
 a2lkIjogIkxkeVRYd0F5ZnJpcjRfVjZORzFSYzEwVThKZExZVHJFQktKaF9oNWlfclUi
 fQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwc
-zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NjkxOTM3MDR9.Y5xmEip1
-1zOmZR1xvgdbi9IanCNQ4ODJDNW8JKpNvBNOCP2j_DbsCMoYAv6RrOYSzEPZplJ8Mlfi
-ZzC9ldcvByiAjWeJbMStZ1vf_K-AJnyNLwnA_v0zVwA0d8rkrIqSQomS5-GqN3zJtUpl
-2BslLa799UpdCwg7Rfow2wFSfL6S2J9j2mb5Q5UVxTcU27OXcLUn0aN8slIr5AmYd-Ec
-oAqWe8feV6plkHnYac6M9LclgInE5IzwFJTezNmERocADNB7ZGGoy9FzdNdepjnzjFVj
-azYT0gtR0XgOg5epZoTeOrJwdYT0d5VFwO4ep9_Q591bxnNHfPbr5AhdYALCGg
+zovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NzAyMjIwNjB9.NwDzG3UE
+oA1vhc5R7jfh6xxvc9CdWlcwc_T0iAucz-YqwdvmBYrcfZ7KVzNN9f9bq7MdBBbrcIgQ
+8jfcEIgyA2OglRKWKyqn-ktgsgfQ1yJX6pX4RZ-_EQdjV7qYZ2cW8B1hppZTatqkuMFm
+c1hVH2BEV9BQSh5uRvvrwwCZ8fOZHPlMr2V4R6b8zFbjp3JmNcqcESeML9NUWPV0DkL0
+oLFeLJqmslH0QQkgdrDHPRlZfTKhoIHFEvuxvI1lHMbcWEZaga1CCEfw2DSAzGKS1EwT
+kdPFhYRlWRyKyOwD2OP2FHVeqTvHaJ5vnYA4fNjK2PnkrOePNr1-Esvg04FR3Q
 </pre><a href="#section-5.5.2-2" class="pilcrow">¶</a>
 </div>
 </section>
@@ -2464,7 +2454,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.3.2.4">Check that the SD-JWT is valid using <code>nbf</code>, <code>iat</code>, and <code>exp</code> claims, if provided in the SD-JWT, and not selectively disclosed.<a href="#section-6.2-4.3.2.4" class="pilcrow">¶</a>
 </li>
-              <li id="section-6.2-4.3.2.5">Check that the <code>sd_digest_derivation_alg</code> claim is present and its value is understood and the digest derivation algorithm is deemed secure.<a href="#section-6.2-4.3.2.5" class="pilcrow">¶</a>
+              <li id="section-6.2-4.3.2.5">Check that the <code>_sd_alg</code> claim is present and its value is understood and the hash algorithm is deemed secure.<a href="#section-6.2-4.3.2.5" class="pilcrow">¶</a>
 </li>
             </ol>
 </li>
@@ -2473,10 +2463,10 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
           <li id="section-6.2-4.5">
             <p id="section-6.2-4.5.1">Process the Disclosures. For each Disclosure provided:<a href="#section-6.2-4.5.1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4.5.2">
-<li id="section-6.2-4.5.2.1">Calculate the hash digest over the base64url string as described in <a href="#hashing_disclosures" class="auto internal xref">Section 5.2.1.2</a>.<a href="#section-6.2-4.5.2.1" class="pilcrow">¶</a>
+<li id="section-6.2-4.5.2.1">Calculate the digest over the base64url string as described in <a href="#hashing_disclosures" class="auto internal xref">Section 5.2.1.2</a>.<a href="#section-6.2-4.5.2.1" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.5.2.2">
-                <p id="section-6.2-4.5.2.2.1">Find all <code>_sd</code> keys in the SD-JWT payload that contain a hash digest calculated in the previous step. Note that there might be more than one <code>_sd</code> arrays in on SD-JWT.<a href="#section-6.2-4.5.2.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.2-4.5.2.2.1">Find all <code>_sd</code> keys in the SD-JWT payload that contain a digest calculated in the previous step. Note that there might be more than one <code>_sd</code> arrays in on SD-JWT.<a href="#section-6.2-4.5.2.2.1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-6.2-4.5.2.2.2">
 <li id="section-6.2-4.5.2.2.2.1">If the digest cannot be found in the SD-JWT payload, the Verifier MUST reject the Presentation.<a href="#section-6.2-4.5.2.2.2.1" class="pilcrow">¶</a>
 </li>
@@ -2499,7 +2489,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
 </li>
               <li id="section-6.2-4.5.2.3">Remove all <code>_sd</code> claims from the SD-JWT payload.<a href="#section-6.2-4.5.2.3" class="pilcrow">¶</a>
 </li>
-              <li id="section-6.2-4.5.2.4">Remove the claim <code>sd_digest_derivation_alg</code> from the SD-JWT payload.<a href="#section-6.2-4.5.2.4" class="pilcrow">¶</a>
+              <li id="section-6.2-4.5.2.4">Remove the claim <code>_sd_alg</code> from the SD-JWT payload.<a href="#section-6.2-4.5.2.4" class="pilcrow">¶</a>
 </li>
             </ol>
 </li>
@@ -2574,7 +2564,7 @@ cannot be verified, the SD-JWT MUST be rejected.<a href="#section-7.2-2" class="
         </h3>
 <p id="section-7.3-1">Holders can manipulate the Disclosures by changing the values of the claims
 before sending them to the Issuer. The Issuer MUST check the Disclosures to
-ensure that the values of the claims are correct, i.e., the hash digests of the Disclosures are actually present in the signed SD-JWT.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+ensure that the values of the claims are correct, i.e., the digests of the Disclosures are actually present in the signed SD-JWT.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
 <p id="section-7.3-2">A naive Verifier that extracts
 all claim values from the Disclosures (without checking the hashes) and inserts them into the SD-JWT payload
 is vulnerable to this attack. However, in a structured SD-JWT, without comparing the digests of the
@@ -2603,20 +2593,19 @@ guess. A new salt MUST be chosen for each claim.<a href="#section-7.4-1" class="
 <a href="#section-7.5" class="section-number selfRef">7.5. </a><a href="#name-minimum-length-of-the-salt" class="section-name selfRef">Minimum length of the salt</a>
         </h3>
 <p id="section-7.5-1">The RECOMMENDED minimum length of the randomly-generated portion of the salt is 128 bits.<a href="#section-7.5-1" class="pilcrow">¶</a></p>
-<p id="section-7.5-2">Note that minimum 128 bits would be necessary when SHA-256, HMAC-SHA256, or a function of similar strength is used, but a smaller salt size might achieve similar level of security if a stronger iterative derivation function is used.<a href="#section-7.5-2" class="pilcrow">¶</a></p>
-<p id="section-7.5-3">The Issuer MUST ensure that a new salt value is chosen for each claim,
+<p id="section-7.5-2">The Issuer MUST ensure that a new salt value is chosen for each claim,
 including when the same claim name occurs at different places in the
 structure of the SD-JWT. This can be seen in Example 3 in the Appendix,
 where multiple claims with the name <code>type</code> appear, but each of them has
-a different salt.<a href="#section-7.5-3" class="pilcrow">¶</a></p>
+a different salt.<a href="#section-7.5-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="choice-of-a-digest-derivation-algorithm">
+<div id="choice-of-a-hash-algorithm">
 <section id="section-7.6">
-        <h3 id="name-choice-of-a-digest-derivati">
-<a href="#section-7.6" class="section-number selfRef">7.6. </a><a href="#name-choice-of-a-digest-derivati" class="section-name selfRef">Choice of a digest derivation algorithm</a>
+        <h3 id="name-choice-of-a-hash-algorithm">
+<a href="#section-7.6" class="section-number selfRef">7.6. </a><a href="#name-choice-of-a-hash-algorithm" class="section-name selfRef">Choice of a Hash Algorithm</a>
         </h3>
-<p id="section-7.6-1">For the security of this scheme, the digest derivation algorithm is required to be preimage and collision
+<p id="section-7.6-1">For the security of this scheme, the hash algorithm is required to be preimage and collision
 resistant, i.e., it is infeasible to calculate the salt and claim value that result in
 a particular digest, and it is infeasible to find a different salt and claim value pair that
 result in a matching digest, respectively.<a href="#section-7.6-1" class="pilcrow">¶</a></p>
@@ -2742,6 +2731,7 @@ Pieter Kasselman,
 Ryosuke Abe,
 Shawn Butterfield, and
 Torsten Lodderstedt
+Vittorio Bertocci
 for their contributions (some of which substantial) to this draft and to the initial set of implementations.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <p id="section-9-2">The work on this draft was started at OAuth Security Workshop 2022 in Trondheim, Norway.<a href="#section-9-2" class="pilcrow">¶</a></p>
 </section>
@@ -2785,10 +2775,6 @@ for their contributions (some of which substantial) to this draft and to the ini
 <dt id="IANA.Hash.Algorithms">[IANA.Hash.Algorithms]</dt>
       <dd>
 <span class="refAuthor">IANA</span>, <span class="refTitle">"Named Information Hash Algorithm"</span>, <span>&lt;<a href="https://www.iana.org/assignments/named-information/named-information.xhtml">https://www.iana.org/assignments/named-information/named-information.xhtml</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="IANA.JWS.Algorithms">[IANA.JWS.Algorithms]</dt>
-      <dd>
-<span class="refAuthor">IANA</span>, <span class="refTitle">"JSON Web Signature and Encryption Algorithms"</span>, <span>&lt;<a href="https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms">https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="OIDC.IDA">[OIDC.IDA]</dt>
       <dd>
@@ -2842,7 +2828,7 @@ for their contributions (some of which substantial) to this draft and to the ini
   "given_name": "太郎",
   "family_name": "山田",
   "email": "\"unusual email address\"@nihon.com",
-  "phone_number": "123456",
+  "phone_number": "+81-80-1234-5678",
   "address": {
     "street_address": "東京都港区芝公園４丁目２−８",
     "locality": "東京都",
@@ -2857,19 +2843,19 @@ for their contributions (some of which substantial) to this draft and to the ini
 <div class="lang-json sourcecode" id="appendix-A.1-4">
 <pre>{
   "_sd": [
-    "D12FaaMXCOWOF4xAUG1s_TnqhZ903-BkDewPkhjYIHY",
-    "VxQVQdOFk4_BOHHXraM_SDSPPvxVCGW6_69wawWrwNY",
-    "bTaxDBRbsB_ie5zCSrIe4vU2127_ogAGHF6RzwuJ6OA",
-    "buYCeBJzbr2ZRc2K99t70PDL2SaX-iUmQRMYIs8YiVs",
-    "tRg5w6WfauVXT2gFc0YjWfRm9GV50JIcgAO44ks-0ek",
-    "yrkuCa6g3rFwO_Vm32etnU1Qt6tiNklCo62vXQYEpic"
+    "0lkScKjiJMHedJfq7sJB7HQ3qomGfrELbo5gZhvKRWo",
+    "1h29ggQi1xou-_NjVyyoChK2aswUto2UjCfF-1LahA8",
+    "3CoLULmDxxUw_LdyYETjuduXuEpGuBy4rXHotuD40X4",
+    "AIDyoxx1ipy45-GFpKgvc-HIbcVrlLlrYLXmx3ev2e4",
+    "OlthfRoFdS-J6S82OWlrO4pWhoeRMrH_KGP_h6EapYQ",
+    "r4dbpGeeia02SyGL5gBdHY1w8IhjT3xx05RsfyyHUk4"
   ],
   "address": {
     "_sd": [
-      "JOX7_Uf-2VmlkAlMlw4xc3167nz5sh7V9ETf1NFJDe0",
-      "ONH0wP61O6pYPKSUIpNSLb09zlkXMOiIAkd2473JdUo",
-      "d78lCZs-sDFpvszslkGDo1nczu6LxVMxmyAq1b_mNMw",
-      "reKDjCT019ZN1PtVVH2xJzrGM2es-1RY4atd_RWt6Ck"
+      "6OKNwnGGKWXCI9uijNAsv64u22eLS4rMdLNlg1fqJp4",
+      "HEVMgD-NKK5NvXPbARorVdODITmkUyuMpCs_m7HXnYc",
+      "Uq02nV73K0bdRK23rzabmnDa4O8YNQZvt9x8Lykok_Y",
+      "oxFRilno26UYe7kqMM4bdq8IvNMtIi6F8ptt-uiPLbM"
     ]
   },
   "iss": "https://example.com/issuer",
@@ -2882,156 +2868,156 @@ for their contributions (some of which substantial) to this draft and to the ini
 <p id="appendix-A.1-5">The Disclosures for this SD-JWT are as follows:<a href="#appendix-A.1-5" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-6"><strong>Disclosure for <code>sub</code>:</strong><a href="#appendix-A.1-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-7">
-<pre>WyJCVzlzZUxQYllTUHpwZXJZNFQ0bnNBIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
+<pre>WyJWb1p5VUUtNlFvQ3hVLThHeTl5RTBnIiwgInN1YiIsICI2YzVjMGE0OS1iNTg5LTQz
 MWQtYmFlNy0yMTkxMjJhOWVjMmMiXQ
 </pre><a href="#appendix-A.1-7" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-8">Contents:<a href="#appendix-A.1-8" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-9">
-<pre>["BW9seLPbYSPzperY4T4nsA", "sub",
+<pre>["VoZyUE-6QoCxU-8Gy9yE0g", "sub",
 "6c5c0a49-b589-431d-bae7-219122a9ec2c"]
 </pre><a href="#appendix-A.1-9" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-10">SHA-256 Hash: <code>bTaxDBRbsB_ie5zCSrIe4vU2127_ogAGHF6RzwuJ6OA</code><a href="#appendix-A.1-10" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-10">SHA-256 Hash: <code>AIDyoxx1ipy45-GFpKgvc-HIbcVrlLlrYLXmx3ev2e4</code><a href="#appendix-A.1-10" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-11"><strong>Disclosure for <code>given_name</code>:</strong><a href="#appendix-A.1-11" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-12">
-<pre>WyJqYXRCZjJEYTNDbmYxQWRkZzFvSjZnIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
+<pre>WyJicjgxenVSc0NUcXJuWEp4MHVqMkRRIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5
 MGNlIl0
 </pre><a href="#appendix-A.1-12" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-13">Contents:<a href="#appendix-A.1-13" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-14">
-<pre>["jatBf2Da3Cnf1Addg1oJ6g", "given_name", "\u592a\u90ce"]
+<pre>["br81zuRsCTqrnXJx0uj2DQ", "given_name", "\u592a\u90ce"]
 </pre><a href="#appendix-A.1-14" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-15">SHA-256 Hash: <code>yrkuCa6g3rFwO_Vm32etnU1Qt6tiNklCo62vXQYEpic</code><a href="#appendix-A.1-15" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-15">SHA-256 Hash: <code>1h29ggQi1xou-_NjVyyoChK2aswUto2UjCfF-1LahA8</code><a href="#appendix-A.1-15" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-16"><strong>Disclosure for <code>family_name</code>:</strong><a href="#appendix-A.1-16" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-17">
-<pre>WyJabEItelBYQmFfai1HQlVZYmJYNjRRIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
+<pre>WyJSdHczZUFFUE5wWjIwTkhZSzNNRWNnIiwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1
 NzUzMCJd
 </pre><a href="#appendix-A.1-17" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-18">Contents:<a href="#appendix-A.1-18" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-19">
-<pre>["ZlB-zPXBa_j-GBUYbbX64Q", "family_name", "\u5c71\u7530"]
+<pre>["Rtw3eAEPNpZ20NHYK3MEcg", "family_name", "\u5c71\u7530"]
 </pre><a href="#appendix-A.1-19" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-20">SHA-256 Hash: <code>D12FaaMXCOWOF4xAUG1s_TnqhZ903-BkDewPkhjYIHY</code><a href="#appendix-A.1-20" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-20">SHA-256 Hash: <code>0lkScKjiJMHedJfq7sJB7HQ3qomGfrELbo5gZhvKRWo</code><a href="#appendix-A.1-20" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-21"><strong>Disclosure for <code>email</code>:</strong><a href="#appendix-A.1-21" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-22">
-<pre>WyJpWDFuazhIZ3RXNVJzY1JTV3FCS2R3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
+<pre>WyJJTms2bkx4WGFybDF4NmVabHdBOTV3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFp
 bCBhZGRyZXNzXCJAbmlob24uY29tIl0
 </pre><a href="#appendix-A.1-22" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-23">Contents:<a href="#appendix-A.1-23" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-24">
-<pre>["iX1nk8HgtW5RscRSWqBKdw", "email", "\"unusual email
+<pre>["INk6nLxXarl1x6eZlwA95w", "email", "\"unusual email
 address\"@nihon.com"]
 </pre><a href="#appendix-A.1-24" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-25">SHA-256 Hash: <code>buYCeBJzbr2ZRc2K99t70PDL2SaX-iUmQRMYIs8YiVs</code><a href="#appendix-A.1-25" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-25">SHA-256 Hash: <code>OlthfRoFdS-J6S82OWlrO4pWhoeRMrH_KGP_h6EapYQ</code><a href="#appendix-A.1-25" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-26"><strong>Disclosure for <code>phone_number</code>:</strong><a href="#appendix-A.1-26" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-27">
-<pre>WyJYYmZFSWRlNlR6T215M1pERGJ4MVJ3IiwgInBob25lX251bWJlciIsICIxMjM0NTYi
-XQ
+<pre>WyJuUG9LdV9oakkyeTMtbTVnbmVkYzFBIiwgInBob25lX251bWJlciIsICIrODEtODAt
+MTIzNC01Njc4Il0
 </pre><a href="#appendix-A.1-27" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-28">Contents:<a href="#appendix-A.1-28" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-29">
-<pre>["XbfEIde6TzOmy3ZDDbx1Rw", "phone_number", "123456"]
+<pre>["nPoKu_hjI2y3-m5gnedc1A", "phone_number", "+81-80-1234-5678"]
 </pre><a href="#appendix-A.1-29" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-30">SHA-256 Hash: <code>VxQVQdOFk4_BOHHXraM_SDSPPvxVCGW6_69wawWrwNY</code><a href="#appendix-A.1-30" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-30">SHA-256 Hash: <code>r4dbpGeeia02SyGL5gBdHY1w8IhjT3xx05RsfyyHUk4</code><a href="#appendix-A.1-30" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-31"><strong>Disclosure for <code>street_address</code>:</strong><a href="#appendix-A.1-31" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-32">
-<pre>WyJONEhuU0ZmQTJtNGN1MlJwNXdISEZRIiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
+<pre>WyJiLWtOOG9nVjg4N0FHY2RzRnQyT1RBIiwgInN0cmVldF9hZGRyZXNzIiwgIlx1Njc3
 MVx1NGVhY1x1OTBmZFx1NmUyZlx1NTMzYVx1ODI5ZFx1NTE2Y1x1NTcxMlx1ZmYxNFx1
 NGUwMVx1NzZlZVx1ZmYxMlx1MjIxMlx1ZmYxOCJd
 </pre><a href="#appendix-A.1-32" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-33">Contents:<a href="#appendix-A.1-33" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-34">
-<pre>["N4HnSFfA2m4cu2Rp5wHHFQ", "street_address", "\u6771\u4eac\u90fd\u6e
+<pre>["b-kN8ogV887AGcdsFt2OTA", "street_address", "\u6771\u4eac\u90fd\u6e
 2f\u533a\u829d\u516c\u5712\uff14\u4e01\u76ee\uff12\u2212\uff18"]
 </pre><a href="#appendix-A.1-34" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-35">SHA-256 Hash: <code>reKDjCT019ZN1PtVVH2xJzrGM2es-1RY4atd_RWt6Ck</code><a href="#appendix-A.1-35" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-35">SHA-256 Hash: <code>HEVMgD-NKK5NvXPbARorVdODITmkUyuMpCs_m7HXnYc</code><a href="#appendix-A.1-35" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-36"><strong>Disclosure for <code>locality</code>:</strong><a href="#appendix-A.1-36" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-37">
-<pre>WyI5WmRLOTZwQVFNRThiUjR3ZXFiemZBIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
+<pre>WyJnclBTdm9iLVVfbHVOSVJUUmJvb2dBIiwgImxvY2FsaXR5IiwgIlx1Njc3MVx1NGVh
 Y1x1OTBmZCJd
 </pre><a href="#appendix-A.1-37" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-38">Contents:<a href="#appendix-A.1-38" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-39">
-<pre>["9ZdK96pAQME8bR4weqbzfA", "locality", "\u6771\u4eac\u90fd"]
+<pre>["grPSvob-U_luNIRTRboogA", "locality", "\u6771\u4eac\u90fd"]
 </pre><a href="#appendix-A.1-39" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-40">SHA-256 Hash: <code>d78lCZs-sDFpvszslkGDo1nczu6LxVMxmyAq1b_mNMw</code><a href="#appendix-A.1-40" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-40">SHA-256 Hash: <code>6OKNwnGGKWXCI9uijNAsv64u22eLS4rMdLNlg1fqJp4</code><a href="#appendix-A.1-40" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-41"><strong>Disclosure for <code>region</code>:</strong><a href="#appendix-A.1-41" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-42">
-<pre>WyJDdEJ3VmEzd2ZiUEVGekhWLU0zaUJ3IiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
+<pre>WyJNOVY2N3V0UC1hTF9lR1B0UU5hM0RRIiwgInJlZ2lvbiIsICJcdTZlMmZcdTUzM2Ei
 XQ
 </pre><a href="#appendix-A.1-42" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-43">Contents:<a href="#appendix-A.1-43" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-44">
-<pre>["CtBwVa3wfbPEFzHV-M3iBw", "region", "\u6e2f\u533a"]
+<pre>["M9V67utP-aL_eGPtQNa3DQ", "region", "\u6e2f\u533a"]
 </pre><a href="#appendix-A.1-44" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-45">SHA-256 Hash: <code>ONH0wP61O6pYPKSUIpNSLb09zlkXMOiIAkd2473JdUo</code><a href="#appendix-A.1-45" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-45">SHA-256 Hash: <code>Uq02nV73K0bdRK23rzabmnDa4O8YNQZvt9x8Lykok_Y</code><a href="#appendix-A.1-45" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-46"><strong>Disclosure for <code>country</code>:</strong><a href="#appendix-A.1-46" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-47">
-<pre>WyJqMjhmbThJVlhQN3Q1TlZJb3FOeDBRIiwgImNvdW50cnkiLCAiSlAiXQ
+<pre>WyJzNFhNSmxXQ2Eza3hDWk4wSVVrbnlBIiwgImNvdW50cnkiLCAiSlAiXQ
 </pre><a href="#appendix-A.1-47" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-48">Contents:<a href="#appendix-A.1-48" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-49">
-<pre>["j28fm8IVXP7t5NVIoqNx0Q", "country", "JP"]
+<pre>["s4XMJlWCa3kxCZN0IUknyA", "country", "JP"]
 </pre><a href="#appendix-A.1-49" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-50">SHA-256 Hash: <code>JOX7_Uf-2VmlkAlMlw4xc3167nz5sh7V9ETf1NFJDe0</code><a href="#appendix-A.1-50" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-50">SHA-256 Hash: <code>oxFRilno26UYe7kqMM4bdq8IvNMtIi6F8ptt-uiPLbM</code><a href="#appendix-A.1-50" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-51"><strong>Disclosure for <code>birthdate</code>:</strong><a href="#appendix-A.1-51" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-52">
-<pre>WyJCT05tUFE4S2ZtUW5FdWx0aTF3UTd3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
+<pre>WyI1Z2NXRmxWSEM1VVEwbktrallybDlnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAx
 Il0
 </pre><a href="#appendix-A.1-52" class="pilcrow">¶</a>
 </div>
 <p id="appendix-A.1-53">Contents:<a href="#appendix-A.1-53" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-A.1-54">
-<pre>["BONmPQ8KfmQnEulti1wQ7w", "birthdate", "1940-01-01"]
+<pre>["5gcWFlVHC5UQ0nKkjYrl9g", "birthdate", "1940-01-01"]
 </pre><a href="#appendix-A.1-54" class="pilcrow">¶</a>
 </div>
-<p id="appendix-A.1-55">SHA-256 Hash: <code>tRg5w6WfauVXT2gFc0YjWfRm9GV50JIcgAO44ks-0ek</code><a href="#appendix-A.1-55" class="pilcrow">¶</a></p>
+<p id="appendix-A.1-55">SHA-256 Hash: <code>3CoLULmDxxUw_LdyYETjuduXuEpGuBy4rXHotuD40X4</code><a href="#appendix-A.1-55" class="pilcrow">¶</a></p>
 <p id="appendix-A.1-56">A Presentation for the SD-JWT that discloses only <code>region</code>
 and <code>country</code> of the <code>address</code> property and without a Holder Binding JWT could look as follows:<a href="#appendix-A.1-56" class="pilcrow">¶</a></p>
 <div class="lang-txt sourcecode" id="appendix-A.1-57">
 <pre>eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImNBRUlVcUowY21MekQxa3pHemhlaUJhZzBZ
-UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIkQxMkZhYU1YQ09XT0Y0eEFVRzFzX
-1RucWhaOTAzLUJrRGV3UGtoallJSFkiLCAiVnhRVlFkT0ZrNF9CT0hIWHJhTV9TRFNQU
-HZ4VkNHVzZfNjl3YXdXcndOWSIsICJiVGF4REJSYnNCX2llNXpDU3JJZTR2VTIxMjdfb
-2dBR0hGNlJ6d3VKNk9BIiwgImJ1WUNlQkp6YnIyWlJjMks5OXQ3MFBETDJTYVgtaVVtU
-VJNWUlzOFlpVnMiLCAidFJnNXc2V2ZhdVZYVDJnRmMwWWpXZlJtOUdWNTBKSWNnQU80N
-GtzLTBlayIsICJ5cmt1Q2E2ZzNyRndPX1ZtMzJldG5VMVF0NnRpTmtsQ282MnZYUVlFc
-GljIl0sICJhZGRyZXNzIjogeyJfc2QiOiBbIkpPWDdfVWYtMlZtbGtBbE1sdzR4YzMxN
-jduejVzaDdWOUVUZjFORkpEZTAiLCAiT05IMHdQNjFPNnBZUEtTVUlwTlNMYjA5emxrW
-E1PaUlBa2QyNDczSmRVbyIsICJkNzhsQ1pzLXNERnB2c3pzbGtHRG8xbmN6dTZMeFZNe
-G15QXExYl9tTk13IiwgInJlS0RqQ1QwMTlaTjFQdFZWSDJ4SnpyR00yZXMtMVJZNGF0Z
-F9SV3Q2Q2siXX0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAia
+UkF6VmRsZnhOMjgwTmdIYUEifQ.eyJfc2QiOiBbIjBsa1NjS2ppSk1IZWRKZnE3c0pCN
+0hRM3FvbUdmckVMYm81Z1podktSV28iLCAiMWgyOWdnUWkxeG91LV9OalZ5eW9DaEsyY
+XN3VXRvMlVqQ2ZGLTFMYWhBOCIsICIzQ29MVUxtRHh4VXdfTGR5WUVUanVkdVh1RXBHd
+UJ5NHJYSG90dUQ0MFg0IiwgIkFJRHlveHgxaXB5NDUtR0ZwS2d2Yy1ISWJjVnJsTGxyW
+UxYbXgzZXYyZTQiLCAiT2x0aGZSb0ZkUy1KNlM4Mk9XbHJPNHBXaG9lUk1ySF9LR1Bfa
+DZFYXBZUSIsICJyNGRicEdlZWlhMDJTeUdMNWdCZEhZMXc4SWhqVDN4eDA1UnNmeXlIV
+Ws0Il0sICJhZGRyZXNzIjogeyJfc2QiOiBbIjZPS053bkdHS1dYQ0k5dWlqTkFzdjY0d
+TIyZUxTNHJNZExObGcxZnFKcDQiLCAiSEVWTWdELU5LSzVOdlhQYkFSb3JWZE9ESVRta
+1V5dU1wQ3NfbTdIWG5ZYyIsICJVcTAyblY3M0swYmRSSzIzcnphYm1uRGE0TzhZTlFad
+nQ5eDhMeWtva19ZIiwgIm94RlJpbG5vMjZVWWU3a3FNTTRiZHE4SXZOTXRJaTZGOHB0d
+C11aVBMYk0iXX0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAia
 WF0IjogMTUxNjIzOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJzZF9kaWdlc3RfZGVya
-XZhdGlvbl9hbGciOiAic2hhLTI1NiJ9.CLsoXjTsEoBfP668ZXCoKz0cpO-UqnBxDJqv
-qDnkYpVdV2wg24ax9HFR5ubB7wICEM2dQGrO94qXlsOZ-dZIN3uT_TWqOGvydWeGcUdd
-bmQTI0fP9KtDCKZ0MvikpyoKrKonjbJ70I6SOaiEa4kGh4Pbqf0_HaCBrNwacT0TArJ1
-8ITmvA1KWmkqzlqgYExWCPkcJIknGdniGi962dlTd0xEGfnIoQ-VWOxfzgoxDA43xkE8
-sPrjl2nzR_C7r3UywshltjKVvh6SGK3A88JNF1QdfszNdWyqGBf2kcZvJOK6r9UoIyEe
-WDziiCQjZJkPM5Wa4mVOlmRt6mpn9zwyVQ~WyJabEItelBYQmFfai1HQlVZYmJYNjRRI
-iwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJpWDFuazhIZ3RXNVJzY1JT
-V3FCS2R3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNzXCJAbmlob24u
-Y29tIl0~WyJCT05tUFE4S2ZtUW5FdWx0aTF3UTd3IiwgImJpcnRoZGF0ZSIsICIxOTQw
-LTAxLTAxIl0~WyJqYXRCZjJEYTNDbmYxQWRkZzFvSjZnIiwgImdpdmVuX25hbWUiLCAi
-XHU1OTJhXHU5MGNlIl0~WyJqMjhmbThJVlhQN3Q1TlZJb3FOeDBRIiwgImNvdW50cnki
-LCAiSlAiXQ~WyJDdEJ3VmEzd2ZiUEVGekhWLU0zaUJ3IiwgInJlZ2lvbiIsICJcdTZlM
-mZcdTUzM2EiXQ~
+XZhdGlvbl9hbGciOiAic2hhLTI1NiJ9.T35OujCSxT_IPUpsGWZDoAYZBUBi9ho5F0Th
+8Nw62F9Lsyq5IPPPqxRpVJLP4M8ZC90jDG5QvWLS5qLDa464nIqLqjCxv_h3SVNuNOxN
+BNWSsv2Z4FdC_QrkCJtxM0Z-XyT-s7UjUa3reh2NEbYwRLQMOueNIc67DQbAkXaH7_Ve
+rYHTqaIk087r8Sh13-wZ7CT7yZCjHupZb5GyfmmbVVIN0ldf5szWjzPe_Rrz2qntVfet
+bEWZh_9c4b0gr22OZoDitp4wReg0xJh8ciEIXC32zHZ5KePr-S95p7YJb7ehEWIsN2Yv
+YfmpmuUz73PcmNJtRaUt8Qgclktll7LGDw~WyJSdHczZUFFUE5wWjIwTkhZSzNNRWNnI
+iwgImZhbWlseV9uYW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJicjgxenVSc0NUcXJuWEp4
+MHVqMkRRIiwgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5MGNlIl0~WyI1Z2NXRmxWSEM1
+VVEwbktrallybDlnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxIl0~WyJJTms2bkx4
+WGFybDF4NmVabHdBOTV3IiwgImVtYWlsIiwgIlwidW51c3VhbCBlbWFpbCBhZGRyZXNz
+XCJAbmlob24uY29tIl0~WyJNOVY2N3V0UC1hTF9lR1B0UU5hM0RRIiwgInJlZ2lvbiIs
+ICJcdTZlMmZcdTUzM2EiXQ~WyJzNFhNSmxXQ2Eza3hDWk4wSVVrbnlBIiwgImNvdW50c
+nkiLCAiSlAiXQ~
 </pre><a href="#appendix-A.1-57" class="pilcrow">¶</a>
 </div>
 </section>
@@ -3047,26 +3033,25 @@ here, the Issuer decided to add decoy digests to the SD-JWT.<a href="#appendix-A
 <div class="lang-json sourcecode" id="appendix-A.2-3">
 <pre>{
   "_sd": [
-    "0--cgzkgM91JyfIA_iZW_bk0NTNjk--MkMuaA_tuIxY",
-    "G0ovA7TMC4JdDDt54P5EBdDcQSatb77H5zufZeHyxIc",
-    "HfO8OBD5TiO9NkVMYuHf2y1tRPRzsO4vD4kUO3k--Rc",
-    "I5MIO3LppLAEoO4b91ufH2O0878hspuJEBJSmA_S5Fs",
-    "IiApkhig8WiIpOb37u1a-oLhYuyFkxOEBXNC7DSMvL4",
-    "Ogxyqqp6jFRvfmDMzEdychfk6EKoFm8QWMNcBd2AqAk",
-    "S_nZ1PS6Yuai3BSI7VMUkDei05xEeiCj5RdWAbfPB-c",
-    "hu6ydLh2YvK5hsfeLiDm2gcBuPxpfFhBZ1_tS9M7Ld0",
-    "iRS2dVAl_bpXlyvwDSShEJ22v28ZFfXoTd_vp5QNCzM",
-    "lKTMGzf0d79BaiwuEpMYC26hABeIUtcI7WHl7zgeXCU",
-    "sjEgA8-j44T-2XXJZshzDOnLSaLQF8Iyhb4a7BcZrRY"
+    "2GFPzomyv0LvsNqVnq9EWkojSdmn8xYhEW6PUF166aE",
+    "723eL1tWNqk0k60oEc2jbjgi9Lg09hp_qr5BL2omA8w",
+    "ABOPJ9UwDrrYOj3XF9FldPk4qniliHktfC0faS2nEDk",
+    "Lccl25w97vsyfqBTCOMXAtvCt_8f4BlqDUBhrvdS2VI",
+    "QSBjkY_KqFtGhL7--yjUU0BTbOQKXXEKTzmoVAzCUhY",
+    "iVw--s-TwoFGMsv1dhoq1sBsjrBKyKtJoQ5DZu3Oq1I",
+    "nGzC_ytvNpNRhxNqUJ8yGd3DtGv-3u6goHM7JqsRzCw",
+    "skyXccgGkjo2BK4p19vDmbl2JsnKBdbiVBhqV5b_RXk",
+    "woMsAJhxWETDjavMSyNVyu62nyy9PzFfZw9lz5yfC4U"
   ],
   "address": {
     "_sd": [
-      "0JOH_ZsjHpzU6RBYBTzSOWRzT6BPNYBRo3eaa0mb6Qc",
-      "O9gL7Tof4PtmSzuG6C2758uvpqJlJisMtJXAD8DDSBU",
-      "OS38kU3-IrxPpbs1Owdmr1BsXw7o6v6Wvo0-P8Gj4cE",
-      "bTvbv9_F4EGMTwOZ9BKguES9p2WCGC2xXyZ1tiPWuNI",
-      "l8JvgLKuPV-IpKRNHg15DVJ-f2yf_DNXLrIW5Ujmjws",
-      "srYNH_kZ-h7VkI1OAp8ndz9151q4qQpkFiUeH8T8_hs"
+      "1nY2u90v7ur8X8mniVZ2tSRNRh6DPnLBYtDEtRS0zM8",
+      "F_xLpiE-o4hv3QPy7WpIyQJYEhYVvlG0b5PguzbG64A",
+      "Os3GWFP8wcrl01HgFG3EQgX4lLSeGSWcLliHH2Nr4wQ",
+      "nQj9x2LdAW4uGv9zl8T3ElZmbf_XScaN8maE-K6kGO0",
+      "opzyobnErA3GpoURHpkHGUpmnVGT74GxP9PrdySlxAA",
+      "q2Mq7M5Lb6u7qbteQF0BzN6gqs_CbP9bx22xoLjbx2w",
+      "xuJuhq1aJqiYgdIxMRmMJNTBkzivgvV9Zk4jmmJYSkk"
     ]
   },
   "iss": "https://example.com/issuer",
@@ -3353,7 +3338,7 @@ Il0
 <ul class="normal">
 <li class="normal" id="appendix-B-3.1">Disclosures are now delivered not as a JWT but as separate base64url-encoded JSON objects.<a href="#appendix-B-3.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="appendix-B-3.2">In the SD-JWT, hash digests are collected under a <code>_sd</code> claim per level.<a href="#appendix-B-3.2" class="pilcrow">¶</a>
+        <li class="normal" id="appendix-B-3.2">In the SD-JWT, digests are collected under a <code>_sd</code> claim per level.<a href="#appendix-B-3.2" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="appendix-B-3.3">Terms "II-Disclosures" and "HS-Disclosures" are replaced with "Disclosures".<a href="#appendix-B-3.3" class="pilcrow">¶</a>
 </li>
@@ -3366,6 +3351,8 @@ Il0
         <li class="normal" id="appendix-B-3.7">Updated and automated the W3C VC example.<a href="#appendix-B-3.7" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="appendix-B-3.8">Added examples with multibyte characters to show that the specification and demo code work well with UTF-8.<a href="#appendix-B-3.8" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-B-3.9">reverted back to hash alg from digest derivation alg (renamed to <code>_sd_alg</code>)<a href="#appendix-B-3.9" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="appendix-B-4">-02<a href="#appendix-B-4" class="pilcrow">¶</a></p>
@@ -3384,7 +3371,7 @@ Il0
         <li class="normal" id="appendix-B-7.4">generalized hash alg to digest derivation alg which also enables HMAC to calculate digests<a href="#appendix-B-7.4" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="appendix-B-7.5">
-          <code>sd_hash_alg</code> renamed to <code>sd_digest_derivation_alg</code><a href="#appendix-B-7.5" class="pilcrow">¶</a>
+          <code>_sd_hash_alg</code> renamed to <code>sd_digest_derivation_alg</code><a href="#appendix-B-7.5" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="appendix-B-7.6">Salt/Value Container (SVC) renamed to Issuer-Issued Disclosures (II-Disclosures)<a href="#appendix-B-7.6" class="pilcrow">¶</a>
 </li>
@@ -3430,7 +3417,7 @@ Il0
         <li class="normal" id="appendix-B-12.4">Python reference implementation clean-up and refactoring<a href="#appendix-B-12.4" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="appendix-B-12.5">
-          <code>hash_alg</code> renamed to <code>sd_hash_alg</code><a href="#appendix-B-12.5" class="pilcrow">¶</a>
+          <code>hash_alg</code> renamed to <code>_sd_hash_alg</code><a href="#appendix-B-12.5" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="appendix-B-13">-01<a href="#appendix-B-13" class="pilcrow">¶</a></p>
