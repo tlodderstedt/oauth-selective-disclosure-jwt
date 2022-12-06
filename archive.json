@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-12-04T01:03:15.906036+00:00",
+  "timestamp": "2022-12-06T01:01:32.797047+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -15690,13 +15690,13 @@
       "labels": [],
       "body": "per IETF115 WG agreement.",
       "createdAt": "2022-11-24T05:33:00Z",
-      "updatedAt": "2022-12-02T20:11:42Z",
+      "updatedAt": "2022-12-05T12:04:35Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "6d363285371ae98a8023e0a99a552ffc6e159ec1",
       "headRepository": "Sakurann/draft-selective-disclosure-jwt",
       "headRefName": "revert-to-hash",
-      "headRefOid": "337e7908770e6b8f9c6a053fee29060187e7ee89",
+      "headRefOid": "4d336d34c94efe0074e0ceb9bf74f0b9c562eb80",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -16084,24 +16084,26 @@
       "id": "PR_kwDOHTmVzM5EKyUB",
       "title": "little edits on review of the new sd jwt encoding ",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/182",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bc-pi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Some hopefully uncontroversial changes to the new approach from IETF 115 and a few other minor things I noticed. ",
       "createdAt": "2022-12-02T19:45:05Z",
-      "updatedAt": "2022-12-03T04:21:11Z",
+      "updatedAt": "2022-12-05T19:10:59Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "6d363285371ae98a8023e0a99a552ffc6e159ec1",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "bc/new-sd-jwt-encoding-review",
-      "headRefOid": "0d8108616d085184973b9d4f147004e83b6f17da",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "964455fb599acf854d81d0d13bc653d395bce487",
+      "closedAt": "2022-12-05T19:10:51Z",
+      "mergedAt": "2022-12-05T19:10:51Z",
+      "mergedBy": "bc-pi",
+      "mergeCommit": {
+        "oid": "b95186a440d78ad04bf862b0af94d8cc7df217fb"
+      },
       "comments": [],
       "reviews": [
         {
@@ -16133,6 +16135,92 @@
               "body": "```suggestion\nThe security model that conceals the plaintext claims relies on the fact that the salt cannot be learned or guessed by\n```\n",
               "createdAt": "2022-12-03T04:21:00Z",
               "updatedAt": "2022-12-03T04:21:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5HxGMC",
+          "commit": {
+            "abbreviatedOid": "0d81086"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "Thank you, a number of good points here! Generally approved, left a few comments.",
+          "createdAt": "2022-12-05T08:00:44Z",
+          "updatedAt": "2022-12-05T08:06:18Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "Best of both?\r\n```suggestion\r\n`SD-CLAIMS` is an array of digest values that ensure the integrity of and map to the respective Disclosures.  Digest values are calculated over the Disclosures, each of which contains the claim name (`CLAIM-NAME`), the claim value (`CLAIM-VALUE`), and a random salt (`SALT`). Digests are calculated using a digest derivation function such as a hash function, HMAC, or other (`DIGEST-DERIVATION()`):\r\n```",
+              "createdAt": "2022-12-05T08:00:44Z",
+              "updatedAt": "2022-12-05T08:06:18Z"
+            },
+            {
+              "originalPosition": 65,
+              "body": "I did not put a colon here as the introduction to the list is not a complete sentence.\r\n\r\n```suggestion\r\nIssuers MUST NOT issue SD-JWTs where\r\n```",
+              "createdAt": "2022-12-05T08:04:43Z",
+              "updatedAt": "2022-12-05T08:06:18Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Hy34x",
+          "commit": {
+            "abbreviatedOid": "0d81086"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-05T13:06:08Z",
+          "updatedAt": "2022-12-05T13:06:08Z",
+          "comments": [
+            {
+              "originalPosition": 92,
+              "body": "The draft currently uses plaintext, cleartext and plain text. Maybe a full reconciliation is needed at some point. In the meantime, I'll take this suggestion. ",
+              "createdAt": "2022-12-05T13:06:08Z",
+              "updatedAt": "2022-12-05T13:06:08Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Hy7FK",
+          "commit": {
+            "abbreviatedOid": "964455f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-05T13:14:25Z",
+          "updatedAt": "2022-12-05T13:14:26Z",
+          "comments": [
+            {
+              "originalPosition": 31,
+              "body": "Yeah, it felt redundant and somewhat out of order with the content just below.",
+              "createdAt": "2022-12-05T13:14:25Z",
+              "updatedAt": "2022-12-05T13:14:26Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Hy9cU",
+          "commit": {
+            "abbreviatedOid": "0d81086"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-05T13:21:02Z",
+          "updatedAt": "2022-12-05T13:21:02Z",
+          "comments": [
+            {
+              "originalPosition": 65,
+              "body": "You will come to find, if you haven't already, that this native English speaker isn't very good at English :) ",
+              "createdAt": "2022-12-05T13:21:02Z",
+              "updatedAt": "2022-12-05T13:21:02Z"
             }
           ]
         }
