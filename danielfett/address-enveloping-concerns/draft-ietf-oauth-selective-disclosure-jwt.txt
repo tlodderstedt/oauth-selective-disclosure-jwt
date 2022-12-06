@@ -1540,7 +1540,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    If the SD-JWT and associated Disclosures are transmitted over an
    insecure channel during issuance or presentation, an adversary may be
-   able to intercept and read the End-User's personal data.
+   able to intercept and read the End-User's personal data or correllate
+   the information with previous uses of the same SD-JWT.
 
    Usually, transport protocols for issuance and presentation of
    credentials are designed to protect the confidentiality of the
@@ -1551,10 +1552,10 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    any encryption mechanism.
 
    Implementers MUST ensure that the transport protocol provides
-   confidentiality if the privacy of End-User data is a concern.
-   Implementers MAY define a JWT envelope format (as described in
-   Section 7) to encrypt the SD-JWT and associated Disclosures when
-   transmitted over an insecure channel.
+   confidentiality if the privacy of End-User data or correllation
+   attacks are a concern.  Implementers MAY define a JWT envelope format
+   (as described in Section 7) to encrypt the SD-JWT and associated
+   Disclosures when transmitted over an insecure channel.
 
 9.2.  Decoy Digests
 
