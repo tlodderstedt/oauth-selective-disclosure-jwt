@@ -88,23 +88,25 @@ Table of Contents
    6.  Verification and Processing
      6.1.  Processing by the Holder
      6.2.  Verification by the Verifier
-   7.  Security Considerations
-     7.1.  Mandatory digest computation of the revealed claim values
+   7.  Enveloping the Combined Format for Issuance and Presentation
+   8.  Security Considerations
+     8.1.  Mandatory digest computation of the revealed claim values
            by the Verifier
-     7.2.  Mandatory signing of the SD-JWT
-     7.3.  Manipulation of Disclosures
-     7.4.  Entropy of the salt
-     7.5.  Minimum length of the salt
-     7.6.  Choice of a Hash Algorithm
-     7.7.  Holder Binding
-     7.8.  Blinding Claim Names
-   8.  Privacy Considerations
-     8.1.  Decoy Digests
-     8.2.  Unlinkability
-   9.  Acknowledgements
-   10. IANA Considerations
-   11. Normative References
-   12. Informative References
+     8.2.  Mandatory signing of the SD-JWT
+     8.3.  Manipulation of Disclosures
+     8.4.  Entropy of the salt
+     8.5.  Minimum length of the salt
+     8.6.  Choice of a Hash Algorithm
+     8.7.  Holder Binding
+     8.8.  Blinding Claim Names
+   9.  Privacy Considerations
+     9.1.  Confidentiality during Transport
+     9.2.  Decoy Digests
+     9.3.  Unlinkability
+   10. Acknowledgements
+   11. IANA Considerations
+   12. Normative References
+   13. Informative References
    Appendix A.  Additional Examples
      A.1.  Example 2a: Handling Structured Claims
      A.2.  Example 2b: Adding Decoys
@@ -501,7 +503,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    *  Create an array of three elements in this order:
 
-      1.  A salt value.  See Section 7.4 and Section 7.5 for security
+      1.  A salt value.  See Section 8.4 and Section 8.5 for security
           considerations.  The salt value MUST be unique for each claim
           that is to be selectively disclosed.  It is RECOMMENDED to
           base64url-encode the salt value, producing a string.  Any
@@ -587,7 +589,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    For decoy digests, no Disclosure is sent to the Holder, i.e., the
    Holder will see digests that do not correspond to any Disclosure.
-   See Section 8.1 for additional privacy considerations.
+   See Section 9.2 for additional privacy considerations.
 
    To ensure readability and replicability, the examples in this
    specification do not contain decoy digests unless explicitly stated.
@@ -842,7 +844,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    To promote interoperability, implementations MUST support the SHA-256
    hash algorithm.
 
-   See Section 7 for requirements regarding entropy of the salt, minimum
+   See Section 8 for requirements regarding entropy of the salt, minimum
    length of the salt, and choice of a hash algorithm.
 
 5.2.3.  Holder Public Key Claim
@@ -1124,8 +1126,9 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    based on the set of trust requirements such as trust frameworks it
    belongs to.
 
-   Other ways of proving Holder Binding are possible, e.g., when the
-   Combined Format for Presentation is itself embedded in a signed JWT.
+   Other ways of proving Holder Binding MAY be used when supported by
+   the Verifier, e.g., when the Combined Format for Presentation is
+   itself embedded in a signed JWT.  See Section 7 for details.
 
    If no Holder Binding JWT is included, the Combined Format for
    Presentation ends with the ~ character after the last Disclosure.
@@ -1229,7 +1232,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    1.  Determine if Holder Binding is to be checked according to the
        Verifier's policy for the use case at hand.  This decision MUST
        NOT be based on whether a Holder Binding JWT is provided by the
-       Holder or not.  Refer to Section 7.7 for details.
+       Holder or not.  Refer to Section 8.7 for details.
 
    2.  Separate the Presentation into the SD-JWT, the Disclosures (if
        any), and the Holder Binding JWT (if provided).
@@ -1331,9 +1334,45 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Otherwise, the processed SD-JWT payload can be passed to the
    application to be used for the intended purpose.
 
-7.  Security Considerations
+7.  Enveloping the Combined Format for Issuance and Presentation
 
-7.1.  Mandatory digest computation of the revealed claim values by the
+   In some applications or transport protocols, it is desirable to put
+   an SD-JWT and associated Disclosures into a JWT container.  For
+   example, an implementation may envelope all credentials and
+   presentations, independent of their format, in a JWT to enable
+   application-layer encryption during transport.
+
+   For such use cases, the SD-JWT and the respective Disclosures SHOULD
+   be transported as a single string using the Combined Formats for
+   Issuance and Presentation, respectively.  Holder Binding MAY be
+   achieved by signing the envelope JWT instead of adding a separate
+   Holder Binding JWT as described in Section 5.5.1.
+
+   The claim _sd_jwt SHOULD be used when transporting a Combined Format
+   unless the application or protocol defines a different claim name.
+
+   The following non-normative example shows a Combined Format for
+   Presentation enveloped in a JWT payload:
+
+   {
+     "iss": "https://holder.example.com",
+     "sub": "did:example:123",
+     "aud": "https://verifier.example.com",
+     "exp": 1590000000,
+     "iat": 1580000000,
+     "nbf": 1580000000,
+     "jti": "urn:uuid:12345678-1234-1234-1234-123456789012",
+     "_sd_jwt": "eyJhbGci...emhlaUJhZzBZ~eyJhb...dYALCGg~"
+   }
+
+   Here, eyJhbGci...emhlaUJhZzBZ represents the SD-JWT and
+   eyJhb...dYALCGg represents a Disclosure.  The Combined Format for
+   Presentation does not contain a Holder Binding JWT as the outer
+   container can be signed instead.
+
+8.  Security Considerations
+
+8.1.  Mandatory digest computation of the revealed claim values by the
       Verifier
 
    ToDo: add text explaining mechanisms that should be adopted to ensure
@@ -1344,7 +1383,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    in test vectors - use only implementations/libraries that are
    compliant to the test suite - etc.
 
-7.2.  Mandatory signing of the SD-JWT
+8.2.  Mandatory signing of the SD-JWT
 
    The SD-JWT MUST be signed by the Issuer to protect integrity of the
    issued claims.  An attacker can modify or add claims if an SD-JWT is
@@ -1357,7 +1396,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    signature on the SD-JWT cannot be verified, the SD-JWT MUST be
    rejected.
 
-7.3.  Manipulation of Disclosures
+8.3.  Manipulation of Disclosures
 
    Holders can manipulate the Disclosures by changing the values of the
    claims before sending them to the Issuer.  The Issuer MUST check the
@@ -1376,7 +1415,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    The steps described in Section 6.2 ensure that the Verifier checks
    the Disclosures correctly.
 
-7.4.  Entropy of the salt
+8.4.  Entropy of the salt
 
    The security model that conceals the plaintext claims relies on the
    fact that the salt cannot be learned or guessed by the attacker.  It
@@ -1385,7 +1424,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    long enough and has high entropy that it is not practical for the
    attacker to guess.  A new salt MUST be chosen for each claim.
 
-7.5.  Minimum length of the salt
+8.5.  Minimum length of the salt
 
    The RECOMMENDED minimum length of the randomly-generated portion of
    the salt is 128 bits.
@@ -1396,7 +1435,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Appendix, where multiple claims with the name type appear, but each
    of them has a different salt.
 
-7.6.  Choice of a Hash Algorithm
+8.6.  Choice of a Hash Algorithm
 
    For the security of this scheme, the hash algorithm is required to be
    preimage and collision resistant, i.e., it is infeasible to calculate
@@ -1407,7 +1446,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    Furthermore the hash algorithms MD2, MD4, MD5, RIPEMD-160, and SHA-1
    revealed fundamental weaknesses and they MUST NOT be used.
 
-7.7.  Holder Binding
+8.7.  Holder Binding
 
    Verifiers MUST decide whether Holder Binding is required for a
    particular use case or not before verifying a credential.  This
@@ -1457,7 +1496,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    recognized key reference is present in the SD-JWT, the Verifier will
    reject the presentation, as described in Section 6.2.
 
-7.8.  Blinding Claim Names
+8.8.  Blinding Claim Names
 
    SD-JWT ensures that names of claims that are selectively disclosable
    are always blinded.  This prevents an attacker from learning the
@@ -1467,9 +1506,31 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    claims.  This limitation needs to be taken into account by Issuers
    when creating the structure of the SD-JWT.
 
-8.  Privacy Considerations
+9.  Privacy Considerations
 
-8.1.  Decoy Digests
+9.1.  Confidentiality during Transport
+
+   If the SD-JWT and associated Disclosures are transmitted over an
+   insecure channel during issuance or presentation, an adversary may be
+   able to intercept and read the End-User's personal data or correlate
+   the information with previous uses of the same SD-JWT.
+
+   Usually, transport protocols for issuance and presentation of
+   credentials are designed to protect the confidentiality of the
+   transmitted data, for example, by requiring the use of TLS.
+
+   This specification therefore considers the confidentiality of the
+   data to be provided by the transport protocol and does not specify
+   any encryption mechanism.
+
+   Implementers MUST ensure that the transport protocol provides
+   confidentiality, if the privacy of End-User data or correlation
+   attacks are a concern.  Implementers MAY define an envelope format
+   (such as described in Section 7 or nesting the SD-JWT Combined Format
+   as the plaintext payload of a JWE) to encrypt the SD-JWT and
+   associated Disclosures when transmitted over an insecure channel.
+
+9.2.  Decoy Digests
 
    The use of decoy digests is RECOMMENDED when the number of claims (or
    the existence of particular claims) can be a side-channel disclosing
@@ -1483,7 +1544,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    digests (or whether to use them at all) is a trade-off between the
    size of the SD-JWT and the privacy of the End-User's data.
 
-8.2.  Unlinkability
+9.3.  Unlinkability
 
    Colluding Issuer/Verifier or Verifier/Verifier pairs could link
    issuance/presentation or two presentation sessions to the same user
@@ -1500,7 +1561,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
       a unique SD-JWT per Verifier.  This only helps with Verifier/
       Verifier unlinkability.
 
-9.  Acknowledgements
+10.  Acknowledgements
 
    We would like to thank Alen Horvat, Arjan Geluk, Christian Paquin,
    David Bakker, David Waite, Fabian Hauck, Giuseppe De Marco, Kushal
@@ -1512,11 +1573,11 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    The work on this draft was started at OAuth Security Workshop 2022 in
    Trondheim, Norway.
 
-10.  IANA Considerations
+11.  IANA Considerations
 
    TBD
 
-11.  Normative References
+12.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1535,7 +1596,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-12.  Informative References
+13.  Informative References
 
    [IANA.Hash.Algorithms]
               IANA, "Named Information Hash Algorithm",
