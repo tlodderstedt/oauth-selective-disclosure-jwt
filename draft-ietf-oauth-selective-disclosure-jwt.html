@@ -1741,19 +1741,19 @@ required by the application using SD-JWTs.<a href="#section-5.2-1" class="pilcro
 <p id="section-5.2.1.1-4">The following example illustrates the steps described above.<a href="#section-5.2.1.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.1-5">The array is created as follows:<a href="#section-5.2.1.1-5" class="pilcrow">¶</a></p>
 <div class="lang-json sourcecode" id="section-5.2.1.1-6">
-<pre>["6qMQvRL5haj", "family_name", "Möbius"]
+<pre>["_26bc4LT-ac6q2KI6cBW5es", "family_name", "Möbius"]
 </pre><a href="#section-5.2.1.1-6" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2.1.1-7">The resulting Disclosure would be: <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code><a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
+<p id="section-5.2.1.1-7">The resulting Disclosure would be: <code>WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcyIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0</code><a href="#section-5.2.1.1-7" class="pilcrow">¶</a></p>
 <p id="section-5.2.1.1-8">Note that the JSON encoding of the object is not canonicalized, so variations in white space, encoding
 of Unicode characters, and ordering of object properties are allowed. For example, the following strings
 are all valid and encode the same claim value:<a href="#section-5.2.1.1-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5.2.1.1-9.1">A different way to encode the umlaut (two dots <code>&amp;#168;</code> placed over the letter): <code>WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd</code><a href="#section-5.2.1.1-9.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1.1-9.1">A different way to encode the umlaut (two dots <code>&amp;#168;</code> placed over the letter): <code>WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcyIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd</code><a href="#section-5.2.1.1-9.1" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.1-9.2">No white space: <code>WyI2cU1RdlJMNWhhaiIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd</code><a href="#section-5.2.1.1-9.2" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.1-9.2">No white space: <code>WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcyIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd</code><a href="#section-5.2.1.1-9.2" class="pilcrow">¶</a>
 </li>
-              <li class="normal" id="section-5.2.1.1-9.3">Newline characters between elements: <code>WwoiNnFNUXZSTDVoYWoiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ</code><a href="#section-5.2.1.1-9.3" class="pilcrow">¶</a>
+              <li class="normal" id="section-5.2.1.1-9.3">Newline characters between elements: <code>WwoiXzI2YmM0TFQtYWM2cTJLSTZjQlc1ZXMiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ</code><a href="#section-5.2.1.1-9.3" class="pilcrow">¶</a>
 </li>
             </ul>
 </section>

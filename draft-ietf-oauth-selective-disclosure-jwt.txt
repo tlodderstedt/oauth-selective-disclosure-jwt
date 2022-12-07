@@ -532,10 +532,10 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    The array is created as follows:
 
-   ["6qMQvRL5haj", "family_name", "Möbius"]
+   ["_26bc4LT-ac6q2KI6cBW5es", "family_name", "Möbius"]
 
-   The resulting Disclosure would be:
-   WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0
+   The resulting Disclosure would be: WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcy
+   IsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0
 
    Note that the JSON encoding of the object is not canonicalized, so
    variations in white space, encoding of Unicode characters, and
@@ -543,14 +543,14 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    following strings are all valid and encode the same claim value:
 
    *  A different way to encode the umlaut (two dots &#168; placed over
-      the letter):
-      WyI2cU1RdlJMNWhhaiIsICJmYW1pbHlfbmFtZSIsICJNXHUwMGY2Yml1cyJd
+      the letter): WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcyIsICJmYW1pbHlfbmFtZ
+      SIsICJNXHUwMGY2Yml1cyJd
 
-   *  No white space:
-      WyI2cU1RdlJMNWhhaiIsImZhbWlseV9uYW1lIiwiTcO2Yml1cyJd
+   *  No white space: WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcyIsImZhbWlseV9uYW
+      1lIiwiTcO2Yml1cyJd
 
-   *  Newline characters between elements:
-      WwoiNnFNUXZSTDVoYWoiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ
+   *  Newline characters between elements: WwoiXzI2YmM0TFQtYWM2cTJLSTZjQ
+      lc1ZXMiLAoiZmFtaWx5X25hbWUiLAoiTcO2Yml1cyIKXQ
 
 5.2.1.2.  Hashing Disclosures
 
