@@ -1043,7 +1043,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett, et al.</td>
-<td class="center">Expires 9 June 2023</td>
+<td class="center">Expires 10 June 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1056,12 +1056,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-12-06" class="published">6 December 2022</time>
+<time datetime="2022-12-07" class="published">7 December 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-06-09">9 June 2023</time></dd>
+<dd class="expires"><time datetime="2023-06-10">10 June 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1115,7 +1115,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2546,7 +2546,7 @@ details.<a href="#section-6.2-4.1" class="pilcrow">¶</a>
       <h2 id="name-enveloping-the-combined-for">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-enveloping-the-combined-for" class="section-name selfRef">Enveloping the Combined Format for Issuance and Presentation</a>
       </h2>
-<p id="section-7-1">In some applications or transport protocols, it is desirable to put an SD-JWT and associated Disclosures into a JWT container. For example, an implementation may envelope all credentials and presentations, independent of their format, in a JWT to enable encryption during transport.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">In some applications or transport protocols, it is desirable to put an SD-JWT and associated Disclosures into a JWT container. For example, an implementation may envelope all credentials and presentations, independent of their format, in a JWT to enable application-layer encryption during transport.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <p id="section-7-2">For such use cases, the SD-JWT and the respective Disclosures SHOULD be transported as a single string using the Combined Formats for Issuance and Presentation, respectively. Holder Binding MAY be achieved by signing the envelope JWT instead of adding a separate Holder Binding JWT as described in <a href="#enabling_holder_binding" class="auto internal xref">Section 5.5.1</a>.<a href="#section-7-2" class="pilcrow">¶</a></p>
 <p id="section-7-3">The claim <code>_sd_jwt</code> SHOULD be used when transporting a Combined Format unless the application or protocol defines a different claim name.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <p id="section-7-4">The following non-normative example shows a Combined Format for Presentation enveloped in a JWT payload:<a href="#section-7-4" class="pilcrow">¶</a></p>

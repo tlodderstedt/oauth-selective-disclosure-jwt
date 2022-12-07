@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 9 June 2023                                           Microsoft
+Expires: 10 June 2023                                          Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                         6 December 2022
+                                                         7 December 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 June 2023.
+   This Internet-Draft will expire on 10 June 2023.
 
 Copyright Notice
 
@@ -1363,7 +1363,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    an SD-JWT and associated Disclosures into a JWT container.  For
    example, an implementation may envelope all credentials and
    presentations, independent of their format, in a JWT to enable
-   encryption during transport.
+   application-layer encryption during transport.
 
    For such use cases, the SD-JWT and the respective Disclosures SHOULD
    be transported as a single string using the Combined Formats for
