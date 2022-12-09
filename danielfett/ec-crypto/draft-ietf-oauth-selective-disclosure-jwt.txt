@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 11 June 2023                                          Microsoft
+Expires: 12 June 2023                                          Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                         8 December 2022
+                                                         9 December 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2023.
+   This Internet-Draft will expire on 12 June 2023.
 
 Copyright Notice
 
@@ -901,9 +901,6 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
      "cnf": {
        "jwk": {
          "kty": "EC",
-         "use": "sig",
-         "alg": "ES256",
-         "kid": "2",
          "crv": "P-256",
          "x": "TCAER19Zvu3OHF4j4W4vfSVoHIP1ILilDls7vCeGemc",
          "y": "ZxjiWWbZMQGHVWKVQ4hbSIirsVfuecCE6t4jT9F2HZQ"
@@ -923,11 +920,11 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    iwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiXSwgI
    mlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2MjM5M
    DIyLCAiZXhwIjogMTUxNjI0NzAyMiwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
-   iB7Imp3ayI6IHsia3R5IjogIkVDIiwgInVzZSI6ICJzaWciLCAiYWxnIjogIkVTMjU2I
-   iwgImtpZCI6ICIyIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSMTladnUzT0hGN
-   Go0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV1diWk1RR0hWV
-   0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.qJVYS5R2bMnGZ8YM4uGg0z
-   p767r9kLL8nscfVdiqVy33ULV84SsrMfB4WluPGEhIopAdYlKDgHLPIP8FGif6zw
+   iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
+   TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.gieinY5mTg
+   TV69KZJyaFPeIJ9tfXlzCHKfs-HMBO9UIREz6Dh_lpTMrwUUXQXcO0pB3K_8uXjiMBGw
+   XpMz_ayg
 
    The Issuer creates the following Disclosures:
 
@@ -1038,20 +1035,20 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    iwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiXSwgI
    mlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2MjM5M
    DIyLCAiZXhwIjogMTUxNjI0NzAyMiwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
-   iB7Imp3ayI6IHsia3R5IjogIkVDIiwgInVzZSI6ICJzaWciLCAiYWxnIjogIkVTMjU2I
-   iwgImtpZCI6ICIyIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSMTladnUzT0hGN
-   Go0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV1diWk1RR0hWV
-   0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.qJVYS5R2bMnGZ8YM4uGg0z
-   p767r9kLL8nscfVdiqVy33ULV84SsrMfB4WluPGEhIopAdYlKDgHLPIP8FGif6zw~WyJ
-   kcVR2WE14UzBHYTNEb2FHbmU5eDBRIiwgInN1YiIsICJqb2huX2RvZV80MiJd~WyIzan
-   FjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~WyJxUVdta
-   kpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyJLVXhTNWhF
-   X1hiVmFjckdBYzdFRnd3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBsZS5jb20iXQ~W
-   yIzcXZWSjFCQURwSERTUzkzOVEtUml3IiwgInBob25lX251bWJlciIsICIrMS0yMDItN
-   TU1LTAxMDEiXQ~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7In
-   N0cmVldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd2
-   4iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJFUktNME
-   NOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxIl0
+   iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
+   TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.gieinY5mTg
+   TV69KZJyaFPeIJ9tfXlzCHKfs-HMBO9UIREz6Dh_lpTMrwUUXQXcO0pB3K_8uXjiMBGw
+   XpMz_ayg~WyJkcVR2WE14UzBHYTNEb2FHbmU5eDBRIiwgInN1YiIsICJqb2huX2RvZV8
+   0MiJd~WyIzanFjYjY3ejl3a3MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obi
+   Jd~WyJxUVdtakpsMXMxUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~
+   WyJLVXhTNWhFX1hiVmFjckdBYzdFRnd3IiwgImVtYWlsIiwgImpvaG5kb2VAZXhhbXBs
+   ZS5jb20iXQ~WyIzcXZWSjFCQURwSERTUzkzOVEtUml3IiwgInBob25lX251bWJlciIsI
+   CIrMS0yMDItNTU1LTAxMDEiXQ~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZH
+   Jlc3MiLCB7InN0cmVldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5Ij
+   ogIkFueXRvd24iLCAicmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV
+   0~WyJFUktNMENOZUZKa2FENW1UWFZfWDh3IiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLT
+   AxIl0
 
    (Line breaks for presentation only.)
 
@@ -1087,7 +1084,7 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    {
      "nonce": "XZOUco1u_gEPknxS78sWWg",
      "aud": "https://example.com/verifier",
-     "iat": 1670495535
+     "iat": 1670574418
    }
 
    Which is then signed by the Holder to create a JWT like the
@@ -1095,8 +1092,8 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 
    eyJhbGciOiAiRVMyNTYifQ.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnI
    iwgImF1ZCI6ICJodHRwczovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2N
-   zA0OTU1MzV9.-JniCMhSIz5xLEcSdceYT1QiblmW5ipVRz1_aajSm68PfYp24hN6Hdx8
-   Nsy5uhf2qjK_CbVTIFJWosSHtix3eg
+   zA1NzQ0MTh9._TZe98TAQDrV_21TjEKBRKKCt5EO5Q0-MHNZ79qVvBR9gL4nCXBu6c--
+   QDysTgnXk_oe-qVin6EOzHF3Oh9tbQ
 
    Whether to require Holder Binding is up to the Verifier's policy,
    based on the set of trust requirements such as trust frameworks it
@@ -1126,19 +1123,19 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
    iwgInFxdmNxbmN6QU1nWXg3RXlrSTZ3d3RzcHl2eXZLNzkwZ2U3TUJiUS1OdXMiXSwgI
    mlzcyI6ICJodHRwczovL2V4YW1wbGUuY29tL2lzc3VlciIsICJpYXQiOiAxNTE2MjM5M
    DIyLCAiZXhwIjogMTUxNjI0NzAyMiwgIl9zZF9hbGciOiAic2hhLTI1NiIsICJjbmYiO
-   iB7Imp3ayI6IHsia3R5IjogIkVDIiwgInVzZSI6ICJzaWciLCAiYWxnIjogIkVTMjU2I
-   iwgImtpZCI6ICIyIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSMTladnUzT0hGN
-   Go0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV1diWk1RR0hWV
-   0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.qJVYS5R2bMnGZ8YM4uGg0z
-   p767r9kLL8nscfVdiqVy33ULV84SsrMfB4WluPGEhIopAdYlKDgHLPIP8FGif6zw~WyI
-   weEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmVldF9hZGRyZXN
-   zIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCAicmVnaW9uIjo
-   gIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJxUVdtakpsMXMxUjRscWhFTkx
-   ScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3MwOHp3aUs3RX
-   lRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiRVMyNTYifQ.eyJub25jZS
-   I6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwczovL2V4YW1wbG
-   UuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NzA0OTU1MzV9.-JniCMhSIz5xLEcSdceYT
-   1QiblmW5ipVRz1_aajSm68PfYp24hN6Hdx8Nsy5uhf2qjK_CbVTIFJWosSHtix3eg
+   iB7Imp3ayI6IHsia3R5IjogIkVDIiwgImNydiI6ICJQLTI1NiIsICJ4IjogIlRDQUVSM
+   TladnUzT0hGNGo0VzR2ZlNWb0hJUDFJTGlsRGxzN3ZDZUdlbWMiLCAieSI6ICJaeGppV
+   1diWk1RR0hWV0tWUTRoYlNJaXJzVmZ1ZWNDRTZ0NGpUOUYySFpRIn19fQ.gieinY5mTg
+   TV69KZJyaFPeIJ9tfXlzCHKfs-HMBO9UIREz6Dh_lpTMrwUUXQXcO0pB3K_8uXjiMBGw
+   XpMz_ayg~WyIweEd6bjNNaXFzY3RaSV9PcERsQWJRIiwgImFkZHJlc3MiLCB7InN0cmV
+   ldF9hZGRyZXNzIjogIjEyMyBNYWluIFN0IiwgImxvY2FsaXR5IjogIkFueXRvd24iLCA
+   icmVnaW9uIjogIkFueXN0YXRlIiwgImNvdW50cnkiOiAiVVMifV0~WyJxUVdtakpsMXM
+   xUjRscWhFTkxScnJ3IiwgImZhbWlseV9uYW1lIiwgIkRvZSJd~WyIzanFjYjY3ejl3a3
+   MwOHp3aUs3RXlRIiwgImdpdmVuX25hbWUiLCAiSm9obiJd~eyJhbGciOiAiRVMyNTYif
+   Q.eyJub25jZSI6ICJYWk9VY28xdV9nRVBrbnhTNzhzV1dnIiwgImF1ZCI6ICJodHRwcz
+   ovL2V4YW1wbGUuY29tL3ZlcmlmaWVyIiwgImlhdCI6IDE2NzA1NzQ0MTh9._TZe98TAQ
+   DrV_21TjEKBRKKCt5EO5Q0-MHNZ79qVvBR9gL4nCXBu6c--QDysTgnXk_oe-qVin6EOz
+   HF3Oh9tbQ
 
 6.  Verification and Processing
 
@@ -1784,8 +1781,8 @@ A.1.  Example 2a: Handling Structured Claims
    DhMeWtva19ZIiwgIm94RlJpbG5vMjZVWWU3a3FNTTRiZHE4SXZOTXRJaTZGOHB0dC11a
    VBMYk0iXX0sICJpc3MiOiAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAiaWF0I
    jogMTUxNjIzOTAyMiwgImV4cCI6IDE1MTYyNDcwMjIsICJfc2RfYWxnIjogInNoYS0yN
-   TYifQ.VDQVdtXxbdKmm0aKH9Gdl3jt43Ez6TJbD-smHM2Eh_TNAN17r54w3u_MJWPUgU
-   EQHA5iEvvFT1rs0grpUbDUUg~WyJSdHczZUFFUE5wWjIwTkhZSzNNRWNnIiwgImZhbWl
+   TYifQ.M45AUExpi9THOTVIHfBmb2GL0WXJf4TeWB5QPmsxdBkj9pUcLOPR8YVafLIt8m
+   _imYHTBYYcAyf7qSnquxMxGQ~WyJSdHczZUFFUE5wWjIwTkhZSzNNRWNnIiwgImZhbWl
    seV9uYW1lIiwgIlx1NWM3MVx1NzUzMCJd~WyJicjgxenVSc0NUcXJuWEp4MHVqMkRRIi
    wgImdpdmVuX25hbWUiLCAiXHU1OTJhXHU5MGNlIl0~WyI1Z2NXRmxWSEM1VVEwbktral
    lybDlnIiwgImJpcnRoZGF0ZSIsICIxOTQwLTAxLTAxIl0~WyJJTms2bkx4WGFybDF4Nm
@@ -2183,9 +2180,9 @@ A.3.  Example 3 - Complex Structured SD-JWT
    Tk1Ni0wMS0yOCIsICJwbGFjZV9vZl9iaXJ0aCI6IHsiY291bnRyeSI6ICJJUyIsICJsb
    2NhbGl0eSI6ICJcdTAwZGV5a2t2YWJcdTAwZTZqYXJrbGF1c3R1ciJ9fX0sICJpc3MiO
    iAiaHR0cHM6Ly9leGFtcGxlLmNvbS9pc3N1ZXIiLCAiaWF0IjogMTUxNjIzOTAyMiwgI
-   mV4cCI6IDE1MTYyNDcwMjIsICJfc2RfYWxnIjogInNoYS0yNTYifQ.pzHQsR8l4fD93k
-   DxugsjuttFuadxYN-RF9UgtvcR9cAV81IpTYXa9ABxt289qJesfudLeMNnJKTxo40Oxd
-   O8pg~WyI2eUNER1RSblBzUHowS3RxSVh3cjhRIiwgInRydXN0X2ZyYW1ld29yayIsICJ
+   mV4cCI6IDE1MTYyNDcwMjIsICJfc2RfYWxnIjogInNoYS0yNTYifQ.bvjkX4xOh6WGkC
+   V05r50xIbtqFgkib17Z2CO1pXrcUtU21VccIp4Rx2Ww-bmVXHAEWgeq2_KgdiIvSlC7K
+   03Qw~WyI2eUNER1RSblBzUHowS3RxSVh3cjhRIiwgInRydXN0X2ZyYW1ld29yayIsICJ
    kZV9hbWwiXQ~WyI2TlpFYW9FUmVmdzJ2YTl3VWZDSlJBIiwgInRpbWUiLCAiMjAxMi0w
    NC0yM1QxODoyNVoiXQ~WyJyNE1TdlZEY1hQMFlFSmNsd1BJTmRnIiwgInR5cGUiLCAiZ
    G9jdW1lbnQiXQ~WyJod0lFTklDMWwtQlRuZnNfMnZQV2ZBIiwgImZhbWlseV9uYW1lIi
