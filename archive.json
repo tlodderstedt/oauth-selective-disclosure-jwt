@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-12-08T01:01:47.494974+00:00",
+  "timestamp": "2022-12-11T01:08:59.751953+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -2075,7 +2075,7 @@
       ],
       "body": "We have \r\n\r\n````\r\n{\r\n  \"alg\": \"RS256\"\r\n}\r\n````\r\n\r\nwe may have something like\r\n\r\n````\r\n{\r\n  \"typ\": \"SD-JWT\"\r\n  \"alg\": \"RS256\"\r\n}\r\n````",
       "createdAt": "2022-06-17T11:42:04Z",
-      "updatedAt": "2022-12-07T13:52:01Z",
+      "updatedAt": "2022-12-08T20:13:39Z",
       "closedAt": null,
       "comments": [
         {
@@ -2168,6 +2168,13 @@
           "body": "Coming back to this after a looong time...\r\n\r\nWhat about this solution?\r\n- Add a `typ` header, e.g., `sd+jwt` to the SD-JWT.\r\n- Define a new header, `_sd_typ`, that defines *what the SD-JWT is supposed to represent*, e.g., `at`, `secevent` or similar.\r\n- Define that the verifier must replace `typ` with the contents of `_sd_typ` before passing the data to the application.\r\n\r\nSo you would have in the SD-JWT:\r\n```\r\n{\r\n  \"typ\": \"sd+jwt\"\r\n}.\r\n{\r\n  \"iss\": \"https://example.com/issuer\",\r\n  \"_sd_typ\": \"at+jwt\"\r\n```\r\n  \r\n  and passed to the application:\r\n```\r\n{\r\n  \"typ\": \"at+jwt\"\r\n}.\r\n{\r\n  \"iss\": \"https://example.com/issuer\",\r\n```\r\n",
           "createdAt": "2022-12-07T13:49:50Z",
           "updatedAt": "2022-12-07T13:52:01Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "> What about this solution? \r\n\r\nI usually like your ideas @danielfett but would be strongly opposed to that. \r\n\r\nIMHO this draft should not say or mandate anything about \"typ\" headers. Leave that to the application to use (or not) as appropriate. But `\"typ\": \"sd+jwt\"` isn't really meaningful or useful on it's own (similar to `\"typ\": \"JWT\"`, the WTF from RFC7519) and so we don't need special SD-JWT features for it. \r\n\r\nIt _maybe_ worthwhile to define media type(s) for the combined format(s) that could be used to signal what the thing is in like HTTP `Content-Type` or `cty` header of an enclosing JWE.  Maybe. \r\n",
+          "createdAt": "2022-12-08T20:13:39Z",
+          "updatedAt": "2022-12-08T20:13:39Z"
         }
       ]
     },
@@ -4691,15 +4698,15 @@
       "id": "I_kwDOHTmVzM5XLrgg",
       "title": "separate sd-jwt and Disclosures using `.` and not `~`",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/180",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sakurann",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "separation between sd-jwt and Disclosures should be ., not ~ for consistency and mental model wise. so `<SD-JWT>.<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`, instead of `<SD-JWT>~<Disclosure 1>~<Disclosure 2>~...~<Disclosure N>`. ",
       "createdAt": "2022-11-24T02:59:06Z",
-      "updatedAt": "2022-12-06T08:44:29Z",
-      "closedAt": null,
+      "updatedAt": "2022-12-08T09:56:23Z",
+      "closedAt": "2022-12-08T09:56:22Z",
       "comments": [
         {
           "author": "danielfett",
@@ -4847,6 +4854,13 @@
           "body": "I tried to capture the results of this discussion in a PR. Please review! \r\n\r\nhttps://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/184",
           "createdAt": "2022-12-06T08:44:29Z",
           "updatedAt": "2022-12-06T08:44:29Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "This has been addressed with PR #184. We agreed that there is no need for further discussion on the initial suggestion (`.` vs. `~`). I'll therefore close this issue.",
+          "createdAt": "2022-12-08T09:56:22Z",
+          "updatedAt": "2022-12-08T09:56:22Z"
         }
       ]
     },
@@ -4896,9 +4910,17 @@
       "labels": [],
       "body": "Per @bc-pi's comment",
       "createdAt": "2022-12-07T12:13:39Z",
-      "updatedAt": "2022-12-07T12:14:33Z",
+      "updatedAt": "2022-12-08T10:38:10Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "See PR #192 ",
+          "createdAt": "2022-12-08T10:38:10Z",
+          "updatedAt": "2022-12-08T10:38:10Z"
+        }
+      ]
     },
     {
       "number": 189,
@@ -16807,7 +16829,7 @@
       "labels": [],
       "body": "Longer salt, which meets the recommendations, in examples in Creating\u2026 Disclosures",
       "createdAt": "2022-12-07T15:59:00Z",
-      "updatedAt": "2022-12-07T18:12:10Z",
+      "updatedAt": "2022-12-08T15:16:46Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "de9277994a7427bd874b57e73ab6ee1ea653fc4e",
@@ -16827,6 +16849,20 @@
           "body": "While working on this PR, I was going to a base64 decoding site to do a bit of a sanity check on the values but got distracted and decided to see how ChatGPT would handle it. So I gave it this prompt in the openai playground:\r\n\r\n```decode WyJfMjZiYzRMVC1hYzZxMktJNmNCVzVlcyIsICJmYW1pbHlfbmFtZSIsICJNw7ZiaXVzIl0``` \r\n\r\nand it added one `=` pad character to the end of the prompt and answered with:\r\n\r\n```[\"f26bc4L-ac6q2KI6cBW5es\", \"family_name\", \"M\u00fcller\"]```\r\n\r\nNote that it actually decodes to:\r\n\r\n```[\"_26bc4LT-ac6q2KI6cBW5es\", \"family_name\", \"M\u00f6bius\"]```\r\n\r\nif you need me, I'll just be over here staring into the void while tears run down my face as I contemplate the arrival of the quiet end of days. ",
           "createdAt": "2022-12-07T16:44:05Z",
           "updatedAt": "2022-12-07T16:46:54Z"
+        },
+        {
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "body": "![Screenshot_20221208_142124](https://user-images.githubusercontent.com/89476/206457005-cd675635-664b-463b-879c-2139d6d11dc0.png)\r\n\r\nLooks like it must be a very tedious process to decode character by character and at some point ChatGPT is going \"ah, good enough, this must be a German name with some umlaut, let's say... \"M\u00fcbiz\". \r\n\r\nThe salt decoded differently, but also wrong.\r\n\r\nM\u00fcbiz is btw not a real family name as far as I can tell.",
+          "createdAt": "2022-12-08T13:24:31Z",
+          "updatedAt": "2022-12-08T13:24:31Z"
+        },
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "It's amazing and terrifying at the same time.  ",
+          "createdAt": "2022-12-08T15:16:46Z",
+          "updatedAt": "2022-12-08T15:16:46Z"
         }
       ],
       "reviews": []
@@ -16843,7 +16879,7 @@
       "labels": [],
       "body": "Add Justin to Acknowledgements (he suggested the array for _sd in sid\u2026e meeting) \r\n\r\nand fix the commas + and in that list of names ",
       "createdAt": "2022-12-07T19:37:58Z",
-      "updatedAt": "2022-12-07T19:37:59Z",
+      "updatedAt": "2022-12-08T09:55:13Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "88cd058e2bb5813e2d4a2979601656bde08e7900",
@@ -16855,7 +16891,262 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5IG7vz",
+          "commit": {
+            "abbreviatedOid": "e15b237"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-12-08T09:55:13Z",
+          "updatedAt": "2022-12-08T09:55:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 192,
+      "id": "PR_kwDOHTmVzM5ExZJC",
+      "title": "Use ES256 instead of RS256 to generate shorter examples",
+      "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/192",
+      "state": "OPEN",
+      "author": "danielfett",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2022-12-08T10:35:47Z",
+      "updatedAt": "2022-12-09T13:27:52Z",
+      "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "baseRefName": "master",
+      "baseRefOid": "88cd058e2bb5813e2d4a2979601656bde08e7900",
+      "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
+      "headRefName": "danielfett/ec-crypto",
+      "headRefOid": "0e160af29c22e8817e1c4299108b73806159c5b1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Approved!",
+          "createdAt": "2022-12-09T13:27:52Z",
+          "updatedAt": "2022-12-09T13:27:52Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOHTmVzM5IHOtT",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T10:37:31Z",
+          "updatedAt": "2022-12-08T10:37:32Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "@bc-pi I removed the \"kid\" header parameter from the examples. It used to contain the key thumbprint. AFAIK there is no requirement for a \"kid\" header parameter and just always putting the thumbprint there is not the right solution anyway - any objections?",
+              "createdAt": "2022-12-08T10:37:31Z",
+              "updatedAt": "2022-12-08T10:37:32Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IIUMd",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T14:07:34Z",
+          "updatedAt": "2022-12-08T14:07:34Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "(I'm not sure why `kid` was in there in the first place.)",
+              "createdAt": "2022-12-08T14:07:34Z",
+              "updatedAt": "2022-12-08T14:07:34Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IIj-A",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T14:46:05Z",
+          "updatedAt": "2022-12-08T14:46:06Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "It was me @danielfett, it's not relevant for the draft and its examples, please go ahead :-)",
+              "createdAt": "2022-12-08T14:46:05Z",
+              "updatedAt": "2022-12-08T14:46:06Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IJCIZ",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T15:53:41Z",
+          "updatedAt": "2022-12-08T15:53:41Z",
+          "comments": [
+            {
+              "originalPosition": 25,
+              "body": "no objections",
+              "createdAt": "2022-12-08T15:53:41Z",
+              "updatedAt": "2022-12-08T15:53:41Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IKqKN",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T20:43:43Z",
+          "updatedAt": "2022-12-08T20:43:43Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "I don't think `use`, `alg` and `kid` should be included here.",
+              "createdAt": "2022-12-08T20:43:43Z",
+              "updatedAt": "2022-12-08T20:43:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IKqpd",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T20:45:42Z",
+          "updatedAt": "2022-12-08T20:45:42Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "`use`, `alg` and `kid` are not really meaningful or useful in this context (I don't think?) but take up space and potentially distract or confuse ",
+              "createdAt": "2022-12-08T20:45:42Z",
+              "updatedAt": "2022-12-08T21:37:33Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IKreZ",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-08T20:48:41Z",
+          "updatedAt": "2022-12-08T20:48:41Z",
+          "comments": [
+            {
+              "originalPosition": 50,
+              "body": "I'm guessing this is where they (`use`, `alg` and `kid`) come from but, as per my previous comments, I don't think use/kid/alg should be in the holder confirmation key. ",
+              "createdAt": "2022-12-08T20:48:41Z",
+              "updatedAt": "2022-12-08T21:37:59Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IK2SS",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Looks pretty good overall! I even double checked some of the signatures with my JOSE/JWT library. \r\n\r\nI do, however, think that before merging a few parameters should be removed from the holder jwk.",
+          "createdAt": "2022-12-08T21:27:09Z",
+          "updatedAt": "2022-12-08T21:27:09Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IMt2u",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-09T08:29:04Z",
+          "updatedAt": "2022-12-09T08:29:05Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "You're right! I removed them.",
+              "createdAt": "2022-12-09T08:29:04Z",
+              "updatedAt": "2022-12-09T08:29:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IMt_z",
+          "commit": {
+            "abbreviatedOid": "0ec403f"
+          },
+          "author": "danielfett",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2022-12-09T08:29:35Z",
+          "updatedAt": "2022-12-09T08:29:35Z",
+          "comments": [
+            {
+              "originalPosition": 50,
+              "body": "As above - removed the three superfluous elements.",
+              "createdAt": "2022-12-09T08:29:35Z",
+              "updatedAt": "2022-12-09T08:29:35Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IOINr",
+          "commit": {
+            "abbreviatedOid": "0e160af"
+          },
+          "author": "bc-pi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-12-09T13:25:51Z",
+          "updatedAt": "2022-12-09T13:25:51Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
