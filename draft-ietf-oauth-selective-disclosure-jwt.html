@@ -419,7 +419,7 @@ a[href]:hover {
 a[href].selfRef:hover {
   background-color: var(--highlight-color);
 }
-a.xref {
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
 }
 
@@ -431,7 +431,9 @@ tt, code, pre {
 tt, code {
   /* changing the font for inline elements leads to different ascender
      and descender heights; as we want to retain baseline alignment,
-     remove leading to avoid altering the final height of lines */
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
   line-height: 0;
 }
 :is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
@@ -1043,7 +1045,7 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Fett, et al.</td>
-<td class="center">Expires 10 June 2023</td>
+<td class="center">Expires 18 June 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1056,12 +1058,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-oauth-selective-disclosure-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-12-07" class="published">7 December 2022</time>
+<time datetime="2022-12-15" class="published">15 December 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-06-10">10 June 2023</time></dd>
+<dd class="expires"><time datetime="2023-06-18">18 June 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1115,7 +1117,7 @@ documents that support selective disclosure of JWT claims.<a href="#section-abst
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 10 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2774,14 +2776,15 @@ David Bakker,
 David Waite,
 Fabian Hauck,
 Giuseppe De Marco,
+Justin Richer,
 Kushal Das,
 Mike Jones,
 Nat Sakimura,
 Orie Steele,
 Pieter Kasselman,
 Ryosuke Abe,
-Shawn Butterfield, and
-Torsten Lodderstedt
+Shawn Butterfield,
+Torsten Lodderstedt, and
 Vittorio Bertocci
 for their contributions (some of which substantial) to this draft and to the initial set of implementations.<a href="#section-10-1" class="pilcrow">¶</a></p>
 <p id="section-10-2">The work on this draft was started at OAuth Security Workshop 2022 in Trondheim, Norway.<a href="#section-10-2" class="pilcrow">¶</a></p>

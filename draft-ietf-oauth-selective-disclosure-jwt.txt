@@ -5,10 +5,10 @@
 Web Authorization Protocol                                       D. Fett
 Internet-Draft                                                   yes.com
 Intended status: Standards Track                               K. Yasuda
-Expires: 10 June 2023                                          Microsoft
+Expires: 18 June 2023                                          Microsoft
                                                              B. Campbell
                                                            Ping Identity
-                                                         7 December 2022
+                                                        15 December 2022
 
 
                  Selective Disclosure for JWTs (SD-JWT)
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 June 2023.
+   This Internet-Draft will expire on 18 June 2023.
 
 Copyright Notice
 
@@ -1564,11 +1564,11 @@ COMBINED-PRESENTATION = SD-JWT | HOLDER-SELECTED-DISCLOSURES | HOLDER-BINDING-JW
 10.  Acknowledgements
 
    We would like to thank Alen Horvat, Arjan Geluk, Christian Paquin,
-   David Bakker, David Waite, Fabian Hauck, Giuseppe De Marco, Kushal
-   Das, Mike Jones, Nat Sakimura, Orie Steele, Pieter Kasselman, Ryosuke
-   Abe, Shawn Butterfield, and Torsten Lodderstedt Vittorio Bertocci for
-   their contributions (some of which substantial) to this draft and to
-   the initial set of implementations.
+   David Bakker, David Waite, Fabian Hauck, Giuseppe De Marco, Justin
+   Richer, Kushal Das, Mike Jones, Nat Sakimura, Orie Steele, Pieter
+   Kasselman, Ryosuke Abe, Shawn Butterfield, Torsten Lodderstedt, and
+   Vittorio Bertocci for their contributions (some of which substantial)
+   to this draft and to the initial set of implementations.
 
    The work on this draft was started at OAuth Security Workshop 2022 in
    Trondheim, Norway.
