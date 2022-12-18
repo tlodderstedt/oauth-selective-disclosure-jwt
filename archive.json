@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-12-11T01:08:59.751953+00:00",
+  "timestamp": "2022-12-18T00:59:51.416043+00:00",
   "repo": "oauth-wg/oauth-selective-disclosure-jwt",
   "labels": [
     {
@@ -77,6 +77,11 @@
       "name": "needs-PR",
       "description": "",
       "color": "AA169E"
+    },
+    {
+      "name": "pending-close",
+      "description": "",
+      "color": "6C5669"
     }
   ],
   "issues": [
@@ -1726,15 +1731,15 @@
       "id": "I_kwDOHTmVzM5LjCcH",
       "title": "Encapsulation instead of concatenation of data structures.",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/37",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "PieterKas",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "The concatenation of data structures may result in reliability problems (the data structures may get dissociated), or could be an entry point for an attacker (swapping out data structures, especially if there is no binding between them).\r\n\r\nIt may be interesting to consider encapsulation instead of concatenation. In that approach the issuer will generate a SD-JWT that contains the hashes and the SVC. The SVC will be encrypted with the holders public key, so that a verifier cannot access the SVC data. \r\n\r\nThe holder will decrypt the SVC structure in the SD-JWT, decide which claims to present, and then include them in the SD-JWT-R. To avoi concatenation of the SD-JWT and SD-JWT-R, the SD-JWT can include the SD-JWT as an attribute. The result is a larger data structure, but it is all in one place, bound together, reducing the risk of accidental or malicious dissosiation. \r\n\r\nSomething like:\r\n\r\nSD-JWT = (hashes, SVC encrypted with holders public key)\r\nSD-JWT-R = (disclosed claims, SD, JWT)\r\n\r\nThen:\r\n\r\n1. Issuer sends SD-JWT to Holder\r\n2. Holder verifies SD-JWT, decrypts SVC, selects attributes to disclose, generate SD-JWT-R (which now includes the SD-JWT)\r\n3. Verifier verifies SD-JWT-R (JD-SWT is encapsulated in the SD-JWT, the SD-JWT does include the SVC, but it is privacy protected, so no risk of unauthorised disclosure).\r\n\r\nWith encapsulation, the same information gets passed around. Encrypting the SVC with the holders public key allows it to be included in the SD-JWT, without risk of unauthorised disclosure to the verifier when the SD-JWT is processed by the verifier. Encapsulating the SD-JWT in the SD-JWT-R binds the two structures together and removes any risks of dissociating of the data structures.\r\n\r\n",
       "createdAt": "2022-06-10T12:27:03Z",
-      "updatedAt": "2022-10-24T20:07:09Z",
-      "closedAt": null,
+      "updatedAt": "2022-12-15T17:47:26Z",
+      "closedAt": "2022-12-15T17:47:26Z",
       "comments": [
         {
           "author": "Sakurann",
@@ -1777,6 +1782,13 @@
           "body": "the guidance on how to link the structures has been addressed in several PRs. \r\n\r\nHowever, keeping this open to discuss if we want to add an option to encrypt II-Disclosures Object (former SVC) - @danielfett ?",
           "createdAt": "2022-10-24T20:07:09Z",
           "updatedAt": "2022-10-24T20:07:09Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Editors believe that encapsulating approach would significantly complicate the approach, while the risk of the mapping between hashes and disclosures seems to be significantly low based on the initial implementation feedback",
+          "createdAt": "2022-12-15T17:47:26Z",
+          "updatedAt": "2022-12-15T17:47:26Z"
         }
       ]
     },
@@ -2367,10 +2379,12 @@
       "author": "peppelinux",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pending-close"
+      ],
       "body": "We should consider to define a content-type and returning this in the HTTP Response, may we imagine something like `application/sd-jwt-svc`?\r\n\r\nand for the request `application/sd-jwt-release`",
       "createdAt": "2022-06-23T21:45:16Z",
-      "updatedAt": "2022-09-06T16:10:04Z",
+      "updatedAt": "2022-12-15T18:22:54Z",
       "closedAt": null,
       "comments": [
         {
@@ -2396,10 +2410,17 @@
         },
         {
           "author": "bc-pi",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "IMHO this is a bit premature and maybe unnecessary. Because I'd imagine these artifacts will most likely be used in places, such as within the JSON content of API messages or HTTP header, where a content/media type isn't relevant. \r\n\r\nIt maybe makes sense for the case of the SD-JWT and SVC being returned together as the HTTP response content. I *still* (as mentioned previously including in Philly) think that the combined SD-JWT and SVC needs to be given it's own proper name and treatment as a first order thing in this draft though. And that should probably happen before defining a media type for it. ['+' has some special meaning in media types](https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml#structured-syntax-suffix) so using it to mean \"and\" with `application/sd-jwt+svc` doesn't really work. ",
           "createdAt": "2022-09-06T16:10:04Z",
           "updatedAt": "2022-09-06T16:10:04Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "When SD-JWT is transported over OpenID4VC, content-type defined by OAuth or OpenID4VC specifications will be used - in those cases, there is no need to define a specific one whether credential format is sd-jwt or not.\r\n\r\nIf there are no other use-cases where sd-jwt is the only content of http req/res, suggest closing this issue",
+          "createdAt": "2022-12-15T17:44:17Z",
+          "updatedAt": "2022-12-15T17:44:17Z"
         }
       ]
     },
@@ -2480,10 +2501,12 @@
       "author": "dtmcg",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pending-close"
+      ],
       "body": "this is an elegant solution to selective disclosure \ud83d\udc4d \r\nquestion if the sd-jwt-r is modifed to contain the salts and payload value hash's (instead of the values), \r\ncan the process used for generating the sd-jwt-r be considered a signature algo and be applied any JWT?\r\n\r\nif the sd-jwt-r is b64 url encoded as a signature & appended to a plane old JWT \r\nthis would make selective disclosure a function of the jwt alog. no additional objects need to be defined, this should make the solution easier to uptake in existing jwt libs where a supported algo can be added. \r\n\r\nsteps \r\n- sd-jwt-r \"signature\" is generated for a JWT header and payload, as currently defined.\r\n-  - the release contains the payload hashs and salt, then it is signed over as a JWT\r\n- it is b64url encoded and appended as the signature\r\n- when the holder wishes to share the JWT with a redacted payload they can do so by removing payload entities, re encode the json and append the same signature. \r\n",
       "createdAt": "2022-06-24T10:35:57Z",
-      "updatedAt": "2022-07-19T12:29:15Z",
+      "updatedAt": "2022-12-15T17:48:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -2513,6 +2536,13 @@
           "body": "If the SD-JWT-R contains the hashes and salts and is always released in full, we lose the selective disclosure property. The salts prevent guessing the plain-text values. Without them, it would be trivial, e.g., to guess a birth date (and many other claims as well).",
           "createdAt": "2022-07-19T12:29:15Z",
           "updatedAt": "2022-07-19T12:29:15Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This might have been obsoleted by the latest changes made to the draft. Daniel, could you please take a look at the latest version and let us know if you are ok closing this issue.",
+          "createdAt": "2022-12-15T17:36:30Z",
+          "updatedAt": "2022-12-15T17:36:30Z"
         }
       ]
     },
@@ -3044,10 +3074,12 @@
       "author": "sakimura",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "pending-close"
+      ],
       "body": "# Comments\r\nCurrently, multiple \"MUST\" exists in one paragraph/sentence. They are not labelled either. \r\nMaking each requirement an independent paragraph with a label will make a building of a conformance suite much easier. \r\n\r\n# Proposals\r\nGive mandate to editors to modify the text so that each requirement and recommendation are separated out and labelled. ",
       "createdAt": "2022-06-26T07:39:54Z",
-      "updatedAt": "2022-10-24T18:57:46Z",
+      "updatedAt": "2022-12-15T18:27:42Z",
       "closedAt": null,
       "comments": [
         {
@@ -4901,7 +4933,7 @@
       "id": "I_kwDOHTmVzM5YUg5J",
       "title": "Use EC crypto to generate shorter examples",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/issues/188",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "danielfett",
       "authorAssociation": "MEMBER",
       "assignees": [
@@ -4910,8 +4942,8 @@
       "labels": [],
       "body": "Per @bc-pi's comment",
       "createdAt": "2022-12-07T12:13:39Z",
-      "updatedAt": "2022-12-08T10:38:10Z",
-      "closedAt": null,
+      "updatedAt": "2022-12-15T17:15:06Z",
+      "closedAt": "2022-12-15T17:15:05Z",
       "comments": [
         {
           "author": "danielfett",
@@ -4919,6 +4951,13 @@
           "body": "See PR #192 ",
           "createdAt": "2022-12-08T10:38:10Z",
           "updatedAt": "2022-12-08T10:38:10Z"
+        },
+        {
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "body": "PR merged",
+          "createdAt": "2022-12-15T17:15:05Z",
+          "updatedAt": "2022-12-15T17:15:05Z"
         }
       ]
     },
@@ -16872,24 +16911,26 @@
       "id": "PR_kwDOHTmVzM5Ermvs",
       "title": "acknowledgements",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/191",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bc-pi",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Add Justin to Acknowledgements (he suggested the array for _sd in sid\u2026e meeting) \r\n\r\nand fix the commas + and in that list of names ",
       "createdAt": "2022-12-07T19:37:58Z",
-      "updatedAt": "2022-12-08T09:55:13Z",
+      "updatedAt": "2022-12-15T17:09:59Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "88cd058e2bb5813e2d4a2979601656bde08e7900",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "bc/ack-jr",
       "headRefOid": "e15b2372e5b73552abfc1a3ea76ce3a0624cda7f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-12-15T17:09:59Z",
+      "mergedAt": "2022-12-15T17:09:59Z",
+      "mergedBy": "Sakurann",
+      "mergeCommit": {
+        "oid": "83e948bfa366e0c760c0b2b6a085c167ec08fe6d"
+      },
       "comments": [],
       "reviews": [
         {
@@ -16904,6 +16945,19 @@
           "createdAt": "2022-12-08T09:55:13Z",
           "updatedAt": "2022-12-08T09:55:13Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5IsjgU",
+          "commit": {
+            "abbreviatedOid": "e15b237"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-12-15T17:09:48Z",
+          "updatedAt": "2022-12-15T17:09:48Z",
+          "comments": []
         }
       ]
     },
@@ -16912,24 +16966,26 @@
       "id": "PR_kwDOHTmVzM5ExZJC",
       "title": "Use ES256 instead of RS256 to generate shorter examples",
       "url": "https://github.com/oauth-wg/oauth-selective-disclosure-jwt/pull/192",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danielfett",
       "authorAssociation": "MEMBER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2022-12-08T10:35:47Z",
-      "updatedAt": "2022-12-09T13:27:52Z",
+      "updatedAt": "2022-12-15T17:12:45Z",
       "baseRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "baseRefName": "master",
       "baseRefOid": "88cd058e2bb5813e2d4a2979601656bde08e7900",
       "headRepository": "oauth-wg/oauth-selective-disclosure-jwt",
       "headRefName": "danielfett/ec-crypto",
       "headRefOid": "0e160af29c22e8817e1c4299108b73806159c5b1",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2022-12-15T17:12:45Z",
+      "mergedAt": "2022-12-15T17:12:45Z",
+      "mergedBy": "Sakurann",
+      "mergeCommit": {
+        "oid": "c34d4795eeb7d4df5dc4278e5357452d780be761"
+      },
       "comments": [
         {
           "author": "bc-pi",
@@ -17144,6 +17200,19 @@
           "body": "",
           "createdAt": "2022-12-09T13:25:51Z",
           "updatedAt": "2022-12-09T13:25:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOHTmVzM5Iskbn",
+          "commit": {
+            "abbreviatedOid": "0e160af"
+          },
+          "author": "Sakurann",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2022-12-15T17:12:27Z",
+          "updatedAt": "2022-12-15T17:12:27Z",
           "comments": []
         }
       ]
